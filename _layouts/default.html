@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-control" content="no-store">
+    <title>{{ page.title }}</title>
+
+    <!-- font -->
+    <link rel="preload" href="/assets/font/Munro-2LYe.ttf" as="font" type="font/ttf" crossorigin />
+
+    <!-- essential stylesheet -->
+    <link rel="stylesheet" href="/assets/css/default/layout.css">
+
+    <!-- async stylesheet -->
+    <link rel="stylesheet" href="/assets/css/default/style.css"  media="print" onload="this.onload=null;this.removeAttribute('media');">
+
+    <!-- non-js fallback -->
+    <noscript><link rel="stylesheet" href="/assets/css/default/style.css"></noscript>
+
+    
+  </head>
+  <body>
+    <div class="soup.exe">
+      <div class="icon">帽子.jpg</div>
+      <div class="cornerCara" ID="0" onclick='this.id = Math.floor(Math.random() * 16)'></div>
+      <div class="c1">
+        <div class="banner">{{ page.title }}</div>
+        <div class="main">
+          <div class="nav">
+            <div class="navC">{% include navigation.html %}
+              <p>wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</p> <p>w</p> <p>w</p> <p>w</p> <p>w</p> <p>w</p> <p>w</p> <p>w</p> <p>w</p> <p>w</p> <p>w</p> <p>w</p> <p>w</p> <p>w</p>
+            </div>
+            <div class="navBg"></div>
+          </div>
+          <div class="content">{{content}}</div>  
+        </div>
+        <div class="bottom">小广告</div>
+      </div>
+      <div class="c2">
+        <div class="chatBox"></div>
+      </div>
+    </div>
+  </body>
+</html>
