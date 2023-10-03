@@ -3,7 +3,7 @@ layout: default
 title: <b>霧雨蘑菇店</b>.html
 ---
 
-# Hello World :3
+# **绝赞开发中！**
 
 ## 请使用天亦 3G 设备浏览本网页以获得最佳体验
 
