@@ -1,86 +1,95 @@
 ---
 ---
 
-.soup\.exe {
-// pos
+iframe { display: none; } // hide navlink before apply style.css
+
+input[type="checkbox"] { display: none; }
+
+body {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-// size
-    height: min(var(--m) * 8px, var(--m) * 9vw/16);
-    --m: 60;
-    aspect-ratio: 2.4;
+    inset: 0;
 }
 
-.nav {
-// size
-    width: 0px;
-}
-
-.navC {
-//size
-    height: 100%;
-    width: 100%;
-    top: -1px;
-}
-
-/* ====overflow ctrl==== */
-
-.banner, .main, .nav, .bottom {overflow: hidden;}
-
-.navC, .content {overflow: hidden scroll}
-
-
+@mixin sizeUni($m, $property: height) { #{$property}: min($m * 8px, $m * 9vw/16); }
 
 /* ==== L A Y O U T T A B L E ==== */
-//
-//
-.soup\.exe {
-    display: flex;
-}
 
-/* ====soup.exe==== */
+.soup\.exe {
+// pos
+    position: absolute;
+    left: 40%; top: 45%;
+    transform: translate(-40%, -45%);
+// size
+    @include sizeUni(52);
+    aspect-ratio: 2.6;
+
+    // flex
+    display: flex;
 
     .c1 {
         flex: 5;
+        width: 0;
         display: flex;
         flex-direction: column;
-    }
-
-    .c2 {
-        flex: 2;
-    }
-
-    /* ====c1==== */
 
         .banner {
-            flex: 2;
+            @include sizeUni(10);
         }
 
         .main {
-            flex: 7;
+            position: relative;
+            width: auto;
+            flex: 1;
             display: flex;
-        }
-
-        /* ====main==== */
 
             .nav {
+                max-width: min(20 * 8px, 20 * 9vw/16); ;
                 flex: 3;
+                min-width: min-content;
             }
 
-            .content {
+            .window {
                 flex: 10;
+                display: flex;
+                // flex-direction: row-reverse;
+
+                .content {
+                    position: relative;
+                    width: 100%;
+                // prevent initial animation
+                    background: #fff;
+                    color: #44d;
+                    padding-bottom: 25%;
+                }
             }
-
-        /* ======== */
-
-        .bottom {
-            flex: 1;
         }
 
-    /* ======== */
+        .bottom {
+            --height: 40px;
+            position: absolute;
+            top: max(calc(100% - var(--height)), 280px);
+            z-index: 1;
+            height: var(--height);
+        }
+    }
 
-/* ======== */
+    .c2 {
+        position: relative;
+        max-width: min(35 * 8px, 35 * 9vw/16); ;
+        flex: 3;
+        z-index: 1;
+    }
+}
 
-/* ======== */
+.fullscreen {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fullscreenTg { display: none; }
+
+/* ====overflow ctrl==== */
+
+.soup\.exe, .body, .banner, .main, .nav, .bottom, .window { overflow: hidden; }
+
+.nav-c, .content { overflow: hidden scroll; }

@@ -1,0 +1,647 @@
+em:not(.i) { &[class], &[r], &[t] { font-style: normal; }}
+
+html { text-underline-offset: 25%; }
+
+.content { color: var(--txtColor) !important;
+
+    >p:not([class], :has(img)):after { content: "湯";
+        //pos
+            position: relative;
+            display: inline-block;
+        //styl
+            line-height: .5em;
+            padding-left: .3em;
+            opacity: .5;
+            font-size: .7em;
+            color: var(--txtColor3);
+            transform: rotate(15deg);
+            white-space: pre;
+        }
+
+    // indent ================================
+
+    // p:not(.noi) { text-indent: 2em; }
+
+    // >p:not(.noi, .fake) {
+    //     // text-indent: 2em;
+    //     &::before { content: "░░";
+    //         font-size: 0.9em;
+    //         padding-right: .2em;
+    //         color: var(--txtColor3);
+    //         text-indent: 0;
+    //     }
+    // }
+}
+
+hr {
+    border: none { block: 2px var(--txtColor) solid };
+    height: .2em;
+    margin-block: 1em;
+    // background: linear-gradient(#44d2, #0000);
+}
+
+// list ================================
+
+ul { ::marker { font-weight: bolder; } list-style-type: hebrew; 
+    ul { ::marker { font-size: .7em; }
+        ul { ::marker { font-size: 1em; } list-style-type: circle;
+            ul { ::marker { font-size: .7em; }
+                ul { ::marker { font-size: .62em; } list-style-type: disc; }}}}}
+
+// size ================================
+
+:root    { --s: 1; }
+
+.big     { --s: 1.25; }
+.bigger  { --s: 1.5; }
+.small   { --s: .75; }
+.smaller { --s: .5; }
+
+.resize, .big, .bigger, .small, .smaller { &:not(h1, h2, h3, h4, h5, h6, .fake) { font-size: calc(var(--s) * 1em); } }
+
+@mixin titleSizeMod { &.resize, &.big, &.bigger, &.small, &.smaller { font-size: calc(var(--size) * var(--s) * 1em); } }
+
+// titles and fake titles (size) ================================
+
+$size-h1: 2;
+$size-h2: 1.6;
+$size-hrest: 1.25;
+// $size-h3: 1.25;
+// $size-h4: 1.25;
+// $size-h5: 1.25;
+
+@mixin titleSize($id, $size) {
+
+    h#{$id} {font-size: #{$size}em;}
+
+    h#{$id}, .fake.h#{$id} {
+        font-size: $size + em ;
+        font-weight: bold;
+      --size: #{$size};
+        @include titleSizeMod;
+    } 
+}
+
+                      @include titleSize(1, $size-h1);
+                      @include titleSize(2, $size-h2);
+@for $i from 3 to 7 { @include titleSize($i, $size-hrest); }
+
+h5, h6, .fake.h5, .fake.h6 {
+    font-weight: normal;
+}
+
+h4, h6, .fake.h4, .fake.h6 {
+    font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 { margin-block: 1em 1em;}
+
+:first-child ~ { h1, h2, h3, h4, h5, h6 { margin-block: 2em 1em;} }
+
+// fake soft wrap ================================
+
+// .swrap {
+//     display: block;
+//     margin-top: 0;
+// }
+
+// *:has(+.swrap) { margin-bottom: .17em; }
+
+// align ================================
+
+.c {
+    position: relative;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.r {
+    position: relative;
+    display: block;
+    text-align: right;
+    right: 0;
+    width: 100%;
+
+    &::after {
+        white-space: pre
+    }
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    &:has(>.c), &:has(>.r) { width: 100%; }
+}
+
+// lines ================================
+
+// * { --lc: inherit; --lt: initial; }
+
+@mixin txtline($type) {
+    text-decoration: $type { color: var(--lc); thickness: var(--lt) } ;
+    &.-d  { text-decoration: dashed $type { color: var(--lc); thickness: var(--lt); }; }
+    &.-do { text-decoration: dotted $type { color: var(--lc); thickness: var(--lt); }; }
+    &.-db { text-decoration: double $type { color: var(--lc); thickness: var(--lt); }; }
+    &.-w  { text-decoration: wavy   $type { color: var(--lc); thickness: var(--lt); }; }
+}
+
+       .u       { @include txtline(underline) }
+     .ovl       { @include txtline(overline) }
+del, .del       { @include txtline(line-through) }        
+   .u.ovl       { @include txtline(underline overline) }
+del, .del { &.u { @include txtline(line-through underline) }
+          &.ovl { @include txtline(line-through overline) }
+        &.u.ovl { @include txtline(line-through underline overline) } }
+
+// color presets ================================
+
+@mixin colors($varName: clr) {
+    &w, &white   { --#{$varName}: #FFFFFF; }
+        &silver  { --#{$varName}: #C0C0C0; }
+        &gray    { --#{$varName}: #808080; }
+    &b, &black   { --#{$varName}: #000000; }
+    &r, &red     { --#{$varName}: #FF0000; }
+        &maroon  { --#{$varName}: #800000; }
+        &yellow  { --#{$varName}: #FFFF00; }
+        &olive   { --#{$varName}: #808000; }
+        &lime    { --#{$varName}: #00FF00; }
+        &green   { --#{$varName}: #008000; }
+        &aqua    { --#{$varName}: #00FFFF; }
+        &teal    { --#{$varName}: #008080; }
+        &blue    { --#{$varName}: #0000FF; }
+        &navy    { --#{$varName}: #000080; }
+        &fuchsia { --#{$varName}: #FF00FF; }
+        &purple  { --#{$varName}: #800080; }
+} 
+
+.h, .b {
+    &w, &b, &r, &white, &silver, &gray, &black, &red, &maroon, &yellow, &olive, &lime, &green, &aqua, &teal, &blue, &navy, &fuchsia, &purple {
+        position: relative; 
+        z-index: 1;
+
+        &::before {content: ""; 
+            position: absolute; 
+            --bd: 0.02em;
+            z-index: -1;
+            left:   calc(-.2em + var(--bd)*-1);
+            right:  calc(-.2em + var(--bd)*-1);
+            top:            calc(var(--bd)*-1);
+            bottom:         calc(var(--bd)*-1);
+        }
+    }
+}
+
+// colors
+
+.c {
+    @include colors;
+    &w, &white, &silver, &gray, &b, &black, &r, &red, &maroon, &yellow, &olive, &lime, &green, &aqua, &teal, &blue, &navy, &fuchsia, &purple
+        { color: var(--clr) !important; }
+}
+
+// background colors
+
+.h {
+    background-color: #ff0;
+    @include colors(clrh);
+    &w, &white, &silver, &gray, &b, &black, &r, &red, &maroon, &yellow, &olive, &lime, &green, &aqua, &teal, &blue, &navy, &fuchsia, &purple 
+        { &::before { background-color: var(--clrh); }; }
+}
+
+// border colors
+
+.b {
+    @include colors(clrb);
+    &w, &white, &silver, &gray, &b, &black, &r, &red, &maroon, &yellow, &olive, &lime, &green, &aqua, &teal, &blue, &navy, &fuchsia, &purple 
+        { &::before { --bw: 2px; border: var(--clrb) solid var(--bw); }; }
+}
+
+// ruby ================================
+
+[r] {
+    position: relative;
+    display: inline-block;
+    // width: max-content;
+    text-align: center;
+
+    &::before { content: attr(r);
+    // pos
+        position: relative;
+        left: 50%; 
+        transform: translateX(-50%);
+        display: block;
+    // styl
+        font-size: .75em;
+    }
+}
+
+// tip ================================
+
+[t] {
+    text-decoration: dotted underline;
+    &::before { content: attr(t); }
+}
+
+a { &::before { content: "转到："attr(href) attr(t); } }
+
+[t], a {
+    --tc: var(--txtColor);
+    position: relative;
+    &::before {
+        transition: 200ms 400ms;
+        pointer-events: none;
+    // pos
+        position: absolute;
+        left: 0 ;
+        top: .5em;
+        z-index: 10;
+    // size 
+        width: fit-content;
+    // styl
+        border: var(--tc) solid 2px;
+        padding: .2em .5em;
+        box-shadow: 4px 4px var(--tc);
+        background: var(--pgColor);
+        opacity: 0;
+    }
+
+    &:hover::before {
+        transition: 0ms;
+        top: 1.5em;
+        opacity: 1;
+    }
+}
+
+// table ================================
+
+table {
+    --tbc: var(--txtColor); --tbtc: var(--txtColor);
+// pos
+position: relative;
+z-index: 1;
+//styl
+    color: var(--tbtc);
+    border-collapse: collapse;
+    margin-block: 1em;
+
+    &::before, td, th { padding-block: .2em; padding-inline: .5em; }
+
+    &[h]::before { content: attr(h); 
+        position: relative;
+        display: table-caption;
+        bottom: -1px;
+    }
+
+    &.i { display: inline-table; }
+
+    &.t {
+        box-shadow: 2px 2px var(--tbc);
+    // border 
+        thead, tbody, td:first-child, tfoot { border: 2px solid { color: var(--tbc); }; }
+        td:first-child { border-block-width: 0; }
+        &::before, thead, td:first-child { font-weight: bolder; text-align: center; }
+
+        tr:nth-child(even) td:not(:first-child) {
+            position: relative;
+            &::before { content: "";
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+                background: var(--tbc);
+                opacity: .3;
+            }
+        }
+
+        &::before {
+            background: var(--tbc);
+            color: var(--pgColor);
+            box-shadow: 2px 2px var(--tbc);
+        }
+    }
+
+    &.ts {
+    // border 
+        thead, tbody, tr :first-child, tfoot { border: 0 solid { color: var(--tbc); }; }
+        thead                          { border-bottom-width: 2px; }
+        tbody:not(:first-child), tfoot { border-top-width:    2px; }
+        tr :first-child                { border-right-width:  2px; }
+
+        &::before {
+            padding-block: .5em;
+            font-weight: bolder;
+            text-align: center;    
+        }
+    }
+}
+
+// blocks ================================
+
+.content>blockquote, :not(blockquote) >blockquote { margin-block: 2em; }
+
+blockquote {
+    >p:first-child { margin-top: 0; }
+    >p:last-child { margin-bottom: 0; }
+    margin-right: 1em;
+
+    &.info, &.warn {
+        display: table;
+        position: relative;
+        padding-inline: 2.5em .5em;
+        padding-block: .5em;
+        margin-left: 0;
+
+        &::before {
+            position: absolute;
+            left: 0;
+            top: .37em;
+            padding-inline: .5em;
+            font-size: 1.2em;
+        }
+
+        >blockquote { margin-left: 0; }    
+    }
+
+    &.info {
+        background: var(--txtColor-fade);
+        border: var(--txtColor) 3px solid;
+        box-shadow: 4px 4px var(--txtColor);
+    
+        &::before { content: "ⓘ"; }
+    }
+
+    &.warn {
+        background: var(--txtColor3-fade);
+        border: var(--txtColor3) 3px solid;
+        box-shadow: 4px 4px var(--txtColor3);
+        color: var(--txtColor3);
+    
+        &::before { content: "⚠";
+            top: .3em;
+            font-size: 1.4em;
+            font-weight: normal;
+            padding-inline: .4em;
+        }
+    }
+
+    &.layer {
+        &:hover { background: var(--txtColor-fade); }
+
+        &, blockquote:not([class]) {
+            transition: 200ms 500ms border, 200ms 500ms box-shadow;
+            margin: 0 .3em;
+            padding: .5em;
+            box-shadow: -3px 0 var(--txtColor);
+            border: #0000 3px solid { left-width: 0; };
+
+            &:hover {
+                transition: 0ms border, 0ms box-shadow;
+                border-color: var(--txtColor);
+                box-shadow: -3px 0 var(--txtColor), 2px 2px 0 2px var(--txtColor);
+            }
+        }
+
+        blockquote:not([class]) {
+            p { margin-left: .5em; }
+            &:hover:not(:has(blockquote:not([class]):hover)) {
+                background: var(--pgColor);
+                blockquote { transition: 200ms 500ms border, 200ms 500ms box-shadow; background: var(--pgColor); }
+            }
+        }
+    }
+}
+
+
+/* ================ F A N C Y ================ */
+
+// mimic text-stroke with text-shadow ================================
+
+$text-stroke-shadow: 
+    calc(-1 * var(--std))                      0  var(--stc), // l
+    calc(-1 * var(--std))  calc(-1 * var(--std))  var(--stc), // lt
+                       0   calc(-1 * var(--std))  var(--stc), // t
+         calc(var(--std))  calc(-1 * var(--std))  var(--stc), // rt
+         calc(var(--std))                      0  var(--stc), // r
+         calc(var(--std))       calc(var(--std))  var(--stc), // rb
+                       0        calc(var(--std))  var(--stc), // b
+    calc(-1 * var(--std))       calc(var(--std))  var(--stc); // lb 
+
+// rainbow ================================
+
+.rainbow {
+    --rspd: 1s; --rbgsz: 4em;
+    &, *, ::before {
+        image-rendering: pixelated;
+        background: url(/assets/image/rainbowDither.png) {size: var(--rbgsz)};
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: #0000;
+
+        animation: rainbowScroll var(--rspd) linear infinite;
+        @keyframes rainbowScroll {
+            0% { background-position: 0; }
+            100% { background-position: var(--rbgsz); }
+        }
+    }
+
+    &.cmy, &.cmy * {
+        background-image: url(/assets/image/rainbowDither_.png);
+    }
+}
+
+.rainbow.fancy {
+    --rs: .1em; --rsc: var(--txtColor-sat);
+    filter: 
+        drop-shadow(.05em -.05em var(--rsc)) 
+        drop-shadow(-.05em .05em var(--rsc)) 
+        drop-shadow(var(--rs) var(--rs) var(--rsc));
+}
+
+.rainbow.fancy2 {
+    --rs: .1em; --rsc: var(--txtColor-sat);
+    filter: 
+        drop-shadow(.05em .05em var(--txtColor-sat)) 
+        drop-shadow(.1em .1em var(--pgColor)) 
+        drop-shadow(.1em .1em #dd4)
+        drop-shadow(.1em .1em #4dd)
+        drop-shadow(.1em .1em #d4d)
+        drop-shadow(.05em -.05em var(--rsc)) 
+        drop-shadow(-.05em .05em var(--rsc)) 
+
+}
+
+
+// echo ================================
+
+@mixin echo($horizontal, $vertical) {
+    text-shadow: 
+        calc( 2px * $horizontal) calc( 2px * $vertical) var(--pgColor),
+        calc(.2em * $horizontal) calc(.2em * $vertical) #44d8,
+        calc(.5em * $horizontal) calc(.5em * $vertical) #44d4,
+        calc(.8em * $horizontal) calc(.8em * $vertical) #44d2;
+}
+
+@mixin echoStroke($horizontal, $vertical) {
+    text-shadow: 
+        $text-stroke-shadow,
+        calc( 2px * $horizontal) calc( 2px * $vertical) var(--pgColor),
+        calc(.2em * $horizontal) calc(.2em * $vertical) #44d8,
+        calc(.5em * $horizontal) calc(.5em * $vertical) #44d4,
+        calc(.8em * $horizontal) calc(.8em * $vertical) #44d2;
+}
+
+@mixin echorb($horizontal, $vertical) {
+    text-shadow: 
+        calc(.1em * $horizontal) calc(.1em * $vertical) #d44,
+        calc(.2em * $horizontal) calc(.2em * $vertical) #dd4,
+        calc(.3em * $horizontal) calc(.3em * $vertical) #4dd,
+        calc(.4em * $horizontal) calc(.4em * $vertical) #d4d,
+}
+
+.echo {
+    @include echo(1, 1);
+    padding-bottom: .8em;
+    
+    &-down {
+        @include echo(0, 1);
+        padding-bottom: .8em;
+    }
+
+    &-up {
+        @include echo(0, -1);
+        padding-top: .8em;
+    }
+
+    &-right {
+        @include echo(1, 0);
+        padding-right: .8em;
+    }
+
+    &-left {
+        @include echo(-1, 0);
+        padding-left: .8em;
+    }
+}
+
+.echorb {
+    @include echorb(1, 1);
+    padding-bottom: .8em;
+    
+    &-down {
+        @include echorb(0, 1);
+        padding-bottom: .8em;
+    }
+
+    &-up {
+        @include echorb(0, -1);
+        padding-top: .8em;
+    }
+
+    &-right {
+        @include echorb(1, 0);
+        padding-right: .8em;
+    }
+
+    &-left {
+        @include echorb(-1, 0);
+        padding-left: .8em;
+    }
+}
+
+// stroke ================================
+
+.stroke {
+    --std: 1px; --stc: var(--txtColor);
+    color: var(--pgColor);
+    text-shadow: $text-stroke-shadow;
+
+    &.shadow {
+        --sdd: 4px; --sdc: var(--txtColor2);
+        text-shadow: $text-stroke-shadow, var(--sdd) var(--sdd) var(--sdc);
+        padding-bottom: .2em;
+    }
+
+    &.echo {
+        @include echoStroke(1, 1);
+        padding-bottom: .8em;
+        
+        &-down {
+            @include echoStroke(0, 1);
+            padding-bottom: .8em;
+        }
+
+        &-up {
+            @include echoStroke(0, -1);
+            padding-top: .8em;
+        }
+
+        &-right {
+            @include echoStroke(1, 0);
+            padding-right: .8em;
+        }
+
+        &-left {
+            @include echoStroke(-1, 0);
+            padding-left: .8em;
+        }
+    }
+}
+
+// animate! ================================
+
+// rotate
+
+.rotate {
+    --rspd: 4s; --ofst-x: 0%; --ofst-y: 0%; --rphs: 0; --rheit: 2em;
+// pos
+    display: inline-block;
+    transform-origin: 
+        calc( 50% + var(--ofst-x))
+        calc( 50% + var(--ofst-y));
+// size
+    width: max-content;
+// styl
+    margin-block: calc(var(--rheit)/2);
+    padding: 0;
+// ani
+    animation: rotate var(--rspd) linear calc(var(--rspd) * var(--rphs) * -1) infinite;
+
+    &.rev { animation-direction: reverse; }
+
+    &.c {
+        transform: translateY(50%);
+        animation-name: rotateCentered; 
+        left: 50%; transform: translateX(-50%);
+    }
+
+    @keyframes rotate {
+        0%   { transform: rotate(0); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes rotateCentered {
+        0%   { transform: translateX(-50%) rotate(0); }
+        100% { transform: translateX(-50%) rotate(360deg); }
+    }
+}
+
+// pulse
+
+.pulse {
+    --pspd: .25s; --pscl: 1.2; --pphs: 0;
+    
+    // .rotate & { --pscl: 1.5 }
+
+    display: inline-block;
+
+    // sizing
+    font-size: calc(var(--pscl) * var(--s) * 1em) !important;
+    @mixin faketitle-pulseSize($id, $size) { &.fake.h#{$id} { font-size: calc(var(--pscl) * $size * 1em) !important; } }
+                          @include faketitle-pulseSize(1, $size-h1);
+                          @include faketitle-pulseSize(2, $size-h2);
+    @for $i from 3 to 7 { @include faketitle-pulseSize($i, $size-hrest); }
+
+    animation: pulse var(--pspd) ease-out calc(var(--pspd) * var(--pphs) * -1) infinite alternate;
+    @keyframes pulse {
+        0% { scale: calc(1 / var(--pscl)); }
+        100%   { scale: 1; }
+    }
+}

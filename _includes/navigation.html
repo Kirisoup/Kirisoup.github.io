@@ -1,10 +1,11 @@
 <nav>
   {% for item in site.data.navigation %}
     <p>
-      <a href="{{ item.link }}" {% if page.url == item.link %}class="youreHere"{% endif %}>
+      {% if page.url == item.link %}<strong class="urHere-i"> >>&nbsp; </strong>{% endif %}
+      <a href="{{ item.link }}" {% if page.url == item.link %}class="urHere"{% endif %}>
       {{ item.name }} 
       </a>
-      {% if page.url == item.link %}<span> <<< </span>{% endif %}
+      <!-- {% if page.url == item.link %}<strong class="urHere-i"> <<< </strong>{% endif %} -->
     </p>
   {% endfor %}
 </nav>

@@ -1,74 +1,87 @@
-.soup\.exe {
+iframe {
+  display: none;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+body {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: min(var(--m) * 8px, var(--m) * 9vw / 16);
-  --m: 60;
-  aspect-ratio: 2.4;
-}
-
-.nav {
-  width: 0px;
-}
-
-.navC {
-  height: 100%;
-  width: 100%;
-  top: -1px;
-}
-
-/* ====overflow ctrl==== */
-.banner, .main, .nav, .bottom {
-  overflow: hidden;
-}
-
-.navC, .content {
-  overflow: hidden scroll;
+  inset: 0;
 }
 
 /* ==== L A Y O U T T A B L E ==== */
 .soup\.exe {
+  position: absolute;
+  left: 40%;
+  top: 45%;
+  transform: translate(-40%, -45%);
+  height: min(416px, 29.25vw);
+  aspect-ratio: 2.6;
   display: flex;
 }
-
-/* ====soup.exe==== */
-.c1 {
+.soup\.exe .c1 {
   flex: 5;
+  width: 0;
   display: flex;
   flex-direction: column;
 }
-
-.c2 {
-  flex: 2;
+.soup\.exe .c1 .banner {
+  height: min(80px, 5.625vw);
 }
-
-/* ====c1==== */
-.banner {
-  flex: 2;
-}
-
-.main {
-  flex: 7;
+.soup\.exe .c1 .main {
+  position: relative;
+  width: auto;
+  flex: 1;
   display: flex;
 }
-
-/* ====main==== */
-.nav {
+.soup\.exe .c1 .main .nav {
+  max-width: min(160px, 11.25vw);
   flex: 3;
+  min-width: min-content;
 }
-
-.content {
+.soup\.exe .c1 .main .window {
   flex: 10;
+  display: flex;
+}
+.soup\.exe .c1 .main .window .content {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  color: #44d;
+  padding-bottom: 25%;
+}
+.soup\.exe .c1 .bottom {
+  --height: 40px;
+  position: absolute;
+  top: max(100% - var(--height), 280px);
+  z-index: 1;
+  height: var(--height);
+}
+.soup\.exe .c2 {
+  position: relative;
+  max-width: min(280px, 19.6875vw);
+  flex: 3;
+  z-index: 1;
 }
 
-/* ======== */
-.bottom {
-  flex: 1;
+.fullscreen {
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* ======== */
-/* ======== */
-/* ======== */
+.fullscreenTg {
+  display: none;
+}
+
+/* ====overflow ctrl==== */
+.soup\.exe, .body, .banner, .main, .nav, .bottom, .window {
+  overflow: hidden;
+}
+
+.nav-c, .content {
+  overflow: hidden scroll;
+}
 
 /*# sourceMappingURL=layout.css.map */
