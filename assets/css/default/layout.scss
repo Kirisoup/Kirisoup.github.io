@@ -1,9 +1,7 @@
 ---
 ---
 
-iframe { display: none; } // hide navlink before apply style.css
-
-input[type="checkbox"] { display: none; }
+iframe, input[type="checkbox"], .toggle { display: none; }
 
 body {
     position: fixed;
@@ -11,7 +9,6 @@ body {
 }
 
 @mixin sizeUni($m, $property: height) { #{$property}: MIN($m * 8px, $m * 9vw/16); }
-// @mixin sizeUni($m, $property: height) { #{$property}: Min($m * 8px, $m * 9vw/16); }
 
 /* ==== L A Y O U T T A B L E ==== */
 
@@ -86,8 +83,6 @@ body {
     opacity: 0;
     pointer-events: none;
 }
-
-.fullscreenTg { display: none; }
 
 /* ====overflow ctrl==== */
 
