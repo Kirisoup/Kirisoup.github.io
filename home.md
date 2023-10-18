@@ -4,8 +4,9 @@ title: home¥page.html
 ---
 
 <!-- imgs -->
-{:9fumo: height="20px" src="https://media.tenor.com/rf5n8UNZfzkAAAAi/cirno.gif" }
-{:mushroom: src="https://pixelsea.neocities.org/icons/pilze-0004.gif"}
+{:9fumo: height="20px" src="/assets/image/indoc/cirno.gif" onerror="this.onerror=null; this.src='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/indoc/cirno.gif'"}
+{:mushroom: src="/assets/image/indoc/pilze-0004.gif" onerror="this.onerror=null; this.src='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/indoc/pilze-0004.gif'"}
+{:tea: src="/assets/image/indoc/Chinese-Tea.gif" onerror="this.onerror=null; this.src='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/indoc/Chinese-Tea.gif'"}
 
 # *欢迎来到 **霧雨蘑菇店**![](){:mushroom height="40px"}*{:.big.rainbow.fancy2} <br> ***う*{:r="yo"}*こ*{:r="ko"}*そ*{:r="so"}！**{:.r.rainbow.fancy2}
 
@@ -13,7 +14,7 @@ title: home¥page.html
 
 冲浪这么久，一定很累了吧，赶快进来坐一会\|∀` )。
 
-![](http://www.mytouhoupage.net/assets/Chinese%20Tea.gif)  
+![](){:tea}  
 *红茶无限续杯！*{:.bigger}~~没有茶点！幽幽子请不要再来了！~~{:.small}
 
 这里是霧雨蘑菇汤的互联网小角落，本店提供：  

@@ -349,20 +349,21 @@ html::before {
   content: "";
   position: fixed;
   inset: 0;
+  z-index: -2;
   pointer-events: none;
   background: url(/assets/image/cloud.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cloud.png);
   background-size: cover;
   background-position: center;
-  z-index: -2;
+  opacity: 0.5;
 }
 
 html::after {
   content: "";
   position: fixed;
   inset: 0;
+  z-index: -1;
   background: url(/assets/image/rain.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/rain.gif);
   image-rendering: pixelated;
-  z-index: -1;
 }
 
 /* ======= */
