@@ -9,8 +9,6 @@ title: home¥page.html
 
 # *欢迎来到 **霧雨蘑菇店**![](){:mushroom height="40px"}*{:.big.rainbow.fancy2} <br> ***う*{:r="yo"}*こ*{:r="ko"}*そ*{:r="so"}！**{:.r.rainbow.fancy2}
 
-*字*{:.bigger}
-
 ---
 
 冲浪这么久，一定很累了吧，赶快进来坐一会\|∀` )。
