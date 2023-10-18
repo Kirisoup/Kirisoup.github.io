@@ -430,7 +430,7 @@ $text-stroke-shadow:
     --rspd: 1s; --rbgsz: 4em;
     &, *, ::before {
         image-rendering: pixelated;
-        background: url(/assets/image/rainbowDither.png) {size: var(--rbgsz)};
+        background: url(/assets/image/rainbowDither.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/rainbowDither.png) {size: var(--rbgsz)};
         background-clip: text;
         -webkit-background-clip: text;
         color: #0000;
@@ -443,7 +443,7 @@ $text-stroke-shadow:
     }
 
     &.cmy, &.cmy * {
-        background-image: url(/assets/image/rainbowDither_.png);
+        background-image: url(/assets/image/rainbowDither_.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/rainbowDither_.png) ;
     }
 }
 

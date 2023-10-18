@@ -36,20 +36,20 @@ iframe { display: initial; } // show navlink after apply style.css
 html { scroll-behavior: smooth; }
 
 // main bg
-html, .nav, .c2 { background: #000 url('/assets/image/bg.gif') center { size: max(20vw,40vh); }; image-rendering: pixelated; }
+html, .nav, .c2 { background: url(/assets/image/bg.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/bg.gif) { color: #000; position: center; size: MAX(20vw,40vh); }; image-rendering: pixelated; }
 
 html::before { content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background: url(/assets/image/cloud.png) { size: cover; position: center; };
+    background: url(/assets/image/cloud.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cloud.png) { size: cover; position: center; };
     z-index: -2;
 }
 
 html::after { content: "";
     position: fixed;
     inset: 0;
-    background: url(/assets/image/rain.gif);
+    background: url(/assets/image/rain.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/rain.gif);
     image-rendering: pixelated;
     z-index: -1;
 }
@@ -191,29 +191,8 @@ html::after { content: "";
         inset: 0;
     // styl
         image-rendering: pixelated;
-        background: #000 url(/assets/image/bg2.gif) { size: MAX(10vw,20vh) };
+        background: url(/assets/image/bg2.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/bg2.gif) { color: #000; size: MAX(10vw,20vh); };
         mix-blend-mode: lighten;
-        
-        // animation: chatBgHue 5s linear infinite alternate-reverse;
-        // @keyframes chatBgHue {
-        //     0% { filter: hue-rotate(-45deg); }
-        //     100% { filter: hue-rotate(135deg); }                        
-        // }
-
-        // &::before { content: "";
-        //     position: absolute;
-        //     inset: 0;
-        //     background: repeating-linear-gradient( 45deg, #fff, #0000, #0000, #fff 50%) {size: 10vh 100vh};
-        //     mix-blend-mode: hard-light;
-        //     opacity: .5;
-
-        //     animation: chatBgScroll 3s linear infinite;
-
-        //     @keyframes chatBgScroll {
-        //         0% { background-position: 50vh 100vh; }   
-        //         100% { background-position: 0 0; }             
-        //     }
-        // }
     }
 
 
@@ -346,10 +325,10 @@ html::after { content: "";
             }
         }
     
-        .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif)   { size: cover }; }
-        .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif) { size: cover }; }
-        &.darkTg::before                   { background: url(/assets/image/button/dark.gif)  { size: cover }; }
-        &.fontTg::before                   { background: url(/assets/image/button/font.gif)  { size: cover }; }
+        .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif),   url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/max.gif)   { size: cover }; }
+        .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/unmax.gif) { size: cover }; }
+        &.darkTg::before                   { background: url(/assets/image/button/dark.gif),  url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/dark.gif)  { size: cover }; }
+        &.fontTg::before                   { background: url(/assets/image/button/font.gif),  url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/font.gif)  { size: cover }; }
 
     }
 
@@ -442,9 +421,9 @@ html::after { content: "";
 
     /* ====randomBG==== */
 
-    @for $i from 0 to 16 { &[id="#{$i}"] +&-b, &[id="#{$i}"]::before { background: url(/assets/image/cornerCara/marisa#{$i}.webp) { size: contain } }; }
+    @for $i from 0 to 16 { &[id="#{$i}"] +&-b, &[id="#{$i}"]::before { background: url(/assets/image/cornerCara/marisa#{$i}.webp), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cornerCara/marisa#{$i}.webp) { size: contain } }; }
     
-    & { background: url(/assets/image/cornerCara/marisaB_.webp) { size: 120%; }; background-position: -40% -40%; image-rendering: pixelated; }
+    & { background: url(/assets/image/cornerCara/marisaB_.webp), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cornerCara/marisaB_.webp) { size: 120%; position: -40% -40%; }; image-rendering: pixelated; }
 }
 
 .ibm {
@@ -517,7 +496,7 @@ html::after { content: "";
         aspect-ratio: 1.63;
     // styl
         pointer-events: none;
-        background: url(/assets/image/ibm.png) { size: cover; };
+        background: url(/assets/image/ibm.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/ibm.png) { size: cover; };
 
         &::before {
             position: absolute;
@@ -561,7 +540,7 @@ html::after { content: "";
     width: 28%;
     aspect-ratio: 1.34;
 // styl
-    background: url(/assets/image/rainbowDither.png) {size: 4vw};
+    background: url(/assets/image/rainbowDither.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/rainbowDither.png) {size: 4vw};
     opacity: 0;
     mix-blend-mode: darken;
     
@@ -588,9 +567,9 @@ html::after { content: "";
 
 // html { cursor: none;}
 
-.soup\.exe, .fullscreen { cursor: url(/assets/image/cursor/hat.gif), auto !important; }
+.soup\.exe, .fullscreen { cursor: url(/assets/image/cursor/hat.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cursor/hat.gif), auto !important; }
 
-@mixin wCursorGif($id) { cursor: url(/assets/image/cursor/hatq#{$id}.gif), auto; }
+@mixin wCursorGif($id) { cursor: url(/assets/image/cursor/hatq#{$id}.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cursor/hatq#{$id}.gif), auto; }
 
 a, button, .cornerCara { 
     animation: wonderCursor 500ms infinite;
@@ -624,11 +603,11 @@ canvas {
 
 /* ==== F O N T ==== */
 
-html                            { font-family: "fusion", sans-serif; }
-html:has(.fontTg input:checked) { font-family: "ibm", sans-serif; }
+html                            { font-family: "fusion", "gfw-fusion", sans-serif; }
+html:has(.fontTg input:checked) { font-family: "ibm", "gfw-ibm", sans-serif; }
 
-code, kbd, samp { font-family: "ibm", monospace;}
-html:has(.fontTg input:checked) code, kbd, samp { font-family: "fusion", monospace;}
+code, kbd, samp { font-family: "ibm", "gfw-ibm", monospace;}
+html:has(.fontTg input:checked) code, kbd, samp { font-family: "fusion", "gfw-fusion", monospace;}
 
 
 @font-face {
@@ -644,6 +623,21 @@ html:has(.fontTg input:checked) code, kbd, samp { font-family: "fusion", monospa
 @font-face {
     font-family: "zpix";
     src: url(/assets/font/zpix.ttf);
+}
+
+@font-face {
+    font-family: "gfw-fusion";
+    src: url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf);
+}
+
+@font-face {
+    font-family: "gfw-ibm";
+    src: url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/font/IBM3161.ttf);
+}
+
+@font-face {
+    font-family: "gfw-zpix";
+    src: url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/font/zpix.ttf);
 }
 
 /* ======== */
