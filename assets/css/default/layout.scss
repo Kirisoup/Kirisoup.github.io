@@ -10,7 +10,8 @@ body {
     inset: 0;
 }
 
-@mixin sizeUni($m, $property: height) { #{$property}: min($m * 8px, $m * 9vw/16); }
+// @mixin sizeUni($m, $property: height) { #{$property}: min($m * 8px, $m * 9vw/16); }
+@mixin sizeUni($m, $property: height) { #{$property}: min($m * 8vw, $m * 9vw/16); }
 
 /* ==== L A Y O U T T A B L E ==== */
 
