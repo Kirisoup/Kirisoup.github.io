@@ -27,11 +27,11 @@ iframe { display: initial; } // show navlink after apply style.css
 
 // resize
     max: { height: 90vh; width: 95vw }
-    min: { height: min(480px, 25vh);   width: min(1152px, 25vw) }
+    min: { height: MIN(480px, 25vh);   width: MIN(1152px, 25vw) }
     resize: both;
 }
 
-@mixin sizeUni($m, $property: height) { #{$property}: min($m * 8px, $m * 9vw/16); }
+@mixin sizeUni($m, $property: height) { #{$property}: MIN($m * 8px, $m * 9vw/16); }
 
 html { scroll-behavior: smooth; }
 
@@ -191,7 +191,7 @@ html::after { content: "";
         inset: 0;
     // styl
         image-rendering: pixelated;
-        background: #000 url(/assets/image/bg2.gif) { size: max(10vw,20vh) };
+        background: #000 url(/assets/image/bg2.gif) { size: MAX(10vw,20vh) };
         mix-blend-mode: lighten;
         
         // animation: chatBgHue 5s linear infinite alternate-reverse;
