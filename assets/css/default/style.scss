@@ -326,6 +326,8 @@ html::after { content: "";
                 right: 2px; bottom: 2px;
             }
         }
+
+        .fullscreenTg { padding: 0; }       
     
         .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif),   url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/max.gif); }
         .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/unmax.gif); }
@@ -357,10 +359,6 @@ html::after { content: "";
         .darkTg { right: 1.75em; }
         .fontTg { right: 3.25em; }
     }    
-}
-
-.fullscreenTg {
-    padding: 0;
 }
 
 // darkmode

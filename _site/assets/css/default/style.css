@@ -582,6 +582,9 @@ html::after {
   right: 2px;
   bottom: 2px;
 }
+.buttonBar .toggle .fullscreenTg {
+  padding: 0;
+}
 .window .buttonBar .toggle.fullscreenTg::before {
   background: url(/assets/image/button/max.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/max.gif);
 }
@@ -621,10 +624,6 @@ html::after {
 }
 .fullscreen .buttonBar .fontTg {
   right: 3.25em;
-}
-
-.fullscreenTg {
-  padding: 0;
 }
 
 .content, .window {
