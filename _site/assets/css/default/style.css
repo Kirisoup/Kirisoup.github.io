@@ -566,6 +566,7 @@ html::after {
   right: 4px;
   bottom: 4px;
   image-rendering: pixelated;
+  background-size: cover;
 }
 .buttonBar .toggle:active {
   background: #c0c0c0;
@@ -583,19 +584,15 @@ html::after {
 }
 .window .buttonBar .toggle.fullscreenTg::before {
   background: url(/assets/image/button/max.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/max.gif);
-  background-size: cover;
 }
 .fullscreen .buttonBar .toggle.fullscreenTg::before {
   background: url(/assets/image/button/unmax.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/unmax.gif);
-  background-size: cover;
 }
 .buttonBar .toggle.darkTg::before {
   background: url(/assets/image/button/dark.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/dark.gif);
-  background-size: cover;
 }
 .buttonBar .toggle.fontTg::before {
   background: url(/assets/image/button/font.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/font.gif);
-  background-size: cover;
 }
 .window .buttonBar {
   position: relative;

@@ -309,6 +309,7 @@ html::after { content: "";
             top: 2px; left: 2px; 
             right: 4px; bottom: 4px;
             image-rendering: pixelated;
+            background-size: cover;
         }
 
         &:active {
@@ -326,10 +327,10 @@ html::after { content: "";
             }
         }
     
-        .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif),   url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/max.gif)   { size: cover }; }
-        .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/unmax.gif) { size: cover }; }
-        &.darkTg::before                   { background: url(/assets/image/button/dark.gif),  url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/dark.gif)  { size: cover }; }
-        &.fontTg::before                   { background: url(/assets/image/button/font.gif),  url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/font.gif)  { size: cover }; }
+        .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif),   url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/max.gif); }
+        .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/unmax.gif); }
+        &.darkTg::before                   { background: url(/assets/image/button/dark.gif),  url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/dark.gif); }
+        &.fontTg::before                   { background: url(/assets/image/button/font.gif),  url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/font.gif); }
 
     }
 
