@@ -566,7 +566,7 @@ html::after {
   right: 4px;
   bottom: 4px;
   image-rendering: pixelated;
-  background-size: cover;
+  background-size: cover !important;
 }
 .buttonBar .toggle:active {
   background: #c0c0c0;

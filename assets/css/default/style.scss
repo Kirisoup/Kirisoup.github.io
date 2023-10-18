@@ -309,7 +309,7 @@ html::after { content: "";
             top: 2px; left: 2px; 
             right: 4px; bottom: 4px;
             image-rendering: pixelated;
-            background-size: cover;
+            background-size: cover !important;
         }
 
         &:active {
