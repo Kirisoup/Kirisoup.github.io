@@ -44,7 +44,6 @@ html::before { content: "";
     z-index: -2;
     pointer-events: none;
     background: url(/assets/image/cloud.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cloud.png) { size: cover; position: center; };
-    opacity: .5;
 }
 
 html::after { content: "";
@@ -52,7 +51,6 @@ html::after { content: "";
     inset: 0;
     z-index: -1;
     background: url(/assets/image/rain.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/rain.gif);
-    image-rendering: pixelated;
 }
 
 /* ======= */
@@ -327,7 +325,7 @@ html::after { content: "";
             }
         }
 
-        .fullscreenTg { padding: 0; }       
+        .fullscreenTg { padding: 0; } // ios fix
     
         .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif),   url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/max.gif); }
         .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/unmax.gif); }
@@ -453,7 +451,7 @@ html::after { content: "";
 // pos
     position: absolute;
     display: none;
-    right: -38%; bottom: -27%;
+    right: -38%; bottom: -55%;
     transform: scale(.17, .23) rotate(8deg) skew(3deg);
 // size
     width: 170%;
@@ -537,7 +535,7 @@ html::after { content: "";
 // pos
     position: absolute;
     display: block;
-    right: 32.7%; bottom: 10%;
+    right: 32.7%; bottom: 20%;
     z-index: 1;
     transform: rotate(11deg) skew(7deg);
 // size
