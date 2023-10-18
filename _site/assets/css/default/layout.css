@@ -2,6 +2,11 @@ iframe, input[type=checkbox], .toggle {
   display: none;
 }
 
+html {
+  position: fixed;
+  inset: 0;
+}
+
 body {
   position: fixed;
   inset: 0;
