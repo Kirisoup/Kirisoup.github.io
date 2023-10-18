@@ -624,7 +624,7 @@ html::after {
 }
 
 .fullscreenTg {
-  width: 24px !important;
+  padding: 0;
 }
 
 .content, .window {
