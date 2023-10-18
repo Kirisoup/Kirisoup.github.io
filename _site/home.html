@@ -92,8 +92,11 @@
 
             </div>
             <div class="buttonBar">
-              <label class="fontTg toggle"><input type = "checkbox"></label>
-              <label class="darkTg toggle"><input type = "checkbox"></label>
+              <label class="fontTg toggle"><input type="checkbox"></label>
+              <label class="darkTg toggle"><input type="checkbox" id="dark1" onclick="
+                if (document.querySelector('#dark2:checked')) { document.getElementById('dark2').checked=false; }
+                else { document.getElementById('dark2').checked=true; }
+              "></label>
               <button class="fullscreenTg toggle" onclick="document.getElementsByClassName('fullscreen')[0].className = 'fullscreen on'"></button>
             </div>
           </div>  
@@ -120,8 +123,11 @@
     <div class="fullscreen">
       <div class="buttonBar">
         <span class="title"> A:¥霧雨蘑菇店/¥home¥page.html </span>
-        <label class="fontTg toggle"><input type = "checkbox"></label>
-        <label class="darkTg toggle"><input type = "checkbox"></label>
+        <label class="fontTg toggle"><input type="checkbox"></label>
+        <label class="darkTg toggle"><input type="checkbox" id="dark2" onclick="
+          if (document.querySelector('#dark1:checked')) { document.getElementById('dark1').checked=false; }
+          else { document.getElementById('dark1').checked=true; }
+        "></label>
         <button class="fullscreenTg toggle" onclick="document.getElementsByClassName('fullscreen on')[0].className = 'fullscreen'"></button>
       </div>
       <div class="content f"> <!-- imgs -->
@@ -161,7 +167,7 @@
       <div class="pc"></div>
     </div>
     <div class="ibm">
-      <label class="mask power"><input type = "checkbox"></label>
+      <label class="mask power"><input type="checkbox"></label>
       <div class="vid">
         <iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=625760&autoplay=1&muted=1" loading="lazy" scrolling="no" frameborder="no" sandbox="allow-same-origin allow-scripts"> </iframe>
       </div>
