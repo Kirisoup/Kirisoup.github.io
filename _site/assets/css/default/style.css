@@ -623,6 +623,10 @@ html::after {
   right: 3.25em;
 }
 
+.fullscreenTg {
+  width: 24px !important;
+}
+
 .content, .window {
   transition: color 0ms 500ms, background-color 200ms 500ms, border-color 200ms 500ms;
 }
