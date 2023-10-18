@@ -44,7 +44,7 @@ body {
             display: flex;
 
             .nav {
-                max-width: unquote("MIN(20 * 8px, 20 * 9vw/16)");
+                max-width: MIN(20 * 8px, 20 * 9vw/16); ;
                 flex: 3;
                 min-width: min-content;
             }
@@ -68,7 +68,7 @@ body {
         .bottom {
             --height: 40px;
             position: absolute;
-            top: max(calc(100% - var(--height)), 280px);
+            top: MAX(calc(100% - var(--height)), 280px);
             z-index: 1;
             height: var(--height);
         }
