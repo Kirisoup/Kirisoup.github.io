@@ -10,8 +10,8 @@ body {
     inset: 0;
 }
 
-// @mixin sizeUni($m, $property: height) { #{$property}: min($m * 8px, $m * 9vw/16); }
-@mixin sizeUni($m, $property: height) { #{$property}: min($m * 8vw, $m * 9vw/16); }
+@mixin sizeUni($m, $property: height) { #{$property}: Min($m * 8px, $m * 9vw/16); }
+// @mixin sizeUni($m, $property: height) { #{$property}: Min($m * 8px, $m * 9vw/16); }
 
 /* ==== L A Y O U T T A B L E ==== */
 
@@ -44,7 +44,7 @@ body {
             display: flex;
 
             .nav {
-                max-width: min(20 * 8px, 20 * 9vw/16); ;
+                max-width: Min(20 * 8px, 20 * 9vw/16); ;
                 flex: 3;
                 min-width: min-content;
             }
@@ -76,7 +76,7 @@ body {
 
     .c2 {
         position: relative;
-        max-width: min(35 * 8px, 35 * 9vw/16); ;
+        max-width: Min(35 * 8px, 35 * 9vw/16); ;
         flex: 3;
         z-index: 1;
     }
