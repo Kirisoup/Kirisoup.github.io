@@ -44,7 +44,7 @@ body {
             display: flex;
 
             .nav {
-                max-width: MIN(20 * 8px, 20 * 9vw/16); ;
+                max-width: unquote("MIN(20 * 8px, 20 * 9vw/16)");
                 flex: 3;
                 min-width: min-content;
             }
