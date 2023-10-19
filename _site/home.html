@@ -97,7 +97,7 @@
                 if (document.querySelector('#dark2:checked')) { document.getElementById('dark2').checked=false; }
                 else { document.getElementById('dark2').checked=true; }
               "></label>
-              <button class="fullscreenTg toggle" onclick="document.getElementsByClassName('fullscreen')[0].className = 'fullscreen on'"></button>
+              <label class="fullscreenTg toggle"><input type="checkbox" onclick="document.getElementsByClassName('fullscreen')[0].className = 'fullscreen on'"></label>
             </div>
           </div>  
         </div>
@@ -128,7 +128,7 @@
           if (document.querySelector('#dark1:checked')) { document.getElementById('dark1').checked=false; }
           else { document.getElementById('dark1').checked=true; }
         "></label>
-        <button class="fullscreenTg toggle" onclick="document.getElementsByClassName('fullscreen on')[0].className = 'fullscreen'"></button>
+        <label class="fullscreenTg toggle"><input type="checkbox" onclick="document.getElementsByClassName('fullscreen on')[0].className = 'fullscreen'"></label>
       </div>
       <div class="content f"> <!-- imgs -->
 
