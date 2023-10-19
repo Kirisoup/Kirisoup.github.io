@@ -325,7 +325,7 @@ html::after { content: "";
             }
         }
 
-        .fullscreenTg { padding: 0; } // ios fix
+        .fullscreenTg { padding: 0 !important; } // ios fix
     
         .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif),   url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/max.gif); }
         .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/unmax.gif); }
@@ -573,7 +573,7 @@ html::after { content: "";
 
 @mixin wCursorGif($id) { cursor: url(/assets/image/cursor/hatq#{$id}.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cursor/hatq#{$id}.gif), auto; }
 
-a, button, .cornerCara { 
+a, button, label, .cornerCara { 
     animation: wonderCursor 500ms infinite;
     @keyframes wonderCursor {
         0%   { @include wCursorGif(1) }
@@ -583,8 +583,6 @@ a, button, .cornerCara {
         100% { @include wCursorGif(5) }
     }
 }
-
-
 
 canvas {
     transition: 500ms;

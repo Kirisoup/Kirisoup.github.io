@@ -581,7 +581,7 @@ html::after {
   bottom: 2px;
 }
 .buttonBar .toggle .fullscreenTg {
-  padding: 0;
+  padding: 0 !important;
 }
 .window .buttonBar .toggle.fullscreenTg::before {
   background: url(/assets/image/button/max.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/max.gif);
@@ -887,7 +887,7 @@ html::after {
   cursor: url(/assets/image/cursor/hat.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cursor/hat.gif), auto !important;
 }
 
-a, button, .cornerCara {
+a, button, label, .cornerCara {
   animation: wonderCursor 500ms infinite;
 }
 @keyframes wonderCursor {
@@ -1565,7 +1565,7 @@ a::before {
 }
 [t]:hover::before, a:hover::before {
   transition: 0ms;
-  top: 1.5em;
+  top: 2em;
   opacity: 1;
 }
 
