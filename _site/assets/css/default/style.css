@@ -375,20 +375,22 @@ html::after {
 .c1 .banner::before, .c1 .banner::after {
   position: absolute;
   inset: 0;
-  background-size: max(90%, 600px) 100% !important;
-  background-position: calc(100% - max(30%, 20px)) !important;
   background-repeat: no-repeat !important;
 }
 .c1 .banner::before {
   content: "";
   background: url(/assets/image/banner.png);
   background-color: #ccf;
+  background-size: max(90%, 600px) 100% !important;
+  background-position: 40px;
   mix-blend-mode: hard-light;
   opacity: 0.8;
 }
 .c1 .banner::after {
   content: "";
   background: url(/assets/image/bannerTxt.png);
+  background-size: auto 100% !important;
+  background-position: calc(100% - max(30%, 20px)) !important;
 }
 .c1 .main {
   /* ==== N A V B A R ==== */

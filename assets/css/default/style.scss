@@ -73,20 +73,24 @@ html::after { content: "";
             position: absolute;
             inset: 0;
             background: {
-                size: MAX(90%, 600px) 100% !important; 
-                position: calc(100% - MAX(30%, 20px)) !important; 
                 repeat: no-repeat !important;
             };
         }
 
         &::before { content: "";
-            background: url(/assets/image/banner.png){ color: #ccf };
+            background: url(/assets/image/banner.png){ color: #ccf;
+                size: MAX(90%, 600px) 100% !important;
+                position: 40px;
+            };
             mix-blend-mode: hard-light;
             opacity: .8;
         }
 
         &::after { content: "";
-            background: url(/assets/image/bannerTxt.png)
+            background: url(/assets/image/bannerTxt.png) {
+                size: auto 100% !important;
+                position: calc(100% - MAX(30%, 20px)) !important;
+            };
             // opacity: .5;
         }
 
@@ -111,7 +115,7 @@ html::after { content: "";
 
                 p {
                     padding: { inline: 1em 0;  block: .5em; };
-                    margin-block: 0; 
+                    margin-block: 0;
                     display: flex;
                 }
 
@@ -144,7 +148,7 @@ html::after { content: "";
                 p {
                     transition: all 0ms 200ms,
                         background-color 400ms 200ms;
-                    
+
                     &:hover {
                         transition: all 0ms;
                         padding-left: 20%;
@@ -276,7 +280,7 @@ html::after { content: "";
         pointer-events: all;
         top: 2vh; bottom: 2vh;
     }
-    
+
     .content {
     // size
         flex: 9;
@@ -314,18 +318,18 @@ html::after { content: "";
         box-sizing: border-box;
         margin-right: .5em;
         background: #c0c0c0;
-        border: solid 3px { 
-            left-color: #fff; 
-            top-color: #fff; 
-            right-color: #000; 
+        border: solid 3px {
+            left-color: #fff;
+            top-color: #fff;
+            right-color: #000;
             bottom-color: #000;
         }
 
-        &:hover { background: #fff; }    
-        
+        &:hover { background: #fff; }
+
         &::before { content: "";
             position: absolute;
-            top: 2px; left: 2px; 
+            top: 2px; left: 2px;
             right: 4px; bottom: 4px;
             image-rendering: pixelated;
             background-size: cover !important;
@@ -335,18 +339,18 @@ html::after { content: "";
         &:active {
             background: #c0c0c0;
             border: solid 3px {
-                left-color: #000; 
-                top-color: #000; 
-                right-color: #fff; 
+                left-color: #000;
+                top-color: #000;
+                right-color: #fff;
                 bottom-color: #fff;
             };
 
             &::before {
-                top: 4px; left: 4px; 
+                top: 4px; left: 4px;
                 right: 2px; bottom: 2px;
             }
         }
-    
+
         .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif),   url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/max.gif); }
         .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/unmax.gif); }
         &.darkTg::before                   { background: url(/assets/image/button/dark.gif),  url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/button/dark.gif); }
@@ -367,7 +371,7 @@ html::after { content: "";
             left: 50%;
             transform: translateX(-50%);
         }
-        
+
         .darkTg { top: 2em; }
         .fontTg { top: 3.5em }
     }
@@ -376,7 +380,7 @@ html::after { content: "";
         .fullscreenTg { right: 0em; }
         .darkTg { right: 1.75em; }
         .fontTg { right: 3.25em; }
-    }    
+    }
 }
 
 // darkmode
@@ -384,14 +388,14 @@ html::after { content: "";
 .content, .window { transition: color 0ms 500ms, background-color 200ms 500ms, border-color 200ms 500ms; }
 
 .buttonBar:has(.darkTg input:checked) ~.content, .content:has(~.buttonBar .darkTg input:checked) {
-    transition: color 0ms, background-color 200ms; 
+    transition: color 0ms, background-color 200ms;
     --txtColor: #aaf;
     --txtColor-sat: #00c;
     --txtColor-fade: #224;
     --txtColor3: #faa;
     --txtColor3-fade: #422;
     --txtColor2: #fff;
-    --pgColor: #002;    
+    --pgColor: #002;
 }
 
 .content:has(~.buttonBar .darkTg input:checked) { background: #0004 !important; }
@@ -444,7 +448,7 @@ html::after { content: "";
     /* ====randomBG==== */
 
     @for $i from 0 to 16 { &[id="#{$i}"] +&-b, &[id="#{$i}"]::before { background: url(/assets/image/cornerCara/marisa#{$i}.webp), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cornerCara/marisa#{$i}.webp) { size: contain } }; }
-    
+
     & { background: url(/assets/image/cornerCara/marisaB_.webp), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cornerCara/marisaB_.webp) { size: 120%; position: -40% -40%; }; image-rendering: pixelated; }
 }
 
@@ -526,7 +530,7 @@ html::after { content: "";
             // top: 6vw;
             // width: 8vw;
             // font-size: 1.5vw;
-            
+
             left: 35%;
             top: 45%;
 
@@ -538,7 +542,7 @@ html::after { content: "";
             transform: rotate(9deg) skew(7deg);
         }
     }
-    
+
     .soup\.exe:hover ~ .ibm-b & {
         transition: visibility 0s;
         visibility: visible;
@@ -565,7 +569,7 @@ html::after { content: "";
     background: url(/assets/image/rainbowDither.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/rainbowDither.png) {size: 4vw};
     opacity: 0;
     mix-blend-mode: darken;
-    
+
     animation: maskScroll 1s linear infinite;
     @keyframes maskScroll {
         0% { background-position: 0; }
@@ -593,7 +597,7 @@ html::after { content: "";
 
 @mixin wCursorGif($id) { cursor: url(/assets/image/cursor/hatq#{$id}.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cursor/hatq#{$id}.gif), auto; }
 
-a, button, label, .cornerCara { 
+a, button, label, .cornerCara {
     animation: wonderCursor 500ms infinite;
     @keyframes wonderCursor {
         0%   { @include wCursorGif(1) }
