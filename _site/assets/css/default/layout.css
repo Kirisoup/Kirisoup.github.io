@@ -29,6 +29,7 @@ body {
   flex-direction: column;
 }
 .soup\.exe .c1 .banner {
+  position: relative;
   height: min(80px, 5.625vw);
 }
 .soup\.exe .c1 .main {

@@ -51,6 +51,7 @@ html::after { content: "";
     inset: 0;
     z-index: -1;
     background: url(/assets/image/rain.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/rain.gif);
+    opacity: .5;
 }
 
 /* ======= */
@@ -63,12 +64,32 @@ html::after { content: "";
     .banner {
     // styl
         border: #44d 1px solid;
-        background-color: #ccf;
-    // txt
-        text-wrap: nowrap;
-        padding-inline: 5%;
-        color: var(--txtColor2);
-        @include sizeUni(9, font-size);
+        // background: url(https://media.tenor.com/5lWosOHS630AAAAC/amor.gif);
+        // background: url(https://usagif.com/wp-content/uploads/gifs/water-66.gif);
+        // background: url(https://64.media.tumblr.com/9af92cc03553bd821021fd950fbc33b5/1534f96efdb15e70-b5/s100x200/6f110ffcfa7afe0af25add8144e9d30fbefc97fe.gifv);
+        background: url(/assets/image/xp.gifv) { size: cover};
+
+        &::before, &::after {
+            position: absolute;
+            inset: 0;
+            background: {
+                size: MAX(90%, 600px) 100% !important; 
+                position: calc(100% - MAX(30%, 20px)) !important; 
+                repeat: no-repeat !important;
+            };
+        }
+
+        &::before { content: "";
+            background: url(/assets/image/banner.png){ color: #ccf };
+            mix-blend-mode: hard-light;
+            opacity: .8;
+        }
+
+        &::after { content: "";
+            background: url(/assets/image/bannerTxt.png)
+            // opacity: .5;
+        }
+
     }
 
     .main {
@@ -308,6 +329,7 @@ html::after { content: "";
             right: 4px; bottom: 4px;
             image-rendering: pixelated;
             background-size: cover !important;
+            background-repeat: no-repeat !important;
         }
 
         &:active {

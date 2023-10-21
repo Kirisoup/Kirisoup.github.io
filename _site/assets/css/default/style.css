@@ -362,17 +362,33 @@ html::after {
   inset: 0;
   z-index: -1;
   background: url(/assets/image/rain.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/rain.gif);
+  opacity: 0.5;
 }
 
 /* ======= */
 /* ==== C 1 ==== */
 .c1 .banner {
   border: #44d 1px solid;
+  background: url(/assets/image/xp.gifv);
+  background-size: cover;
+}
+.c1 .banner::before, .c1 .banner::after {
+  position: absolute;
+  inset: 0;
+  background-size: max(90%, 600px) 100% !important;
+  background-position: calc(100% - max(30%, 20px)) !important;
+  background-repeat: no-repeat !important;
+}
+.c1 .banner::before {
+  content: "";
+  background: url(/assets/image/banner.png);
   background-color: #ccf;
-  text-wrap: nowrap;
-  padding-inline: 5%;
-  color: var(--txtColor2);
-  font-size: min(72px, 5.0625vw);
+  mix-blend-mode: hard-light;
+  opacity: 0.8;
+}
+.c1 .banner::after {
+  content: "";
+  background: url(/assets/image/bannerTxt.png);
 }
 .c1 .main {
   /* ==== N A V B A R ==== */
@@ -565,6 +581,7 @@ html::after {
   bottom: 4px;
   image-rendering: pixelated;
   background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 .buttonBar .toggle:active {
   background: #c0c0c0;

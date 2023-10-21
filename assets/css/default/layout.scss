@@ -36,6 +36,7 @@ body {
         flex-direction: column;
 
         .banner {
+            position: relative;
             @include sizeUni(10);
         }
 
