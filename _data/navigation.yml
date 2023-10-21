@@ -1,5 +1,5 @@
 - name: 主页
-  link: /
+  link: /home.html
 - name: About
   link: /about.html
 - name: Markdown 实验室

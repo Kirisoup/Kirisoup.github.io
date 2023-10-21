@@ -334,7 +334,7 @@ template {
 }
 
 html {
-  scroll-behavior: smooth;
+  image-rendering: pixelated;
 }
 
 html, .nav, .c2 {
@@ -342,7 +342,6 @@ html, .nav, .c2 {
   background-color: #000;
   background-position: center;
   background-size: max(20vw, 40vh);
-  image-rendering: pixelated;
 }
 
 html::before {
@@ -365,11 +364,19 @@ html::after {
   opacity: 0.5;
 }
 
+html:not(:has(.cornerCara[id="0"])) {
+  background: url(/assets/image/IMG_1148.JPG), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/IMG_1148.JPG);
+  background-size: contain;
+  background-position: right;
+  background-color: #000;
+  background-blend-mode: hard-light;
+}
+
 /* ======= */
 /* ==== C 1 ==== */
 .c1 .banner {
   border: #44d 1px solid;
-  background: url(/assets/image/xp.gifv);
+  background: url(/assets/image/xp.gifv), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/xp.gifv);
   background-size: cover;
 }
 .c1 .banner::before, .c1 .banner::after {
@@ -379,7 +386,7 @@ html::after {
 }
 .c1 .banner::before {
   content: "";
-  background: url(/assets/image/banner.png);
+  background: url(/assets/image/banner.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/banner.png);
   background-color: #ccf;
   background-size: max(90%, 600px) 100% !important;
   background-position: 40px;
@@ -388,7 +395,7 @@ html::after {
 }
 .c1 .banner::after {
   content: "";
-  background: url(/assets/image/bannerTxt.png);
+  background: url(/assets/image/bannerTxt.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/bannerTxt.png);
   background-size: auto 100% !important;
   background-position: calc(100% - max(30%, 20px)) !important;
 }

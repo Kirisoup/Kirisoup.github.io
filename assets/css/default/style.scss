@@ -33,10 +33,10 @@ iframe { display: initial; } // show navlink after apply style.css
 
 @mixin sizeUni($m, $property: height) { #{$property}: MIN($m * 8px, $m * 9vw/16); }
 
-html { scroll-behavior: smooth; }
+html { image-rendering: pixelated; }
 
 // main bg
-html, .nav, .c2 { background: url(/assets/image/bg.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/bg.gif) { color: #000; position: center; size: MAX(20vw,40vh); }; image-rendering: pixelated; }
+html, .nav, .c2 { background: url(/assets/image/bg.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/bg.gif) { color: #000; position: center; size: MAX(20vw,40vh); } }
 
 html::before { content: "";
     position: fixed;
@@ -54,6 +54,12 @@ html::after { content: "";
     opacity: .5;
 }
 
+html:not(:has(.cornerCara[id="0"])) {
+    background: url(/assets/image/IMG_1148.JPG), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/IMG_1148.JPG) {size: contain; position: right};
+    background-color: #000;
+    background-blend-mode: hard-light;
+}
+
 /* ======= */
 
 
@@ -67,7 +73,7 @@ html::after { content: "";
         // background: url(https://media.tenor.com/5lWosOHS630AAAAC/amor.gif);
         // background: url(https://usagif.com/wp-content/uploads/gifs/water-66.gif);
         // background: url(https://64.media.tumblr.com/9af92cc03553bd821021fd950fbc33b5/1534f96efdb15e70-b5/s100x200/6f110ffcfa7afe0af25add8144e9d30fbefc97fe.gifv);
-        background: url(/assets/image/xp.gifv) { size: cover};
+        background: url(/assets/image/xp.gifv), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/xp.gifv) { size: cover};
 
         &::before, &::after {
             position: absolute;
@@ -78,7 +84,8 @@ html::after { content: "";
         }
 
         &::before { content: "";
-            background: url(/assets/image/banner.png){ color: #ccf;
+            background: url(/assets/image/banner.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/banner.png) {
+                color: #ccf;
                 size: MAX(90%, 600px) 100% !important;
                 position: 40px;
             };
@@ -87,7 +94,7 @@ html::after { content: "";
         }
 
         &::after { content: "";
-            background: url(/assets/image/bannerTxt.png) {
+            background: url(/assets/image/bannerTxt.png), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/bannerTxt.png) {
                 size: auto 100% !important;
                 position: calc(100% - MAX(30%, 20px)) !important;
             };
