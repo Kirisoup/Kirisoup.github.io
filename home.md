@@ -8,7 +8,8 @@ title: home¥page.html
 {:mushroom: src="/assets/image/indoc/pilze-0004.gif" onerror="this.onerror=null; this.src='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/indoc/pilze-0004.gif'"}
 {:tea: src="/assets/image/indoc/Chinese-Tea.gif" onerror="this.onerror=null; this.src='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/indoc/Chinese-Tea.gif'"}
 
-# *欢迎来到 **霧雨蘑菇店**![](){:mushroom height="40px"}*{:.big.rainbow.fancy2} <br> ***う*{:r="yo"}*こ*{:r="ko"}*そ*{:r="so"}！**{:.r.rainbow.fancy2}
+{:.fake.h1}
+*欢迎来到 **霧雨蘑菇店**![](){:mushroom height="40px"}*{:.big.rainbow.fancy2} <br> ***う*{:r="yo"}*こ*{:r="ko"}*そ*{:r="so"}！**{:.r.rainbow.fancy2}
 
 ---
 

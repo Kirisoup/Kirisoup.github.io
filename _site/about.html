@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-control" content="no-store">
     <title>A:¥霧雨蘑菇店/¥About</title>
-  <!--
-    essential stylesheet -->
+
+    <!--essential stylesheet -->
     <link rel="stylesheet" href="/assets/css/default/layout.css"
     onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/css/default/layout.css'">
-  <!--
-    async stylesheet -->
+
+    <!--async stylesheet -->
     <link rel="stylesheet" href="/assets/css/default/style.css"
     media="print" onload="this.onload=null;this.removeAttribute('media');"
     onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/css/default/style.css'">
-  <!--
-    non-js fallback (there is no "onerror" because, well, noscript) -->
+    <!--non-js fallback (no onerror for gfw suckers because, well, noscript) -->
     <noscript><link rel="stylesheet" href="/assets/css/default/style.css"></noscript>
-  <!--
-    cursor trace -->
+
+    <!-- font preload to avoid stuck from ghproxy 404 -->
+    <link rel="preload" href="/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf" as="font" crossorigin="anonymous"
+    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf'">
+    <link rel="preload" href="/assets/font/IBM3161.ttf" as="font" crossorigin="anonymous"
+    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/font/IBM3161.ttf'">
+
+    <!--cursor trace -->
     <script src="/assets/js/cursor.js" async
     onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/cursor.js'"></script>
     <script>
@@ -75,14 +80,10 @@
             </div>
             <div class="buttonBar">
               <label class="fontTg toggle" title="切换字体"><input type="checkbox"></label>
-            <!-- 
-              toggle darkmode -->
               <label class="darkTg toggle" title="切换深色模式"><input type="checkbox" id="dark1" onclick="
               if (document.querySelector('#dark2:checked')) { document.getElementById('dark2').checked=false; }
                                                        else { document.getElementById('dark2').checked=true; }
               "></label>
-            <!--
-              enter fullscreen -->
               <label class="fullscreenTg toggle" title="进入全屏"><input type="checkbox" onclick="
               document.getElementsByClassName('fullscreen')[0].className = 'fullscreen on'
               "></label>
@@ -101,14 +102,10 @@
       <div class="buttonBar">
         <span class="title"> A:¥霧雨蘑菇店/¥About </span>
         <label class="fontTg toggle" title="切换字体"><input type="checkbox"></label>
-      <!-- 
-        toggle darkmode -->
         <label class="darkTg toggle" title="切换深色模式"><input type="checkbox" id="dark2" onclick="
         if (document.querySelector('#dark1:checked')) { document.getElementById('dark1').checked=false; }
                                                  else { document.getElementById('dark1').checked=true; }
         "></label>
-      <!-- 
-        quit fullscreen -->
         <label class="fullscreenTg toggle" title="退出全屏"><input type="checkbox" onclick="document.getElementsByClassName('fullscreen on')[0].className = 'fullscreen'"></label>
       </div>
       <div class="content f"> <h1 id="about-">about :|</h1>
@@ -117,9 +114,8 @@
         地址：/about.html | 作者：Kirisame Soup | 
       </div>
     </div>
-  <!-- 
-    page corner -->
-    <!-- random marisa easteregg onclick -->
+
+    <!-- page corner -->
     <div class="cornerCara" ID="0" title="" onclick='this.id = Math.floor(Math.random() * 15 + 1)'></div>
     <div class="cornerCara-b"></div>
     <div class="ibm-b">
@@ -134,14 +130,9 @@
     </div>
     <script src="/assets/js/link-id-copy.js" async
     onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/link-id-copy.js'"></script>
-  <!-- 
-    resize synchronize (for overflow effect) -->
     <script src="/assets/js/resize-sync.js" async
     onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/resize-sync.js'"></script>
-  <!-- 
-    cat follow cursor -->
     <script src="/assets/neko/oneko.js" async
     onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/neko/oneko.js'"></script>
-
   </body>
 </html>
