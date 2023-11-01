@@ -14,6 +14,39 @@ title: home¥page.html
 
 冲浪这么久，一定很累了吧，赶快进来坐一会\|∀` )。
 
+<p id="ip"></p>
+<p id="geo"></p>
+
+<!-- <script>
+function getIP(json) {
+document.getElementById('ip').innerHTML="你的IP地址是: " + json.ip;
+}
+</script>
+<script src="http://api.ipify.org?format=jsonp&callback=getIP"></script> -->
+
+<script>
+function getGeo(json) {
+document.getElementById('geo').innerHTML="你的IP地址是: ";
+}
+</script>
+<script src="//ip-api.com/json/?callback=getGeo"></script>
+
+
+
+<!-- <script async>
+    function getIp(json) {
+    document.getElementById('ip').innerHTML="你的IP地址是: " + json.ip;
+    }
+</script>
+<script src="http://api.ipify.org?format=jsonp&callback=getIP"></script> -->
+
+<!-- <script async>
+    function getGeo(json) {
+    document.getElementById('geo').innerHTML=json.country + json.regionName + "省；纬度：" + json.lat + "；经度：" + json.lon;
+    }
+</script>
+<script src="http://ip-api.com/json/?callback=getGeo"></script> -->
+
 ![](){:tea}  
 *红茶无限续杯！*{:.bigger}~~没有茶点！幽幽子请不要再来了！~~{:.small}
 

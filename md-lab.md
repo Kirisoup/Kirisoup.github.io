@@ -3,372 +3,365 @@ layout: default
 title: MarkDown¥实验室.html
 ---
 
-{:.rainbow.fancy2}
-# **This is really fancy txt**{:.bigger}
+# MoarDown - *Markdown 语法扩充类*{:.small}！: {#head}
 
-# MoarDown - *Markdown 语法扩充类*{:.small}！: 
+{:.info}
+> 提示：使用kramdown的 {:***} 语法为元素添加额外属性，以在文章内使用本文档罗列的特性，如：
+> - 为*块级*元素（段落、表格、引用方块等）添加属性 .c  
+>   <br> *\{:.c} <br> 段落文字*{:.c} <br>
+> - 为*行内*元素添加属性 .cfuchsia:  
+>   段落段落 *\*行内文字内容\*\{:.cfuchsia}*{:.cfuchsia} 段落段落
+> - 
 
-注：为了分离inline元素的方便，默认情况下任何*带有语法扩充类*的斜体文字  
+{:.info}
+> 注：为了分离inline元素的方便，默认情况下任何*带有语法扩充类*的斜体文字，如：
+> 
+> - `*内容*{:.class}`
+> - `<em class="class">内容</em>`
+> 
+> 都不会拥有斜体效果。
+> 
+> 这种情况下，请使用 .i 类专门声明文字为斜体。
 
-    *内容*{:.class}；<em class="class">内容</em>
+## 大小: {#size}
+- *.bigger*{:.bigger} 
+- *.big*{:.big} 
+- *.small*{:.small} 
+- *.smaller*{:.smaller}
+- *.size*{:.size style="--s:1.096"}
+  - \-\-s: 1.096 *(自定义大小倍率)*
 
-都不会拥有斜体效果。这种情况下，请使用 .i 类专门声明文字为斜体。
+## 对齐: {#align} 
+- *居中：.c*{:.c} 
+- *靠右：.r*{:.r}
 
-- 大小: 
-  - *.bigger*{:.bigger} 
-  - *.big*{:.big} 
-  - *.small*{:.small} 
-  - *.smaller*{:.smaller}
-  - *.resize*{:.resize style="--s:2.333"}
-    - \-\-s: 2.333 *(自定义大小倍率)*
+## 修饰线: {#line}
+- ||| 下划线&nbsp;&nbsp; | 上划线&nbsp;&nbsp; | 删除线&nbsp;&nbsp; | 混合&nbsp;&nbsp; |
+  |---|---|---|---|---|---|
+  | 正常线 || *.u*{:.u}         | *.ovl*{:.ovl}         | *.del*{:.del}         | *.u.ovl.del*{:.u.ovl.del}         |
+  | 段虚线 || *.u.-d*{:.u.-d}      | *.ovl.-d*{:.ovl.-d}   | *.del.-d*{:.del.-d}   | *.u.ovl.del.-d*{:.u.ovl.del.-d}   |
+  | 点虚线 || *.u.-do*{:.u.-dd} | *.ovl.-do*{:.ovl.-dd} | *.del.-do*{:.del.-dd} | *.u.ovl.del.-do*{:.u.ovl.del.-dd} |
+  | 双层线 || *.u.-db*{:.u.-db} | *.ovl.-db*{:.ovl.-db} | *.del.-db*{:.del.-db} | *.u.ovl.del.-db*{:.u.ovl.del.-db} |
+  | 波浪线 || *.u.-w*{:.u.-w}   | *.ovl.-w*{:.ovl.-w}   | *.del.-w*{:.del.-w}   | *.u.ovl.del.-w*{:.u.ovl.del.-w}   |
+  {:.t}
 
-- 对齐: 
-  - *.c*{:.c} 
-  - *.r*{:.r}
+- 删除线 -- 另一种表达 (markdown原版): 
+  - *~~txt~~*         *\~\~txt\~\~*
+  - *~~txt~~{:.-d}*   *\~\~txt\~\~{:.-d}*
+  - *~~txt~~{:.-dd}*  *\~\~txt\~\~{:.-dd}*
+  - *~~txt~~{:.-db}*  *\~\~txt\~\~{:.-db}*
+  - *~~txt~~{:.-w}*   *\~\~txt\~\~{:.-w}*
 
-- 修饰线: 
-  - ||| 下划线&nbsp;&nbsp; | 上划线&nbsp;&nbsp; | 删除线&nbsp;&nbsp; | 混合&nbsp;&nbsp; |
-    |---|---|---|---|---|---|
-    | 正常线 || *.u*{:.u}         | *.ovl*{:.ovl}         | *.del*{:.del}         | *.u.ovl.del*{:.u.ovl.del}         |
-    | 段虚线 || *.u.-d*{:.u}      | *.ovl.-d*{:.ovl.-d}   | *.del.-d*{:.del.-d}   | *.u.ovl.del.-d*{:.u.ovl.del.-d}   |
-    | 点虚线 || *.u.-do*{:.u.-dd} | *.ovl.-do*{:.ovl.-dd} | *.del.-do*{:.del.-dd} | *.u.ovl.del.-do*{:.u.ovl.del.-dd} |
-    | 双层线 || *.u.-db*{:.u.-db} | *.ovl.-db*{:.ovl.-db} | *.del.-db*{:.del.-db} | *.u.ovl.del.-db*{:.u.ovl.del.-db} |
-    | 波浪线 || *.u.-w*{:.u.-w}   | *.ovl.-w*{:.ovl.-w}   | *.del.-w*{:.del.-w}   | *.u.ovl.del.-w*{:.u.ovl.del.-w}   |
-    {:.t}
+## 颜色: {#color}
 
-  - 删除线--另一种表达 (markdown原版): 
-    - *~~txt~~*         *\~\~txt\~\~*
-    - *~~txt~~{:.-d}*   *\~\~txt\~\~{:.-d}*
-    - *~~txt~~{:.-dd}*  *\~\~txt\~\~{:.-dd}*
-    - *~~txt~~{:.-db}*  *\~\~txt\~\~{:.-db}*
-    - *~~txt~~{:.-w}*   *\~\~txt\~\~{:.-w}*
+### 快速 {#color-fast}
+- *.cw*{:.cw.hb}
+- *.cb*{:.cb.hw}
+- *.cr*{:.cr}
 
-- 颜色:
-  - *.cw*{:.cw.hb}
-    *.cb*{:.cb.hw}
-    *.cr*{:.cr}
-  - *.cwhite*{:.cwhite.hb}
-    *.csilver*{:.csilver}
-    *.cgray*{:.cgray}
-    *.cblack*{:.cblack.hw}
-    *.cred*{:.cred}
-    *.cmaroon*{:.cmaroon}
-    *.cyellow*{:.cyellow}
-    *.colive*{:.colive}
-    *.clime*{:.clime}
-    *.cgreen*{:.cgreen}
-    *.caqua*{:.caqua}
-    *.cteal*{:.cteal}
-    *.cblue*{:.cblue}
-    *.cnavy*{:.cnavy}
-    *.cfuchsia*{:.cfuchsia}
-    *.cpurple*{:.cpurple}
+### 16色 {#color-16}
+- *.cwhite*{:.cwhite.hb}
+- *.csilver*{:.csilver}
+- *.cgray*{:.cgray}
+- *.cblack*{:.cblack.hw}
+- *.cred*{:.cred}
+- *.cmaroon*{:.cmaroon}
+- *.cyellow*{:.cyellow}
+- *.colive*{:.colive}
+- *.clime*{:.clime}
+- *.cgreen*{:.cgreen}
+- *.caqua*{:.caqua}
+- *.cteal*{:.cteal}
+- *.cblue*{:.cblue}
+- *.cnavy*{:.cnavy}
+- *.cfuchsia*{:.cfuchsia}
+- *.cpurple*{:.cpurple}
 
-- 背景色:
-  - \-\-hd: 0.05em *(背景、边框距离)*
-  - 
-  - *.h*{:.h}
-  - 
-  - *.hw*{:.hw}
-    *.hb*{:.hb}
-    *.hr*{:.hr}
-  - *.hwhite*{:.hwhite}
-    *.hsilver*{:.hsilver}
-    *.hgray*{:.hgray}
-    *.hblack*{:.hblack}
-    *.hred*{:.hred}
-    *.hmaroon*{:.hmaroon}
-    *.hyellow*{:.hyellow}
-    *.holive*{:.holive}
-    *.hlime*{:.hlime}
-    *.hgreen*{:.hgreen}
-    *.haqua*{:.haqua}
-    *.hteal*{:.hteal}
-    *.hblue*{:.hblue}
-    *.hnavy*{:.hnavy}
-    *.hfuchsia*{:.hfuchsia}
-    *.hpurple*{:.hpurple}
+## 背景色: {#background}
+- \-\-hd: 0.05em *(背景、边框距离)*
 
-- 边框色 
-  - \-\-bw: 2px *(边框粗细)*
-  - \-\-bd: 0.05em *(背景、边框距离)*
-  - 
-  - *.bw*{:.bw}
-    *.bb*{:.bb}
-    *.br*{:.br}
-  - *.bwhite*{:.bwhite}
-    *.bsilver*{:.bsilver}
-    *.bgray*{:.bgray}
-    *.bblack*{:.bblack}
-    *.bred*{:.bred}
-    *.bmaroon*{:.bmaroon}
-    *.byellow*{:.byellow}
-    *.bolive*{:.bolive}
-    *.blime*{:.blime}
-    *.bgreen*{:.bgreen}
-    *.baqua*{:.baqua}
-    *.bteal*{:.bteal}
-    *.bblue*{:.bblue}
-    *.bnavy*{:.bnavy}
-    *.bfuchsia*{:.bfuchsia}
-    *.bpurple*{:.bpurple}
+### 默认 {#background-default}
+- *.h*{:.h}
 
-- 伪标题: 
-  <span>.fake h1</span>{:.fake.h1} 
-  <span>.fake h2</span>{:.fake.h2} 
-  <span>.fake h3</span>{:.fake.h3} 
-  <span>.fake h4</span>{:.fake.h4} 
-  <span>.fake h5</span>{:.fake.h5} 
-  <span>.fake h6</span>{:.fake.h6}
+### 快速 {#background-fast}
+- *.hw*{:.hw}
+  *.hb*{:.hb}
+  *.hr*{:.hr}
 
-- 注音：
-  - *这是文字*{:r="这是注音"}  
-    \*这是文字\*{:r="这是注音"}
-  - 
-  - *这*{:r="zhe"} *是*{:r="shi"} *文*{:r="zhu"} *字*{:r="yin"}  
-    \*这\*{:r="zhe"} \*是\*{:r="shi"} \*文\*{:r="zhu"} \*字\*{:r="yin"}
+### 16色 {#background-16}
+- *.hwhite*{:.hwhite}
+  *.hsilver*{:.hsilver}
+  *.hgray*{:.hgray}
+  *.hblack*{:.hblack}
+  *.hred*{:.hred}
+  *.hmaroon*{:.hmaroon}
+  *.hyellow*{:.hyellow}
+  *.holive*{:.holive}
+  *.hlime*{:.hlime}
+  *.hgreen*{:.hgreen}
+  *.haqua*{:.haqua}
+  *.hteal*{:.hteal}
+  *.hblue*{:.hblue}
+  *.hnavy*{:.hnavy}
+  *.hfuchsia*{:.hfuchsia}
+  *.hpurple*{:.hpurple}
 
-- 表格：
-  - 表格默认另开新行，加入 .i 类可转成行内表格
-  - 平表格
-    - |1|a|b|c|
-      |2|d|e|f|
-      |3|g|h|i|
-      |4|j|k|l|
-      {:.i}
+## 边框色: {#border}
+- \-\-bw: 2px *(边框粗细)*
+- \-\-bd: 0.05em *(背景、边框距离)*
+- 
+- *.bw*{:.bw}
+  *.bb*{:.bb}
+  *.br*{:.br}
+- *.bwhite*{:.bwhite}
+  *.bsilver*{:.bsilver}
+  *.bgray*{:.bgray}
+  *.bblack*{:.bblack}
+  *.bred*{:.bred}
+  *.bmaroon*{:.bmaroon}
+  *.byellow*{:.byellow}
+  *.bolive*{:.bolive}
+  *.blime*{:.blime}
+  *.bgreen*{:.bgreen}
+  *.baqua*{:.baqua}
+  *.bteal*{:.bteal}
+  *.bblue*{:.bblue}
+  *.bnavy*{:.bnavy}
+  *.bfuchsia*{:.bfuchsia}
+  *.bpurple*{:.bpurple}
 
-      ||`|1|a|b|c|`|
-      ||`|2|d|e|f|`|
-      ||`|3|g|h|i|`|
-      ||`|4|j|k|l|`|
-      {:.i}
+## 伪标题: {#fake-title}
+- <span>.fake.h1</span>{:.fake.h1} 
+- <span>.fake.h2</span>{:.fake.h2} 
+- <span>.fake.h3</span>{:.fake.h3} 
+- <span>.fake.h4</span>{:.fake.h4} 
+- <span>.fake.h5</span>{:.fake.h5} 
+- <span>.fake.h6</span>{:.fake.h6}
 
-  - 普通表格
-    - |1|a|b|c|
-      |2|d|e|f|
-      |3|g|h|i|
-      |4|j|k|l|
-      {:.t.i}
+## 注音：{#ruby}
+- *这是文字*{:r="这是注音"}  
+  \*这是文字\*{:r="这是注音"}
+- 
+- *这*{:r="zhe"} *是*{:r="shi"} *文*{:r="zhu"} *字*{:r="yin"}  
+  \*这\*{:r="zhe"} \*是\*{:r="shi"} \*文\*{:r="zhu"} \*字\*{:r="yin"}
 
-      ||`|1|a|b|c|`|
-      ||`|2|d|e|f|`|
-      ||`|3|g|h|i|`|
-      ||`|4|j|k|l|`|
-      ||`{:.t}`|
-      {:.i}
+## 表格：{#table}
+- 表格默认另开新行，加入 .i 类可转成行内表格
+- 平表格
+  - |1|a|b|c|
+    |2|d|e|f|
+    |3|g|h|i|
+    |4|j|k|l|
+    {:.i}
 
-    - ||一|二|三|
-      |---
-      |1|a|b|c|
-      |2|d|e|f|
-      |---
-      |1|a|b|c|
-      |2|d|e|f|
-      |3|g|h|i|
-      |4|j|k|l|
-      |===
-      |0|z|z|z|
-      {:.t.i h="这是表格"}
+    ||`|1|a|b|c|`|
+    ||`|2|d|e|f|`|
+    ||`|3|g|h|i|`|
+    ||`|4|j|k|l|`|
+    {:.i}
 
-      ||`| |一|二|三|`|
-      ||`|----------|`|
-      ||`|1|a |b |c |`|
-      ||`|2|d |e |f |`|
-      ||`|----------|`|
-      ||`|1|a |b |c |`|
-      ||`|2|d |e |f |`|
-      ||`|3|g |h |i |`|
-      ||`|4|j |k |l |`|
-      ||`|==========|`|
-      ||`|0|z |z |z |`|
-      ||`{:.t h="这是表格"}`|
-      {:.i}
+- 普通表格
+  - |1|a|b|c|
+    |2|d|e|f|
+    |3|g|h|i|
+    |4|j|k|l|
+    {:.t.i}
 
-  - 简单表格
-    - |1|a|b|c|
-      |2|d|e|f|
-      |3|g|h|i|
-      |4|j|k|l|
-      {:.ts.i}
+    ||`|1|a|b|c|`|
+    ||`|2|d|e|f|`|
+    ||`|3|g|h|i|`|
+    ||`|4|j|k|l|`|
+    ||`{:.t}`|
+    {:.i}
 
-      ||`|1|a|b|c|`|
-      ||`|2|d|e|f|`|
-      ||`|3|g|h|i|`|
-      ||`|4|j|k|l|`|
-      ||`{:.ts}`|
-      {:.i}
+  - ||一|二|三|
+    |---
+    |1|a|b|c|
+    |2|d|e|f|
+    |---
+    |1|a|b|c|
+    |2|d|e|f|
+    |3|g|h|i|
+    |4|j|k|l|
+    |===
+    |0|z|z|z|
+    {:.t.i h="这是表格"}
 
-    - ||一|二|三|
-      |---
-      |1|a|b|c|
-      |2|d|e|f|
-      |---
-      |1|a|b|c|
-      |2|d|e|f|
-      |3|g|h|i|
-      |4|j|k|l|
-      |===
-      |0|z|z|z|
-      {:.ts.i h="这是表格"}
+    ||`| |一|二|三|`|
+    ||`|----------|`|
+    ||`|1|a |b |c |`|
+    ||`|2|d |e |f |`|
+    ||`|----------|`|
+    ||`|1|a |b |c |`|
+    ||`|2|d |e |f |`|
+    ||`|3|g |h |i |`|
+    ||`|4|j |k |l |`|
+    ||`|==========|`|
+    ||`|0|z |z |z |`|
+    ||`{:.t h="这是表格"}`|
+    {:.i}
 
-      ||`| |一|二|三|`|
-      ||`|----------|`|
-      ||`|1|a |b |c |`|
-      ||`|2|d |e |f |`|
-      ||`|----------|`|
-      ||`|1|a |b |c |`|
-      ||`|2|d |e |f |`|
-      ||`|3|g |h |i |`|
-      ||`|4|j |k |l |`|
-      ||`|==========|`|
-      ||`|0|z |z |z |`|
-      ||`{:.ts h="这是表格"}`|
-      {:.i}
+- 简单表格
+  - |1|a|b|c|
+    |2|d|e|f|
+    |3|g|h|i|
+    |4|j|k|l|
+    {:.ts.i}
 
-  - --tbc: 调整空表格**以外**的表格颜色
-  - --tbtc: 调整表格文字颜色
-    - ||一|二|三|
-      |---
-      |1|a|b|c|
-      |2|d|e|f|
-      |---
-      |1|a|b|c|
-      |2|d|e|f|
-      |3|g|h|i|
-      |4|j|k|l|
-      |===
-      |0|z|z|z|
-      {:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}
+    ||`|1|a|b|c|`|
+    ||`|2|d|e|f|`|
+    ||`|3|g|h|i|`|
+    ||`|4|j|k|l|`|
+    ||`{:.ts}`|
+    {:.i}
 
-      ||`| |一|二|三|`|
-      ||`|----------|`|
-      ||`|1|a |b |c |`|
-      ||`|2|d |e |f |`|
-      ||`|----------|`|
-      ||`|1|a |b |c |`|
-      ||`|2|d |e |f |`|
-      ||`|3|g |h |i |`|
-      ||`|4|j |k |l |`|
-      ||`|==========|`|
-      ||`|0|z |z |z |`|
-      ||`{:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}`|
-      {:.i}
+  - ||一|二|三|
+    |---
+    |1|a|b|c|
+    |2|d|e|f|
+    |---
+    |1|a|b|c|
+    |2|d|e|f|
+    |3|g|h|i|
+    |4|j|k|l|
+    |===
+    |0|z|z|z|
+    {:.ts.i h="这是表格"}
 
-- 文本块：
-  - 平文本块：
-      > \> 文本
-  - 提示块：
-      > \> 文本
-      > 
-      > \{:.info}
-      {:.info}
-  - 警告块
-      > \> 文本
-      > 
-      > \{:.warn}
-      {:.warn}
-  - 嵌套结构块：<br>
-      > \> 文本
-      > 
-      > \>
-      > 
-      > \> 文本
-      > 
-      > \>
-      > 
-      > > \> \> 文本
-      > >
-      > > \> \> 
-      > >
-      > > > \> \> \> 文本
-      > 
-      > \>
-      > 
-      > > > > > \> \> \> \> \> 
-      > 
-      {:.layer}
+    ||`| |一|二|三|`|
+    ||`|----------|`|
+    ||`|1|a |b |c |`|
+    ||`|2|d |e |f |`|
+    ||`|----------|`|
+    ||`|1|a |b |c |`|
+    ||`|2|d |e |f |`|
+    ||`|3|g |h |i |`|
+    ||`|4|j |k |l |`|
+    ||`|==========|`|
+    ||`|0|z |z |z |`|
+    ||`{:.ts h="这是表格"}`|
+    {:.i}
 
+- --tbc: 调整空表格**以外**的表格颜色
+- --tbtc: 调整表格文字颜色
+  - ||一|二|三|
+    |---
+    |1|a|b|c|
+    |2|d|e|f|
+    |---
+    |1|a|b|c|
+    |2|d|e|f|
+    |3|g|h|i|
+    |4|j|k|l|
+    |===
+    |0|z|z|z|
+    {:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}
 
+    ||`| |一|二|三|`|
+    ||`|----------|`|
+    ||`|1|a |b |c |`|
+    ||`|2|d |e |f |`|
+    ||`|----------|`|
+    ||`|1|a |b |c |`|
+    ||`|2|d |e |f |`|
+    ||`|3|g |h |i |`|
+    ||`|4|j |k |l |`|
+    ||`|==========|`|
+    ||`|0|z |z |z |`|
+    ||`{:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}`|
+    {:.i}
 
-
-
-## Fancy classes - *酷炫装饰类！*{:.small}:
-
-- 彩虹 (不兼容阴影.shadow与描边.stroke)：
-  - *.rainbow*{:.rainbow}
-    - \-\-rspd: 1s *(彩虹滚动速度)*
+## 文本块：{#block}
+- 平文本块：
+    > \> 文本
+- 提示块：
+    > \> 文本
+    > 
+    > \{:.info}
+    {:.info}
+- 警告块
+    > \> 文本
+    > 
+    > \{:.warn}
+    {:.warn}
+- 嵌套结构块：<br>
+    > \> 文本
+    > 
+    > \>
+    > 
+    > \> 文本
+    > 
+    > \>
+    > 
+    > > \> \> 文本
+    > >
+    > > \> \> 
+    > >
+    > > > \> \> \> 文本
+    > 
+    > \>
+    > 
+    > > > > > \> \> \> \> \> 
+    > 
+    > \{:.layer}
+    {:.layer}
 
 
-  - *.rainbow.fancy*{:.rainbow.fancy}
-    - \-\-rspd: 10s *(彩虹滚动速度)*
-    - \-\-rs: 0.1em *(阴影距离)*
-    - \-\-rst: 0.03em *(描边粗细)*
-    - \-\-rsc: #00f *(阴影描边颜色)*
 
-  - *.rainbow.cmy*{:.rainbow.cmy} *.rainbow.fancy.cmy*{:.rainbow.fancy.cmy} 彩虹但是青品黄
+## Fancy classes - *酷炫装饰类！*{:.small}: {#fancy}
 
-- 阴影：
-  - *.shadow*{:.shadow}
-    - \-\-sdd: 4px *(阴影距离)*
-    - \-\-sdc: #000 *(阴影颜色)*
-  - *.echo*{:.echo} 
+## 彩虹 (不兼容阴影 .shadow 与描边 .stroke ): {#rainbow}
+- *.rainbow*{:.rainbow}
+  - \-\-rspd: 1s *(彩虹滚动速度)*
 
-- 描边：
-  - *.stroke*{:.stroke}
-    - \-\-std: 2px *(描边距离)*
-    - \-\-stc: #440 *(描边颜色)*
 
-- 动画！：
-  - *.pulse*{:.pulse} *(不完全兼容.rainbow)*
-    - \-\-pspd: .25s *(跳动速度)*
-    - \-\-pscl: 1.2 *(跳动大小倍率)*7
-    - \-\-pphs: 0 *(跳动动画相位偏移)*
-      - 与 \-\-rphs 同理：
-        - 最好使用 0 至 1 之间的值（偏移 0 至 1 周期）
-        - 使用负数值将导致动画延迟出现
+- *.rainbow.fancy*{:.rainbow.fancy}
+  - \-\-rspd: 10s *(彩虹滚动速度)*
+  - \-\-rs: 0.1em *(阴影距离)*
+  - \-\-rst: 0.03em *(描边粗细)*
+  - \-\-rsc: #00f *(阴影描边颜色)*
 
-  - *.rotate*{:.rotate} *(不兼容.rainbow)*
-    - *.rotate.rev*{:.rotate.rev}
-    - *\-\-rpsd: 1s*{:.rotate style="--rpsd:1s"} *(旋转速度(周期) -- 默认 3s)*
-    - *\-\-ofst-x: 50%*{:.rotate style="--ofst-x:50%"} *(水平偏移旋转中心 -- 默认 0%)*
-    - *\-\-ofst-y: 300%*{:.rotate style="--ofst-y:300%"} *(垂直偏移旋转中心 -- 默认 0%)*
-    - *\-\-rphs: 0*{:.rotate}
-      *\-\-rphs: .25*{:.rotate style="--rphs:0.25"} *(旋转相位偏移 -- 默认 0)*
+- *.rainbow.cmy*{:.rainbow.cmy} *.rainbow.fancy.cmy*{:.rainbow.fancy.cmy} 彩虹但是青品黄
+
+## 阴影: {#shadow}
+- *.shadow*{:.shadow}
+  - \-\-sdd: 4px *(阴影距离)*
+  - \-\-sdc: #000 *(阴影颜色)*
+- *.echo*{:.echo} 
+
+## 描边: {#stroke}
+- *.stroke*{:.stroke}
+  - \-\-std: 2px *(描边距离)*
+  - \-\-stc: #440 *(描边颜色)*
+
+## 动画！: {#animate}
+- *.pulse*{:.pulse} *(不完全兼容.rainbow)*
+  - \-\-pspd: .25s *(跳动速度)*
+  - \-\-pscl: 1.2 *(跳动大小倍率)*7
+  - \-\-pphs: 0 *(跳动动画相位偏移)*
+    - 与 \-\-rphs 同理：
       - 最好使用 0 至 1 之间的值（偏移 0 至 1 周期）
       - 使用负数值将导致动画延迟出现
 
-  - 嵌套使用段落类（block-level class）和内容类（inline class），以同时使用旋转文字（.rotate）和跳动文字（.pulse） *（在同一元素中无法同时使用两者--无法直接{:.rotate.pulse}）*：
-    - \{:.rotate\}  
-      \*文字内容\*{:.pulse}
-    - {:.rotate} *{:.rotate}  
-      \*文字内容\*{:.pulse}*{:.pulse}
+- *.rotate*{:.rotate} *(不兼容.rainbow)*
+  - *.rotate.rev*{:.rotate.rev}
+  - *\-\-rpsd: 1s*{:.rotate style="--rpsd:1s"} *(旋转速度(周期) -- 默认 3s)*
+  - *\-\-ofst-x: 50%*{:.rotate style="--ofst-x:50%"} *(水平偏移旋转中心 -- 默认 0%)*
+  - *\-\-ofst-y: 300%*{:.rotate style="--ofst-y:300%"} *(垂直偏移旋转中心 -- 默认 0%)*
+  - *\-\-rphs: 0*{:.rotate}
+    *\-\-rphs: .25*{:.rotate style="--rphs:0.25"} *(旋转相位偏移 -- 默认 0)*
+    - 最好使用 0 至 1 之间的值（偏移 0 至 1 周期）
+    - 使用负数值将导致动画延迟出现
 
-&nbsp;
-
-&nbsp;
+- 嵌套使用段落类（block-level class）和内容类（inline class），以同时使用旋转文字（.rotate）和跳动文字（.pulse） *（在同一元素中无法同时使用两者--无法直接{:.rotate.pulse}）*：
+  - \{:.rotate\}  
+    \*文字内容\*{:.pulse}
+  - {:.rotate} *{:.rotate}  
+    \*文字内容\*{:.pulse}*{:.pulse}
 
 ---
 
-{:.rainbow.fancy .bigger .u}
-
-# 欢迎来到 *霧雨蘑菇店*{:.big} <br> *<ruby>う <rt>yo</rt> こ <rt>ko</rt> そ <rt>so</rt></ruby>！*{:.big .swrap .r}
-
-*超大*{:.bigger} *大*{:.big} *小*{:.small} *超小*{:.smaller}
-
-# *超大标题*{:.bigger} *大标题*{:.big} *小标题*{:.small} *超小标题*{:.smaller}
-
-{:.echo}
-# 我是，混响男孩
-
-## 请使用天亦 3G 设备浏览本网页以获得最佳体验
-
-### 请使用天亦 3G 设备浏览本网页以获得最佳体验
-
-#### 请使用天亦 3G 设备浏览本网页以获得最佳体验
-
-##### 请使用天亦 3G 设备浏览本网页以获得最佳体验
-
-###### 请使用天亦 3G 设备浏览本网页以获得最佳体验
+## 文字排版测试用
 
 午后之时，那银白色的幻想乡。
 

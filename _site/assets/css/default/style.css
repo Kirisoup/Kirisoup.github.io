@@ -316,16 +316,23 @@ template {
   --txtColor: #44d;
   --txtColor-sat: #00f;
   --txtColor-fade: #eef;
+  --txtColor2: #000;
   --txtColor3: #d44;
   --txtColor3-fade: #fee;
-  --txtColor2: #000;
   --pgColor: #fff;
 }
 
 /* ==== M A I N ==== */
-.soup\.exe {
+#soup\.exe {
   border: #fff 1px solid;
   box-shadow: 10px 10px 20px 10px #44d;
+}
+#soup\.exe::-webkit-resizer {
+  background: url(/assets/image/resizer.gif);
+  background-size: cover;
+}
+
+#soup\.exe, #pseu {
   max-height: 90vh;
   max-width: 95vw;
   min-height: min(480px, 25vh);
@@ -364,7 +371,7 @@ html::after {
   opacity: 0.5;
 }
 
-html:not(:has(.cornerCara[id="0"])) {
+html:has(.cornerCara:not([id="0"])) {
   background: url(/assets/image/IMG_1148.JPG), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/IMG_1148.JPG);
   background-size: contain;
   background-position: right;
@@ -375,7 +382,7 @@ html:not(:has(.cornerCara[id="0"])) {
 /* ======= */
 /* ==== C 1 ==== */
 .c1 .banner {
-  border: #44d 1px solid;
+  border: #000 1px solid;
   background: url(/assets/image/xp.gifv), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/xp.gifv);
   background-size: cover;
 }
@@ -440,10 +447,10 @@ html:not(:has(.cornerCara[id="0"])) {
   display: inline-block;
 }
 .c1 .main .nav-c p {
-  transition: all 0ms 200ms, background-color 400ms 200ms;
+  transition: all 0s 0.2s, background-color 0.4s 0.2s;
 }
 .c1 .main .nav-c p:hover {
-  transition: all 0ms;
+  transition: all 0s;
   padding-left: 20%;
   background-color: #ccf;
 }
@@ -515,7 +522,7 @@ html:not(:has(.cornerCara[id="0"])) {
 }
 
 .fullscreen {
-  transition: opacity 200ms 200ms, top 200ms, bottom 200ms;
+  transition: opacity 0.2s 0.2s, top 0.2s, bottom 0.2s;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -535,7 +542,7 @@ html:not(:has(.cornerCara[id="0"])) {
   box-shadow: -1px -1px 0 1px #dfdfdf, 0 0 0 2px #000;
 }
 .fullscreen.on {
-  transition: opacity 200ms, top 200ms, bottom 200ms, background-color 200ms, border 200ms;
+  transition: opacity 0.2s, top 0.2s, bottom 0.2s, background-color 0.2s, border 0.2s;
   opacity: 1;
   pointer-events: all;
   top: 2vh;
@@ -648,11 +655,11 @@ html:not(:has(.cornerCara[id="0"])) {
 }
 
 .content, .window {
-  transition: color 0ms 500ms, background-color 200ms 500ms, border-color 200ms 500ms;
+  transition: color 0s 0.5s, background-color 0.2s 0.5s, border-color 0.2s 0.5s;
 }
 
 .buttonBar:has(.darkTg input:checked) ~ .content, .content:has(~ .buttonBar .darkTg input:checked) {
-  transition: color 0ms, background-color 200ms;
+  transition: color 0s, background-color 0.2s;
   --txtColor: #aaf;
   --txtColor-sat: #00c;
   --txtColor-fade: #224;
@@ -667,7 +674,7 @@ html:not(:has(.cornerCara[id="0"])) {
 }
 
 .fullscreen:has(.darkTg input:checked) {
-  transition: opacity 200ms 200ms, top 200ms, bottom 200ms, background-color 200ms, border 200ms;
+  transition: opacity 0.2s 0.2s, top 0.2s, bottom 0.2s, background-color 0.2s, border 0.2s;
   background: #444;
   border: 3px solid;
   border-left-color: #000;
@@ -706,8 +713,8 @@ html:not(:has(.cornerCara[id="0"])) {
   position: absolute;
   inset: 0;
 }
-.soup\.exe:hover ~ .cornerCara-b, .soup\.exe:active ~ .cornerCara-b {
-  transition: opacity 0ms;
+#soup\.exe:hover ~ .cornerCara-b, #soup\.exe:active ~ .cornerCara-b {
+  transition: opacity 0s;
   opacity: 0.5;
 }
 .cornerCara[id="0"] + .cornerCara-b, .cornerCara[id="0"]::before {
@@ -831,7 +838,7 @@ html:not(:has(.cornerCara[id="0"])) {
 
 .mask:has(input:checked) ~ .vid {
   display: block;
-  animation: flicker 50ms linear infinite;
+  animation: flicker 0.05s linear infinite;
 }
 
 .pc {
@@ -861,11 +868,11 @@ html:not(:has(.cornerCara[id="0"])) {
   z-index: 20;
   transform: rotate(9deg) skew(7deg);
 }
-.soup\.exe:hover ~ .ibm-b .pc {
+#soup\.exe:hover ~ .ibm-b .pc {
   transition: visibility 0s;
   visibility: visible;
 }
-.soup\.exe:hover ~ .ibm .pc-b {
+#soup\.exe:hover ~ .ibm .pc-b {
   transition: 0s;
   opacity: 0;
 }
@@ -906,12 +913,12 @@ html:not(:has(.cornerCara[id="0"])) {
 
 /* ======== */
 /* ==== C U R S O R ==== */
-.soup\.exe, .fullscreen {
+#soup\.exe, .fullscreen {
   cursor: url(/assets/image/cursor/hat.gif), url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/image/cursor/hat.gif), auto !important;
 }
 
 a, button, label, .cornerCara {
-  animation: wonderCursor 500ms infinite;
+  animation: wonderCursor 0.5s infinite;
 }
 @keyframes wonderCursor {
   0% {
@@ -932,14 +939,14 @@ a, button, label, .cornerCara {
 }
 
 canvas {
-  transition: 500ms;
+  transition: 0.5s;
   opacity: 0.5;
   z-index: -2;
   image-rendering: pixelated;
 }
-.soup\.exe:hover ~ canvas {
+#soup\.exe:hover ~ canvas {
   opacity: 0;
-  animation: hideCanvas 500ms linear forwards;
+  animation: hideCanvas 0.5s linear forwards;
 }
 @keyframes hideCanvas {
   0% {
@@ -950,7 +957,68 @@ canvas {
   }
 }
 
+/* ==== T X T ==== */
+html {
+  color: #000;
+  text-underline-offset: 25%;
+}
+
+.content {
+  color: var(--txtColor) !important;
+}
+.content > p:not([class], :has(img)):after {
+  content: "湯";
+  position: relative;
+  display: inline-block;
+  line-height: 0.5em;
+  padding-left: 0.3em;
+  opacity: 0.5;
+  font-size: 0.7em;
+  color: var(--txtColor3);
+  transform: rotate(15deg);
+  white-space: pre;
+}
+
+hr {
+  border: none;
+  border-block: 2px var(--txtColor) solid;
+  height: 0.2em;
+  margin-block: 1em;
+}
+
+ul {
+  list-style-type: "☆ ";
+}
+ul ::marker {
+  font-weight: bolder;
+}
+ul ul {
+  list-style-type: hebrew;
+}
+ul ul ::marker {
+  font-size: 0.7em;
+}
+ul ul ul {
+  list-style-type: "。 ";
+}
+ul ul ul ::marker {
+  font-size: 1em;
+}
+ul ul ul ul ::marker {
+  font-size: 0.7em;
+}
+ul ul ul ul ul {
+  list-style-type: "· ";
+}
+ul ul ul ul ul ::marker {
+  font-size: 0.62em;
+}
+
 /* ==== F O N T ==== */
+html {
+  font-display: swap;
+}
+
 html {
   font-family: "fusion", "gfw-fusion", sans-serif;
 }
@@ -996,58 +1064,6 @@ em:not(.i)[class], em:not(.i)[r], em:not(.i)[t] {
   font-style: normal;
 }
 
-html {
-  text-underline-offset: 25%;
-}
-
-.content {
-  color: var(--txtColor) !important;
-}
-.content > p:not([class], :has(img)):after {
-  content: "湯";
-  position: relative;
-  display: inline-block;
-  line-height: 0.5em;
-  padding-left: 0.3em;
-  opacity: 0.5;
-  font-size: 0.7em;
-  color: var(--txtColor3);
-  transform: rotate(15deg);
-  white-space: pre;
-}
-
-hr {
-  border: none;
-  border-block: 2px var(--txtColor) solid;
-  height: 0.2em;
-  margin-block: 1em;
-}
-
-ul {
-  list-style-type: hebrew;
-}
-ul ::marker {
-  font-weight: bolder;
-}
-ul ul ::marker {
-  font-size: 0.7em;
-}
-ul ul ul {
-  list-style-type: circle;
-}
-ul ul ul ::marker {
-  font-size: 1em;
-}
-ul ul ul ul ::marker {
-  font-size: 0.7em;
-}
-ul ul ul ul ul {
-  list-style-type: disc;
-}
-ul ul ul ul ul ::marker {
-  font-size: 0.62em;
-}
-
 :root {
   --s: 1;
 }
@@ -1068,7 +1084,7 @@ ul ul ul ul ul ::marker {
   --s: .5;
 }
 
-.resize:not(h1, h2, h3, h4, h5, h6, .fake), .big:not(h1, h2, h3, h4, h5, h6, .fake), .bigger:not(h1, h2, h3, h4, h5, h6, .fake), .small:not(h1, h2, h3, h4, h5, h6, .fake), .smaller:not(h1, h2, h3, h4, h5, h6, .fake) {
+.size:not(h1, h2, h3, h4, h5, h6, .fake), .big:not(h1, h2, h3, h4, h5, h6, .fake), .bigger:not(h1, h2, h3, h4, h5, h6, .fake), .small:not(h1, h2, h3, h4, h5, h6, .fake), .smaller:not(h1, h2, h3, h4, h5, h6, .fake) {
   font-size: calc(var(--s) * 1em);
 }
 
@@ -1081,7 +1097,7 @@ h1, .fake.h1 {
   font-weight: bold;
   --size: 2;
 }
-h1.resize, h1.big, h1.bigger, h1.small, h1.smaller, .fake.h1.resize, .fake.h1.big, .fake.h1.bigger, .fake.h1.small, .fake.h1.smaller {
+h1.size, h1.big, h1.bigger, h1.small, h1.smaller, .fake.h1.size, .fake.h1.big, .fake.h1.bigger, .fake.h1.small, .fake.h1.smaller {
   font-size: calc(var(--size) * var(--s) * 1em);
 }
 
@@ -1094,59 +1110,59 @@ h2, .fake.h2 {
   font-weight: bold;
   --size: 1.6;
 }
-h2.resize, h2.big, h2.bigger, h2.small, h2.smaller, .fake.h2.resize, .fake.h2.big, .fake.h2.bigger, .fake.h2.small, .fake.h2.smaller {
+h2.size, h2.big, h2.bigger, h2.small, h2.smaller, .fake.h2.size, .fake.h2.big, .fake.h2.bigger, .fake.h2.small, .fake.h2.smaller {
   font-size: calc(var(--size) * var(--s) * 1em);
 }
 
 h3 {
-  font-size: 1.25em;
+  font-size: 1.2em;
 }
 
 h3, .fake.h3 {
-  font-size: 1.25em;
+  font-size: 1.2em;
   font-weight: bold;
-  --size: 1.25;
+  --size: 1.2;
 }
-h3.resize, h3.big, h3.bigger, h3.small, h3.smaller, .fake.h3.resize, .fake.h3.big, .fake.h3.bigger, .fake.h3.small, .fake.h3.smaller {
+h3.size, h3.big, h3.bigger, h3.small, h3.smaller, .fake.h3.size, .fake.h3.big, .fake.h3.bigger, .fake.h3.small, .fake.h3.smaller {
   font-size: calc(var(--size) * var(--s) * 1em);
 }
 
 h4 {
-  font-size: 1.25em;
+  font-size: 1.2em;
 }
 
 h4, .fake.h4 {
-  font-size: 1.25em;
+  font-size: 1.2em;
   font-weight: bold;
-  --size: 1.25;
+  --size: 1.2;
 }
-h4.resize, h4.big, h4.bigger, h4.small, h4.smaller, .fake.h4.resize, .fake.h4.big, .fake.h4.bigger, .fake.h4.small, .fake.h4.smaller {
+h4.size, h4.big, h4.bigger, h4.small, h4.smaller, .fake.h4.size, .fake.h4.big, .fake.h4.bigger, .fake.h4.small, .fake.h4.smaller {
   font-size: calc(var(--size) * var(--s) * 1em);
 }
 
 h5 {
-  font-size: 1.25em;
+  font-size: 1.2em;
 }
 
 h5, .fake.h5 {
-  font-size: 1.25em;
+  font-size: 1.2em;
   font-weight: bold;
-  --size: 1.25;
+  --size: 1.2;
 }
-h5.resize, h5.big, h5.bigger, h5.small, h5.smaller, .fake.h5.resize, .fake.h5.big, .fake.h5.bigger, .fake.h5.small, .fake.h5.smaller {
+h5.size, h5.big, h5.bigger, h5.small, h5.smaller, .fake.h5.size, .fake.h5.big, .fake.h5.bigger, .fake.h5.small, .fake.h5.smaller {
   font-size: calc(var(--size) * var(--s) * 1em);
 }
 
 h6 {
-  font-size: 1.25em;
+  font-size: 1.2em;
 }
 
 h6, .fake.h6 {
-  font-size: 1.25em;
+  font-size: 1.2em;
   font-weight: bold;
-  --size: 1.25;
+  --size: 1.2;
 }
-h6.resize, h6.big, h6.bigger, h6.small, h6.smaller, .fake.h6.resize, .fake.h6.big, .fake.h6.bigger, .fake.h6.small, .fake.h6.smaller {
+h6.size, h6.big, h6.bigger, h6.small, h6.smaller, .fake.h6.size, .fake.h6.big, .fake.h6.bigger, .fake.h6.small, .fake.h6.smaller {
   font-size: calc(var(--size) * var(--s) * 1em);
 }
 
@@ -1159,26 +1175,116 @@ h4, h6, .fake.h4, .fake.h6 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-block: 1em 1em;
+  margin-top: 1em;
 }
 
 :first-child ~ h1, :first-child ~ h2, :first-child ~ h3, :first-child ~ h4, :first-child ~ h5, :first-child ~ h6 {
-  margin-block: 2em 1em;
+  margin-top: 2em;
+}
+
+h1, h2 {
+  margin-bottom: 1em;
+}
+
+h3, h4, h5, h6 {
+  margin-bottom: 0.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  inset: -0.5rem -0.2rem;
+  padding: 0.5rem 0.2rem;
+}
+
+h1 {
+  border-bottom: var(--txtColor) 3px solid;
+}
+
+h2 {
+  border-bottom: var(--txtColor) 3px dashed;
+}
+
+h3 {
+  border-bottom: var(--txtColor) 3px dotted;
+}
+
+h3 {
+  width: max-content;
+}
+
+h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+  --notify: "--> 点击复制标题链接";
+}
+h1[id]::before, h1[id]::after, h2[id]::before, h2[id]::after, h3[id]::before, h3[id]::after, h4[id]::before, h4[id]::after, h5[id]::before, h5[id]::after, h6[id]::before, h6[id]::after {
+  font-weight: normal;
+  font-size: max(0.5em, 0.8rem);
+  opacity: 0.7;
+}
+
+h1[id]::before, h1[id]::after, h2[id]::before, h2[id]::after {
+  display: block;
+}
+h1[id]::before, h2[id]::before {
+  content: "#" attr(id) " ";
+  position: relative;
+  bottom: 0.2em;
+  text-decoration: dashed underline 1.5px;
+}
+h1[id]:hover::after, h2[id]:hover::after {
+  content: var(--notify);
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  background: var(--pgColor);
+  opacity: 1;
+}
+h1[id]:active, h2[id]:active {
+  background: var(--txtColor);
+  color: var(--pgColor);
+}
+h1[id]:active::after, h2[id]:active::after {
+  content: "";
+}
+
+h3[id]::after, h4[id]::after, h5[id]::after, h6[id]::after {
+  content: " #" attr(id) " " " ";
+}
+h3[id]:hover::before, h4[id]:hover::before, h5[id]:hover::before, h6[id]:hover::before {
+  content: var(--notify);
+  position: absolute;
+  top: -0.8em;
+  text-wrap: nowrap;
+  background: var(--pgColor);
+  opacity: 1;
+}
+h3[id]:active, h4[id]:active, h5[id]:active, h6[id]:active {
+  background: var(--txtColor);
+  color: var(--pgColor);
+}
+h3[id]:active::before, h4[id]:active::before, h5[id]:active::before, h6[id]:active::before {
+  content: "";
+}
+
+.l, .c, .r {
+  --ofs: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  transform: translateX(--ofs);
+}
+
+.l {
+  text-align: left;
+  left: 0;
 }
 
 .c {
-  position: relative;
-  display: block;
   text-align: center;
-  width: 100%;
 }
 
 .r {
-  position: relative;
-  display: block;
   text-align: right;
   right: 0;
-  width: 100%;
 }
 .r::after {
   white-space: pre;
@@ -1564,32 +1670,44 @@ del.u.ovl.-w, .del.u.ovl.-w {
   content: attr(t);
 }
 
-a::before {
+.content a::before {
   content: "转到：" attr(href) attr(t);
 }
 
 [t], a {
-  --tc: var(--txtColor);
   position: relative;
 }
 [t]::before, a::before {
-  transition: 200ms 400ms;
+  transition: 0.2s 0.4s;
   pointer-events: none;
   position: absolute;
   left: 0;
   top: 0.5em;
   z-index: 10;
   width: fit-content;
-  border: var(--tc) solid 2px;
   padding: 0.2em 0.5em;
-  box-shadow: 4px 4px var(--tc);
   background: var(--pgColor);
   opacity: 0;
 }
 [t]:hover::before, a:hover::before {
-  transition: 0ms;
+  transition: 0s;
   top: 2em;
   opacity: 1;
+}
+[t], a {
+  --tc: var(--txtColor);
+}
+[t]::before, a::before {
+  color: var(--tc);
+  border: var(--tc) solid 2px;
+  box-shadow: 4px 4px var(--tc);
+}
+
+.above[t]::before {
+  top: -0.5em;
+}
+.above[t]:hover::before {
+  top: -2em;
 }
 
 table {
@@ -1714,31 +1832,22 @@ blockquote.warn::before {
   font-weight: normal;
   padding-inline: 0.4em;
 }
-blockquote.layer:hover {
-  background: var(--txtColor-fade);
-}
 blockquote.layer, blockquote.layer blockquote:not([class]) {
-  transition: 200ms 500ms border, 200ms 500ms box-shadow;
-  margin: 0 0.3em;
+  transition: border-color 0.4s;
   padding: 0.5em;
   box-shadow: -3px 0 var(--txtColor);
   border: rgba(0, 0, 0, 0) 3px solid;
-  border-left-width: 0;
+  border-left-width: 0px;
 }
 blockquote.layer:hover, blockquote.layer blockquote:not([class]):hover {
-  transition: 0ms border, 0ms box-shadow;
+  transition: border-color 0s;
   border-color: var(--txtColor);
-  box-shadow: -3px 0 var(--txtColor), 2px 2px 0 2px var(--txtColor);
 }
-blockquote.layer blockquote:not([class]) p {
-  margin-left: 0.5em;
+blockquote.layer:hover, blockquote.layer > blockquote:not([class]):hover {
+  box-shadow: -3px 0 var(--txtColor), 3px 3px var(--txtColor);
 }
-blockquote.layer blockquote:not([class]):hover:not(:has(blockquote:not([class]):hover)) {
-  background: var(--pgColor);
-}
-blockquote.layer blockquote:not([class]):hover:not(:has(blockquote:not([class]):hover)) blockquote {
-  transition: 200ms 500ms border, 200ms 500ms box-shadow;
-  background: var(--pgColor);
+blockquote.layer blockquote:not([class]) {
+  margin: 0 0.3em;
 }
 
 /* ================ F A N C Y ================ */
@@ -1780,44 +1889,44 @@ blockquote.layer blockquote:not([class]):hover:not(:has(blockquote:not([class]):
 }
 
 .echo {
-  text-shadow: 2px 2px var(--pgColor), 0.2em 0.2em rgba(68, 68, 221, 0.5333333333), 0.5em 0.5em rgba(68, 68, 221, 0.2666666667), 0.8em 0.8em rgba(68, 68, 221, 0.1333333333);
+  text-shadow: 0.1em 0.1em rgba(68, 68, 221, 0.5333333333), 0.2em 0.2em rgba(68, 68, 221, 0.2666666667), 0.3em 0.3em rgba(68, 68, 221, 0.1333333333);
   padding-bottom: 0.8em;
 }
 .echo-down {
-  text-shadow: 0px 2px var(--pgColor), 0em 0.2em rgba(68, 68, 221, 0.5333333333), 0em 0.5em rgba(68, 68, 221, 0.2666666667), 0em 0.8em rgba(68, 68, 221, 0.1333333333);
+  text-shadow: 0em 0.1em rgba(68, 68, 221, 0.5333333333), 0em 0.2em rgba(68, 68, 221, 0.2666666667), 0em 0.3em rgba(68, 68, 221, 0.1333333333);
   padding-bottom: 0.8em;
 }
 .echo-up {
-  text-shadow: 0px -2px var(--pgColor), 0em -0.2em rgba(68, 68, 221, 0.5333333333), 0em -0.5em rgba(68, 68, 221, 0.2666666667), 0em -0.8em rgba(68, 68, 221, 0.1333333333);
+  text-shadow: 0em -0.1em rgba(68, 68, 221, 0.5333333333), 0em -0.2em rgba(68, 68, 221, 0.2666666667), 0em -0.3em rgba(68, 68, 221, 0.1333333333);
   padding-top: 0.8em;
 }
 .echo-right {
-  text-shadow: 2px 0px var(--pgColor), 0.2em 0em rgba(68, 68, 221, 0.5333333333), 0.5em 0em rgba(68, 68, 221, 0.2666666667), 0.8em 0em rgba(68, 68, 221, 0.1333333333);
+  text-shadow: 0.1em 0em rgba(68, 68, 221, 0.5333333333), 0.2em 0em rgba(68, 68, 221, 0.2666666667), 0.3em 0em rgba(68, 68, 221, 0.1333333333);
   padding-right: 0.8em;
 }
 .echo-left {
-  text-shadow: -2px 0px var(--pgColor), -0.2em 0em rgba(68, 68, 221, 0.5333333333), -0.5em 0em rgba(68, 68, 221, 0.2666666667), -0.8em 0em rgba(68, 68, 221, 0.1333333333);
+  text-shadow: -0.1em 0em rgba(68, 68, 221, 0.5333333333), -0.2em 0em rgba(68, 68, 221, 0.2666666667), -0.3em 0em rgba(68, 68, 221, 0.1333333333);
   padding-left: 0.8em;
 }
 
 .echorb {
-  text-shadow: 0.1em 0.1em #d44, 0.2em 0.2em #dd4, 0.3em 0.3em #4dd, 0.4em 0.4em #d4d;
+  text-shadow: 0.05em 0.05em #d44, 0.1em 0.1em #dd4, 0.15em 0.15em #4dd, 0.2em 0.2em #d4d;
   padding-bottom: 0.8em;
 }
 .echorb-down {
-  text-shadow: 0em 0.1em #d44, 0em 0.2em #dd4, 0em 0.3em #4dd, 0em 0.4em #d4d;
+  text-shadow: 0em 0.05em #d44, 0em 0.1em #dd4, 0em 0.15em #4dd, 0em 0.2em #d4d;
   padding-bottom: 0.8em;
 }
 .echorb-up {
-  text-shadow: 0em -0.1em #d44, 0em -0.2em #dd4, 0em -0.3em #4dd, 0em -0.4em #d4d;
+  text-shadow: 0em -0.05em #d44, 0em -0.1em #dd4, 0em -0.15em #4dd, 0em -0.2em #d4d;
   padding-top: 0.8em;
 }
 .echorb-right {
-  text-shadow: 0.1em 0em #d44, 0.2em 0em #dd4, 0.3em 0em #4dd, 0.4em 0em #d4d;
+  text-shadow: 0.05em 0em #d44, 0.1em 0em #dd4, 0.15em 0em #4dd, 0.2em 0em #d4d;
   padding-right: 0.8em;
 }
 .echorb-left {
-  text-shadow: -0.1em 0em #d44, -0.2em 0em #dd4, -0.3em 0em #4dd, -0.4em 0em #d4d;
+  text-shadow: -0.05em 0em #d44, -0.1em 0em #dd4, -0.15em 0em #4dd, -0.2em 0em #d4d;
   padding-left: 0.8em;
 }
 
@@ -1834,23 +1943,43 @@ blockquote.layer blockquote:not([class]):hover:not(:has(blockquote:not([class]):
   padding-bottom: 0.2em;
 }
 .stroke.echo {
-  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 2px 2px var(--pgColor), 0.2em 0.2em rgba(68, 68, 221, 0.5333333333), 0.5em 0.5em rgba(68, 68, 221, 0.2666666667), 0.8em 0.8em rgba(68, 68, 221, 0.1333333333);
+  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0.1em 0.1em rgba(68, 68, 221, 0.5333333333), 0.2em 0.2em rgba(68, 68, 221, 0.2666666667), 0.3em 0.3em rgba(68, 68, 221, 0.1333333333);
   padding-bottom: 0.8em;
 }
 .stroke.echo-down {
-  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0px 2px var(--pgColor), 0em 0.2em rgba(68, 68, 221, 0.5333333333), 0em 0.5em rgba(68, 68, 221, 0.2666666667), 0em 0.8em rgba(68, 68, 221, 0.1333333333);
+  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0em 0.1em rgba(68, 68, 221, 0.5333333333), 0em 0.2em rgba(68, 68, 221, 0.2666666667), 0em 0.3em rgba(68, 68, 221, 0.1333333333);
   padding-bottom: 0.8em;
 }
 .stroke.echo-up {
-  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0px -2px var(--pgColor), 0em -0.2em rgba(68, 68, 221, 0.5333333333), 0em -0.5em rgba(68, 68, 221, 0.2666666667), 0em -0.8em rgba(68, 68, 221, 0.1333333333);
+  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0em -0.1em rgba(68, 68, 221, 0.5333333333), 0em -0.2em rgba(68, 68, 221, 0.2666666667), 0em -0.3em rgba(68, 68, 221, 0.1333333333);
   padding-top: 0.8em;
 }
 .stroke.echo-right {
-  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 2px 0px var(--pgColor), 0.2em 0em rgba(68, 68, 221, 0.5333333333), 0.5em 0em rgba(68, 68, 221, 0.2666666667), 0.8em 0em rgba(68, 68, 221, 0.1333333333);
+  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0.1em 0em rgba(68, 68, 221, 0.5333333333), 0.2em 0em rgba(68, 68, 221, 0.2666666667), 0.3em 0em rgba(68, 68, 221, 0.1333333333);
   padding-right: 0.8em;
 }
 .stroke.echo-left {
-  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), -2px 0px var(--pgColor), -0.2em 0em rgba(68, 68, 221, 0.5333333333), -0.5em 0em rgba(68, 68, 221, 0.2666666667), -0.8em 0em rgba(68, 68, 221, 0.1333333333);
+  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), -0.1em 0em rgba(68, 68, 221, 0.5333333333), -0.2em 0em rgba(68, 68, 221, 0.2666666667), -0.3em 0em rgba(68, 68, 221, 0.1333333333);
+  padding-left: 0.8em;
+}
+.stroke.echorb {
+  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0.05em 0.05em #d44, 0.1em 0.1em #dd4, 0.15em 0.15em #4dd, 0.2em 0.2em #d4d;
+  padding-bottom: 0.8em;
+}
+.stroke.echorb-down {
+  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0em 0.05em #d44, 0em 0.1em #dd4, 0em 0.15em #4dd, 0em 0.2em #d4d;
+  padding-bottom: 0.8em;
+}
+.stroke.echorb-up {
+  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0em -0.05em #d44, 0em -0.1em #dd4, 0em -0.15em #4dd, 0em -0.2em #d4d;
+  padding-top: 0.8em;
+}
+.stroke.echorb-right {
+  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0.05em 0em #d44, 0.1em 0em #dd4, 0.15em 0em #4dd, 0.2em 0em #d4d;
+  padding-right: 0.8em;
+}
+.stroke.echorb-left {
+  text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), -0.05em 0em #d44, -0.1em 0em #dd4, -0.15em 0em #4dd, -0.2em 0em #d4d;
   padding-left: 0.8em;
 }
 
@@ -1908,16 +2037,16 @@ blockquote.layer blockquote:not([class]):hover:not(:has(blockquote:not([class]):
   font-size: calc(var(--pscl) * 1.6 * 1em) !important;
 }
 .pulse.fake.h3 {
-  font-size: calc(var(--pscl) * 1.25 * 1em) !important;
+  font-size: calc(var(--pscl) * 1.2 * 1em) !important;
 }
 .pulse.fake.h4 {
-  font-size: calc(var(--pscl) * 1.25 * 1em) !important;
+  font-size: calc(var(--pscl) * 1.2 * 1em) !important;
 }
 .pulse.fake.h5 {
-  font-size: calc(var(--pscl) * 1.25 * 1em) !important;
+  font-size: calc(var(--pscl) * 1.2 * 1em) !important;
 }
 .pulse.fake.h6 {
-  font-size: calc(var(--pscl) * 1.25 * 1em) !important;
+  font-size: calc(var(--pscl) * 1.2 * 1em) !important;
 }
 @keyframes pulse {
   0% {

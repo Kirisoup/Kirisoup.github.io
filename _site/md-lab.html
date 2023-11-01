@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-control" content="no-store">
     <title>A:¥霧雨蘑菇店/¥MarkDown¥实验室.html</title>
-
-    <!-- essential stylesheet -->
+  <!--
+    essential stylesheet -->
     <link rel="stylesheet" href="/assets/css/default/layout.css"
     onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/css/default/layout.css'">
-
-    <!-- async stylesheet -->
+  <!--
+    async stylesheet -->
     <link rel="stylesheet" href="/assets/css/default/style.css"
     media="print" onload="this.onload=null;this.removeAttribute('media');"
     onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/css/default/style.css'">
-
-    <!-- non-js fallback -->
+  <!--
+    non-js fallback (there is no "onerror" because, well, noscript) -->
     <noscript><link rel="stylesheet" href="/assets/css/default/style.css"></noscript>
-
+  <!--
+    cursor trace -->
     <script src="/assets/js/cursor.js" async
     onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/cursor.js'"></script>
     <script>
@@ -27,7 +28,12 @@
     </script>
   </head>
   <body>
-    <div class="soup.exe">
+    <!-- change id only if javascript is enabled -->
+    <div id="overflow-noscript">
+      <script> document.getElementById("overflow-noscript").setAttribute("id", "overflow") </script>
+    </div>
+    <!-- main container -->
+    <div id="soup.exe">
       <div class="c1">
         <div class="banner"></div>
         <div class="main">
@@ -64,139 +70,169 @@
           </div>
           <div class="window">
             <div class="content">
-              <h1 class="rainbow fancy2" id="this-is-really-fancy-txt"><strong class="bigger">This is really fancy txt</strong></h1>
+              <h1 id="head">MoarDown - <em class="small">Markdown 语法扩充类</em>！:</h1>
 
-<h1 id="moardown---markdown-语法扩充类">MoarDown - <em class="small">Markdown 语法扩充类</em>！:</h1>
+<blockquote class="info">
+  <p>提示：使用kramdown的 {:***} 语法为元素添加额外属性，以在文章内使用本文档罗列的特性，如：</p>
+  <ul>
+    <li>为<em>块级</em>元素（段落、表格、引用方块等）添加属性 .c<br />
+<br /> <em class="c">{:.c} <br /> 段落文字</em> <br /></li>
+    <li>为<em>行内</em>元素添加属性 .cfuchsia:<br />
+段落段落 <em class="cfuchsia">*行内文字内容*{:.cfuchsia}</em> 段落段落</li>
+    <li></li>
+  </ul>
+</blockquote>
 
-<p>注：为了分离inline元素的方便，默认情况下任何<em>带有语法扩充类</em>的斜体文字</p>
+<blockquote class="info">
+  <p>注：为了分离inline元素的方便，默认情况下任何<em>带有语法扩充类</em>的斜体文字，如：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*内容*{:.class}；&lt;em class="class"&gt;内容&lt;/em&gt;
-</code></pre></div></div>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">*内容*{:.class}</code></li>
+    <li><code class="language-plaintext highlighter-rouge">&lt;em class="class"&gt;内容&lt;/em&gt;</code></li>
+  </ul>
 
-<p>都不会拥有斜体效果。这种情况下，请使用 .i 类专门声明文字为斜体。</p>
+  <p>都不会拥有斜体效果。</p>
 
+  <p>这种情况下，请使用 .i 类专门声明文字为斜体。</p>
+</blockquote>
+
+<h2 id="size">大小:</h2>
 <ul>
-  <li>大小:
+  <li><em class="bigger">.bigger</em></li>
+  <li><em class="big">.big</em></li>
+  <li><em class="small">.small</em></li>
+  <li><em class="smaller">.smaller</em></li>
+  <li><em class="size" style="--s:1.096">.size</em>
     <ul>
-      <li><em class="bigger">.bigger</em></li>
-      <li><em class="big">.big</em></li>
-      <li><em class="small">.small</em></li>
-      <li><em class="smaller">.smaller</em></li>
-      <li><em class="resize" style="--s:2.333">.resize</em>
-        <ul>
-          <li>--s: 2.333 <em>(自定义大小倍率)</em></li>
-        </ul>
-      </li>
+      <li>--s: 1.096 <em>(自定义大小倍率)</em></li>
     </ul>
   </li>
-  <li>对齐:
+</ul>
+
+<h2 id="align">对齐:</h2>
+<ul>
+  <li><em class="c">居中：.c</em></li>
+  <li><em class="r">靠右：.r</em></li>
+</ul>
+
+<h2 id="line">修饰线:</h2>
+<ul>
+  <li>
+    <table class="t">
+      <thead>
+        <tr>
+          <th> </th>
+          <th> </th>
+          <th>下划线  </th>
+          <th>上划线  </th>
+          <th>删除线  </th>
+          <th>混合  </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>正常线</td>
+          <td> </td>
+          <td><em class="u">.u</em></td>
+          <td><em class="ovl">.ovl</em></td>
+          <td><em class="del">.del</em></td>
+          <td><em class="u ovl del">.u.ovl.del</em></td>
+        </tr>
+        <tr>
+          <td>段虚线</td>
+          <td> </td>
+          <td><em class="u -d">.u.-d</em></td>
+          <td><em class="ovl -d">.ovl.-d</em></td>
+          <td><em class="del -d">.del.-d</em></td>
+          <td><em class="u ovl del -d">.u.ovl.del.-d</em></td>
+        </tr>
+        <tr>
+          <td>点虚线</td>
+          <td> </td>
+          <td><em class="u -dd">.u.-do</em></td>
+          <td><em class="ovl -dd">.ovl.-do</em></td>
+          <td><em class="del -dd">.del.-do</em></td>
+          <td><em class="u ovl del -dd">.u.ovl.del.-do</em></td>
+        </tr>
+        <tr>
+          <td>双层线</td>
+          <td> </td>
+          <td><em class="u -db">.u.-db</em></td>
+          <td><em class="ovl -db">.ovl.-db</em></td>
+          <td><em class="del -db">.del.-db</em></td>
+          <td><em class="u ovl del -db">.u.ovl.del.-db</em></td>
+        </tr>
+        <tr>
+          <td>波浪线</td>
+          <td> </td>
+          <td><em class="u -w">.u.-w</em></td>
+          <td><em class="ovl -w">.ovl.-w</em></td>
+          <td><em class="del -w">.del.-w</em></td>
+          <td><em class="u ovl del -w">.u.ovl.del.-w</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>删除线 – 另一种表达 (markdown原版):
     <ul>
-      <li><em class="c">.c</em></li>
-      <li><em class="r">.r</em></li>
+      <li><em><del>txt</del></em>         <em>~~txt~~</em></li>
+      <li><em><del class="-d">txt</del></em>   <em>~~txt~~{:.-d}</em></li>
+      <li><em><del class="-dd">txt</del></em>  <em>~~txt~~{:.-dd}</em></li>
+      <li><em><del class="-db">txt</del></em>  <em>~~txt~~{:.-db}</em></li>
+      <li><em><del class="-w">txt</del></em>   <em>~~txt~~{:.-w}</em></li>
     </ul>
   </li>
-  <li>修饰线:
-    <ul>
-      <li>
-        <table class="t">
-          <thead>
-            <tr>
-              <th> </th>
-              <th> </th>
-              <th>下划线  </th>
-              <th>上划线  </th>
-              <th>删除线  </th>
-              <th>混合  </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>正常线</td>
-              <td> </td>
-              <td><em class="u">.u</em></td>
-              <td><em class="ovl">.ovl</em></td>
-              <td><em class="del">.del</em></td>
-              <td><em class="u ovl del">.u.ovl.del</em></td>
-            </tr>
-            <tr>
-              <td>段虚线</td>
-              <td> </td>
-              <td><em class="u">.u.-d</em></td>
-              <td><em class="ovl -d">.ovl.-d</em></td>
-              <td><em class="del -d">.del.-d</em></td>
-              <td><em class="u ovl del -d">.u.ovl.del.-d</em></td>
-            </tr>
-            <tr>
-              <td>点虚线</td>
-              <td> </td>
-              <td><em class="u -dd">.u.-do</em></td>
-              <td><em class="ovl -dd">.ovl.-do</em></td>
-              <td><em class="del -dd">.del.-do</em></td>
-              <td><em class="u ovl del -dd">.u.ovl.del.-do</em></td>
-            </tr>
-            <tr>
-              <td>双层线</td>
-              <td> </td>
-              <td><em class="u -db">.u.-db</em></td>
-              <td><em class="ovl -db">.ovl.-db</em></td>
-              <td><em class="del -db">.del.-db</em></td>
-              <td><em class="u ovl del -db">.u.ovl.del.-db</em></td>
-            </tr>
-            <tr>
-              <td>波浪线</td>
-              <td> </td>
-              <td><em class="u -w">.u.-w</em></td>
-              <td><em class="ovl -w">.ovl.-w</em></td>
-              <td><em class="del -w">.del.-w</em></td>
-              <td><em class="u ovl del -w">.u.ovl.del.-w</em></td>
-            </tr>
-          </tbody>
-        </table>
-      </li>
-      <li>删除线–另一种表达 (markdown原版):
-        <ul>
-          <li><em><del>txt</del></em>         <em>~~txt~~</em></li>
-          <li><em><del class="-d">txt</del></em>   <em>~~txt~~{:.-d}</em></li>
-          <li><em><del class="-dd">txt</del></em>  <em>~~txt~~{:.-dd}</em></li>
-          <li><em><del class="-db">txt</del></em>  <em>~~txt~~{:.-db}</em></li>
-          <li><em><del class="-w">txt</del></em>   <em>~~txt~~{:.-w}</em></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>颜色:
-    <ul>
-      <li><em class="cw hb">.cw</em>
-<em class="cb hw">.cb</em>
-<em class="cr">.cr</em></li>
-      <li><em class="cwhite hb">.cwhite</em>
-<em class="csilver">.csilver</em>
-<em class="cgray">.cgray</em>
-<em class="cblack hw">.cblack</em>
-<em class="cred">.cred</em>
-<em class="cmaroon">.cmaroon</em>
-<em class="cyellow">.cyellow</em>
-<em class="colive">.colive</em>
-<em class="clime">.clime</em>
-<em class="cgreen">.cgreen</em>
-<em class="caqua">.caqua</em>
-<em class="cteal">.cteal</em>
-<em class="cblue">.cblue</em>
-<em class="cnavy">.cnavy</em>
-<em class="cfuchsia">.cfuchsia</em>
-<em class="cpurple">.cpurple</em></li>
-    </ul>
-  </li>
-  <li>背景色:
-    <ul>
-      <li>--hd: 0.05em <em>(背景、边框距离)</em></li>
-      <li></li>
-      <li><em class="h">.h</em></li>
-      <li></li>
-      <li><em class="hw">.hw</em>
+</ul>
+
+<h2 id="color">颜色:</h2>
+
+<h3 id="color-fast">快速</h3>
+<ul>
+  <li><em class="cw hb">.cw</em></li>
+  <li><em class="cb hw">.cb</em></li>
+  <li><em class="cr">.cr</em></li>
+</ul>
+
+<h3 id="color-16">16色</h3>
+<ul>
+  <li><em class="cwhite hb">.cwhite</em></li>
+  <li><em class="csilver">.csilver</em></li>
+  <li><em class="cgray">.cgray</em></li>
+  <li><em class="cblack hw">.cblack</em></li>
+  <li><em class="cred">.cred</em></li>
+  <li><em class="cmaroon">.cmaroon</em></li>
+  <li><em class="cyellow">.cyellow</em></li>
+  <li><em class="colive">.colive</em></li>
+  <li><em class="clime">.clime</em></li>
+  <li><em class="cgreen">.cgreen</em></li>
+  <li><em class="caqua">.caqua</em></li>
+  <li><em class="cteal">.cteal</em></li>
+  <li><em class="cblue">.cblue</em></li>
+  <li><em class="cnavy">.cnavy</em></li>
+  <li><em class="cfuchsia">.cfuchsia</em></li>
+  <li><em class="cpurple">.cpurple</em></li>
+</ul>
+
+<h2 id="background">背景色:</h2>
+<ul>
+  <li>--hd: 0.05em <em>(背景、边框距离)</em></li>
+</ul>
+
+<h3 id="background-default">默认</h3>
+<ul>
+  <li><em class="h">.h</em></li>
+</ul>
+
+<h3 id="background-fast">快速</h3>
+<ul>
+  <li><em class="hw">.hw</em>
 <em class="hb">.hb</em>
 <em class="hr">.hr</em></li>
-      <li><em class="hwhite">.hwhite</em>
+</ul>
+
+<h3 id="background-16">16色</h3>
+<ul>
+  <li><em class="hwhite">.hwhite</em>
 <em class="hsilver">.hsilver</em>
 <em class="hgray">.hgray</em>
 <em class="hblack">.hblack</em>
@@ -212,17 +248,17 @@
 <em class="hnavy">.hnavy</em>
 <em class="hfuchsia">.hfuchsia</em>
 <em class="hpurple">.hpurple</em></li>
-    </ul>
-  </li>
-  <li>边框色
-    <ul>
-      <li>--bw: 2px <em>(边框粗细)</em></li>
-      <li>--bd: 0.05em <em>(背景、边框距离)</em></li>
-      <li></li>
-      <li><em class="bw">.bw</em>
+</ul>
+
+<h2 id="border">边框色:</h2>
+<ul>
+  <li>--bw: 2px <em>(边框粗细)</em></li>
+  <li>--bd: 0.05em <em>(背景、边框距离)</em></li>
+  <li></li>
+  <li><em class="bw">.bw</em>
 <em class="bb">.bb</em>
 <em class="br">.br</em></li>
-      <li><em class="bwhite">.bwhite</em>
+  <li><em class="bwhite">.bwhite</em>
 <em class="bsilver">.bsilver</em>
 <em class="bgray">.bgray</em>
 <em class="bblack">.bblack</em>
@@ -238,675 +274,657 @@
 <em class="bnavy">.bnavy</em>
 <em class="bfuchsia">.bfuchsia</em>
 <em class="bpurple">.bpurple</em></li>
-    </ul>
-  </li>
-  <li>
-    <p>伪标题: 
-<span class="fake h1">.fake h1</span> 
-<span class="fake h2">.fake h2</span> 
-<span class="fake h3">.fake h3</span> 
-<span class="fake h4">.fake h4</span> 
-<span class="fake h5">.fake h5</span> 
-<span class="fake h6">.fake h6</span></p>
-  </li>
-  <li>注音：
-    <ul>
-      <li><em r="这是注音">这是文字</em><br />
+</ul>
+
+<h2 id="fake-title">伪标题:</h2>
+<ul>
+  <li><span class="fake h1">.fake.h1</span></li>
+  <li><span class="fake h2">.fake.h2</span></li>
+  <li><span class="fake h3">.fake.h3</span></li>
+  <li><span class="fake h4">.fake.h4</span></li>
+  <li><span class="fake h5">.fake.h5</span></li>
+  <li><span class="fake h6">.fake.h6</span></li>
+</ul>
+
+<h2 id="注音ruby">注音：{#ruby}</h2>
+<ul>
+  <li><em r="这是注音">这是文字</em><br />
 *这是文字*{:r=”这是注音”}</li>
-      <li></li>
-      <li><em r="zhe">这</em> <em r="shi">是</em> <em r="zhu">文</em> <em r="yin">字</em><br />
+  <li></li>
+  <li><em r="zhe">这</em> <em r="shi">是</em> <em r="zhu">文</em> <em r="yin">字</em><br />
 *这*{:r=”zhe”} *是*{:r=”shi”} *文*{:r=”zhu”} *字*{:r=”yin”}</li>
-    </ul>
-  </li>
-  <li>表格：
+</ul>
+
+<h2 id="表格table">表格：{#table}</h2>
+<ul>
+  <li>表格默认另开新行，加入 .i 类可转成行内表格</li>
+  <li>平表格
     <ul>
-      <li>表格默认另开新行，加入 .i 类可转成行内表格</li>
-      <li>平表格
-        <ul>
-          <li>
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-            </table>
+      <li>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+        </table>
 
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-        </ul>
-      </li>
-      <li>普通表格
-        <ul>
-          <li>
-            <table class="t i">
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">{:.t}</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-          <li>
-            <table class="t i" h="这是表格">
-              <thead>
-                <tr>
-                  <th> </th>
-                  <th>一</th>
-                  <th>二</th>
-                  <th>三</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td>0</td>
-                  <td>z</td>
-                  <td>z</td>
-                  <td>z</td>
-                </tr>
-              </tfoot>
-            </table>
-
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">{:.t h="这是表格"}</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-        </ul>
-      </li>
-      <li>简单表格
-        <ul>
-          <li>
-            <table class="ts i">
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">{:.ts}</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-          <li>
-            <table class="ts i" h="这是表格">
-              <thead>
-                <tr>
-                  <th> </th>
-                  <th>一</th>
-                  <th>二</th>
-                  <th>三</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td>0</td>
-                  <td>z</td>
-                  <td>z</td>
-                  <td>z</td>
-                </tr>
-              </tfoot>
-            </table>
-
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">{:.ts h="这是表格"}</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-        </ul>
-      </li>
-      <li>–tbc: 调整空表格<strong>以外</strong>的表格颜色</li>
-      <li>–tbtc: 调整表格文字颜色
-        <ul>
-          <li>
-            <table class="t i" h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d">
-              <thead>
-                <tr>
-                  <th> </th>
-                  <th>一</th>
-                  <th>二</th>
-                  <th>三</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td>0</td>
-                  <td>z</td>
-                  <td>z</td>
-                  <td>z</td>
-                </tr>
-              </tfoot>
-            </table>
-
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">{:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-        </ul>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
     </ul>
   </li>
-  <li>文本块：
+  <li>普通表格
     <ul>
-      <li>平文本块：
-        <blockquote>
-          <p>&gt; 文本</p>
-        </blockquote>
+      <li>
+        <table class="t i">
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">{:.t}</code></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
-      <li>提示块：
-        <blockquote class="info">
-          <p>&gt; 文本</p>
+      <li>
+        <table class="t i" h="这是表格">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>一</th>
+              <th>二</th>
+              <th>三</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>0</td>
+              <td>z</td>
+              <td>z</td>
+              <td>z</td>
+            </tr>
+          </tfoot>
+        </table>
 
-          <p>{:.info}</p>
-        </blockquote>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">{:.t h="这是表格"}</code></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
-      <li>警告块
-        <blockquote class="warn">
-          <p>&gt; 文本</p>
+    </ul>
+  </li>
+  <li>简单表格
+    <ul>
+      <li>
+        <table class="ts i">
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <p>{:.warn}</p>
-        </blockquote>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">{:.ts}</code></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
-      <li>嵌套结构块：<br />
-        <blockquote class="layer">
-          <p>&gt; 文本</p>
+      <li>
+        <table class="ts i" h="这是表格">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>一</th>
+              <th>二</th>
+              <th>三</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>0</td>
+              <td>z</td>
+              <td>z</td>
+              <td>z</td>
+            </tr>
+          </tfoot>
+        </table>
 
-          <p>&gt;</p>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">{:.ts h="这是表格"}</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>–tbc: 调整空表格<strong>以外</strong>的表格颜色</li>
+  <li>–tbtc: 调整表格文字颜色
+    <ul>
+      <li>
+        <table class="t i" h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>一</th>
+              <th>二</th>
+              <th>三</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>0</td>
+              <td>z</td>
+              <td>z</td>
+              <td>z</td>
+            </tr>
+          </tfoot>
+        </table>
 
-          <p>&gt; 文本</p>
-
-          <p>&gt;</p>
-
-          <blockquote>
-            <p>&gt; &gt; 文本</p>
-
-            <p>&gt; &gt;</p>
-
-            <blockquote>
-              <p>&gt; &gt; &gt; 文本</p>
-            </blockquote>
-          </blockquote>
-
-          <p>&gt;</p>
-
-          <blockquote>
-            <blockquote>
-              <blockquote>
-                <blockquote>
-                  <p>&gt; &gt; &gt; &gt; &gt;</p>
-                </blockquote>
-              </blockquote>
-            </blockquote>
-          </blockquote>
-
-        </blockquote>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">{:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}</code></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
     </ul>
   </li>
 </ul>
 
-<h2 id="fancy-classes---酷炫装饰类">Fancy classes - <em class="small">酷炫装饰类！</em>:</h2>
-
+<h2 id="文本块block">文本块：{#block}</h2>
 <ul>
-  <li>彩虹 (不兼容阴影.shadow与描边.stroke)：
+  <li>平文本块：
+    <blockquote>
+      <p>&gt; 文本</p>
+    </blockquote>
+  </li>
+  <li>提示块：
+    <blockquote class="info">
+      <p>&gt; 文本</p>
+
+      <p>{:.info}</p>
+    </blockquote>
+  </li>
+  <li>警告块
+    <blockquote class="warn">
+      <p>&gt; 文本</p>
+
+      <p>{:.warn}</p>
+    </blockquote>
+  </li>
+  <li>嵌套结构块：<br />
+    <blockquote class="layer">
+      <p>&gt; 文本</p>
+
+      <p>&gt;</p>
+
+      <p>&gt; 文本</p>
+
+      <p>&gt;</p>
+
+      <blockquote>
+        <p>&gt; &gt; 文本</p>
+
+        <p>&gt; &gt;</p>
+
+        <blockquote>
+          <p>&gt; &gt; &gt; 文本</p>
+        </blockquote>
+      </blockquote>
+
+      <p>&gt;</p>
+
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <blockquote>
+              <p>&gt; &gt; &gt; &gt; &gt;</p>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+
+      <p>{:.layer}</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="fancy">Fancy classes - <em class="small">酷炫装饰类！</em>:</h2>
+
+<h2 id="rainbow">彩虹 (不兼容阴影 .shadow 与描边 .stroke ):</h2>
+<ul>
+  <li><em class="rainbow">.rainbow</em>
     <ul>
-      <li><em class="rainbow">.rainbow</em>
-        <ul>
-          <li>--rspd: 1s <em>(彩虹滚动速度)</em></li>
-        </ul>
-      </li>
-      <li><em class="rainbow fancy">.rainbow.fancy</em>
-        <ul>
-          <li>--rspd: 10s <em>(彩虹滚动速度)</em></li>
-          <li>--rs: 0.1em <em>(阴影距离)</em></li>
-          <li>--rst: 0.03em <em>(描边粗细)</em></li>
-          <li>--rsc: #00f <em>(阴影描边颜色)</em></li>
-        </ul>
-      </li>
-      <li><em class="rainbow cmy">.rainbow.cmy</em> <em class="rainbow fancy cmy">.rainbow.fancy.cmy</em> 彩虹但是青品黄</li>
+      <li>--rspd: 1s <em>(彩虹滚动速度)</em></li>
     </ul>
   </li>
-  <li>阴影：
+  <li><em class="rainbow fancy">.rainbow.fancy</em>
     <ul>
-      <li><em class="shadow">.shadow</em>
-        <ul>
-          <li>--sdd: 4px <em>(阴影距离)</em></li>
-          <li>--sdc: #000 <em>(阴影颜色)</em></li>
-        </ul>
-      </li>
-      <li><em class="echo">.echo</em></li>
+      <li>--rspd: 10s <em>(彩虹滚动速度)</em></li>
+      <li>--rs: 0.1em <em>(阴影距离)</em></li>
+      <li>--rst: 0.03em <em>(描边粗细)</em></li>
+      <li>--rsc: #00f <em>(阴影描边颜色)</em></li>
     </ul>
   </li>
-  <li>描边：
+  <li><em class="rainbow cmy">.rainbow.cmy</em> <em class="rainbow fancy cmy">.rainbow.fancy.cmy</em> 彩虹但是青品黄</li>
+</ul>
+
+<h2 id="shadow">阴影:</h2>
+<ul>
+  <li><em class="shadow">.shadow</em>
     <ul>
-      <li><em class="stroke">.stroke</em>
-        <ul>
-          <li>--std: 2px <em>(描边距离)</em></li>
-          <li>--stc: #440 <em>(描边颜色)</em></li>
-        </ul>
-      </li>
+      <li>--sdd: 4px <em>(阴影距离)</em></li>
+      <li>--sdc: #000 <em>(阴影颜色)</em></li>
     </ul>
   </li>
-  <li>动画！：
+  <li><em class="echo">.echo</em></li>
+</ul>
+
+<h2 id="stroke">描边:</h2>
+<ul>
+  <li><em class="stroke">.stroke</em>
     <ul>
-      <li><em class="pulse">.pulse</em> <em>(不完全兼容.rainbow)</em>
+      <li>--std: 2px <em>(描边距离)</em></li>
+      <li>--stc: #440 <em>(描边颜色)</em></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="animate">动画！:</h2>
+<ul>
+  <li><em class="pulse">.pulse</em> <em>(不完全兼容.rainbow)</em>
+    <ul>
+      <li>--pspd: .25s <em>(跳动速度)</em></li>
+      <li>--pscl: 1.2 <em>(跳动大小倍率)</em>7</li>
+      <li>--pphs: 0 <em>(跳动动画相位偏移)</em>
         <ul>
-          <li>--pspd: .25s <em>(跳动速度)</em></li>
-          <li>--pscl: 1.2 <em>(跳动大小倍率)</em>7</li>
-          <li>--pphs: 0 <em>(跳动动画相位偏移)</em>
-            <ul>
-              <li>与 --rphs 同理：
-                <ul>
-                  <li>最好使用 0 至 1 之间的值（偏移 0 至 1 周期）</li>
-                  <li>使用负数值将导致动画延迟出现</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><em class="rotate">.rotate</em> <em>(不兼容.rainbow)</em>
-        <ul>
-          <li><em class="rotate rev">.rotate.rev</em></li>
-          <li><em class="rotate" style="--rpsd:1s">--rpsd: 1s</em> <em>(旋转速度(周期) – 默认 3s)</em></li>
-          <li><em class="rotate" style="--ofst-x:50%">--ofst-x: 50%</em> <em>(水平偏移旋转中心 – 默认 0%)</em></li>
-          <li><em class="rotate" style="--ofst-y:300%">--ofst-y: 300%</em> <em>(垂直偏移旋转中心 – 默认 0%)</em></li>
-          <li><em class="rotate">--rphs: 0</em>
-<em class="rotate" style="--rphs:0.25">--rphs: .25</em> <em>(旋转相位偏移 – 默认 0)</em>
+          <li>与 --rphs 同理：
             <ul>
               <li>最好使用 0 至 1 之间的值（偏移 0 至 1 周期）</li>
               <li>使用负数值将导致动画延迟出现</li>
@@ -914,41 +932,36 @@
           </li>
         </ul>
       </li>
-      <li>嵌套使用段落类（block-level class）和内容类（inline class），以同时使用旋转文字（.rotate）和跳动文字（.pulse） <em>（在同一元素中无法同时使用两者–无法直接{:.rotate.pulse}）</em>：
+    </ul>
+  </li>
+  <li><em class="rotate">.rotate</em> <em>(不兼容.rainbow)</em>
+    <ul>
+      <li><em class="rotate rev">.rotate.rev</em></li>
+      <li><em class="rotate" style="--rpsd:1s">--rpsd: 1s</em> <em>(旋转速度(周期) – 默认 3s)</em></li>
+      <li><em class="rotate" style="--ofst-x:50%">--ofst-x: 50%</em> <em>(水平偏移旋转中心 – 默认 0%)</em></li>
+      <li><em class="rotate" style="--ofst-y:300%">--ofst-y: 300%</em> <em>(垂直偏移旋转中心 – 默认 0%)</em></li>
+      <li><em class="rotate">--rphs: 0</em>
+<em class="rotate" style="--rphs:0.25">--rphs: .25</em> <em>(旋转相位偏移 – 默认 0)</em>
         <ul>
-          <li>{:.rotate}<br />
-*文字内容*{:.pulse}</li>
-          <li class="rotate"><em class="pulse">{:.rotate}<br />
-*文字内容*{:.pulse}</em></li>
+          <li>最好使用 0 至 1 之间的值（偏移 0 至 1 周期）</li>
+          <li>使用负数值将导致动画延迟出现</li>
         </ul>
       </li>
     </ul>
   </li>
+  <li>嵌套使用段落类（block-level class）和内容类（inline class），以同时使用旋转文字（.rotate）和跳动文字（.pulse） <em>（在同一元素中无法同时使用两者–无法直接{:.rotate.pulse}）</em>：
+    <ul>
+      <li>{:.rotate}<br />
+*文字内容*{:.pulse}</li>
+      <li class="rotate"><em class="pulse">{:.rotate}<br />
+*文字内容*{:.pulse}</em></li>
+    </ul>
+  </li>
 </ul>
-
-<p> </p>
-
-<p> </p>
 
 <hr />
 
-<h1 class="rainbow fancy bigger u" id="欢迎来到-霧雨蘑菇店--う-yo-こ-ko-そ-so">欢迎来到 <em class="big">霧雨蘑菇店</em> <br /> <em class="big swrap r"><ruby>う <rt>yo</rt> こ <rt>ko</rt> そ <rt>so</rt></ruby>！</em></h1>
-
-<p><em class="bigger">超大</em> <em class="big">大</em> <em class="small">小</em> <em class="smaller">超小</em></p>
-
-<h1 id="超大标题-大标题-小标题-超小标题"><em class="bigger">超大标题</em> <em class="big">大标题</em> <em class="small">小标题</em> <em class="smaller">超小标题</em></h1>
-
-<h1 class="echo" id="我是混响男孩">我是，混响男孩</h1>
-
-<h2 id="请使用天亦-3g-设备浏览本网页以获得最佳体验">请使用天亦 3G 设备浏览本网页以获得最佳体验</h2>
-
-<h3 id="请使用天亦-3g-设备浏览本网页以获得最佳体验-1">请使用天亦 3G 设备浏览本网页以获得最佳体验</h3>
-
-<h4 id="请使用天亦-3g-设备浏览本网页以获得最佳体验-2">请使用天亦 3G 设备浏览本网页以获得最佳体验</h4>
-
-<h5 id="请使用天亦-3g-设备浏览本网页以获得最佳体验-3">请使用天亦 3G 设备浏览本网页以获得最佳体验</h5>
-
-<h6 id="请使用天亦-3g-设备浏览本网页以获得最佳体验-4">请使用天亦 3G 设备浏览本网页以获得最佳体验</h6>
+<h2 id="文字排版测试用">文字排版测试用</h2>
 
 <p>午后之时，那银白色的幻想乡。</p>
 
@@ -1044,27 +1057,22 @@
 
             </div>
             <div class="buttonBar">
-              <label class="fontTg toggle"><input type="checkbox"></label>
-              <label class="darkTg toggle"><input type="checkbox" id="dark1" onclick="
-                if (document.querySelector('#dark2:checked')) { document.getElementById('dark2').checked=false; }
-                else { document.getElementById('dark2').checked=true; }
+              <label class="fontTg toggle" title="切换字体"><input type="checkbox"></label>
+            <!-- 
+              toggle darkmode -->
+              <label class="darkTg toggle" title="切换深色模式"><input type="checkbox" id="dark1" onclick="
+              if (document.querySelector('#dark2:checked')) { document.getElementById('dark2').checked=false; }
+                                                       else { document.getElementById('dark2').checked=true; }
               "></label>
-              <label class="fullscreenTg toggle"><input type="checkbox" onclick="document.getElementsByClassName('fullscreen')[0].className = 'fullscreen on'"></label>
+            <!--
+              enter fullscreen -->
+              <label class="fullscreenTg toggle" title="进入全屏"><input type="checkbox" onclick="
+              document.getElementsByClassName('fullscreen')[0].className = 'fullscreen on'
+              "></label>
             </div>
           </div>  
         </div>
-        <div class="bottom">
-          <!-- <iframe id="navlink" width="64px" height="100%" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>
-          <iframe id="navlink" width="64px" height="100%" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>
-          <iframe id="navlink" width="64px" height="100%" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>
-          <iframe id="navlink" width="64px" height="100%" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>
-          <iframe id="navlink" width="64px" height="100%" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>
-          <iframe id="navlink" width="64px" height="100%" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>
-          <iframe id="navlink" width="64px" height="100%" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>
-          <iframe id="navlink" width="64px" height="100%" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>
-          <iframe id="navlink" width="64px" height="100%" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>
-          <iframe id="navlink" width="64px" height="100%" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe> -->
-        </div>
+        <div class="bottom"></div>
       </div>
       <div class="c2">
         <div class="c2-b"></div>
@@ -1075,146 +1083,180 @@
     <div class="fullscreen">
       <div class="buttonBar">
         <span class="title"> A:¥霧雨蘑菇店/¥MarkDown¥实验室.html </span>
-        <label class="fontTg toggle"><input type="checkbox"></label>
-        <label class="darkTg toggle"><input type="checkbox" id="dark2" onclick="
-          if (document.querySelector('#dark1:checked')) { document.getElementById('dark1').checked=false; }
-          else { document.getElementById('dark1').checked=true; }
+        <label class="fontTg toggle" title="切换字体"><input type="checkbox"></label>
+      <!-- 
+        toggle darkmode -->
+        <label class="darkTg toggle" title="切换深色模式"><input type="checkbox" id="dark2" onclick="
+        if (document.querySelector('#dark1:checked')) { document.getElementById('dark1').checked=false; }
+                                                 else { document.getElementById('dark1').checked=true; }
         "></label>
-        <label class="fullscreenTg toggle"><input type="checkbox" onclick="document.getElementsByClassName('fullscreen on')[0].className = 'fullscreen'"></label>
+      <!-- 
+        quit fullscreen -->
+        <label class="fullscreenTg toggle" title="退出全屏"><input type="checkbox" onclick="document.getElementsByClassName('fullscreen on')[0].className = 'fullscreen'"></label>
       </div>
-      <div class="content f"> <h1 class="rainbow fancy2" id="this-is-really-fancy-txt"><strong class="bigger">This is really fancy txt</strong></h1>
+      <div class="content f"> <h1 id="head">MoarDown - <em class="small">Markdown 语法扩充类</em>！:</h1>
 
-<h1 id="moardown---markdown-语法扩充类">MoarDown - <em class="small">Markdown 语法扩充类</em>！:</h1>
+<blockquote class="info">
+  <p>提示：使用kramdown的 {:***} 语法为元素添加额外属性，以在文章内使用本文档罗列的特性，如：</p>
+  <ul>
+    <li>为<em>块级</em>元素（段落、表格、引用方块等）添加属性 .c<br />
+<br /> <em class="c">{:.c} <br /> 段落文字</em> <br /></li>
+    <li>为<em>行内</em>元素添加属性 .cfuchsia:<br />
+段落段落 <em class="cfuchsia">*行内文字内容*{:.cfuchsia}</em> 段落段落</li>
+    <li></li>
+  </ul>
+</blockquote>
 
-<p>注：为了分离inline元素的方便，默认情况下任何<em>带有语法扩充类</em>的斜体文字</p>
+<blockquote class="info">
+  <p>注：为了分离inline元素的方便，默认情况下任何<em>带有语法扩充类</em>的斜体文字，如：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*内容*{:.class}；&lt;em class="class"&gt;内容&lt;/em&gt;
-</code></pre></div></div>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">*内容*{:.class}</code></li>
+    <li><code class="language-plaintext highlighter-rouge">&lt;em class="class"&gt;内容&lt;/em&gt;</code></li>
+  </ul>
 
-<p>都不会拥有斜体效果。这种情况下，请使用 .i 类专门声明文字为斜体。</p>
+  <p>都不会拥有斜体效果。</p>
 
+  <p>这种情况下，请使用 .i 类专门声明文字为斜体。</p>
+</blockquote>
+
+<h2 id="size">大小:</h2>
 <ul>
-  <li>大小:
+  <li><em class="bigger">.bigger</em></li>
+  <li><em class="big">.big</em></li>
+  <li><em class="small">.small</em></li>
+  <li><em class="smaller">.smaller</em></li>
+  <li><em class="size" style="--s:1.096">.size</em>
     <ul>
-      <li><em class="bigger">.bigger</em></li>
-      <li><em class="big">.big</em></li>
-      <li><em class="small">.small</em></li>
-      <li><em class="smaller">.smaller</em></li>
-      <li><em class="resize" style="--s:2.333">.resize</em>
-        <ul>
-          <li>--s: 2.333 <em>(自定义大小倍率)</em></li>
-        </ul>
-      </li>
+      <li>--s: 1.096 <em>(自定义大小倍率)</em></li>
     </ul>
   </li>
-  <li>对齐:
+</ul>
+
+<h2 id="align">对齐:</h2>
+<ul>
+  <li><em class="c">居中：.c</em></li>
+  <li><em class="r">靠右：.r</em></li>
+</ul>
+
+<h2 id="line">修饰线:</h2>
+<ul>
+  <li>
+    <table class="t">
+      <thead>
+        <tr>
+          <th> </th>
+          <th> </th>
+          <th>下划线  </th>
+          <th>上划线  </th>
+          <th>删除线  </th>
+          <th>混合  </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>正常线</td>
+          <td> </td>
+          <td><em class="u">.u</em></td>
+          <td><em class="ovl">.ovl</em></td>
+          <td><em class="del">.del</em></td>
+          <td><em class="u ovl del">.u.ovl.del</em></td>
+        </tr>
+        <tr>
+          <td>段虚线</td>
+          <td> </td>
+          <td><em class="u -d">.u.-d</em></td>
+          <td><em class="ovl -d">.ovl.-d</em></td>
+          <td><em class="del -d">.del.-d</em></td>
+          <td><em class="u ovl del -d">.u.ovl.del.-d</em></td>
+        </tr>
+        <tr>
+          <td>点虚线</td>
+          <td> </td>
+          <td><em class="u -dd">.u.-do</em></td>
+          <td><em class="ovl -dd">.ovl.-do</em></td>
+          <td><em class="del -dd">.del.-do</em></td>
+          <td><em class="u ovl del -dd">.u.ovl.del.-do</em></td>
+        </tr>
+        <tr>
+          <td>双层线</td>
+          <td> </td>
+          <td><em class="u -db">.u.-db</em></td>
+          <td><em class="ovl -db">.ovl.-db</em></td>
+          <td><em class="del -db">.del.-db</em></td>
+          <td><em class="u ovl del -db">.u.ovl.del.-db</em></td>
+        </tr>
+        <tr>
+          <td>波浪线</td>
+          <td> </td>
+          <td><em class="u -w">.u.-w</em></td>
+          <td><em class="ovl -w">.ovl.-w</em></td>
+          <td><em class="del -w">.del.-w</em></td>
+          <td><em class="u ovl del -w">.u.ovl.del.-w</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>删除线 – 另一种表达 (markdown原版):
     <ul>
-      <li><em class="c">.c</em></li>
-      <li><em class="r">.r</em></li>
+      <li><em><del>txt</del></em>         <em>~~txt~~</em></li>
+      <li><em><del class="-d">txt</del></em>   <em>~~txt~~{:.-d}</em></li>
+      <li><em><del class="-dd">txt</del></em>  <em>~~txt~~{:.-dd}</em></li>
+      <li><em><del class="-db">txt</del></em>  <em>~~txt~~{:.-db}</em></li>
+      <li><em><del class="-w">txt</del></em>   <em>~~txt~~{:.-w}</em></li>
     </ul>
   </li>
-  <li>修饰线:
-    <ul>
-      <li>
-        <table class="t">
-          <thead>
-            <tr>
-              <th> </th>
-              <th> </th>
-              <th>下划线  </th>
-              <th>上划线  </th>
-              <th>删除线  </th>
-              <th>混合  </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>正常线</td>
-              <td> </td>
-              <td><em class="u">.u</em></td>
-              <td><em class="ovl">.ovl</em></td>
-              <td><em class="del">.del</em></td>
-              <td><em class="u ovl del">.u.ovl.del</em></td>
-            </tr>
-            <tr>
-              <td>段虚线</td>
-              <td> </td>
-              <td><em class="u">.u.-d</em></td>
-              <td><em class="ovl -d">.ovl.-d</em></td>
-              <td><em class="del -d">.del.-d</em></td>
-              <td><em class="u ovl del -d">.u.ovl.del.-d</em></td>
-            </tr>
-            <tr>
-              <td>点虚线</td>
-              <td> </td>
-              <td><em class="u -dd">.u.-do</em></td>
-              <td><em class="ovl -dd">.ovl.-do</em></td>
-              <td><em class="del -dd">.del.-do</em></td>
-              <td><em class="u ovl del -dd">.u.ovl.del.-do</em></td>
-            </tr>
-            <tr>
-              <td>双层线</td>
-              <td> </td>
-              <td><em class="u -db">.u.-db</em></td>
-              <td><em class="ovl -db">.ovl.-db</em></td>
-              <td><em class="del -db">.del.-db</em></td>
-              <td><em class="u ovl del -db">.u.ovl.del.-db</em></td>
-            </tr>
-            <tr>
-              <td>波浪线</td>
-              <td> </td>
-              <td><em class="u -w">.u.-w</em></td>
-              <td><em class="ovl -w">.ovl.-w</em></td>
-              <td><em class="del -w">.del.-w</em></td>
-              <td><em class="u ovl del -w">.u.ovl.del.-w</em></td>
-            </tr>
-          </tbody>
-        </table>
-      </li>
-      <li>删除线–另一种表达 (markdown原版):
-        <ul>
-          <li><em><del>txt</del></em>         <em>~~txt~~</em></li>
-          <li><em><del class="-d">txt</del></em>   <em>~~txt~~{:.-d}</em></li>
-          <li><em><del class="-dd">txt</del></em>  <em>~~txt~~{:.-dd}</em></li>
-          <li><em><del class="-db">txt</del></em>  <em>~~txt~~{:.-db}</em></li>
-          <li><em><del class="-w">txt</del></em>   <em>~~txt~~{:.-w}</em></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>颜色:
-    <ul>
-      <li><em class="cw hb">.cw</em>
-<em class="cb hw">.cb</em>
-<em class="cr">.cr</em></li>
-      <li><em class="cwhite hb">.cwhite</em>
-<em class="csilver">.csilver</em>
-<em class="cgray">.cgray</em>
-<em class="cblack hw">.cblack</em>
-<em class="cred">.cred</em>
-<em class="cmaroon">.cmaroon</em>
-<em class="cyellow">.cyellow</em>
-<em class="colive">.colive</em>
-<em class="clime">.clime</em>
-<em class="cgreen">.cgreen</em>
-<em class="caqua">.caqua</em>
-<em class="cteal">.cteal</em>
-<em class="cblue">.cblue</em>
-<em class="cnavy">.cnavy</em>
-<em class="cfuchsia">.cfuchsia</em>
-<em class="cpurple">.cpurple</em></li>
-    </ul>
-  </li>
-  <li>背景色:
-    <ul>
-      <li>--hd: 0.05em <em>(背景、边框距离)</em></li>
-      <li></li>
-      <li><em class="h">.h</em></li>
-      <li></li>
-      <li><em class="hw">.hw</em>
+</ul>
+
+<h2 id="color">颜色:</h2>
+
+<h3 id="color-fast">快速</h3>
+<ul>
+  <li><em class="cw hb">.cw</em></li>
+  <li><em class="cb hw">.cb</em></li>
+  <li><em class="cr">.cr</em></li>
+</ul>
+
+<h3 id="color-16">16色</h3>
+<ul>
+  <li><em class="cwhite hb">.cwhite</em></li>
+  <li><em class="csilver">.csilver</em></li>
+  <li><em class="cgray">.cgray</em></li>
+  <li><em class="cblack hw">.cblack</em></li>
+  <li><em class="cred">.cred</em></li>
+  <li><em class="cmaroon">.cmaroon</em></li>
+  <li><em class="cyellow">.cyellow</em></li>
+  <li><em class="colive">.colive</em></li>
+  <li><em class="clime">.clime</em></li>
+  <li><em class="cgreen">.cgreen</em></li>
+  <li><em class="caqua">.caqua</em></li>
+  <li><em class="cteal">.cteal</em></li>
+  <li><em class="cblue">.cblue</em></li>
+  <li><em class="cnavy">.cnavy</em></li>
+  <li><em class="cfuchsia">.cfuchsia</em></li>
+  <li><em class="cpurple">.cpurple</em></li>
+</ul>
+
+<h2 id="background">背景色:</h2>
+<ul>
+  <li>--hd: 0.05em <em>(背景、边框距离)</em></li>
+</ul>
+
+<h3 id="background-default">默认</h3>
+<ul>
+  <li><em class="h">.h</em></li>
+</ul>
+
+<h3 id="background-fast">快速</h3>
+<ul>
+  <li><em class="hw">.hw</em>
 <em class="hb">.hb</em>
 <em class="hr">.hr</em></li>
-      <li><em class="hwhite">.hwhite</em>
+</ul>
+
+<h3 id="background-16">16色</h3>
+<ul>
+  <li><em class="hwhite">.hwhite</em>
 <em class="hsilver">.hsilver</em>
 <em class="hgray">.hgray</em>
 <em class="hblack">.hblack</em>
@@ -1230,17 +1272,17 @@
 <em class="hnavy">.hnavy</em>
 <em class="hfuchsia">.hfuchsia</em>
 <em class="hpurple">.hpurple</em></li>
-    </ul>
-  </li>
-  <li>边框色
-    <ul>
-      <li>--bw: 2px <em>(边框粗细)</em></li>
-      <li>--bd: 0.05em <em>(背景、边框距离)</em></li>
-      <li></li>
-      <li><em class="bw">.bw</em>
+</ul>
+
+<h2 id="border">边框色:</h2>
+<ul>
+  <li>--bw: 2px <em>(边框粗细)</em></li>
+  <li>--bd: 0.05em <em>(背景、边框距离)</em></li>
+  <li></li>
+  <li><em class="bw">.bw</em>
 <em class="bb">.bb</em>
 <em class="br">.br</em></li>
-      <li><em class="bwhite">.bwhite</em>
+  <li><em class="bwhite">.bwhite</em>
 <em class="bsilver">.bsilver</em>
 <em class="bgray">.bgray</em>
 <em class="bblack">.bblack</em>
@@ -1256,675 +1298,657 @@
 <em class="bnavy">.bnavy</em>
 <em class="bfuchsia">.bfuchsia</em>
 <em class="bpurple">.bpurple</em></li>
-    </ul>
-  </li>
-  <li>
-    <p>伪标题: 
-<span class="fake h1">.fake h1</span> 
-<span class="fake h2">.fake h2</span> 
-<span class="fake h3">.fake h3</span> 
-<span class="fake h4">.fake h4</span> 
-<span class="fake h5">.fake h5</span> 
-<span class="fake h6">.fake h6</span></p>
-  </li>
-  <li>注音：
-    <ul>
-      <li><em r="这是注音">这是文字</em><br />
+</ul>
+
+<h2 id="fake-title">伪标题:</h2>
+<ul>
+  <li><span class="fake h1">.fake.h1</span></li>
+  <li><span class="fake h2">.fake.h2</span></li>
+  <li><span class="fake h3">.fake.h3</span></li>
+  <li><span class="fake h4">.fake.h4</span></li>
+  <li><span class="fake h5">.fake.h5</span></li>
+  <li><span class="fake h6">.fake.h6</span></li>
+</ul>
+
+<h2 id="注音ruby">注音：{#ruby}</h2>
+<ul>
+  <li><em r="这是注音">这是文字</em><br />
 *这是文字*{:r=”这是注音”}</li>
-      <li></li>
-      <li><em r="zhe">这</em> <em r="shi">是</em> <em r="zhu">文</em> <em r="yin">字</em><br />
+  <li></li>
+  <li><em r="zhe">这</em> <em r="shi">是</em> <em r="zhu">文</em> <em r="yin">字</em><br />
 *这*{:r=”zhe”} *是*{:r=”shi”} *文*{:r=”zhu”} *字*{:r=”yin”}</li>
-    </ul>
-  </li>
-  <li>表格：
+</ul>
+
+<h2 id="表格table">表格：{#table}</h2>
+<ul>
+  <li>表格默认另开新行，加入 .i 类可转成行内表格</li>
+  <li>平表格
     <ul>
-      <li>表格默认另开新行，加入 .i 类可转成行内表格</li>
-      <li>平表格
-        <ul>
-          <li>
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-            </table>
+      <li>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+        </table>
 
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-        </ul>
-      </li>
-      <li>普通表格
-        <ul>
-          <li>
-            <table class="t i">
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">{:.t}</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-          <li>
-            <table class="t i" h="这是表格">
-              <thead>
-                <tr>
-                  <th> </th>
-                  <th>一</th>
-                  <th>二</th>
-                  <th>三</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td>0</td>
-                  <td>z</td>
-                  <td>z</td>
-                  <td>z</td>
-                </tr>
-              </tfoot>
-            </table>
-
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">{:.t h="这是表格"}</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-        </ul>
-      </li>
-      <li>简单表格
-        <ul>
-          <li>
-            <table class="ts i">
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">{:.ts}</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-          <li>
-            <table class="ts i" h="这是表格">
-              <thead>
-                <tr>
-                  <th> </th>
-                  <th>一</th>
-                  <th>二</th>
-                  <th>三</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td>0</td>
-                  <td>z</td>
-                  <td>z</td>
-                  <td>z</td>
-                </tr>
-              </tfoot>
-            </table>
-
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">{:.ts h="这是表格"}</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-        </ul>
-      </li>
-      <li>–tbc: 调整空表格<strong>以外</strong>的表格颜色</li>
-      <li>–tbtc: 调整表格文字颜色
-        <ul>
-          <li>
-            <table class="t i" h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d">
-              <thead>
-                <tr>
-                  <th> </th>
-                  <th>一</th>
-                  <th>二</th>
-                  <th>三</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>a</td>
-                  <td>b</td>
-                  <td>c</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>d</td>
-                  <td>e</td>
-                  <td>f</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>g</td>
-                  <td>h</td>
-                  <td>i</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>j</td>
-                  <td>k</td>
-                  <td>l</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td>0</td>
-                  <td>z</td>
-                  <td>z</td>
-                  <td>z</td>
-                </tr>
-              </tfoot>
-            </table>
-
-            <table class="i">
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
-                </tr>
-                <tr>
-                  <td> </td>
-                  <td><code class="language-plaintext highlighter-rouge">{:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </li>
-        </ul>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
     </ul>
   </li>
-  <li>文本块：
+  <li>普通表格
     <ul>
-      <li>平文本块：
-        <blockquote>
-          <p>&gt; 文本</p>
-        </blockquote>
+      <li>
+        <table class="t i">
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">{:.t}</code></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
-      <li>提示块：
-        <blockquote class="info">
-          <p>&gt; 文本</p>
+      <li>
+        <table class="t i" h="这是表格">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>一</th>
+              <th>二</th>
+              <th>三</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>0</td>
+              <td>z</td>
+              <td>z</td>
+              <td>z</td>
+            </tr>
+          </tfoot>
+        </table>
 
-          <p>{:.info}</p>
-        </blockquote>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">{:.t h="这是表格"}</code></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
-      <li>警告块
-        <blockquote class="warn">
-          <p>&gt; 文本</p>
+    </ul>
+  </li>
+  <li>简单表格
+    <ul>
+      <li>
+        <table class="ts i">
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <p>{:.warn}</p>
-        </blockquote>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a|b|c|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d|e|f|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g|h|i|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j|k|l|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">{:.ts}</code></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
-      <li>嵌套结构块：<br />
-        <blockquote class="layer">
-          <p>&gt; 文本</p>
+      <li>
+        <table class="ts i" h="这是表格">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>一</th>
+              <th>二</th>
+              <th>三</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>0</td>
+              <td>z</td>
+              <td>z</td>
+              <td>z</td>
+            </tr>
+          </tfoot>
+        </table>
 
-          <p>&gt;</p>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">{:.ts h="这是表格"}</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>–tbc: 调整空表格<strong>以外</strong>的表格颜色</li>
+  <li>–tbtc: 调整表格文字颜色
+    <ul>
+      <li>
+        <table class="t i" h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>一</th>
+              <th>二</th>
+              <th>三</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>a</td>
+              <td>b</td>
+              <td>c</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>d</td>
+              <td>e</td>
+              <td>f</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>g</td>
+              <td>h</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>j</td>
+              <td>k</td>
+              <td>l</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>0</td>
+              <td>z</td>
+              <td>z</td>
+              <td>z</td>
+            </tr>
+          </tfoot>
+        </table>
 
-          <p>&gt; 文本</p>
-
-          <p>&gt;</p>
-
-          <blockquote>
-            <p>&gt; &gt; 文本</p>
-
-            <p>&gt; &gt;</p>
-
-            <blockquote>
-              <p>&gt; &gt; &gt; 文本</p>
-            </blockquote>
-          </blockquote>
-
-          <p>&gt;</p>
-
-          <blockquote>
-            <blockquote>
-              <blockquote>
-                <blockquote>
-                  <p>&gt; &gt; &gt; &gt; &gt;</p>
-                </blockquote>
-              </blockquote>
-            </blockquote>
-          </blockquote>
-
-        </blockquote>
+        <table class="i">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">| |一|二|三|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|----------|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|1|a |b |c |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|2|d |e |f |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|3|g |h |i |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|4|j |k |l |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|==========|</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">|0|z |z |z |</code></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><code class="language-plaintext highlighter-rouge">{:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}</code></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
     </ul>
   </li>
 </ul>
 
-<h2 id="fancy-classes---酷炫装饰类">Fancy classes - <em class="small">酷炫装饰类！</em>:</h2>
-
+<h2 id="文本块block">文本块：{#block}</h2>
 <ul>
-  <li>彩虹 (不兼容阴影.shadow与描边.stroke)：
+  <li>平文本块：
+    <blockquote>
+      <p>&gt; 文本</p>
+    </blockquote>
+  </li>
+  <li>提示块：
+    <blockquote class="info">
+      <p>&gt; 文本</p>
+
+      <p>{:.info}</p>
+    </blockquote>
+  </li>
+  <li>警告块
+    <blockquote class="warn">
+      <p>&gt; 文本</p>
+
+      <p>{:.warn}</p>
+    </blockquote>
+  </li>
+  <li>嵌套结构块：<br />
+    <blockquote class="layer">
+      <p>&gt; 文本</p>
+
+      <p>&gt;</p>
+
+      <p>&gt; 文本</p>
+
+      <p>&gt;</p>
+
+      <blockquote>
+        <p>&gt; &gt; 文本</p>
+
+        <p>&gt; &gt;</p>
+
+        <blockquote>
+          <p>&gt; &gt; &gt; 文本</p>
+        </blockquote>
+      </blockquote>
+
+      <p>&gt;</p>
+
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <blockquote>
+              <p>&gt; &gt; &gt; &gt; &gt;</p>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+
+      <p>{:.layer}</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="fancy">Fancy classes - <em class="small">酷炫装饰类！</em>:</h2>
+
+<h2 id="rainbow">彩虹 (不兼容阴影 .shadow 与描边 .stroke ):</h2>
+<ul>
+  <li><em class="rainbow">.rainbow</em>
     <ul>
-      <li><em class="rainbow">.rainbow</em>
-        <ul>
-          <li>--rspd: 1s <em>(彩虹滚动速度)</em></li>
-        </ul>
-      </li>
-      <li><em class="rainbow fancy">.rainbow.fancy</em>
-        <ul>
-          <li>--rspd: 10s <em>(彩虹滚动速度)</em></li>
-          <li>--rs: 0.1em <em>(阴影距离)</em></li>
-          <li>--rst: 0.03em <em>(描边粗细)</em></li>
-          <li>--rsc: #00f <em>(阴影描边颜色)</em></li>
-        </ul>
-      </li>
-      <li><em class="rainbow cmy">.rainbow.cmy</em> <em class="rainbow fancy cmy">.rainbow.fancy.cmy</em> 彩虹但是青品黄</li>
+      <li>--rspd: 1s <em>(彩虹滚动速度)</em></li>
     </ul>
   </li>
-  <li>阴影：
+  <li><em class="rainbow fancy">.rainbow.fancy</em>
     <ul>
-      <li><em class="shadow">.shadow</em>
-        <ul>
-          <li>--sdd: 4px <em>(阴影距离)</em></li>
-          <li>--sdc: #000 <em>(阴影颜色)</em></li>
-        </ul>
-      </li>
-      <li><em class="echo">.echo</em></li>
+      <li>--rspd: 10s <em>(彩虹滚动速度)</em></li>
+      <li>--rs: 0.1em <em>(阴影距离)</em></li>
+      <li>--rst: 0.03em <em>(描边粗细)</em></li>
+      <li>--rsc: #00f <em>(阴影描边颜色)</em></li>
     </ul>
   </li>
-  <li>描边：
+  <li><em class="rainbow cmy">.rainbow.cmy</em> <em class="rainbow fancy cmy">.rainbow.fancy.cmy</em> 彩虹但是青品黄</li>
+</ul>
+
+<h2 id="shadow">阴影:</h2>
+<ul>
+  <li><em class="shadow">.shadow</em>
     <ul>
-      <li><em class="stroke">.stroke</em>
-        <ul>
-          <li>--std: 2px <em>(描边距离)</em></li>
-          <li>--stc: #440 <em>(描边颜色)</em></li>
-        </ul>
-      </li>
+      <li>--sdd: 4px <em>(阴影距离)</em></li>
+      <li>--sdc: #000 <em>(阴影颜色)</em></li>
     </ul>
   </li>
-  <li>动画！：
+  <li><em class="echo">.echo</em></li>
+</ul>
+
+<h2 id="stroke">描边:</h2>
+<ul>
+  <li><em class="stroke">.stroke</em>
     <ul>
-      <li><em class="pulse">.pulse</em> <em>(不完全兼容.rainbow)</em>
+      <li>--std: 2px <em>(描边距离)</em></li>
+      <li>--stc: #440 <em>(描边颜色)</em></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="animate">动画！:</h2>
+<ul>
+  <li><em class="pulse">.pulse</em> <em>(不完全兼容.rainbow)</em>
+    <ul>
+      <li>--pspd: .25s <em>(跳动速度)</em></li>
+      <li>--pscl: 1.2 <em>(跳动大小倍率)</em>7</li>
+      <li>--pphs: 0 <em>(跳动动画相位偏移)</em>
         <ul>
-          <li>--pspd: .25s <em>(跳动速度)</em></li>
-          <li>--pscl: 1.2 <em>(跳动大小倍率)</em>7</li>
-          <li>--pphs: 0 <em>(跳动动画相位偏移)</em>
-            <ul>
-              <li>与 --rphs 同理：
-                <ul>
-                  <li>最好使用 0 至 1 之间的值（偏移 0 至 1 周期）</li>
-                  <li>使用负数值将导致动画延迟出现</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><em class="rotate">.rotate</em> <em>(不兼容.rainbow)</em>
-        <ul>
-          <li><em class="rotate rev">.rotate.rev</em></li>
-          <li><em class="rotate" style="--rpsd:1s">--rpsd: 1s</em> <em>(旋转速度(周期) – 默认 3s)</em></li>
-          <li><em class="rotate" style="--ofst-x:50%">--ofst-x: 50%</em> <em>(水平偏移旋转中心 – 默认 0%)</em></li>
-          <li><em class="rotate" style="--ofst-y:300%">--ofst-y: 300%</em> <em>(垂直偏移旋转中心 – 默认 0%)</em></li>
-          <li><em class="rotate">--rphs: 0</em>
-<em class="rotate" style="--rphs:0.25">--rphs: .25</em> <em>(旋转相位偏移 – 默认 0)</em>
+          <li>与 --rphs 同理：
             <ul>
               <li>最好使用 0 至 1 之间的值（偏移 0 至 1 周期）</li>
               <li>使用负数值将导致动画延迟出现</li>
@@ -1932,41 +1956,36 @@
           </li>
         </ul>
       </li>
-      <li>嵌套使用段落类（block-level class）和内容类（inline class），以同时使用旋转文字（.rotate）和跳动文字（.pulse） <em>（在同一元素中无法同时使用两者–无法直接{:.rotate.pulse}）</em>：
+    </ul>
+  </li>
+  <li><em class="rotate">.rotate</em> <em>(不兼容.rainbow)</em>
+    <ul>
+      <li><em class="rotate rev">.rotate.rev</em></li>
+      <li><em class="rotate" style="--rpsd:1s">--rpsd: 1s</em> <em>(旋转速度(周期) – 默认 3s)</em></li>
+      <li><em class="rotate" style="--ofst-x:50%">--ofst-x: 50%</em> <em>(水平偏移旋转中心 – 默认 0%)</em></li>
+      <li><em class="rotate" style="--ofst-y:300%">--ofst-y: 300%</em> <em>(垂直偏移旋转中心 – 默认 0%)</em></li>
+      <li><em class="rotate">--rphs: 0</em>
+<em class="rotate" style="--rphs:0.25">--rphs: .25</em> <em>(旋转相位偏移 – 默认 0)</em>
         <ul>
-          <li>{:.rotate}<br />
-*文字内容*{:.pulse}</li>
-          <li class="rotate"><em class="pulse">{:.rotate}<br />
-*文字内容*{:.pulse}</em></li>
+          <li>最好使用 0 至 1 之间的值（偏移 0 至 1 周期）</li>
+          <li>使用负数值将导致动画延迟出现</li>
         </ul>
       </li>
     </ul>
   </li>
+  <li>嵌套使用段落类（block-level class）和内容类（inline class），以同时使用旋转文字（.rotate）和跳动文字（.pulse） <em>（在同一元素中无法同时使用两者–无法直接{:.rotate.pulse}）</em>：
+    <ul>
+      <li>{:.rotate}<br />
+*文字内容*{:.pulse}</li>
+      <li class="rotate"><em class="pulse">{:.rotate}<br />
+*文字内容*{:.pulse}</em></li>
+    </ul>
+  </li>
 </ul>
-
-<p> </p>
-
-<p> </p>
 
 <hr />
 
-<h1 class="rainbow fancy bigger u" id="欢迎来到-霧雨蘑菇店--う-yo-こ-ko-そ-so">欢迎来到 <em class="big">霧雨蘑菇店</em> <br /> <em class="big swrap r"><ruby>う <rt>yo</rt> こ <rt>ko</rt> そ <rt>so</rt></ruby>！</em></h1>
-
-<p><em class="bigger">超大</em> <em class="big">大</em> <em class="small">小</em> <em class="smaller">超小</em></p>
-
-<h1 id="超大标题-大标题-小标题-超小标题"><em class="bigger">超大标题</em> <em class="big">大标题</em> <em class="small">小标题</em> <em class="smaller">超小标题</em></h1>
-
-<h1 class="echo" id="我是混响男孩">我是，混响男孩</h1>
-
-<h2 id="请使用天亦-3g-设备浏览本网页以获得最佳体验">请使用天亦 3G 设备浏览本网页以获得最佳体验</h2>
-
-<h3 id="请使用天亦-3g-设备浏览本网页以获得最佳体验-1">请使用天亦 3G 设备浏览本网页以获得最佳体验</h3>
-
-<h4 id="请使用天亦-3g-设备浏览本网页以获得最佳体验-2">请使用天亦 3G 设备浏览本网页以获得最佳体验</h4>
-
-<h5 id="请使用天亦-3g-设备浏览本网页以获得最佳体验-3">请使用天亦 3G 设备浏览本网页以获得最佳体验</h5>
-
-<h6 id="请使用天亦-3g-设备浏览本网页以获得最佳体验-4">请使用天亦 3G 设备浏览本网页以获得最佳体验</h6>
+<h2 id="文字排版测试用">文字排版测试用</h2>
 
 <p>午后之时，那银白色的幻想乡。</p>
 
@@ -2064,20 +2083,31 @@
         地址：/md-lab.html | 作者：Kirisame Soup | 
       </div>
     </div>
-    <!-- <div class="icon">帽子.jpg</div> -->
-    <div class="cornerCara" ID="0" onclick='this.id = Math.floor(Math.random() * 15 + 1)'></div>
+  <!-- 
+    page corner -->
+    <!-- random marisa easteregg onclick -->
+    <div class="cornerCara" ID="0" title="" onclick='this.id = Math.floor(Math.random() * 15 + 1)'></div>
     <div class="cornerCara-b"></div>
     <div class="ibm-b">
       <div class="pc"></div>
     </div>
     <div class="ibm">
-      <label class="mask power"><input type="checkbox"></label>
+      <label class="mask power" title="开机?"><input type="checkbox"></label>
       <div class="vid">
-        <iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=625760&autoplay=1&muted=1" loading="lazy" scrolling="no" frameborder="no" sandbox="allow-same-origin allow-scripts"></iframe>
+        <!-- <iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=625760&autoplay=1&muted=1" loading="lazy" scrolling="no" frameborder="no" sandbox="allow-same-origin allow-scripts"></iframe> -->
       </div>
       <div class="pc-b"></div>
     </div>
+    <script src="/assets/js/link-id-copy.js" async
+    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/link-id-copy.js'"></script>
+  <!-- 
+    resize synchronize (for overflow effect) -->
+    <script src="/assets/js/resize-sync.js" async
+    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/resize-sync.js'"></script>
+  <!-- 
+    cat follow cursor -->
     <script src="/assets/neko/oneko.js" async
     onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/neko/oneko.js'"></script>
+
   </body>
 </html>

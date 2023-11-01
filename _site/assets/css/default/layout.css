@@ -2,18 +2,18 @@ iframe, input[type=checkbox], .toggle {
   display: none;
 }
 
-html {
+html, body {
   position: fixed;
   inset: 0;
 }
 
-body {
-  position: fixed;
-  inset: 0;
+html {
+  background: #002;
+  color: #aaf;
 }
 
 /* ==== L A Y O U T T A B L E ==== */
-.soup\.exe {
+#soup\.exe, #pseu {
   position: absolute;
   left: 40%;
   top: 45%;
@@ -22,46 +22,46 @@ body {
   aspect-ratio: 2.6;
   display: flex;
 }
-.soup\.exe .c1 {
+#soup\.exe .c1, #pseu .c1 {
   flex: 5;
   width: 0;
   display: flex;
   flex-direction: column;
 }
-.soup\.exe .c1 .banner {
+#soup\.exe .c1 .banner, #pseu .c1 .banner {
   position: relative;
   height: min(80px, 5.625vw);
 }
-.soup\.exe .c1 .main {
+#soup\.exe .c1 .main, #pseu .c1 .main {
   position: relative;
   width: auto;
   flex: 1;
   display: flex;
 }
-.soup\.exe .c1 .main .nav {
+#soup\.exe .c1 .main .nav, #pseu .c1 .main .nav {
   max-width: min(160px, 11.25vw);
   flex: 3;
   min-width: min-content;
 }
-.soup\.exe .c1 .main .window {
+#soup\.exe .c1 .main .window, #pseu .c1 .main .window {
   flex: 10;
   display: flex;
 }
-.soup\.exe .c1 .main .window .content {
+#soup\.exe .c1 .main .window .content, #pseu .c1 .main .window .content {
   position: relative;
   width: 100%;
   background: #fff;
   color: #44d;
   padding-bottom: 25%;
 }
-.soup\.exe .c1 .bottom {
+#soup\.exe .c1 .bottom, #pseu .c1 .bottom {
   --height: 40px;
   position: absolute;
   top: max(100% - var(--height), 280px);
   z-index: 1;
   height: var(--height);
 }
-.soup\.exe .c2 {
+#soup\.exe .c2, #pseu .c2 {
   position: relative;
   max-width: min(280px, 19.6875vw);
   flex: 3;
@@ -74,7 +74,7 @@ body {
 }
 
 /* ====overflow ctrl==== */
-.soup\.exe, .body, .banner, .main, .nav, .bottom, .window {
+#soup\.exe, .body, .banner, .main, .nav, .bottom, .window {
   overflow: hidden;
 }
 

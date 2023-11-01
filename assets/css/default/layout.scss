@@ -3,21 +3,21 @@
 
 iframe, input[type="checkbox"], .toggle { display: none; }
 
-html {
-    position: fixed;
-    inset: 0;
-}
-
-body {
+html, body {
     position: fixed;
     inset: 0;
 }
 
 @mixin sizeUni($m, $property: height) { #{$property}: MIN($m * 8px, $m * 9vw/16); }
 
+html {
+    background: #002;
+    color: #aaf;
+}
+
 /* ==== L A Y O U T T A B L E ==== */
 
-.soup\.exe {
+#soup\.exe, #pseu {
 // pos
     position: absolute;
     left: 40%; top: 45%;
@@ -92,6 +92,6 @@ body {
 
 /* ====overflow ctrl==== */
 
-.soup\.exe, .body, .banner, .main, .nav, .bottom, .window { overflow: hidden; }
+#soup\.exe, .body, .banner, .main, .nav, .bottom, .window { overflow: hidden; }
 
 .nav-c, .content { overflow: hidden scroll; }
