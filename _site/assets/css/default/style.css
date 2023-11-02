@@ -346,7 +346,7 @@ html {
 }
 
 html, .nav, .c2 {
-  background: url(/assets/image/bgg.gif), url(/assets/image/bg.gif);
+  background: url(/assets/image/bg.gif);
   background-color: #000;
   background-position: center;
   background-size: max(20vw, 40vh);
@@ -358,7 +358,7 @@ html::before {
   inset: 0;
   z-index: -2;
   pointer-events: none;
-  background: url(/assets/image/cloud.png), url(/assets/image/cloud.png);
+  background: url(/assets/image/cloud.png);
   background-size: cover;
   background-position: center;
 }
@@ -368,12 +368,12 @@ html::after {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url(/assets/image/rain.gif), url(/assets/image/rain.gif);
+  background: url(/assets/image/rain.gif);
   opacity: 0.5;
 }
 
 html:has(.cornerCara:not([id="0"])) {
-  background: url(/assets/image/IMG_1148.JPG), url(/assets/image/IMG_1148.JPG);
+  background: url(/assets/image/IMG_1148.JPG);
   background-size: contain;
   background-position: right;
   background-color: #000;
@@ -384,7 +384,7 @@ html:has(.cornerCara:not([id="0"])) {
 /* ==== C 1 ==== */
 .c1 .banner {
   border: #000 1px solid;
-  background: url(/assets/image/xp.gifv), url(/assets/image/xp.gifv);
+  background: url(/assets/image/xp.gif);
   background-size: cover;
 }
 .c1 .banner::before, .c1 .banner::after {
@@ -394,7 +394,7 @@ html:has(.cornerCara:not([id="0"])) {
 }
 .c1 .banner::before {
   content: "";
-  background: url(/assets/image/banner.png), url(/assets/image/banner.png);
+  background: url(/assets/image/banner.png);
   background-color: #ccf;
   background-size: max(90%, 600px) 100% !important;
   background-position: 40px;
@@ -403,7 +403,7 @@ html:has(.cornerCara:not([id="0"])) {
 }
 .c1 .banner::after {
   content: "";
-  background: url(/assets/image/bannerTxt.png), url(/assets/image/bannerTxt.png);
+  background: url(/assets/image/bannerTxt.png);
   background-size: auto 100% !important;
   background-position: calc(100% - max(30%, 20px)) !important;
 }
@@ -494,7 +494,7 @@ html:has(.cornerCara:not([id="0"])) {
   position: absolute;
   inset: 0;
   image-rendering: pixelated;
-  background: url(/assets/image/bg2.gif), url(/assets/image/bg2.gif);
+  background: url(/assets/image/bg2.gif);
   background-color: #000;
   background-size: max(10vw, 20vh);
   mix-blend-mode: lighten;
@@ -615,16 +615,16 @@ html:has(.cornerCara:not([id="0"])) {
   bottom: 2px;
 }
 .window .buttonBar .toggle.fullscreenTg::before {
-  background: url(/assets/image/button/max.gif), url(/assets/image/button/max.gif);
+  background: url(/assets/image/button/max.gif);
 }
 .fullscreen .buttonBar .toggle.fullscreenTg::before {
-  background: url(/assets/image/button/unmax.gif), url(/assets/image/button/unmax.gif);
+  background: url(/assets/image/button/unmax.gif);
 }
 .buttonBar .toggle.darkTg::before {
-  background: url(/assets/image/button/dark.gif), url(/assets/image/button/dark.gif);
+  background: url(/assets/image/button/dark.gif);
 }
 .buttonBar .toggle.fontTg::before {
-  background: url(/assets/image/button/font.gif), url(/assets/image/button/font.gif);
+  background: url(/assets/image/button/font.gif);
 }
 .window .buttonBar {
   position: relative;
@@ -719,71 +719,71 @@ html:has(.cornerCara:not([id="0"])) {
   opacity: 0.5;
 }
 .cornerCara[id="0"] + .cornerCara-b, .cornerCara[id="0"]::before {
-  background: url(/assets/image/cornerCara/marisa0.webp), url(/assets/image/cornerCara/marisa0.webp);
+  background: url(/assets/image/cornerCara/marisa0.webp);
   background-size: contain;
 }
 .cornerCara[id="1"] + .cornerCara-b, .cornerCara[id="1"]::before {
-  background: url(/assets/image/cornerCara/marisa1.webp), url(/assets/image/cornerCara/marisa1.webp);
+  background: url(/assets/image/cornerCara/marisa1.webp);
   background-size: contain;
 }
 .cornerCara[id="2"] + .cornerCara-b, .cornerCara[id="2"]::before {
-  background: url(/assets/image/cornerCara/marisa2.webp), url(/assets/image/cornerCara/marisa2.webp);
+  background: url(/assets/image/cornerCara/marisa2.webp);
   background-size: contain;
 }
 .cornerCara[id="3"] + .cornerCara-b, .cornerCara[id="3"]::before {
-  background: url(/assets/image/cornerCara/marisa3.webp), url(/assets/image/cornerCara/marisa3.webp);
+  background: url(/assets/image/cornerCara/marisa3.webp);
   background-size: contain;
 }
 .cornerCara[id="4"] + .cornerCara-b, .cornerCara[id="4"]::before {
-  background: url(/assets/image/cornerCara/marisa4.webp), url(/assets/image/cornerCara/marisa4.webp);
+  background: url(/assets/image/cornerCara/marisa4.webp);
   background-size: contain;
 }
 .cornerCara[id="5"] + .cornerCara-b, .cornerCara[id="5"]::before {
-  background: url(/assets/image/cornerCara/marisa5.webp), url(/assets/image/cornerCara/marisa5.webp);
+  background: url(/assets/image/cornerCara/marisa5.webp);
   background-size: contain;
 }
 .cornerCara[id="6"] + .cornerCara-b, .cornerCara[id="6"]::before {
-  background: url(/assets/image/cornerCara/marisa6.webp), url(/assets/image/cornerCara/marisa6.webp);
+  background: url(/assets/image/cornerCara/marisa6.webp);
   background-size: contain;
 }
 .cornerCara[id="7"] + .cornerCara-b, .cornerCara[id="7"]::before {
-  background: url(/assets/image/cornerCara/marisa7.webp), url(/assets/image/cornerCara/marisa7.webp);
+  background: url(/assets/image/cornerCara/marisa7.webp);
   background-size: contain;
 }
 .cornerCara[id="8"] + .cornerCara-b, .cornerCara[id="8"]::before {
-  background: url(/assets/image/cornerCara/marisa8.webp), url(/assets/image/cornerCara/marisa8.webp);
+  background: url(/assets/image/cornerCara/marisa8.webp);
   background-size: contain;
 }
 .cornerCara[id="9"] + .cornerCara-b, .cornerCara[id="9"]::before {
-  background: url(/assets/image/cornerCara/marisa9.webp), url(/assets/image/cornerCara/marisa9.webp);
+  background: url(/assets/image/cornerCara/marisa9.webp);
   background-size: contain;
 }
 .cornerCara[id="10"] + .cornerCara-b, .cornerCara[id="10"]::before {
-  background: url(/assets/image/cornerCara/marisa10.webp), url(/assets/image/cornerCara/marisa10.webp);
+  background: url(/assets/image/cornerCara/marisa10.webp);
   background-size: contain;
 }
 .cornerCara[id="11"] + .cornerCara-b, .cornerCara[id="11"]::before {
-  background: url(/assets/image/cornerCara/marisa11.webp), url(/assets/image/cornerCara/marisa11.webp);
+  background: url(/assets/image/cornerCara/marisa11.webp);
   background-size: contain;
 }
 .cornerCara[id="12"] + .cornerCara-b, .cornerCara[id="12"]::before {
-  background: url(/assets/image/cornerCara/marisa12.webp), url(/assets/image/cornerCara/marisa12.webp);
+  background: url(/assets/image/cornerCara/marisa12.webp);
   background-size: contain;
 }
 .cornerCara[id="13"] + .cornerCara-b, .cornerCara[id="13"]::before {
-  background: url(/assets/image/cornerCara/marisa13.webp), url(/assets/image/cornerCara/marisa13.webp);
+  background: url(/assets/image/cornerCara/marisa13.webp);
   background-size: contain;
 }
 .cornerCara[id="14"] + .cornerCara-b, .cornerCara[id="14"]::before {
-  background: url(/assets/image/cornerCara/marisa14.webp), url(/assets/image/cornerCara/marisa14.webp);
+  background: url(/assets/image/cornerCara/marisa14.webp);
   background-size: contain;
 }
 .cornerCara[id="15"] + .cornerCara-b, .cornerCara[id="15"]::before {
-  background: url(/assets/image/cornerCara/marisa15.webp), url(/assets/image/cornerCara/marisa15.webp);
+  background: url(/assets/image/cornerCara/marisa15.webp);
   background-size: contain;
 }
 .cornerCara {
-  background: url(/assets/image/cornerCara/marisaB_.webp), url(/assets/image/cornerCara/marisaB_.webp);
+  background: url(/assets/image/cornerCara/marisaB_.webp);
   background-size: 120%;
   background-position: -40% -40%;
   image-rendering: pixelated;
@@ -857,7 +857,7 @@ html:has(.cornerCara:not([id="0"])) {
   width: 75%;
   aspect-ratio: 1.63;
   pointer-events: none;
-  background: url(/assets/image/ibm.png), url(/assets/image/ibm.png);
+  background: url(/assets/image/ibm.png);
   background-size: cover;
 }
 .pc::before, .pc-b::before {
@@ -887,7 +887,7 @@ html:has(.cornerCara:not([id="0"])) {
   transform: rotate(11deg) skew(7deg);
   width: 28%;
   aspect-ratio: 1.34;
-  background: url(/assets/image/rainbowDither.png), url(/assets/image/rainbowDither.png);
+  background: url(/assets/image/rainbowDither.png);
   background-size: 4vw;
   opacity: 0;
   mix-blend-mode: darken;
@@ -915,7 +915,7 @@ html:has(.cornerCara:not([id="0"])) {
 /* ======== */
 /* ==== C U R S O R ==== */
 #soup\.exe, .fullscreen {
-  cursor: url(/assets/image/cursor/hat.gif), url(/assets/image/cursor/hat.gif), auto !important;
+  cursor: url(/assets/image/cursor/hat.gif), auto !important;
 }
 
 a, button, label, .cornerCara {
@@ -923,19 +923,19 @@ a, button, label, .cornerCara {
 }
 @keyframes wonderCursor {
   0% {
-    cursor: url(/assets/image/cursor/hatq1.gif), url(/assets/image/cursor/hatq1.gif), auto;
+    cursor: url(/assets/image/cursor/hatq1.gif), auto;
   }
   25% {
-    cursor: url(/assets/image/cursor/hatq2.gif), url(/assets/image/cursor/hatq2.gif), auto;
+    cursor: url(/assets/image/cursor/hatq2.gif), auto;
   }
   50% {
-    cursor: url(/assets/image/cursor/hatq3.gif), url(/assets/image/cursor/hatq3.gif), auto;
+    cursor: url(/assets/image/cursor/hatq3.gif), auto;
   }
   75% {
-    cursor: url(/assets/image/cursor/hatq4.gif), url(/assets/image/cursor/hatq4.gif), auto;
+    cursor: url(/assets/image/cursor/hatq4.gif), auto;
   }
   100% {
-    cursor: url(/assets/image/cursor/hatq5.gif), url(/assets/image/cursor/hatq5.gif), auto;
+    cursor: url(/assets/image/cursor/hatq5.gif), auto;
   }
 }
 
@@ -1021,19 +1021,19 @@ html {
 }
 
 html {
-  font-family: "fusion", "gfw-fusion", sans-serif;
+  font-family: "fusion", sans-serif;
 }
 
 html:has(.fontTg input:checked) {
-  font-family: "ibm", "gfw-ibm", sans-serif;
+  font-family: "ibm", sans-serif;
 }
 
 code, kbd, samp {
-  font-family: "ibm", "gfw-ibm", monospace;
+  font-family: "ibm", monospace;
 }
 
 html:has(.fontTg input:checked) code, kbd, samp {
-  font-family: "fusion", "gfw-fusion", monospace;
+  font-family: "fusion", monospace;
 }
 
 @font-face {
@@ -1046,18 +1046,6 @@ html:has(.fontTg input:checked) code, kbd, samp {
 }
 @font-face {
   font-family: "zpix";
-  src: url(/assets/font/zpix.ttf);
-}
-@font-face {
-  font-family: "gfw-fusion";
-  src: url(/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf);
-}
-@font-face {
-  font-family: "gfw-ibm";
-  src: url(/assets/font/IBM3161.ttf);
-}
-@font-face {
-  font-family: "gfw-zpix";
   src: url(/assets/font/zpix.ttf);
 }
 /* ======== */

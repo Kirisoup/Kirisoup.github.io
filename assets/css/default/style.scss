@@ -44,7 +44,7 @@ html { image-rendering: pixelated; }
 
 // main bg
 html, .nav, .c2 { 
-    background: url(/assets/image/bgg.gif), url(#{$ghprxy}/assets/image/bg.gif)
+    background: url(/assets/image/bg.gif)
         { color: #000; position: center; size: MAX(20vw,40vh); }
     }
 
@@ -53,7 +53,7 @@ html::before { content: "";
     inset: 0;
     z-index: -2;
     pointer-events: none;
-    background: url(/assets/image/cloud.png), url(#{$ghprxy}/assets/image/cloud.png)
+    background: url(/assets/image/cloud.png)
         { size: cover; position: center; };
 }
 
@@ -61,12 +61,12 @@ html::after { content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: url(/assets/image/rain.gif), url(#{$ghprxy}/assets/image/rain.gif);
+    background: url(/assets/image/rain.gif);
     opacity: .5;
 }
 
 html:has(.cornerCara:not([id="0"])) {
-    background: url(/assets/image/IMG_1148.JPG), url(#{$ghprxy}/assets/image/IMG_1148.JPG)
+    background: url(/assets/image/IMG_1148.JPG)
         {size: contain; position: right};
     background-color: #000;
     background-blend-mode: hard-light;
@@ -85,7 +85,7 @@ html:has(.cornerCara:not([id="0"])) {
         // background: url(https://media.tenor.com/5lWosOHS630AAAAC/amor.gif);
         // background: url(https://usagif.com/wp-content/uploads/gifs/water-66.gif);
         // background: url(https://64.media.tumblr.com/9af92cc03553bd821021fd950fbc33b5/1534f96efdb15e70-b5/s100x200/6f110ffcfa7afe0af25add8144e9d30fbefc97fe.gifv);
-        background: url(/assets/image/xp.gifv), url(#{$ghprxy}/assets/image/xp.gifv)
+        background: url(/assets/image/xp.gif)
             { size: cover; };
 
         &::before, &::after {
@@ -97,7 +97,7 @@ html:has(.cornerCara:not([id="0"])) {
         }
 
         &::before { content: "";
-            background: url(/assets/image/banner.png), url(#{$ghprxy}/assets/image/banner.png) {
+            background: url(/assets/image/banner.png) {
                 color: #ccf;
                 size: MAX(90%, 600px) 100% !important;
                 position: 40px;
@@ -107,7 +107,7 @@ html:has(.cornerCara:not([id="0"])) {
         }
 
         &::after { content: "";
-            background: url(/assets/image/bannerTxt.png), url(#{$ghprxy}/assets/image/bannerTxt.png) {
+            background: url(/assets/image/bannerTxt.png) {
                 size: auto 100% !important;
                 position: calc(100% - MAX(30%, 20px)) !important;
             };
@@ -235,7 +235,7 @@ html:has(.cornerCara:not([id="0"])) {
         inset: 0;
     // styl
         image-rendering: pixelated;
-        background: url(/assets/image/bg2.gif), url(#{$ghprxy}/assets/image/bg2.gif) {
+        background: url(/assets/image/bg2.gif) {
             color: #000;
             size: MAX(10vw,20vh);
         };
@@ -374,10 +374,10 @@ html:has(.cornerCara:not([id="0"])) {
             }
         }
 
-        .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif),   url(#{$ghprxy}/assets/image/button/max.gif); }
-        .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif), url(#{$ghprxy}/assets/image/button/unmax.gif); }
-        &.darkTg::before                   { background: url(/assets/image/button/dark.gif),  url(#{$ghprxy}/assets/image/button/dark.gif); }
-        &.fontTg::before                   { background: url(/assets/image/button/font.gif),  url(#{$ghprxy}/assets/image/button/font.gif); }
+        .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif);   }
+        .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif); }
+        &.darkTg::before                   { background: url(/assets/image/button/dark.gif);  }
+        &.fontTg::before                   { background: url(/assets/image/button/font.gif);  }
 
     }
 
@@ -470,11 +470,11 @@ html:has(.cornerCara:not([id="0"])) {
 
     /* ====randomBG==== */
 
-    @for $i from 0 to 16 { &[id="#{$i}"] +&-b, &[id="#{$i}"]::before { background: url(/assets/image/cornerCara/marisa#{$i}.webp), url(#{$ghprxy}/assets/image/cornerCara/marisa#{$i}.webp)
+    @for $i from 0 to 16 { &[id="#{$i}"] +&-b, &[id="#{$i}"]::before { background: url(/assets/image/cornerCara/marisa#{$i}.webp)
         { size: contain } }; }
 
     & { 
-        background: url(/assets/image/cornerCara/marisaB_.webp), url(#{$ghprxy}/assets/image/cornerCara/marisaB_.webp) {
+        background: url(/assets/image/cornerCara/marisaB_.webp) {
             size: 120%;
             position: -40% -40%;
         };
@@ -552,7 +552,7 @@ html:has(.cornerCara:not([id="0"])) {
         aspect-ratio: 1.63;
     // styl
         pointer-events: none;
-        background: url(/assets/image/ibm.png), url(#{$ghprxy}/assets/image/ibm.png)
+        background: url(/assets/image/ibm.png)
             { size: cover; };
 
         &::before {
@@ -597,7 +597,7 @@ html:has(.cornerCara:not([id="0"])) {
     width: 28%;
     aspect-ratio: 1.34;
 // styl
-    background: url(/assets/image/rainbowDither.png), url(#{$ghprxy}/assets/image/rainbowDither.png)
+    background: url(/assets/image/rainbowDither.png)
         {size: 4vw};
     opacity: 0;
     mix-blend-mode: darken;
@@ -625,9 +625,9 @@ html:has(.cornerCara:not([id="0"])) {
 
 // html { cursor: none;}
 
-#soup\.exe, .fullscreen { cursor: url(/assets/image/cursor/hat.gif), url(#{$ghprxy}/assets/image/cursor/hat.gif), auto !important; }
+#soup\.exe, .fullscreen { cursor: url(/assets/image/cursor/hat.gif), auto !important; }
 
-@mixin wCursorGif($id) { cursor: url(/assets/image/cursor/hatq#{$id}.gif), url(#{$ghprxy}/assets/image/cursor/hatq#{$id}.gif), auto; }
+@mixin wCursorGif($id) { cursor: url(/assets/image/cursor/hatq#{$id}.gif), auto; }
 
 a, button, label, .cornerCara {
     animation: wonderCursor .5s infinite;
@@ -702,11 +702,11 @@ ul { ::marker { font-weight: bolder; } list-style-type: "☆ ";
 
 html { font-display: swap; }
 
-html                            { font-family: "fusion", "gfw-fusion", sans-serif; }
-html:has(.fontTg input:checked) { font-family: "ibm", "gfw-ibm", sans-serif; }
+html                            { font-family: "fusion", sans-serif; }
+html:has(.fontTg input:checked) { font-family: "ibm", sans-serif; }
 
-code, kbd, samp { font-family: "ibm", "gfw-ibm", monospace;}
-html:has(.fontTg input:checked) code, kbd, samp { font-family: "fusion", "gfw-fusion", monospace;}
+code, kbd, samp { font-family: "ibm", monospace;}
+html:has(.fontTg input:checked) code, kbd, samp { font-family: "fusion", monospace;}
 
 
 @font-face {
@@ -722,22 +722,6 @@ html:has(.fontTg input:checked) code, kbd, samp { font-family: "fusion", "gfw-fu
 @font-face {
     font-family: "zpix";
     src: url(/assets/font/zpix.ttf);
-}
-
-// fallback for gfw users
-@font-face {
-    font-family: "gfw-fusion";
-    src: url(#{$ghprxy}/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf);
-}
-
-@font-face {
-    font-family: "gfw-ibm";
-    src: url(#{$ghprxy}/assets/font/IBM3161.ttf);
-}
-
-@font-face {
-    font-family: "gfw-zpix";
-    src: url(#{$ghprxy}/assets/font/zpix.ttf);
 }
 
 /* ======== */
