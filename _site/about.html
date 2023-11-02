@@ -6,26 +6,84 @@
     <meta http-equiv="Cache-control" content="no-store">
     <title>A:¥霧雨蘑菇店/¥About</title>
 
+    <!-- store ghproxy prepended link as variable -->
+    <script>
+      var ghprxy = "https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main";
+      var ghprxy_s = ghprxy+"/_site";
+    </script>
+
     <!--essential stylesheet -->
     <link rel="stylesheet" href="/assets/css/default/layout.css"
-    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/css/default/layout.css'">
+    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')">
 
     <!--async stylesheet -->
-    <link rel="stylesheet" href="/assets/css/default/style.css"
+    <link rel="stylesheet" href="/assets/css/default/style.css" id="style.css"
     media="print" onload="this.onload=null;this.removeAttribute('media');"
-    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/css/default/style.css'">
+    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href');">
+
+    <script>
+      var stylesheet = document.getElementById('style.css');
+      var styleURL = stylesheet.href;
+
+      // Fetch and parse the stylesheet content
+      fetch(styleURL)
+        .then(response => response.text())
+        .then(cssText => {
+          // Use regular expressions or a CSS parser to extract URLs of assets
+          var assetUrls = cssText.match(/url\((['"]?)(.*?)\1\)/g);
+
+          if (assetUrls) {
+            console.log(assetUrls)
+            assetUrls.forEach(function(assetUrl) {
+              // Extract the URL from url('...')
+              var url = assetUrl.match(/url\((['"]?)(.*?)\1\)/)[2];
+
+              // Determine the asset type based on the URL (you may need to extend this logic)
+              var assetType = url.endsWith('.ttf') ? 'font' : 'image';
+
+              if (assetType === 'image') {
+                // For images
+                var img = new Image();
+
+                img.src = url;
+
+                img.onerror = function() {
+                  console.log('Error loading image asset:', url);
+                  // You can add additional error-handling code here
+                };
+              } else if (assetType === 'font') {
+                // For fonts or other asset types
+                var font = new FontFace('Font Name', 'url(' + url + ')');
+
+                font.load().then(function(loadedFont) {
+                  document.fonts.add(loadedFont);
+                  // console.log('Font asset loaded successfully:', url);
+                }).catch(function(error) {
+                  console.log('Error loading font asset:', url, error);
+                  // You can add additional error-handling code here
+                });
+              }
+            });
+          }
+        })
+        .catch(error => {
+          console.log('Error fetching stylesheet:', error);
+          // You can add error-handling code here for the stylesheet itself
+        });
+    </script>
+
     <!--non-js fallback (no onerror for gfw suckers because, well, noscript) -->
     <noscript><link rel="stylesheet" href="/assets/css/default/style.css"></noscript>
 
     <!-- font preload to avoid stuck from ghproxy 404 -->
     <link rel="preload" href="/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf" as="font" crossorigin="anonymous"
-    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf'">
+    onerror="this.onerror=null; this.href = ghprxy + getAttribute('href')">
     <link rel="preload" href="/assets/font/IBM3161.ttf" as="font" crossorigin="anonymous"
-    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/font/IBM3161.ttf'">
+    onerror="this.onerror=null; this.href = ghprxy + getAttribute('href')">
 
     <!--cursor trace -->
     <script src="/assets/js/cursor.js" async
-    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/cursor.js'"></script>
+    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
     <script>
       window.addEventListener("load", (event) => {
         new cursoreffects.ghostCursor();
@@ -124,15 +182,15 @@
     <div class="ibm">
       <label class="mask power" title="开机?"><input type="checkbox"></label>
       <div class="vid">
-        <!-- <iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=625760&autoplay=1&muted=1" loading="lazy" scrolling="no" frameborder="no" sandbox="allow-same-origin allow-scripts"></iframe> -->
+        <iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=625760&autoplay=1&muted=1" loading="lazy" scrolling="no" frameborder="no" sandbox="allow-same-origin allow-scripts"></iframe>
       </div>
       <div class="pc-b"></div>
     </div>
     <script src="/assets/js/link-id-copy.js" async
-    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/link-id-copy.js'"></script>
+    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
     <script src="/assets/js/resize-sync.js" async
-    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/resize-sync.js'"></script>
+    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
     <script src="/assets/neko/oneko.js" async
-    onerror="this.onerror=null; this.href='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/neko/oneko.js'"></script>
+    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
   </body>
 </html>
