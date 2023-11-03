@@ -12,29 +12,30 @@
       var ghprxy_s = ghprxy+"/_site";
     </script>
 
-    <!--essential stylesheet -->
+    <!-- essential stylesheet -->
     <link rel="stylesheet" href="/assets/css/default/layout.css"
-    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')">
+      onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')">
 
-    <!--async stylesheet -->
+    <!-- async stylesheet -->
     <link rel="stylesheet" href="/assets/css/default/style.css" id="style"
-    media="print" onload="this.onload=null;this.removeAttribute('media');"
-    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href');">
+      media="print" onload="this.onload=null;this.removeAttribute('media');"
+      onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href');">
 
+    <!-- load stylesheet asset with ghproxy if needed for gfw suckers -->
     <script src="/assets/js/cssAssetFB.js" async></script>
 
-    <!--non-js fallback (no onerror for gfw suckers because, well, noscript) -->
+    <!-- non-js fallback (no onerror for gfw suckers because, well, noscript) -->
     <noscript><link rel="stylesheet" href="/assets/css/default/style.css" id="style-nojs"></noscript>
 
     <!-- font preload to avoid stuck from ghproxy 404 -->
     <link rel="preload" href="/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf" as="font" crossorigin="anonymous"
-    onerror="this.onerror=null; this.href = ghprxy + getAttribute('href')">
+      onerror="this.onerror=null; this.href = ghprxy + getAttribute('href')">
     <link rel="preload" href="/assets/font/IBM3161.ttf" as="font" crossorigin="anonymous"
-    onerror="this.onerror=null; this.href = ghprxy + getAttribute('href')">
+      onerror="this.onerror=null; this.href = ghprxy + getAttribute('href')">
 
-    <!--cursor trace -->
+    <!-- cursor trace -->
     <script src="/assets/js/cursor.js" async
-    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
+      onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
     <script>
       window.addEventListener("load", (event) => {
         new cursoreffects.ghostCursor();
@@ -89,13 +90,8 @@
             </div>
             <div class="buttonBar">
               <label class="fontTg toggle" title="切换字体"><input type="checkbox"></label>
-              <label class="darkTg toggle" title="切换深色模式"><input type="checkbox" id="dark1" onclick="
-              if (document.querySelector('#dark2:checked')) { document.getElementById('dark2').checked=false; }
-                                                       else { document.getElementById('dark2').checked=true; }
-              "></label>
-              <label class="fullscreenTg toggle" title="进入全屏"><input type="checkbox" onclick="
-              document.getElementsByClassName('fullscreen')[0].className = 'fullscreen on'
-              "></label>
+              <label class="darkTg toggle" title="切换深色模式"><input type="checkbox" id="dark1"></label>
+              <label class="fullscreenTg toggle" id="enterFull" title="进入全屏"></label>
             </div>
           </div>  
         </div>
@@ -104,25 +100,24 @@
       <div class="c2">
         <div class="c2-b"></div>
         <div class="chatBox"></div>
-        <!-- <iframe id="navlink" width="90" height="90" style="border:none" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe> -->
+        <iframe id="navlink" width="90" height="90" style="border:none" src="https://dimden.neocities.org/navlink/" loading="lazy" name="neolink"></iframe>
       </div>
     </div>
     <div class="fullscreen">
       <div class="buttonBar">
         <span class="title"> A:¥霧雨蘑菇店/¥About </span>
         <label class="fontTg toggle" title="切换字体"><input type="checkbox"></label>
-        <label class="darkTg toggle" title="切换深色模式"><input type="checkbox" id="dark2" onclick="
-        if (document.querySelector('#dark1:checked')) { document.getElementById('dark1').checked=false; }
-                                                 else { document.getElementById('dark1').checked=true; }
-        "></label>
-        <label class="fullscreenTg toggle" title="退出全屏"><input type="checkbox" onclick="document.getElementsByClassName('fullscreen on')[0].className = 'fullscreen'"></label>
+        <label class="darkTg toggle" title="切换深色模式"><input type="checkbox" id="dark2"></label>
+        <label class="fullscreenTg toggle" id="exitFull" title="退出全屏"></label>
       </div>
-      <div class="content f"> <h1 id="about-">about :|</h1>
+      <!-- really stupid way to fix duplicated id issue -->
+      <div class="content f"> <h1 id="f_about-">about :|</h1>
  </div>
       <div class="bottomBar">
         地址：/about.html | 作者：Kirisame Soup | 
       </div>
     </div>
+    <script src="/assets/js/queryStrings.js" async></script>
 
     <!-- page corner -->
     <div class="cornerCara" ID="0" title="" onclick='this.id = Math.floor(Math.random() * 15 + 1)'></div>
@@ -133,15 +128,15 @@
     <div class="ibm">
       <label class="mask power" title="开机?"><input type="checkbox"></label>
       <div class="vid">
-        <!-- <iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=625760&autoplay=1&muted=1" loading="lazy" scrolling="no" frameborder="no" sandbox="allow-same-origin allow-scripts"></iframe> -->
+        <iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=625760&autoplay=1&muted=1" loading="lazy" scrolling="no" frameborder="no" sandbox="allow-same-origin allow-scripts"></iframe>
       </div>
       <div class="pc-b"></div>
     </div>
     <script src="/assets/js/link-id-copy.js" async
-    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
+      onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
     <script src="/assets/js/resize-sync.js" async
-    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
+      onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
     <script src="/assets/neko/oneko.js" async
-    onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
+      onerror="this.onerror=null; this.href = ghprxy_s + getAttribute('href')"></script>
   </body>
 </html>

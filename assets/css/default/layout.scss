@@ -13,6 +13,7 @@ html, body {
 html {
     background: #002;
     color: #aaf;
+    font-family: monospace;
 }
 
 /* ==== L A Y O U T T A B L E ==== */
@@ -60,9 +61,6 @@ html {
                 .content {
                     position: relative;
                     width: 100%;
-                // prevent initial animation
-                    background: #fff;
-                    color: #44d;
                     padding-bottom: 25%;
                 }
             }

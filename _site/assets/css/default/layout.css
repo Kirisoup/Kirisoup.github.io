@@ -10,6 +10,7 @@ html, body {
 html {
   background: #002;
   color: #aaf;
+  font-family: monospace;
 }
 
 /* ==== L A Y O U T T A B L E ==== */
@@ -50,8 +51,6 @@ html {
 #soup\.exe .c1 .main .window .content, #pseu .c1 .main .window .content {
   position: relative;
   width: 100%;
-  background: #fff;
-  color: #44d;
   padding-bottom: 25%;
 }
 #soup\.exe .c1 .bottom, #pseu .c1 .bottom {

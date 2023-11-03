@@ -313,13 +313,15 @@ template {
 }
 
 :root {
-  --ghprxy: $ghprxy;
   --txtColor: #44d;
   --txtColor-sat: #00f;
   --txtColor-fade: #eef;
-  --txtColor2: #000;
-  --txtColor3: #d44;
-  --txtColor3-fade: #fee;
+  --txtColor-link: #4cc;
+  --txtColor-plain: #000;
+  --txtColor-green: #464;
+  --txtColor-green-fade: #efe;
+  --txtColor-red: #d04;
+  --txtColor-red-fade: #fde;
   --pgColor: #fff;
 }
 
@@ -439,7 +441,7 @@ html:has(.cornerCara:not([id="0"])) {
 }
 .c1 .main .nav-c a {
   position: relative;
-  color: #2985ff;
+  color: #38f;
 }
 .c1 .main .nav-c a.urHere {
   pointer-events: none;
@@ -655,18 +657,17 @@ html:has(.cornerCara:not([id="0"])) {
   right: 3.25em;
 }
 
-.content, .window {
-  transition: color 0s 0.5s, background-color 0.2s 0.5s, border-color 0.2s 0.5s;
-}
-
 .buttonBar:has(.darkTg input:checked) ~ .content, .content:has(~ .buttonBar .darkTg input:checked) {
   transition: color 0s, background-color 0.2s;
   --txtColor: #aaf;
   --txtColor-sat: #00c;
   --txtColor-fade: #224;
-  --txtColor3: #faa;
-  --txtColor3-fade: #422;
-  --txtColor2: #fff;
+  --txtColor-link: #abb;
+  --txtColor-plain: #fff;
+  --txtColor-green: #aca;
+  --txtColor-green-fade: #232;
+  --txtColor-red: #f8a;
+  --txtColor-red-fade: #422;
   --pgColor: #002;
 }
 
@@ -975,9 +976,126 @@ html {
   padding-left: 0.3em;
   opacity: 0.5;
   font-size: 0.7em;
-  color: var(--txtColor3);
+  color: var(--txtColor-red);
   transform: rotate(15deg);
   white-space: pre;
+}
+
+a {
+  position: relative;
+  color: var(--txtColor-link);
+}
+a::after {
+  content: "";
+  position: absolute;
+  inset: -0.5em;
+}
+
+h1, h2, h3, h4, .fake.h1, .fake.h2, .fake.h3, .fake.h4 {
+  font-weight: bolder;
+}
+
+h5, h6, .fake.h5, .fake.h6 {
+  font-weight: normal;
+}
+
+h4, h6, .fake.h4, .fake.h6 {
+  font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1em;
+}
+
+:first-child ~ h1, :first-child ~ h2, :first-child ~ h3, :first-child ~ h4, :first-child ~ h5, :first-child ~ h6 {
+  margin-top: 2em;
+}
+
+h1, h2 {
+  margin-bottom: 1em;
+}
+
+h3, h4, h5, h6 {
+  margin-bottom: 0.5em;
+}
+
+h1 + h1, h1 + h2, h1 + h3, h1 + h4, h1 + h5, h1 + h6, h2 + h1, h2 + h2, h2 + h3, h2 + h4, h2 + h5, h2 + h6, h3 + h1, h3 + h2, h3 + h3, h3 + h4, h3 + h5, h3 + h6, h4 + h1, h4 + h2, h4 + h3, h4 + h4, h4 + h5, h4 + h6, h5 + h1, h5 + h2, h5 + h3, h5 + h4, h5 + h5, h5 + h6, h6 + h1, h6 + h2, h6 + h3, h6 + h4, h6 + h5, h6 + h6 {
+  margin-top: 0 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  inset: -0.5rem -0.2rem;
+  padding: 0.5rem 0.2rem;
+}
+
+h1 {
+  border-bottom: var(--txtColor) 3px solid;
+}
+
+h2 {
+  border-bottom: var(--txtColor) 3px dashed;
+}
+
+h3, h4 {
+  border-bottom: var(--txtColor) 3px dotted;
+}
+
+h4, h5, h6 {
+  width: max-content;
+}
+
+h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+  --notify: "--> 点击复制标题链接";
+}
+h1[id]::before, h1[id]::after, h2[id]::before, h2[id]::after, h3[id]::before, h3[id]::after, h4[id]::before, h4[id]::after, h5[id]::before, h5[id]::after, h6[id]::before, h6[id]::after {
+  font-weight: normal;
+  font-size: max(0.5em, 0.8rem);
+  opacity: 0.7;
+}
+
+h1[id]::before, h1[id]::after, h2[id]::before, h2[id]::after, h3[id]::before, h3[id]::after {
+  display: block;
+}
+h1[id]::before, h2[id]::before, h3[id]::before {
+  content: "#" attr(id) " ";
+  position: relative;
+  bottom: 0.2em;
+  text-decoration: dashed underline 1.5px;
+}
+h1[id]:hover::after, h2[id]:hover::after, h3[id]:hover::after {
+  content: var(--notify);
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  background: var(--pgColor);
+  opacity: 1;
+}
+h1[id]:active, h2[id]:active, h3[id]:active {
+  background: var(--txtColor);
+  color: var(--pgColor);
+}
+h1[id]:active::after, h2[id]:active::after, h3[id]:active::after {
+  content: "";
+}
+
+h4[id]::after, h5[id]::after, h6[id]::after {
+  content: " #" attr(id) " " " ";
+}
+h4[id]:hover::before, h5[id]:hover::before, h6[id]:hover::before {
+  content: var(--notify);
+  position: absolute;
+  top: -0.8em;
+  text-wrap: nowrap;
+  background: var(--pgColor);
+  opacity: 1;
+}
+h4[id]:active, h5[id]:active, h6[id]:active {
+  background: var(--txtColor);
+  color: var(--pgColor);
+}
+h4[id]:active::before, h5[id]:active::before, h6[id]:active::before {
+  content: "";
 }
 
 hr {
@@ -1003,16 +1121,21 @@ ul ul ul {
   list-style-type: "。 ";
 }
 ul ul ul ::marker {
-  font-size: 1em;
+  font-size: 0.7em;
 }
 ul ul ul ul ::marker {
-  font-size: 0.7em;
+  font-size: 0.62em;
 }
 ul ul ul ul ul {
   list-style-type: "· ";
 }
-ul ul ul ul ul ::marker {
-  font-size: 0.62em;
+
+li {
+  margin-bottom: 0.5em;
+}
+
+ul {
+  margin-top: 0.5em;
 }
 
 /* ==== F O N T ==== */
@@ -1021,11 +1144,11 @@ html {
 }
 
 html {
-  font-family: "fusion", sans-serif;
+  font-family: "fusion", monospace;
 }
 
 html:has(.fontTg input:checked) {
-  font-family: "ibm", sans-serif;
+  font-family: "ibm", monospace;
 }
 
 code, kbd, samp {
@@ -1033,7 +1156,7 @@ code, kbd, samp {
 }
 
 html:has(.fontTg input:checked) code, kbd, samp {
-  font-family: "fusion", monospace;
+  font-family: "ibm", monospace;
 }
 
 @font-face {
@@ -1083,7 +1206,6 @@ h1 {
 
 h1, .fake.h1 {
   font-size: 2em;
-  font-weight: bold;
   --size: 2;
 }
 h1.size, h1.big, h1.bigger, h1.small, h1.smaller, .fake.h1.size, .fake.h1.big, .fake.h1.bigger, .fake.h1.small, .fake.h1.smaller {
@@ -1096,7 +1218,6 @@ h2 {
 
 h2, .fake.h2 {
   font-size: 1.6em;
-  font-weight: bold;
   --size: 1.6;
 }
 h2.size, h2.big, h2.bigger, h2.small, h2.smaller, .fake.h2.size, .fake.h2.big, .fake.h2.bigger, .fake.h2.small, .fake.h2.smaller {
@@ -1109,7 +1230,6 @@ h3 {
 
 h3, .fake.h3 {
   font-size: 1.2em;
-  font-weight: bold;
   --size: 1.2;
 }
 h3.size, h3.big, h3.bigger, h3.small, h3.smaller, .fake.h3.size, .fake.h3.big, .fake.h3.bigger, .fake.h3.small, .fake.h3.smaller {
@@ -1122,7 +1242,6 @@ h4 {
 
 h4, .fake.h4 {
   font-size: 1.2em;
-  font-weight: bold;
   --size: 1.2;
 }
 h4.size, h4.big, h4.bigger, h4.small, h4.smaller, .fake.h4.size, .fake.h4.big, .fake.h4.bigger, .fake.h4.small, .fake.h4.smaller {
@@ -1135,7 +1254,6 @@ h5 {
 
 h5, .fake.h5 {
   font-size: 1.2em;
-  font-weight: bold;
   --size: 1.2;
 }
 h5.size, h5.big, h5.bigger, h5.small, h5.smaller, .fake.h5.size, .fake.h5.big, .fake.h5.bigger, .fake.h5.small, .fake.h5.smaller {
@@ -1148,110 +1266,10 @@ h6 {
 
 h6, .fake.h6 {
   font-size: 1.2em;
-  font-weight: bold;
   --size: 1.2;
 }
 h6.size, h6.big, h6.bigger, h6.small, h6.smaller, .fake.h6.size, .fake.h6.big, .fake.h6.bigger, .fake.h6.small, .fake.h6.smaller {
   font-size: calc(var(--size) * var(--s) * 1em);
-}
-
-h5, h6, .fake.h5, .fake.h6 {
-  font-weight: normal;
-}
-
-h4, h6, .fake.h4, .fake.h6 {
-  font-style: italic;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 1em;
-}
-
-:first-child ~ h1, :first-child ~ h2, :first-child ~ h3, :first-child ~ h4, :first-child ~ h5, :first-child ~ h6 {
-  margin-top: 2em;
-}
-
-h1, h2 {
-  margin-bottom: 1em;
-}
-
-h3, h4, h5, h6 {
-  margin-bottom: 0.5em;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  position: relative;
-  inset: -0.5rem -0.2rem;
-  padding: 0.5rem 0.2rem;
-}
-
-h1 {
-  border-bottom: var(--txtColor) 3px solid;
-}
-
-h2 {
-  border-bottom: var(--txtColor) 3px dashed;
-}
-
-h3 {
-  border-bottom: var(--txtColor) 3px dotted;
-}
-
-h3 {
-  width: max-content;
-}
-
-h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
-  --notify: "--> 点击复制标题链接";
-}
-h1[id]::before, h1[id]::after, h2[id]::before, h2[id]::after, h3[id]::before, h3[id]::after, h4[id]::before, h4[id]::after, h5[id]::before, h5[id]::after, h6[id]::before, h6[id]::after {
-  font-weight: normal;
-  font-size: max(0.5em, 0.8rem);
-  opacity: 0.7;
-}
-
-h1[id]::before, h1[id]::after, h2[id]::before, h2[id]::after {
-  display: block;
-}
-h1[id]::before, h2[id]::before {
-  content: "#" attr(id) " ";
-  position: relative;
-  bottom: 0.2em;
-  text-decoration: dashed underline 1.5px;
-}
-h1[id]:hover::after, h2[id]:hover::after {
-  content: var(--notify);
-  position: absolute;
-  top: 0.5rem;
-  right: 0;
-  background: var(--pgColor);
-  opacity: 1;
-}
-h1[id]:active, h2[id]:active {
-  background: var(--txtColor);
-  color: var(--pgColor);
-}
-h1[id]:active::after, h2[id]:active::after {
-  content: "";
-}
-
-h3[id]::after, h4[id]::after, h5[id]::after, h6[id]::after {
-  content: " #" attr(id) " " " ";
-}
-h3[id]:hover::before, h4[id]:hover::before, h5[id]:hover::before, h6[id]:hover::before {
-  content: var(--notify);
-  position: absolute;
-  top: -0.8em;
-  text-wrap: nowrap;
-  background: var(--pgColor);
-  opacity: 1;
-}
-h3[id]:active, h4[id]:active, h5[id]:active, h6[id]:active {
-  background: var(--txtColor);
-  color: var(--pgColor);
-}
-h3[id]:active::before, h4[id]:active::before, h5[id]:active::before, h6[id]:active::before {
-  content: "";
 }
 
 .l, .c, .r {
@@ -1680,7 +1698,7 @@ del.u.ovl.-w, .del.u.ovl.-w {
 }
 [t]:hover::before, a:hover::before {
   transition: 0s;
-  top: 2em;
+  top: 1.5em;
   opacity: 1;
 }
 [t], a {
@@ -1692,11 +1710,46 @@ del.u.ovl.-w, .del.u.ovl.-w {
   box-shadow: 4px 4px var(--tc);
 }
 
+a::before {
+  transition: 0.2s;
+  position: fixed;
+  bottom: 0;
+  top: unset;
+}
+a:hover::before {
+  top: unset;
+}
+
 .above[t]::before {
-  top: -0.5em;
+  bottom: 0.5em;
+  top: unset;
 }
 .above[t]:hover::before {
-  top: -2em;
+  bottom: 1.5em;
+}
+
+a.ab {
+  display: block;
+  right: 0;
+  text-decoration: none;
+  transition: 0s 0.2s;
+}
+a.ab::after {
+  transition: opacity 0.2s 0.2s;
+  inset: -0.2em 0;
+  box-sizing: border-box;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(90deg, var(--txtColor-link), rgba(0, 0, 0, 0)) 1;
+  opacity: 0;
+}
+a.ab:hover {
+  transition: 0s;
+  padding-left: 0.5em;
+  letter-spacing: 0.2em;
+}
+a.ab:hover::after {
+  transition: 0s;
+  opacity: 1;
 }
 
 table {
@@ -1783,21 +1836,21 @@ blockquote > p:first-child {
 blockquote > p:last-child {
   margin-bottom: 0;
 }
-blockquote.info, blockquote.warn {
+blockquote.info, blockquote.note, blockquote.warn {
   display: table;
   position: relative;
   padding-inline: 2.5em 0.5em;
   padding-block: 0.5em;
   margin-left: 0;
 }
-blockquote.info::before, blockquote.warn::before {
+blockquote.info::before, blockquote.note::before, blockquote.warn::before {
   position: absolute;
   left: 0;
   top: 0.37em;
   padding-inline: 0.5em;
   font-size: 1.2em;
 }
-blockquote.info > blockquote, blockquote.warn > blockquote {
+blockquote.info > blockquote, blockquote.note > blockquote, blockquote.warn > blockquote {
   margin-left: 0;
 }
 blockquote.info {
@@ -1808,11 +1861,20 @@ blockquote.info {
 blockquote.info::before {
   content: "ⓘ";
 }
+blockquote.note {
+  background: var(--txtColor-green-fade);
+  border: var(--txtColor-green) 3px solid;
+  box-shadow: 4px 4px var(--txtColor-green);
+  color: var(--txtColor-green);
+}
+blockquote.note::before {
+  content: "ⓘ";
+}
 blockquote.warn {
-  background: var(--txtColor3-fade);
-  border: var(--txtColor3) 3px solid;
-  box-shadow: 4px 4px var(--txtColor3);
-  color: var(--txtColor3);
+  background: var(--txtColor-red-fade);
+  border: var(--txtColor-red) 3px solid;
+  box-shadow: 4px 4px var(--txtColor-red);
+  color: var(--txtColor-red);
 }
 blockquote.warn::before {
   content: "⚠";
@@ -1877,6 +1939,13 @@ blockquote.layer blockquote:not([class]) {
   filter: drop-shadow(0.05em 0.05em var(--txtColor-sat)) drop-shadow(0.1em 0.1em var(--pgColor)) drop-shadow(0.1em 0.1em #dd4) drop-shadow(0.1em 0.1em #4dd) drop-shadow(0.1em 0.1em #d4d) drop-shadow(0.05em -0.05em var(--rsc)) drop-shadow(-0.05em 0.05em var(--rsc));
 }
 
+.shadow {
+  --sdd: 8px;
+  --sdc: var(--txtColor-plain);
+  text-shadow: 1px 1px var(--pgColor), var(--sdd) var(--sdd) var(--sdc);
+  padding-bottom: 0.2em;
+}
+
 .echo {
   text-shadow: 0.1em 0.1em rgba(68, 68, 221, 0.5333333333), 0.2em 0.2em rgba(68, 68, 221, 0.2666666667), 0.3em 0.3em rgba(68, 68, 221, 0.1333333333);
   padding-bottom: 0.8em;
@@ -1926,50 +1995,37 @@ blockquote.layer blockquote:not([class]) {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc);
 }
 .stroke.shadow {
-  --sdd: 4px;
-  --sdc: var(--txtColor2);
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), var(--sdd) var(--sdd) var(--sdc);
-  padding-bottom: 0.2em;
 }
 .stroke.echo {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0.1em 0.1em rgba(68, 68, 221, 0.5333333333), 0.2em 0.2em rgba(68, 68, 221, 0.2666666667), 0.3em 0.3em rgba(68, 68, 221, 0.1333333333);
-  padding-bottom: 0.8em;
 }
 .stroke.echo-down {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0em 0.1em rgba(68, 68, 221, 0.5333333333), 0em 0.2em rgba(68, 68, 221, 0.2666666667), 0em 0.3em rgba(68, 68, 221, 0.1333333333);
-  padding-bottom: 0.8em;
 }
 .stroke.echo-up {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0em -0.1em rgba(68, 68, 221, 0.5333333333), 0em -0.2em rgba(68, 68, 221, 0.2666666667), 0em -0.3em rgba(68, 68, 221, 0.1333333333);
-  padding-top: 0.8em;
 }
 .stroke.echo-right {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0.1em 0em rgba(68, 68, 221, 0.5333333333), 0.2em 0em rgba(68, 68, 221, 0.2666666667), 0.3em 0em rgba(68, 68, 221, 0.1333333333);
-  padding-right: 0.8em;
 }
 .stroke.echo-left {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), -0.1em 0em rgba(68, 68, 221, 0.5333333333), -0.2em 0em rgba(68, 68, 221, 0.2666666667), -0.3em 0em rgba(68, 68, 221, 0.1333333333);
-  padding-left: 0.8em;
 }
 .stroke.echorb {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0.05em 0.05em #d44, 0.1em 0.1em #dd4, 0.15em 0.15em #4dd, 0.2em 0.2em #d4d;
-  padding-bottom: 0.8em;
 }
 .stroke.echorb-down {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0em 0.05em #d44, 0em 0.1em #dd4, 0em 0.15em #4dd, 0em 0.2em #d4d;
-  padding-bottom: 0.8em;
 }
 .stroke.echorb-up {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0em -0.05em #d44, 0em -0.1em #dd4, 0em -0.15em #4dd, 0em -0.2em #d4d;
-  padding-top: 0.8em;
 }
 .stroke.echorb-right {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), 0.05em 0em #d44, 0.1em 0em #dd4, 0.15em 0em #4dd, 0.2em 0em #d4d;
-  padding-right: 0.8em;
 }
 .stroke.echorb-left {
   text-shadow: calc(-1 * var(--std)) 0 var(--stc), calc(-1 * var(--std)) calc(-1 * var(--std)) var(--stc), 0 calc(-1 * var(--std)) var(--stc), calc(var(--std)) calc(-1 * var(--std)) var(--stc), calc(var(--std)) 0 var(--stc), calc(var(--std)) calc(var(--std)) var(--stc), 0 calc(var(--std)) var(--stc), calc(-1 * var(--std)) calc(var(--std)) var(--stc), -0.05em 0em #d44, -0.1em 0em #dd4, -0.15em 0em #4dd, -0.2em 0em #d4d;
-  padding-left: 0.8em;
 }
 
 .rotate {

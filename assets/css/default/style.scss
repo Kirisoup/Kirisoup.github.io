@@ -11,15 +11,29 @@ $ghprxy: "https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisou
 $ghprxy: "";
 
 :root {
-    --ghprxy: $ghprxy;
-    
     --txtColor: #44d;
     --txtColor-sat: #00f;
     --txtColor-fade: #eef;
-    --txtColor2: #000;
-    --txtColor3: #d44;
-    --txtColor3-fade: #fee;
+    --txtColor-link: #4cc;
+    --txtColor-plain: #000;
+    --txtColor-green: #464;
+    --txtColor-green-fade: #efe;
+    --txtColor-red: #d04;
+    --txtColor-red-fade: #fde;
     --pgColor: #fff;
+}
+
+@mixin darkscheme {
+    --txtColor: #aaf;
+    --txtColor-sat: #00c;
+    --txtColor-fade: #224;
+    --txtColor-link: #abb;
+    --txtColor-plain: #fff;
+    --txtColor-green: #aca;
+    --txtColor-green-fade: #232;
+    --txtColor-red: #f8a;
+    --txtColor-red-fade: #422;
+    --pgColor: #002;
 }
 
 
@@ -152,7 +166,7 @@ html:has(.cornerCara:not([id="0"])) {
 
                 a {
                     position: relative;
-                    color: #2985ff;
+                    color: #38f;
 
                     &.urHere {
                         pointer-events: none;
@@ -408,17 +422,9 @@ html:has(.cornerCara:not([id="0"])) {
 
 // darkmode
 
-.content, .window { transition: color 0s .5s, background-color .2s .5s, border-color .2s .5s; }
-
 .buttonBar:has(.darkTg input:checked) ~.content, .content:has(~.buttonBar .darkTg input:checked) {
     transition: color 0s, background-color .2s;
-    --txtColor: #aaf;
-    --txtColor-sat: #00c;
-    --txtColor-fade: #224;
-    --txtColor3: #faa;
-    --txtColor3-fade: #422;
-    --txtColor2: #fff;
-    --pgColor: #002;
+    @include darkscheme()
 }
 
 .content:has(~.buttonBar .darkTg input:checked) { background: #0004 !important; }
@@ -676,10 +682,122 @@ html {
             padding-left: .3em;
             opacity: .5;
             font-size: .7em;
-            color: var(--txtColor3);
+            color: var(--txtColor-red);
             transform: rotate(15deg);
             white-space: pre;
         }
+}
+
+a {
+    position: relative;
+    color: var(--txtColor-link);
+
+    &::after { content: "";
+        position: absolute;
+        inset: -.5em;
+    }
+}
+
+// headers font style
+h1, h2, h3, h4, .fake.h1, .fake.h2, .fake.h3, .fake.h4 { font-weight: bolder; }
+h5, h6, .fake.h5, .fake.h6 { font-weight: normal; }
+h4, h6, .fake.h4, .fake.h6 { font-style: italic; }
+
+// headers margin block
+h1, h2, h3, h4, h5, h6 { margin-top: 1em;} // 1em top margin if headers is the first element of the textfile
+:first-child ~ { h1, h2, h3, h4, h5, h6 { margin-top: 2em;} } // 2em top margin if else
+
+h1, h2 { margin-bottom: 1em; }
+h3, h4, h5, h6 { margin-bottom: .5em; } 
+
+h1, h2, h3, h4, h5, h6 {
+    +h1, +h2, +h3, +h4, +h5, +h6 {
+        margin-top: 0 !important;
+    }
+}
+
+// headers padding
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+    inset: -.5rem -.2rem;
+    padding: .5rem .2rem;
+}
+
+// headers underline
+h1 { border-bottom: var(--txtColor) 3px solid; }
+h2 { border-bottom: var(--txtColor) 3px dashed; }
+h3, h4 { border-bottom: var(--txtColor) 3px dotted; }
+
+h4, h5, h6 { width: max-content; }
+
+// reveal heading id
+h1, h2, h3, h4, h5 ,h6 {
+    &[id] { 
+        --notify: "--> 点击复制标题链接";
+
+        &::before, &::after {
+            font-weight: normal;
+            font-size: max(.5em, .8rem);
+            opacity: .7;
+        }
+    }
+}
+
+h1, h2, h3 {
+    &[id] { 
+        &::before, &::after {
+            display: block;
+        }
+
+        &::before { content: "#" attr(id) "\00a0";
+        // pos
+            position: relative;
+            bottom: .2em;
+        // styl
+            text-decoration: dashed underline 1.5px;
+        }
+
+        &:hover { &::after { content: var(--notify);
+            // pos
+                position: absolute;
+                top: .5rem; right: 0;
+            // styl 
+                background: var(--pgColor);
+                opacity: 1;
+            }
+        }
+
+        &:active {
+            background: var(--txtColor);
+            color: var(--pgColor);
+
+            &::after { content: ""; }
+        }
+    }
+}
+
+h4, h5, h6 {
+    &[id] {
+        &::after { content: "\00a0#" attr(id) "\00a0" "\00a0"; }
+
+        &:hover { &::before { content: var(--notify);
+            // pos
+                position: absolute;
+                top: -.8em; 
+            // styl
+                text-wrap: nowrap;
+                background: var(--pgColor);
+                opacity: 1;
+            }
+        }
+
+        &:active {
+            background: var(--txtColor);
+            color: var(--pgColor);
+
+            &::before { content: ""; }
+        }
+    }
 }
 
 // horizontal rule
@@ -691,22 +809,35 @@ hr {
 }
 
 // list
-ul { ::marker { font-weight: bolder; } list-style-type: "☆ "; 
-    ul { ::marker { font-size: .7em; } list-style-type: hebrew; 
-        ul { ::marker { font-size: 1em; } list-style-type: "。 ";
-            ul { ::marker { font-size: .7em; } // list-style-type inherit
-                ul { ::marker { font-size: .62em; } list-style-type: "· "; }}}}}
+ul { ::marker { font-weight: bolder; } 
+                list-style-type: "☆ "; 
+    ul { ::marker { font-size: .7em; } 
+                    list-style-type: hebrew; 
+        ul { ::marker { font-size: .7em; } 
+                        list-style-type: "。 ";
+            ul { ::marker { font-size: .62em; }
+                            // list-style-type: inherit;
+                ul { // ::marker { font-size: inherit; }
+                                list-style-type: "· "; }
+            }
+        }
+    }
+}
+
+li { margin-bottom: .5em; }
+ul { margin-top: .5em; }
+
 
 
 /* ==== F O N T ==== */
 
 html { font-display: swap; }
 
-html                            { font-family: "fusion", sans-serif; }
-html:has(.fontTg input:checked) { font-family: "ibm", sans-serif; }
+html                            { font-family: "fusion", monospace; }
+html:has(.fontTg input:checked) { font-family: "ibm", monospace; }
 
 code, kbd, samp { font-family: "ibm", monospace;}
-html:has(.fontTg input:checked) code, kbd, samp { font-family: "fusion", monospace;}
+html:has(.fontTg input:checked) code, kbd, samp { font-family: "ibm", monospace;}
 
 
 @font-face {

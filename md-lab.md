@@ -6,24 +6,51 @@ title: MarkDown¥实验室.html
 # MoarDown - *Markdown 语法扩充类*{:.small}！: {#head}
 
 {:.info}
-> 提示：使用kramdown的 {:***} 语法为元素添加额外属性，以在文章内使用本文档罗列的特性，如：
+> 提示：使用 kramdown 的 {:***} 语法为元素添加额外属性，以在文章内使用本文档罗列的特性，如：
 > - 为*块级*元素（段落、表格、引用方块等）添加属性 .c  
 >   <br> *\{:.c} <br> 段落文字*{:.c} <br>
 > - 为*行内*元素添加属性 .cfuchsia:  
 >   段落段落 *\*行内文字内容\*\{:.cfuchsia}*{:.cfuchsia} 段落段落
-> - 
 
-{:.info}
-> 注：为了分离inline元素的方便，默认情况下任何*带有语法扩充类*的斜体文字，如：
+{:.note}
+> 注：为了分离inline元素的方便，默认情况下任何*带有语法扩充类*的斜体文字——如 `*内容*{:.class}` ——都不会拥有斜体效果。
 > 
-> - `*内容*{:.class}`
-> - `<em class="class">内容</em>`
-> 
-> 都不会拥有斜体效果。
-> 
-> 这种情况下，请使用 .i 类专门声明文字为斜体。
+> 这种情况下，请使用 .i 类专门声明此  文字为斜体。
 
-## 大小: {#size}
+---
+
+## 目录 {#index}
+
+- [常规分类](#regular){:.ab}
+  - [大小](#size){:.ab}
+  - [伪标题](#fake-title){:.ab}
+  - [对齐](#align){:.ab}
+  - [修饰线](#line){:.ab}
+  - [颜色](#color){:.ab}
+    - [快速](#color-fast){:.ab}
+    - [16色](#color-16){:.ab}
+  - [背景色](#background){:.ab}
+    - [快速](#background-fast){:.ab}
+    - [16色](#background-16){:.ab}
+  - [边框色](#border){:.ab}
+    - [快速](#border-fast){:.ab}
+    - [16色](#border-16){:.ab}
+  - [注音](#ruby){:.ab}
+  - [悬浮提示](#tip){:.ab}
+    - [更华丽的提示](#tip-fancy){:.ab}
+  - [表格](#table){:.ab}
+  - [文本块](#block){:.ab}
+- [华丽装饰类！](#fancy){:.ab}
+  - [彩虹](#rainbow){:.ab}
+  - [阴影](#shadow){:.ab}
+  - [描边](#stroke){:.ab}
+  - [动画！](#animate){:.ab}
+
+---
+
+## 常规分类: {#regular}
+
+### 大小: {#size}
 - *.bigger*{:.bigger} 
 - *.big*{:.big} 
 - *.small*{:.small} 
@@ -31,11 +58,24 @@ title: MarkDown¥实验室.html
 - *.size*{:.size style="--s:1.096"}
   - \-\-s: 1.096 *(自定义大小倍率)*
 
-## 对齐: {#align} 
-- *居中：.c*{:.c} 
-- *靠右：.r*{:.r}
+{:.info}
+> 提示：在 kramdown 的 {:***} 语法中声明元素的 style 属性，来使用部分类所支持的额外属性！
+>
+> 例：上文的 .size 类使用了 `{:.size style="--s:1.096"}` 语句将文本字号设成 1.096 倍
 
-## 修饰线: {#line}
+### 伪标题: {#fake-title}
+- <span>.fake.h1</span>{:.fake.h1} 
+- <span>.fake.h2</span>{:.fake.h2} 
+- <span>.fake.h3</span>{:.fake.h3} 
+- <span>.fake.h4</span>{:.fake.h4} 
+- <span>.fake.h5</span>{:.fake.h5} 
+- <span>.fake.h6</span>{:.fake.h6}
+
+### 对齐: {#align} 
+> *居中：.c*{:.c} 
+> *靠右：.r*{:.r}
+
+### 修饰线: {#line}
 - ||| 下划线&nbsp;&nbsp; | 上划线&nbsp;&nbsp; | 删除线&nbsp;&nbsp; | 混合&nbsp;&nbsp; |
   |---|---|---|---|---|---|
   | 正常线 || *.u*{:.u}         | *.ovl*{:.ovl}         | *.del*{:.del}         | *.u.ovl.del*{:.u.ovl.del}         |
@@ -45,21 +85,21 @@ title: MarkDown¥实验室.html
   | 波浪线 || *.u.-w*{:.u.-w}   | *.ovl.-w*{:.ovl.-w}   | *.del.-w*{:.del.-w}   | *.u.ovl.del.-w*{:.u.ovl.del.-w}   |
   {:.t}
 
-- 删除线 -- 另一种表达 (markdown原版): 
-  - *~~txt~~*         *\~\~txt\~\~*
-  - *~~txt~~{:.-d}*   *\~\~txt\~\~{:.-d}*
-  - *~~txt~~{:.-dd}*  *\~\~txt\~\~{:.-dd}*
-  - *~~txt~~{:.-db}*  *\~\~txt\~\~{:.-db}*
-  - *~~txt~~{:.-w}*   *\~\~txt\~\~{:.-w}*
+- 删除线的另一种表达 (markdown原版语法): 
+  - *~~txt~~*        : \*\~\~txt\~\~\*
+  - *~~txt~~{:.-d}*  : \*\~\~txt\~\~\*{:.-d}*
+  - *~~txt~~{:.-dd}* : \*\~\~txt\~\~\*{:.-dd}*
+  - *~~txt~~{:.-db}* : \*\~\~txt\~\~\*{:.-db}*
+  - *~~txt~~{:.-w}*  : \*\~\~txt\~\~\*{:.-w}*
 
-## 颜色: {#color}
+### 颜色: {#color}
 
-### 快速 {#color-fast}
+#### 快速 {#color-fast}
 - *.cw*{:.cw.hb}
 - *.cb*{:.cb.hw}
 - *.cr*{:.cr}
 
-### 16色 {#color-16}
+#### 16色 {#color-16}
 - *.cwhite*{:.cwhite.hb}
 - *.csilver*{:.csilver}
 - *.cgray*{:.cgray}
@@ -77,75 +117,81 @@ title: MarkDown¥实验室.html
 - *.cfuchsia*{:.cfuchsia}
 - *.cpurple*{:.cpurple}
 
-## 背景色: {#background}
+### 背景色: {#background}
 - \-\-hd: 0.05em *(背景、边框距离)*
 
-### 默认 {#background-default}
-- *.h*{:.h}
+- 默认: *.h*{:.h}
 
-### 快速 {#background-fast}
+#### 快速 {#background-fast}
 - *.hw*{:.hw}
-  *.hb*{:.hb}
-  *.hr*{:.hr}
+- *.hb*{:.hb}
+- *.hr*{:.hr}
 
-### 16色 {#background-16}
+#### 16色 {#background-16}
 - *.hwhite*{:.hwhite}
-  *.hsilver*{:.hsilver}
-  *.hgray*{:.hgray}
-  *.hblack*{:.hblack}
-  *.hred*{:.hred}
-  *.hmaroon*{:.hmaroon}
-  *.hyellow*{:.hyellow}
-  *.holive*{:.holive}
-  *.hlime*{:.hlime}
-  *.hgreen*{:.hgreen}
-  *.haqua*{:.haqua}
-  *.hteal*{:.hteal}
-  *.hblue*{:.hblue}
-  *.hnavy*{:.hnavy}
-  *.hfuchsia*{:.hfuchsia}
-  *.hpurple*{:.hpurple}
+- *.hsilver*{:.hsilver}
+- *.hgray*{:.hgray}
+- *.hblack*{:.hblack}
+- *.hred*{:.hred}
+- *.hmaroon*{:.hmaroon}
+- *.hyellow*{:.hyellow}
+- *.holive*{:.holive}
+- *.hlime*{:.hlime}
+- *.hgreen*{:.hgreen}
+- *.haqua*{:.haqua}
+- *.hteal*{:.hteal}
+- *.hblue*{:.hblue}
+- *.hnavy*{:.hnavy}
+- *.hfuchsia*{:.hfuchsia}
+- *.hpurple*{:.hpurple}
 
-## 边框色: {#border}
+### 边框色: {#border}
 - \-\-bw: 2px *(边框粗细)*
 - \-\-bd: 0.05em *(背景、边框距离)*
-- 
+
+#### 快速 {#border-fast}
 - *.bw*{:.bw}
-  *.bb*{:.bb}
-  *.br*{:.br}
+- *.bb*{:.bb}
+- *.br*{:.br}
+
+#### 16色 {#border-16}
 - *.bwhite*{:.bwhite}
-  *.bsilver*{:.bsilver}
-  *.bgray*{:.bgray}
-  *.bblack*{:.bblack}
-  *.bred*{:.bred}
-  *.bmaroon*{:.bmaroon}
-  *.byellow*{:.byellow}
-  *.bolive*{:.bolive}
-  *.blime*{:.blime}
-  *.bgreen*{:.bgreen}
-  *.baqua*{:.baqua}
-  *.bteal*{:.bteal}
-  *.bblue*{:.bblue}
-  *.bnavy*{:.bnavy}
-  *.bfuchsia*{:.bfuchsia}
-  *.bpurple*{:.bpurple}
+- *.bsilver*{:.bsilver}
+- *.bgray*{:.bgray}
+- *.bblack*{:.bblack}
+- *.bred*{:.bred}
+- *.bmaroon*{:.bmaroon}
+- *.byellow*{:.byellow}
+- *.bolive*{:.bolive}
+- *.blime*{:.blime}
+- *.bgreen*{:.bgreen}
+- *.baqua*{:.baqua}
+- *.bteal*{:.bteal}
+- *.bblue*{:.bblue}
+- *.bnavy*{:.bnavy}
+- *.bfuchsia*{:.bfuchsia}
+- *.bpurple*{:.bpurple}
 
-## 伪标题: {#fake-title}
-- <span>.fake.h1</span>{:.fake.h1} 
-- <span>.fake.h2</span>{:.fake.h2} 
-- <span>.fake.h3</span>{:.fake.h3} 
-- <span>.fake.h4</span>{:.fake.h4} 
-- <span>.fake.h5</span>{:.fake.h5} 
-- <span>.fake.h6</span>{:.fake.h6}
+### 注音: {#ruby}
+- *这是文字*{:r="这是注音"}
 
-## 注音：{#ruby}
-- *这是文字*{:r="这是注音"}  
-  \*这是文字\*{:r="这是注音"}
-- 
-- *这*{:r="zhe"} *是*{:r="shi"} *文*{:r="zhu"} *字*{:r="yin"}  
-  \*这\*{:r="zhe"} \*是\*{:r="shi"} \*文\*{:r="zhu"} \*字\*{:r="yin"}
+  \*这是文字\*{:r=\"这是注音\"}
 
-## 表格：{#table}
+- *这*{:r="zhe"} *是*{:r="shi"} *文*{:r="zhu"} *字*{:r="yin"}
+
+  \*这\*{:r=\"zhe\"} \*是\*{:r=\"shi\"} \*文\*{:r=\"zhu\"} \*字\*{:r=\"yin\"}
+  
+### 悬浮提示: {#tip}
+
+- html 自带的悬浮提示：*{:title="这是提示"}*{:title="这是提示"}
+
+#### 更华丽的提示: {#tip-fancy}
+- *{:t="这是提示"}*{:t="这是提示"}
+- *{:t="这是提示" .above}*{:t="这是提示" .above}
+- *{:t="这是提示" style="--tc:#d44"}*{:t="这是提示" style="--tc:#d44"}
+  - \-\-tc: #44d *(提示颜色)*
+
+### 表格: {#table}
 - 表格默认另开新行，加入 .i 类可转成行内表格
 - 平表格
   - |1|a|b|c|
@@ -271,7 +317,7 @@ title: MarkDown¥实验室.html
     ||`{:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}`|
     {:.i}
 
-## 文本块：{#block}
+### 文本块: {#block}
 - 平文本块：
     > \> 文本
 - 提示块：
@@ -279,6 +325,12 @@ title: MarkDown¥实验室.html
     > 
     > \{:.info}
     {:.info}
+- 注释块：
+    > \> 文本
+    > 
+    > \{:.note}
+    {:.note}
+
 - 警告块
     > \> 文本
     > 
@@ -308,34 +360,42 @@ title: MarkDown¥实验室.html
 
 
 
-## Fancy classes - *酷炫装饰类！*{:.small}: {#fancy}
+## 华丽装饰类！: {#fancy}
 
-## 彩虹 (不兼容阴影 .shadow 与描边 .stroke ): {#rainbow}
-- *.rainbow*{:.rainbow}
-  - \-\-rspd: 1s *(彩虹滚动速度)*
+### 彩虹: {#rainbow}
+
+{:.warn}
+> 不兼容阴影 .shadow 与描边 .stroke
+
+- *.rainbow*{:.rainbow .bigger}
+  - \-\-rspd: 1s *(滚动速度)*
+  - \-\-rbgsz: 4em *(背景大小)*
 
 
-- *.rainbow.fancy*{:.rainbow.fancy}
-  - \-\-rspd: 10s *(彩虹滚动速度)*
-  - \-\-rs: 0.1em *(阴影距离)*
-  - \-\-rst: 0.03em *(描边粗细)*
+- *.rainbow.fancy*{:.rainbow.fancy .bigger}
+- *.rainbow.fancy2*{:.rainbow.fancy2 .bigger}
+  
+  - \-\-rspd: 10s *(滚动速度)*
   - \-\-rsc: #00f *(阴影描边颜色)*
 
-- *.rainbow.cmy*{:.rainbow.cmy} *.rainbow.fancy.cmy*{:.rainbow.fancy.cmy} 彩虹但是青品黄
+- *.rainbow.cmy*{:.rainbow.cmy .bigger}  
+  *.rainbow.fancy.cmy*{:.rainbow.fancy.cmy .bigger}  
+  *.rainbow.fancy2.cmy*{:.rainbow.fancy2.cmy .bigger} &nbsp; 彩虹但是青品黄
 
-## 阴影: {#shadow}
-- *.shadow*{:.shadow}
+### 阴影: {#shadow}
+- *.shadow*{:.shadow .bigger}
   - \-\-sdd: 4px *(阴影距离)*
   - \-\-sdc: #000 *(阴影颜色)*
-- *.echo*{:.echo} 
+- *.echo*{:.echo .bigger} 
+- *.echorb*{:.echorb .bigger} 
 
-## 描边: {#stroke}
-- *.stroke*{:.stroke}
+### 描边: {#stroke}
+- *.stroke*{:.stroke .bigger}
   - \-\-std: 2px *(描边距离)*
   - \-\-stc: #440 *(描边颜色)*
 
-## 动画！: {#animate}
-- *.pulse*{:.pulse} *(不完全兼容.rainbow)*
+### 动画！: {#animate}
+- *.pulse*{:.pulse .bigger}
   - \-\-pspd: .25s *(跳动速度)*
   - \-\-pscl: 1.2 *(跳动大小倍率)*7
   - \-\-pphs: 0 *(跳动动画相位偏移)*
@@ -343,17 +403,17 @@ title: MarkDown¥实验室.html
       - 最好使用 0 至 1 之间的值（偏移 0 至 1 周期）
       - 使用负数值将导致动画延迟出现
 
-- *.rotate*{:.rotate} *(不兼容.rainbow)*
-  - *.rotate.rev*{:.rotate.rev}
-  - *\-\-rpsd: 1s*{:.rotate style="--rpsd:1s"} *(旋转速度(周期) -- 默认 3s)*
-  - *\-\-ofst-x: 50%*{:.rotate style="--ofst-x:50%"} *(水平偏移旋转中心 -- 默认 0%)*
-  - *\-\-ofst-y: 300%*{:.rotate style="--ofst-y:300%"} *(垂直偏移旋转中心 -- 默认 0%)*
-  - *\-\-rphs: 0*{:.rotate}
-    *\-\-rphs: .25*{:.rotate style="--rphs:0.25"} *(旋转相位偏移 -- 默认 0)*
+- *.rotate*{:.rotate .bigger}
+  - *.rotate.rev*{:.rotate.rev .bigger}
+  - *\-\-rpsd: 1s*{:.rotate style="--rpsd:1s" .bigger} *(旋转速度(周期) -- 默认 3s)*
+  - *\-\-ofst-x: 50%*{:.rotate style="--ofst-x:50%" .bigger} *(水平偏移旋转中心 -- 默认 0%)*
+  - *\-\-ofst-y: 300%*{:.rotate style="--ofst-y:300%" .bigger} *(垂直偏移旋转中心 -- 默认 0%)*
+  - *\-\-rphs: 0*{:.rotate .bigger}
+    *\-\-rphs: .25*{:.rotate style="--rphs:0.25" .bigger} *(旋转相位偏移 -- 默认 0)*
     - 最好使用 0 至 1 之间的值（偏移 0 至 1 周期）
     - 使用负数值将导致动画延迟出现
 
-- 嵌套使用段落类（block-level class）和内容类（inline class），以同时使用旋转文字（.rotate）和跳动文字（.pulse） *（在同一元素中无法同时使用两者--无法直接{:.rotate.pulse}）*：
+- 嵌套使用段落类（block-level class）和内容类（inline class），以同时使用旋转文字（.rotate）和跳动文字（.pulse） *（在同一元素中无法同时使用两者——无法直接 `{:.rotate.pulse}`）*：
   - \{:.rotate\}  
     \*文字内容\*{:.pulse}
   - {:.rotate} *{:.rotate}  

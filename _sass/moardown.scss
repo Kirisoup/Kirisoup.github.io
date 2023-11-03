@@ -31,7 +31,6 @@ $size-hrest: 1.2;
 
     h#{$id}, .fake.h#{$id} {
         font-size: $size + em ;
-        font-weight: bold;
       --size: #{$size};
         @include titleSizeMod;
     } 
@@ -40,101 +39,6 @@ $size-hrest: 1.2;
                       @include titleSize(1, $size-h1);
                       @include titleSize(2, $size-h2);
 @for $i from 3 to 7 { @include titleSize($i, $size-hrest); }
-
-// headings font style
-h5, h6, .fake.h5, .fake.h6 { font-weight: normal; }
-h4, h6, .fake.h4, .fake.h6 { font-style: italic; }
-
-// headings margin block
-h1, h2, h3, h4, h5, h6 { margin-top: 1em;} // 1em top margin if headings is the first element of the textfile
-:first-child ~ { h1, h2, h3, h4, h5, h6 { margin-top: 2em;} } // 2em top margin if else
-
-h1, h2 { margin-bottom: 1em; }
-h3, h4, h5, h6 { margin-bottom: .5em; } 
-
-// padding
-h1, h2, h3, h4, h5, h6 {
-    position: relative;
-    inset: -.5rem -.2rem;
-    padding: .5rem .2rem;
-}
-
-// headings underline
-h1 { border-bottom: var(--txtColor) 3px solid; }
-h2 { border-bottom: var(--txtColor) 3px dashed; }
-h3 { border-bottom: var(--txtColor) 3px dotted; }
-
-h3 { width: max-content; }
-
-// reveal heading id
-h1, h2, h3, h4, h5 ,h6 {
-    &[id] { 
-        --notify: "--> 点击复制标题链接";
-
-        &::before, &::after {
-            font-weight: normal;
-            font-size: max(.5em, .8rem);
-            opacity: .7;
-        }
-    }
-}
-
-h1, h2 {
-    &[id] { 
-        &::before, &::after {
-            display: block;
-        }
-
-        &::before { content: "#" attr(id) "\00a0";
-        // pos
-            position: relative;
-            bottom: .2em;
-        // styl
-            text-decoration: dashed underline 1.5px;
-        }
-
-        &:hover { &::after { content: var(--notify);
-            // pos
-                position: absolute;
-                top: .5rem; right: 0;
-            // styl 
-                background: var(--pgColor);
-                opacity: 1;
-            }
-        }
-
-        &:active {
-            background: var(--txtColor);
-            color: var(--pgColor);
-
-            &::after { content: ""; }
-        }
-    }
-}
-
-h3, h4, h5, h6 {
-    &[id] {
-        &::after { content: "\00a0#" attr(id) "\00a0" "\00a0"; }
-
-        &:hover { &::before { content: var(--notify);
-            // pos
-                position: absolute;
-                top: -.8em; 
-            // styl
-                text-wrap: nowrap;
-                background: var(--pgColor);
-                opacity: 1;
-            }
-        }
-
-        &:active {
-            background: var(--txtColor);
-            color: var(--pgColor);
-
-            &::before { content: ""; }
-        }
-    }
-}
 
 // alignment ================================
 
@@ -310,7 +214,7 @@ del, .del { &.u { @include txtline(line-through underline)          }
 
     &:hover::before {
         transition: 0s;
-        top: 2em;
+        top: 1.5em;
         opacity: 1;
     }
 
@@ -324,12 +228,53 @@ del, .del { &.u { @include txtline(line-through underline)          }
     }
 }
 
+a {
+    &::before {
+        transition: .2s;
+        position: fixed;
+        bottom: 0; top: unset;
+    }
+
+    &:hover::before {
+        top: unset;
+    }
+}
+
 // tip above 
 
 // h1[id], h2[id], h3[id], h4[id], h5[id], h6[id], 
 .above[t] {
-    &::before { top: -.5em; }
-    &:hover::before { top: -2em; }
+    &::before { bottom: .5em; top: unset; }
+    &:hover::before { bottom: 1.5em; }
+}
+
+// full width link
+a.ab {
+    display: block;
+    right: 0;
+    text-decoration: none;
+    transition: 0s .2s;
+
+    &::after { transition: opacity .2s .2s;
+        inset: -.2em 0;
+        box-sizing: border-box;
+        border: {
+            bottom: 3px solid;
+            image: linear-gradient(90deg, var(--txtColor-link), #0000) 1;
+        };
+        opacity: 0;
+    }
+
+    &:hover {
+        transition: 0s;
+        padding-left: .5em;
+        letter-spacing: .2em;
+
+        &::after {
+            transition: 0s;
+            opacity: 1;
+        }
+    }
 }
 
 // table ================================
@@ -406,7 +351,7 @@ blockquote {
     margin-right: 1em;
 
     // inform block
-    &.info, &.warn {
+    &.info, &.note, &.warn {
         display: table;
         position: relative;
         padding-inline: 2.5em .5em;
@@ -433,12 +378,21 @@ blockquote {
         &::before { content: "ⓘ"; }
     }
 
+    &.note {
+        background: var(--txtColor-green-fade);
+        border: var(--txtColor-green) 3px solid;
+        box-shadow: 4px 4px var(--txtColor-green);
+        color: var(--txtColor-green);
+    
+        &::before { content: "ⓘ"; }
+    }
+
     // warning block
     &.warn {
-        background: var(--txtColor3-fade);
-        border: var(--txtColor3) 3px solid;
-        box-shadow: 4px 4px var(--txtColor3);
-        color: var(--txtColor3);
+        background: var(--txtColor-red-fade);
+        border: var(--txtColor-red) 3px solid;
+        box-shadow: 4px 4px var(--txtColor-red);
+        color: var(--txtColor-red);
     
         &::before { content: "⚠";
             top: .3em;
@@ -534,6 +488,13 @@ $text-stroke-shadow:
 
 }
 
+// shadow
+
+.shadow {
+    --sdd: 8px; --sdc: var(--txtColor-plain);
+    text-shadow: 1px 1px var(--pgColor), var(--sdd) var(--sdd) var(--sdc);
+    padding-bottom: .2em;
+}
 
 // echo ================================
 
@@ -619,49 +580,21 @@ $text-stroke-shadow:
     text-shadow: $text-stroke-shadow;
 
     &.shadow {
-        --sdd: 4px; --sdc: var(--txtColor2);
         text-shadow: $text-stroke-shadow, var(--sdd) var(--sdd) var(--sdc);
-        padding-bottom: .2em;
     }
 
     &.echo      { @include echoStroke(1, 1);
-        padding-bottom: .8em;
-        
-        &-down  { @include echoStroke(0, 1);
-            padding-bottom: .8em;
-        }
-
-        &-up    { @include echoStroke(0, -1);
-            padding-top: .8em;
-        }
-
-        &-right { @include echoStroke(1, 0);
-            padding-right: .8em;
-        }
-
-        &-left  { @include echoStroke(-1, 0);
-            padding-left: .8em;
-        }
+        &-down  { @include echoStroke(0, 1); }
+        &-up    { @include echoStroke(0, -1); }
+        &-right { @include echoStroke(1, 0); }
+        &-left  { @include echoStroke(-1, 0); }
     }
 
     &.echorb    { @include echorbStroke(1, 1);
-        padding-bottom: .8em;
-        
-        &-down  { @include echorbStroke(0, 1);
-            padding-bottom: .8em;
-        }
-
-        &-up    { @include echorbStroke(0, -1);
-            padding-top: .8em;
-        }
-
-        &-right { @include echorbStroke(1, 0);
-            padding-right: .8em;
-        }
-
-        &-left  { @include echorbStroke(-1, 0);
-            padding-left: .8em;
-        }
+        &-down  { @include echorbStroke(0, 1); }
+        &-up    { @include echorbStroke(0, -1); }
+        &-right { @include echorbStroke(1, 0); }
+        &-left  { @include echorbStroke(-1, 0); }
     }
 }
 
