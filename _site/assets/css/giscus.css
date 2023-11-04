@@ -3,6 +3,93 @@
   background: #000;
 }
 
+.gsc-comments .gsc-header {
+  background: #000;
+  padding: 0.5em;
+  border: 1px #fff solid;
+}
+.gsc-comments .gsc-header .gsc-left-header {
+  margin-left: 0.5em;
+}
+.gsc-comments .gsc-comment-box-tabs button {
+  padding: 0.25em 0.5em !important;
+}
+.gsc-comments .gsc-comment-box-tabs button div:has(button) {
+  margin: 0.5em !important;
+  margin-bottom: 0 !important;
+}
+.gsc-comments .gsc-comment-box-textarea {
+  border-bottom-style: inherit;
+  min-height: 6em;
+}
+.gsc-comments .gsc-comment-box-bottom svg {
+  height: 1.5em;
+  width: 1.5em;
+  background: url(https://kirisoup.github.io/assets/image/button/close.gif);
+  background-size: cover;
+  margin-right: 0.5em !important;
+  image-rendering: pixelated;
+}
+.gsc-comments .gsc-comment-header, .gsc-comments .gsc-comment-content {
+  padding-inline: 0.5em;
+}
+.gsc-comments .gsc-replies {
+  padding: unset;
+}
+.gsc-comments .gsc-reply {
+  padding: 0.5rem;
+}
+.gsc-comments .gsc-reply-header {
+  margin-block: 0.25em !important;
+}
+.gsc-comments .gsc-reply-footer {
+  margin-top: 0.2em;
+}
+.gsc-comments .gsc-reply-author-avatar {
+  padding-right: 0.5em;
+  border-right: 1px #fff solid;
+}
+.gsc-comments .gsc-comment-content, .gsc-comments .gsc-reply-content {
+  padding-block: 0.75em !important;
+}
+.gsc-comments .gsc-comment-author-avatar img, .gsc-comments .gsc-reply-author-avatar img {
+  height: 2.5em;
+  width: auto;
+}
+.gsc-comments .gsc-comment-reactions {
+  gap: 0.5rem;
+  align-items: center;
+  margin-left: 0.5em;
+}
+.gsc-comments .gsc-reply-reactions {
+  margin-left: 0.2em;
+}
+.gsc-comments .gsc-social-reaction-summary-item {
+  height: auto;
+}
+.gsc-comments .gsc-social-reaction-summary-item-count {
+  line-height: 1em;
+  margin: 0;
+}
+.gsc-comments .gsc-reactions-button {
+  height: 2em;
+  width: 2em;
+  border: none;
+}
+.gsc-comments .gsc-reactions-button svg {
+  height: 2em;
+  width: 2em;
+  background: url(https://kirisoup.github.io/assets/image/button/smile.gif);
+  background-size: cover;
+  image-rendering: pixelated;
+}
+.gsc-comments .gsc-reactions-popover {
+  inset-inline-start: -1.73em !important;
+}
+.gsc-comments .gsc-reactions-popover.open:before {
+  content: unset;
+}
+
 .gsc-comment-box,
 .gsc-comment-box-write,
 .gsc-comment-box-textarea,
