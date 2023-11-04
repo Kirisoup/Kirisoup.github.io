@@ -3,13 +3,6 @@
   background: #000;
 }
 
-.gsc-comments {
-  position: fixed;
-  left: 0;
-  right: 0;
-  gap: 1rem;
-}
-
 .gsc-comment-box,
 .gsc-comment-box-write,
 .gsc-comment-box-textarea,
