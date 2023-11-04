@@ -500,14 +500,22 @@ html:has(.cornerCara:not([id="0"])) {
   background-color: #000;
   background-size: max(10vw, 20vh);
 }
-.c2 .giscus {
+.c2 .chatroom {
   position: absolute;
   inset: 0;
   width: auto;
   height: auto;
-  margin: 5%;
-  margin-bottom: 0;
   overflow: scroll;
+  margin-inline: 5%;
+}
+.c2 .chatroom .giscus {
+  margin-block: 5%;
+  height: 100%;
+}
+.c2 .chatroom .giscus iframe {
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 .c2 iframe[name=neolink] {
   position: absolute;

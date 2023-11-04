@@ -254,13 +254,24 @@ html:has(.cornerCara:not([id="0"])) {
     }
 
 
-    .giscus {
+    .chatroom {
     // pos
         position: absolute;
         inset: 0;
         width: auto; height: auto;
-        margin: 5% { bottom: 0; };
         overflow: scroll;
+        margin-inline: 5%;
+
+        .giscus {
+            margin-block: 5%;
+            height: 100%;
+            // min-height: unset !important;
+
+            iframe {
+                position: absolute;
+                left: 0; right: 0;
+            }
+        }
     }
 
     & iframe[name="neolink"] {
