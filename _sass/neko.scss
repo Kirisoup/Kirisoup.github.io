@@ -1,13 +1,11 @@
 #oneko {
-    transition: opacity 400ms;
     position: fixed;
     image-rendering: pixelated;
-    left: 16px;
-    top: 16px;
+    left: 16px; top: 16px;
     width: 32px; height: 32px;
     background: url(/assets/neko/oneko_sakura.gif);
     z-index: 2533;
     scale: 1.5;
-    filter: drop-shadow(0px 4px #000) opacity(.7);
+    opacity: .7;
     pointer-events: none;
 }

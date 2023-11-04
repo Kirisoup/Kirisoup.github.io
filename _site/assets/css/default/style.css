@@ -336,10 +336,10 @@ template {
 }
 
 #soup\.exe, #pseu {
-  max-height: 90vh;
-  max-width: 95vw;
-  min-height: min(480px, 25vh);
-  min-width: min(1152px, 25vw);
+  max-height: 95vh;
+  max-width: 99vw;
+  min-height: 25vh;
+  min-width: 25vw;
   resize: both;
 }
 
@@ -347,7 +347,7 @@ html {
   image-rendering: pixelated;
 }
 
-html, .nav, .c2 {
+html, .nav {
   background: url(/assets/image/bg.gif);
   background-color: #000;
   background-position: center;
@@ -499,11 +499,15 @@ html:has(.cornerCara:not([id="0"])) {
   background: url(/assets/image/bg2.gif);
   background-color: #000;
   background-size: max(10vw, 20vh);
-  mix-blend-mode: lighten;
 }
-.c2 .chatBox {
+.c2 .giscus {
   position: absolute;
   inset: 0;
+  width: auto;
+  height: auto;
+  margin: 5%;
+  margin-bottom: 0;
+  overflow: scroll;
 }
 .c2 iframe[name=neolink] {
   position: absolute;
@@ -547,10 +551,10 @@ html:has(.cornerCara:not([id="0"])) {
 }
 .fullscreen .content {
   flex: 9;
-  font-size: 1.2rem;
-  box-shadow: inset -2px -2px #e8e8fb, inset 2px 2px #44d;
   padding-inline: 2em calc(2em + 5vw);
   margin: 6px;
+  font-size: 1.2rem;
+  box-shadow: inset -2px -2px #e8e8fb, inset 2px 2px #44d;
 }
 .fullscreen .bottomBar {
   height: 1em;
@@ -567,10 +571,10 @@ html:has(.cornerCara:not([id="0"])) {
   position: absolute;
   display: block;
   top: 0.25em;
+  margin-right: 0.5em;
   width: 1.5em;
   height: 1.5em;
   box-sizing: border-box;
-  margin-right: 0.5em;
   background: #d1d1f7;
   box-shadow: inset -1.5px -1.5px #44d, inset 1.5px 1.5px #fff, inset -3px -3px #a2a2ee, inset 3px 3px #e8e8fb;
 }
@@ -615,9 +619,8 @@ html:has(.cornerCara:not([id="0"])) {
   height: 100%;
   min-width: 20px;
   max-width: 20px;
-  background: #44d;
   padding-inline: 0.25em;
-  overflow: hidden;
+  background: #44d;
 }
 .window .buttonBar .toggle {
   left: 50%;
@@ -819,11 +822,11 @@ html:has(.cornerCara:not([id="0"])) {
   transform: rotate(9deg) skew(7deg);
   font-size: 3.2vh;
 }
-#soup\.exe:hover ~ .ibm-b .pc {
+#soup\.exe:hover ~ .ibm-b .pc, #soup\.exe:active ~ .ibm-b .pc {
   transition: visibility 0s;
   visibility: visible;
 }
-#soup\.exe:hover ~ .ibm .pc-b {
+#soup\.exe:hover ~ .ibm .pc-b, #soup\.exe:active ~ .ibm .pc-b {
   transition: 0s;
   opacity: 0;
 }
@@ -895,7 +898,8 @@ canvas {
   z-index: -2;
   image-rendering: pixelated;
 }
-#soup\.exe:hover ~ canvas {
+
+#soup\.exe:hover ~ canvas, #soup\.exe:active ~ canvas {
   opacity: 0;
   animation: hideCanvas 0.5s linear forwards;
 }
@@ -966,8 +970,8 @@ html {
   content: "湯";
   position: relative;
   display: inline-block;
-  line-height: 0.5em;
   padding-left: 0.3em;
+  line-height: 0.5em;
   opacity: 0.5;
   font-size: 0.7em;
   color: var(--txtColor-red);
@@ -2136,7 +2140,6 @@ blockquote.layer blockquote:not([class]) {
 }
 
 #oneko {
-  transition: opacity 400ms;
   position: fixed;
   image-rendering: pixelated;
   left: 16px;
@@ -2146,7 +2149,7 @@ blockquote.layer blockquote:not([class]) {
   background: url(/assets/neko/oneko_sakura.gif);
   z-index: 2533;
   scale: 1.5;
-  filter: drop-shadow(0px 4px #000) opacity(0.7);
+  opacity: 0.7;
   pointer-events: none;
 }
 

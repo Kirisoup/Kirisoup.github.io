@@ -47,15 +47,15 @@ $ghprxy: "";
 
 #soup\.exe, #pseu {
 // resize
-    max: { height: 90vh; width: 95vw }
-    min: { height: MIN(480px, 25vh); width: MIN(1152px, 25vw) }
+    max: { height: 95vh; width: 99vw }
+    min: { height: 25vh; width: 25vw }
     resize: both;
 }
 
 html { image-rendering: pixelated; }
 
 // main bg
-html, .nav, .c2 { 
+html, .nav { 
     background: url(/assets/image/bg.gif)
         { color: #000; position: center; size: MAX(20vw,40vh); }
     }
@@ -251,14 +251,16 @@ html:has(.cornerCara:not([id="0"])) {
             color: #000;
             size: MAX(10vw,20vh);
         };
-        mix-blend-mode: lighten;
     }
 
 
-    .chatBox {
+    .giscus {
     // pos
         position: absolute;
         inset: 0;
+        width: auto; height: auto;
+        margin: 5% { bottom: 0; };
+        overflow: scroll;
     }
 
     & iframe[name="neolink"] {
@@ -279,7 +281,6 @@ html:has(.cornerCara:not([id="0"])) {
     text-align: justify;
     text-justify: inter-ideograph;
     background-color: var(--pgColor);
-// txt
     padding-inline: 3em 2em;
 
     *::selection {
@@ -320,13 +321,13 @@ html:has(.cornerCara:not([id="0"])) {
     .content {
     // size
         flex: 9;
+        padding-inline: 2em calc(2em + 5vw);
+        margin: 6px;
     // styl
         font-size: 1.2rem;
         box-shadow: 
             inset -2px -2px #e8e8fb,
             inset 2px 2px #44d;
-        padding-inline: 2em calc(2em + 5vw);
-        margin: 6px;
     }
 
     .bottomBar {
@@ -363,8 +364,8 @@ html:has(.cornerCara:not([id="0"])) {
 .buttonBar {
 // size
     height: 1.5em;
-// styl
     padding: .25em;
+// styl
     color: #fff;
     background: linear-gradient(90deg, #44d 20%, #a2a2ee);
 
@@ -373,11 +374,11 @@ html:has(.cornerCara:not([id="0"])) {
         position: absolute;
         display: block;
         top: .25em;
+        margin-right: .5em;
     // size
         width: 1.5em; height: 1.5em;
     // styl
         box-sizing: border-box;
-        margin-right: .5em;
         background: #d1d1f7;
         box-shadow: 
             inset -1.5px -1.5px #44d,
@@ -417,13 +418,14 @@ html:has(.cornerCara:not([id="0"])) {
     }
 
     .window & {
+    // pos
         position: relative;
         height: 100%;
         min-width: 20px;
         max-width: 20px;
-        background: #44d;
         padding-inline: .25em;
-        overflow: hidden;
+    // styl
+        background: #44d;
 
         .toggle {
             left: 50%;
@@ -571,12 +573,12 @@ html:has(.cornerCara:not([id="0"])) {
         }
     }
 
-    #soup\.exe:hover ~ .ibm-b & {
+    #soup\.exe:hover ~ .ibm-b &, #soup\.exe:active ~ .ibm-b & {
         transition: visibility 0s;
         visibility: visible;
     }
 
-    #soup\.exe:hover ~ .ibm &-b {
+    #soup\.exe:hover ~ .ibm &-b, #soup\.exe:active ~ .ibm &-b {
         transition: 0s;
         opacity: 0;
     }
@@ -641,8 +643,10 @@ canvas {
     opacity: .5;
     z-index: -2;
     image-rendering: pixelated;
+}
 
-    #soup\.exe:hover ~ & {
+#soup\.exe:hover, #soup\.exe:active {
+    ~ canvas {
         opacity: 0;
         animation: hideCanvas .5s linear forwards;
         @keyframes hideCanvas {
@@ -651,6 +655,7 @@ canvas {
         }
     }
 }
+
 
 /* ======== */
 
@@ -717,9 +722,9 @@ html {
     //pos
         position: relative;
         display: inline-block;
+        padding-left: .3em;
     //styl
         line-height: .5em;
-        padding-left: .3em;
         opacity: .5;
         font-size: .7em;
         color: var(--txtColor-red);
