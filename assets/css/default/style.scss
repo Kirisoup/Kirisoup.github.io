@@ -5,8 +5,6 @@ iframe { display: initial; } // show navlink after apply style.css
 
 @import "normalize";
 
-@mixin sizeUni($m, $property: height) { #{$property}: MIN($m * 8px, $m * 9vw/16); }
-
 $ghprxy: "https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main";
 $ghprxy: "";
 

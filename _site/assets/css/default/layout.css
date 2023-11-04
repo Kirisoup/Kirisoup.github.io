@@ -19,7 +19,7 @@ html {
   left: 40%;
   top: 45%;
   transform: translate(-40%, -45%);
-  height: min(416px, 29.25vw);
+  height: 29.25vw;
   aspect-ratio: 2.6;
   display: flex;
 }
@@ -31,7 +31,7 @@ html {
 }
 #soup\.exe .c1 .banner, #pseu .c1 .banner {
   position: relative;
-  height: min(80px, 5.625vw);
+  height: 5.625vw;
 }
 #soup\.exe .c1 .main, #pseu .c1 .main {
   position: relative;
@@ -40,7 +40,7 @@ html {
   display: flex;
 }
 #soup\.exe .c1 .main .nav, #pseu .c1 .main .nav {
-  max-width: min(160px, 11.25vw);
+  max-width: 11.25vw;
   flex: 3;
   min-width: min-content;
 }
@@ -62,7 +62,7 @@ html {
 }
 #soup\.exe .c2, #pseu .c2 {
   position: relative;
-  max-width: min(280px, 19.6875vw);
+  max-width: 19.6875vw;
   flex: 3;
   z-index: 1;
 }

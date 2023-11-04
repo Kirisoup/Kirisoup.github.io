@@ -19,21 +19,6 @@ title: home¥page.html
 
 冲浪这么久，一定很累了吧，赶快进来坐一会\|∀` )。
 
-{:.info}
-> *正在加载中......*{:.ip}
-
-<script async>
-function getIP(json) {
-    var ip = document.querySelectorAll('.ip')
-    for (var i = 0; i < ip.length; i++) {
-    ip[i].innerHTML="你的IP地址是: " + json.ip; 
-    };
-}
-</script>
-<script src="http://api.ipify.org?format=jsonp&callback=getIP" async></script>
-
----
-
 ![](){:tea}  
 *红茶无限续杯！*{:.bigger.u}~~没有茶点！幽幽子请不要再来了！~~{:.small}
 
@@ -44,8 +29,14 @@ function getIP(json) {
 > *请使用天亦3G设备浏览本网页*{:t="请使用横屏设备浏览本网页；支持大部分浏览器的最新版本，很不幸尚不支持火狐"}
 
 {:.info}
+> *正在加载中......*{:.ip}
+
+<script async> function getIP(json) { ip = document.querySelectorAll('.ip'); for (i = 0; i < ip.length; i++) { ip[i].innerHTML="你的IP地址是: " + json.ip; }; } </script>
+<script src="http://api.ipify.org?format=jsonp&callback=getIP" async></script>
+
+{:.note}
 > **目击者报告：**{:.u}
 > 
 > **\*明明叫作蘑菇店，实际上并不出售蘑菇**  
-> *（×1 不过确实是有趣的地方）*{:.z style="color:#44d8"}  
+> *（×1 不过确实是有趣的地方）*{:.z style="color:#464b"}  
 > *——匿名*{:.r}
