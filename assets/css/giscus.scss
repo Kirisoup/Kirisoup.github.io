@@ -3,10 +3,10 @@
 
 .color-bg-default, .color-bg-primary, .color-bg-overlay { background: #000; }
 
-// .gsc-comments {
-//     position: fixed;
-//     left: 0; right: 0;
-//     gap: 1rem;
+.gsc-comments {
+    position: fixed;
+    left: 0; right: 0;
+    gap: 1rem;
 
 //     .gsc {
 //         &-header {
@@ -93,7 +93,7 @@
 //         }
 
 //     }
-// }
+}
 
 // remove round corner
 .gsc-comment-box,
