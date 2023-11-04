@@ -1,7 +1,7 @@
 ---
 ---
 
-// .color-bg-default, .color-bg-primary, .color-bg-overlay { background: #000; }
+.color-bg-default, .color-bg-primary, .color-bg-overlay { background: #000; }
 
 // .gsc-comments {
 //     position: fixed;
@@ -95,25 +95,25 @@
 //     }
 // }
 
-// // remove round corner
-// .gsc-comment-box,
-// .gsc-comment-box-write,
-// .gsc-comment-box-textarea,
-// .gsc-comment-box-textarea-extras,
-// .rounded,
-// .rounded-t,
-// .rounded-md,
-// .rounded-full,
-// .BtnGroup,
-// .BtnGroup-item,
-// .gsc-reactions-popover
-//     { border-radius: unset !important }
+// remove round corner
+.gsc-comment-box,
+.gsc-comment-box-write,
+.gsc-comment-box-textarea,
+.gsc-comment-box-textarea-extras,
+.rounded,
+.rounded-t,
+.rounded-md,
+.rounded-full,
+.BtnGroup,
+.BtnGroup-item,
+.gsc-reactions-popover
+    { border-radius: unset !important }
 
-// // remove bloat
-// button[title="启用编辑器固定宽度（等宽）字体"],
-// button s,
-// .gsc-right-header,
-// .gsc-comment-box-textarea-extras,
-// .gsc-comment-box-bottom svg path,
-// .gsc-reactions-button svg path
-//     { display: none; }
+// remove bloat
+button[title="启用编辑器固定宽度（等宽）字体"],
+button s,
+.gsc-right-header,
+.gsc-comment-box-textarea-extras,
+.gsc-comment-box-bottom svg path,
+.gsc-reactions-button svg path
+    { display: none; }
