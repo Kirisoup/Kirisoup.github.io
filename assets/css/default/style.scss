@@ -42,7 +42,7 @@ $ghprxy: "";
 // styl
     border: #fff 1px solid;
     box-shadow: 10px 10px 20px 10px #44d;
-    &::-webkit-resizer { background: url(/assets/image/resizer.gif) {size: cover}; }    
+    &::-webkit-resizer { background: url(/assets/image/resizer.gif) {size: cover}; }
 }
 
 #soup\.exe, #pseu {
@@ -55,7 +55,7 @@ $ghprxy: "";
 html { image-rendering: pixelated; }
 
 // main bg
-html, .nav { 
+html, .nav {
     background: url(/assets/image/bg.gif)
         { color: #000; position: center; size: MAX(20vw,40vh); }
     }
@@ -316,8 +316,8 @@ html:has(.cornerCara:not([id="0"])) {
     width: 90vw;
 // styl
     background: #d1d1f7;
-    box-shadow: 
-        -1px -1px 0 1px #e8e8fb, 
+    box-shadow:
+        -1px -1px 0 1px #e8e8fb,
         0 0 0 2px #000,
         inset -2px -4px #a2a2ee,
         inset 2px 2px #fff;
@@ -336,7 +336,7 @@ html:has(.cornerCara:not([id="0"])) {
         margin: 6px;
     // styl
         font-size: 1.2rem;
-        box-shadow: 
+        box-shadow:
             inset -2px -2px #e8e8fb,
             inset 2px 2px #44d;
     }
@@ -350,7 +350,7 @@ html:has(.cornerCara:not([id="0"])) {
 @mixin fullscreen-dark {
     .fullscreen:has(.darkTg input:checked) {
         background: #338;
-        box-shadow: 
+        box-shadow:
             -1px -1px 0 1px #aaf,
             0 0 0 2px #44d,
             inset -2px -4px #224,
@@ -359,15 +359,15 @@ html:has(.cornerCara:not([id="0"])) {
         .buttonBar {
             background: linear-gradient(90deg, #44d 20%, #000);
         }
-        
+
         .content {
-                box-shadow: 
+                box-shadow:
                     inset -2px -2px #224,
                     inset 2px 2px #aaf;
             }
 
         .bottomBar { color: #fff; }
-    }    
+    }
 }
 
 // button bar
@@ -391,7 +391,7 @@ html:has(.cornerCara:not([id="0"])) {
     // styl
         box-sizing: border-box;
         background: #d1d1f7;
-        box-shadow: 
+        box-shadow:
             inset -1.5px -1.5px #44d,
             inset 1.5px 1.5px #fff,
             inset -3px -3px #a2a2ee,
@@ -409,7 +409,7 @@ html:has(.cornerCara:not([id="0"])) {
 
         &:active {
             background: #d1d1f7;
-            box-shadow: 
+            box-shadow:
                 inset -1.5px -1.5px #fff,
                 inset 1.5px 1.5px #44d,
                 inset -3px -3px #e8e8fb,
@@ -492,7 +492,7 @@ html:has(.cornerCara:not([id="0"])) {
     @for $i from 0 to 16 { &[id="#{$i}"] +&-b, &[id="#{$i}"]::before { background: url(/assets/image/cornerCara/marisa#{$i}.webp)
         { size: contain } }; }
 
-    & { 
+    & {
         background: url(/assets/image/cornerCara/marisaB_.webp) {
             size: 120%;
             position: -40% -40%;
@@ -676,14 +676,14 @@ canvas {
 .window, .fullscreen { ::-webkit-scrollbar {
                    width:  24px;
     &:horizontal { height: 24px; }
-    
+
     &-corner { background: #dfdfdf; }
 
     &-track { background: url(/assets/image/scrollbar/bg.png) {size: 4px}; }
-    
+
     &-thumb {
         background: #d1d1f7;
-        box-shadow: 
+        box-shadow:
             inset -1.5px -1.5px #44d,
             inset 1.5px 1.5px #fff,
             inset -3px -3px #a2a2ee,
@@ -692,15 +692,15 @@ canvas {
 
     &-button { background-size: cover !important;
 
-        &:horizontal, &:vertical { &:start:decrement, &:end:increment { display: block; }}    
+        &:horizontal, &:vertical { &:start:decrement, &:end:increment { display: block; }}
 
         &:vertical { height: 24px;
             &:start { background: url(/assets/image/scrollbar/up.png); }
-            &:end   { background: url(/assets/image/scrollbar/down.png); }   
+            &:end   { background: url(/assets/image/scrollbar/down.png); }
         }
-        &:horizontal { width: 24px; 
+        &:horizontal { width: 24px;
             &:start { background: url(/assets/image/scrollbar/left.png); }
-            &:end   { background: url(/assets/image/scrollbar/right.png); }    
+            &:end   { background: url(/assets/image/scrollbar/right.png); }
         }
     }
 }}
@@ -708,7 +708,7 @@ canvas {
 @mixin scrollbar-dark {
     .window, .fullscreen { &:has(.darkTg input:checked) { ::-webkit-scrollbar-thumb {
         background: #338;
-        box-shadow: 
+        box-shadow:
             inset -1.5px -1.5px #000,
             inset 1.5px 1.5px #aaf,
             inset -3px -3px #224,
@@ -764,9 +764,9 @@ h1, h2, h3, h4, h5, h6 { margin-top: 1em;} // 1em top margin if headers is the f
 :first-child ~ { h1, h2, h3, h4, h5, h6 { margin-top: 2em;} } // 2em top margin if else
 
 h1, h2 { margin-bottom: 1em; }
-h3, h4, h5, h6 { margin-bottom: .5em; } 
+h3, h4, h5, h6 { margin-bottom: .5em; }
 
-h1, h2, h3, h4, h5, h6 { +h1, +h2, +h3, +h4, +h5, +h6 { margin-top: 0 !important; }} // reduce margin in between two adjacent headers  
+h1, h2, h3, h4, h5, h6 { +h1, +h2, +h3, +h4, +h5, +h6 { margin-top: 0 !important; }} // reduce margin in between two adjacent headers
 
 // headers padding
 h1, h2, h3, h4, h5, h6 {
@@ -783,7 +783,7 @@ h3, h4 { border-bottom: var(--txtColor) 3px dotted; }
 h4, h5, h6 { width: max-content; }
 
 // reveal heading id
-h1, h2, h3, h4, h5 ,h6 { &[id] { 
+h1, h2, h3, h4, h5 ,h6 { &[id] {
     --notify: "--> 点击复制标题链接";
 
     &::before, &::after {
@@ -793,7 +793,7 @@ h1, h2, h3, h4, h5 ,h6 { &[id] {
     }
 }}
 
-h1, h2, h3 { &[id] { 
+h1, h2, h3 { &[id] {
     &::before, &::after { display: block; }
 
     &::before { content: "#" attr(id) "\00a0";
@@ -808,7 +808,7 @@ h1, h2, h3 { &[id] {
         // pos
             position: absolute;
             top: .5rem; right: 0;
-        // styl 
+        // styl
             background: var(--pgColor);
             opacity: 1;
         }
@@ -828,7 +828,7 @@ h4, h5, h6 { &[id] {
     &:hover { &::before { content: var(--notify);
         // pos
             position: absolute;
-            top: -.8em; 
+            top: -.8em;
         // styl
             text-wrap: nowrap;
             background: var(--pgColor);
@@ -853,11 +853,11 @@ hr {
 }
 
 // list
-ul { ::marker { font-weight: bolder; } 
-                list-style-type: "☆ "; 
-    ul { ::marker { font-size: .7em; } 
-                    list-style-type: hebrew; 
-        ul { ::marker { font-size: .7em; } 
+ul { ::marker { font-weight: bolder; }
+                list-style-type: "☆ ";
+    ul { ::marker { font-size: .7em; }
+                    list-style-type: hebrew;
+        ul { ::marker { font-size: .7em; }
                         list-style-type: "。 ";
             ul { ::marker { font-size: .62em; }
                             // list-style-type: inherit;

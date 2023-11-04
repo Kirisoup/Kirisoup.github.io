@@ -291,7 +291,7 @@ z-index: 1;
 
     &::before, td, th { padding-block: .2em; padding-inline: .5em; }
 
-    &[h]::before { content: attr(h); 
+    &[h]::before { content: attr(h);
         position: relative;
         display: table-caption;
         bottom: -1px;
@@ -303,7 +303,7 @@ z-index: 1;
     // default table
     &.t {
         box-shadow: 2px 2px var(--tbc);
-    // border 
+    // border
         thead, tbody, td:first-child, tfoot { border: 2px solid { color: var(--tbc); }; }
         td:first-child { border-block-width: 0; }
         &::before, thead, td:first-child { font-weight: bolder; text-align: center; }
@@ -328,7 +328,7 @@ z-index: 1;
 
     // simple table
     &.ts {
-    // border 
+    // border
         thead, tbody, tr :first-child, tfoot { border: 0 solid { color: var(--tbc); }; }
         thead                          { border-bottom-width: 2px; }
         tbody:not(:first-child), tfoot { border-top-width:    2px; }
@@ -337,7 +337,7 @@ z-index: 1;
         &::before {
             padding-block: .5em;
             font-weight: bolder;
-            text-align: center;    
+            text-align: center;
         }
     }
 }
@@ -347,7 +347,7 @@ z-index: 1;
 .content>blockquote, :not(blockquote) >blockquote { margin-block: 2em; }
 
 blockquote {
-    >p:first-child { margin-top: 0; } >p:last-child { margin-bottom: 0; } // revome extra margin for first and last children blockquote 
+    >p:first-child { margin-top: 0; } >p:last-child { margin-bottom: 0; } // revome extra margin for first and last children blockquote
     margin-right: 1em;
 
     // inform block
@@ -374,7 +374,7 @@ blockquote {
         background: var(--txtColor-fade);
         border: var(--txtColor) 3px solid;
         box-shadow: 4px 4px var(--txtColor);
-    
+
         &::before { content: "ⓘ"; }
     }
 
@@ -383,7 +383,7 @@ blockquote {
         border: var(--txtColor-green) 3px solid;
         box-shadow: 4px 4px var(--txtColor-green);
         color: var(--txtColor-green);
-    
+
         &::before { content: "ⓘ"; }
     }
 
@@ -393,7 +393,7 @@ blockquote {
         border: var(--txtColor-red) 3px solid;
         box-shadow: 4px 4px var(--txtColor-red);
         color: var(--txtColor-red);
-    
+
         &::before { content: "⚠";
             top: .3em;
             font-size: 1.4em;
@@ -431,7 +431,7 @@ blockquote {
 
 // mimic text-stroke using text-shadow ================================
 
-$text-stroke-shadow: 
+$text-stroke-shadow:
     calc(-1 * var(--std))                      0  var(--stc), // l
     calc(-1 * var(--std))  calc(-1 * var(--std))  var(--stc), // lt
                        0   calc(-1 * var(--std))  var(--stc), // t
@@ -439,7 +439,7 @@ $text-stroke-shadow:
          calc(var(--std))                      0  var(--stc), // r
          calc(var(--std))       calc(var(--std))  var(--stc), // rb
                        0        calc(var(--std))  var(--stc), // b
-    calc(-1 * var(--std))       calc(var(--std))  var(--stc); // lb 
+    calc(-1 * var(--std))       calc(var(--std))  var(--stc); // lb
 
 // rainbow ================================
 
@@ -468,23 +468,23 @@ $text-stroke-shadow:
 // rainbow with stroke and shadow really cool
 .rainbow.fancy {
     --rs: .1em; --rsc: var(--txtColor-sat);
-    filter: 
-        drop-shadow(.05em -.05em var(--rsc)) 
-        drop-shadow(-.05em .05em var(--rsc)) 
+    filter:
+        drop-shadow(.05em -.05em var(--rsc))
+        drop-shadow(-.05em .05em var(--rsc))
         drop-shadow(var(--rs) var(--rs) var(--rsc));
 }
 
 // .rainbow.fancy but with rainbowing shadows
 .rainbow.fancy2 {
     --rs: .1em; --rsc: var(--txtColor-sat);
-    filter: 
-        drop-shadow(.05em .05em var(--txtColor-sat)) 
-        drop-shadow(.1em .1em var(--pgColor)) 
+    filter:
+        drop-shadow(.05em .05em var(--txtColor-sat))
+        drop-shadow(.1em .1em var(--pgColor))
         drop-shadow(.1em .1em #dd4)
         drop-shadow(.1em .1em #4dd)
         drop-shadow(.1em .1em #d4d)
-        drop-shadow(.05em -.05em var(--rsc)) 
-        drop-shadow(-.05em .05em var(--rsc)) 
+        drop-shadow(.05em -.05em var(--rsc))
+        drop-shadow(-.05em .05em var(--rsc))
 
 }
 
@@ -501,14 +501,14 @@ $text-stroke-shadow:
 // unnecessarily complex
 
 @mixin echo($horizontal, $vertical) { // echo
-    text-shadow: 
+    text-shadow:
         // calc( 2px * $horizontal) calc( 2px * $vertical) var(--pgColor),
         calc(.1em * $horizontal) calc(.1em * $vertical) #44d8,
         calc(.2em * $horizontal) calc(.2em * $vertical) #44d4,
         calc(.3em * $horizontal) calc(.3em * $vertical) #44d2;
 }
 @mixin echoStroke($horizontal, $vertical) { // echo with text troke
-    text-shadow: 
+    text-shadow:
         $text-stroke-shadow,
         // calc( 2px * $horizontal) calc( 2px * $vertical) var(--pgColor),
         calc(.1em * $horizontal) calc(.1em * $vertical) #44d8,
@@ -516,14 +516,14 @@ $text-stroke-shadow:
         calc(.3em * $horizontal) calc(.3em * $vertical) #44d2;
 }
 @mixin echorb($horizontal, $vertical) { // rainbow echo
-    text-shadow: 
+    text-shadow:
         calc(.05em * $horizontal) calc(.05em * $vertical) #d44,
         calc(.1em  * $horizontal) calc(.1em  * $vertical) #dd4,
         calc(.15em * $horizontal) calc(.15em * $vertical) #4dd,
         calc(.2em  * $horizontal) calc(.2em  * $vertical) #d4d,
 }
 @mixin echorbStroke($horizontal, $vertical) { // rainbow echo with stroke
-    text-shadow: 
+    text-shadow:
         $text-stroke-shadow,
         calc(.05em * $horizontal) calc(.05em * $vertical) #d44,
         calc(.1em  * $horizontal) calc(.1em  * $vertical) #dd4,
@@ -533,7 +533,7 @@ $text-stroke-shadow:
 
 .echo       { @include echo(1, 1);
     padding-bottom: .8em;
-    
+
     &-down  { @include echo(0, 1);
         padding-bottom: .8em;
     }
@@ -606,7 +606,7 @@ $text-stroke-shadow:
     --rspd: 4s; --ofst-x: 0%; --ofst-y: 0%; --rphs: 0; --rheit: 2em;
 // pos
     display: inline-block;
-    transform-origin: 
+    transform-origin:
         calc( 50% + var(--ofst-x))
         calc( 50% + var(--ofst-y));
 // size
@@ -621,7 +621,7 @@ $text-stroke-shadow:
 
     &.c {
         transform: translateY(50%);
-        animation-name: rotateCentered; 
+        animation-name: rotateCentered;
         left: 50%; transform: translateX(-50%);
     }
 
@@ -640,7 +640,7 @@ $text-stroke-shadow:
 
 .pulse {
     --pspd: .25s; --pscl: 1.2; --pphs: 0;
-    
+
     // .rotate & { --pscl: 1.5 }
 
     display: inline-block;

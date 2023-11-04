@@ -1,3 +1,6 @@
+---
+---
+
 .color-bg-default, .color-bg-primary, .color-bg-overlay { background: #000; }
 
 .gsc-comments {
@@ -67,7 +70,7 @@
 
         &-reply-reactions { margin-left: .2em; }
 
-        &-social-reaction-summary-item { height: auto; 
+        &-social-reaction-summary-item { height: auto;
             &-count {
                 line-height: 1em;
                 margin: 0;
@@ -85,7 +88,7 @@
             }
         }
 
-        &-reactions-popover { inset-inline-start: -1.73em !important; 
+        &-reactions-popover { inset-inline-start: -1.73em !important;
             &.open:before { content: unset; }
         }
 
