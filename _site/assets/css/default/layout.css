@@ -56,7 +56,7 @@ html {
 #soup\.exe .c1 .bottom, #pseu .c1 .bottom {
   --height: 40px;
   position: absolute;
-  top: max(100% - var(--height), 280px);
+  top: max(100% - var(--height), 360px);
   z-index: 1;
   height: var(--height);
 }

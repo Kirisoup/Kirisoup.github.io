@@ -535,17 +535,11 @@ html:has(.cornerCara:not([id="0"])) {
   transform: translateX(-50%);
   z-index: 10;
   width: 90vw;
-  background: #c0c0c0;
-  border: 3px solid;
-  border-left-color: #fff;
-  border-top-color: #fff;
-  border-right-color: #808080;
-  border-bottom-color: #808080;
-  border-bottom-width: 4px;
-  box-shadow: -1px -1px 0 1px #dfdfdf, 0 0 0 2px #000;
+  background: #d1d1f7;
+  box-shadow: -1px -1px 0 1px #e8e8fb, 0 0 0 2px #000, inset -2px -4px #a2a2ee, inset 2px 2px #fff;
 }
 .fullscreen.on {
-  transition: opacity 0.2s, top 0.2s, bottom 0.2s, background-color 0.2s, border 0.2s;
+  transition: opacity 0.2s, top 0.2s, bottom 0.2s;
   opacity: 1;
   pointer-events: all;
   top: 2vh;
@@ -554,24 +548,20 @@ html:has(.cornerCara:not([id="0"])) {
 .fullscreen .content {
   flex: 9;
   font-size: 1.2rem;
-  border: solid 2px;
-  border-left-color: #000;
-  border-top-color: #000;
-  border-right-color: #dfdfdf;
-  border-bottom-color: #dfdfdf;
-  padding-inline: 2em 5em;
-  margin: 4px;
+  box-shadow: inset -2px -2px #e8e8fb, inset 2px 2px #44d;
+  padding-inline: 2em calc(2em + 5vw);
+  margin: 6px;
 }
 .fullscreen .bottomBar {
   height: 1em;
-  padding: 0 0.5em 0.5em 0.5em;
+  padding: 0 6px 10px 6px;
 }
 
 .buttonBar {
   height: 1.5em;
   padding: 0.25em;
   color: #fff;
-  background: linear-gradient(90deg, #33a 20%, #1084d0);
+  background: linear-gradient(90deg, #44d 20%, #a2a2ee);
 }
 .buttonBar .toggle {
   position: absolute;
@@ -581,40 +571,32 @@ html:has(.cornerCara:not([id="0"])) {
   height: 1.5em;
   box-sizing: border-box;
   margin-right: 0.5em;
-  background: #c0c0c0;
-  border: solid 3px;
-  border-left-color: #fff;
-  border-top-color: #fff;
-  border-right-color: #000;
-  border-bottom-color: #000;
-}
-.buttonBar .toggle:hover {
-  background: #fff;
+  background: #d1d1f7;
+  box-shadow: inset -1.5px -1.5px #44d, inset 1.5px 1.5px #fff, inset -3px -3px #a2a2ee, inset 3px 3px #e8e8fb;
 }
 .buttonBar .toggle::before {
   content: "";
   position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 4px;
-  bottom: 4px;
+  top: 5px;
+  left: 5px;
+  right: 6px;
+  bottom: 6px;
   image-rendering: pixelated;
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
+.buttonBar .toggle:hover {
+  background: #e8e8fb;
+}
 .buttonBar .toggle:active {
-  background: #c0c0c0;
-  border: solid 3px;
-  border-left-color: #000;
-  border-top-color: #000;
-  border-right-color: #fff;
-  border-bottom-color: #fff;
+  background: #d1d1f7;
+  box-shadow: inset -1.5px -1.5px #fff, inset 1.5px 1.5px #44d, inset -3px -3px #e8e8fb, inset 3px 3px #a2a2ee;
 }
 .buttonBar .toggle:active::before {
-  top: 4px;
-  left: 4px;
-  right: 2px;
-  bottom: 2px;
+  top: 6px;
+  left: 6px;
+  right: 5px;
+  bottom: 5px;
 }
 .window .buttonBar .toggle.fullscreenTg::before {
   background: url(/assets/image/button/max.gif);
@@ -633,7 +615,7 @@ html:has(.cornerCara:not([id="0"])) {
   height: 100%;
   min-width: 20px;
   max-width: 20px;
-  background: linear-gradient(#33d, #33d 20%, #4af);
+  background: #44d;
   padding-inline: 0.25em;
   overflow: hidden;
 }
@@ -657,39 +639,6 @@ html:has(.cornerCara:not([id="0"])) {
   right: 3.25em;
 }
 
-.buttonBar:has(.darkTg input:checked) ~ .content, .content:has(~ .buttonBar .darkTg input:checked) {
-  transition: color 0s, background-color 0.2s;
-  --txtColor: #aaf;
-  --txtColor-sat: #00c;
-  --txtColor-fade: #224;
-  --txtColor-link: #abb;
-  --txtColor-plain: #fff;
-  --txtColor-green: #aca;
-  --txtColor-green-fade: #232;
-  --txtColor-red: #f8a;
-  --txtColor-red-fade: #422;
-  --pgColor: #002;
-}
-
-.content:has(~ .buttonBar .darkTg input:checked) {
-  background: rgba(0, 0, 0, 0.2666666667) !important;
-}
-
-.fullscreen:has(.darkTg input:checked) {
-  transition: opacity 0.2s 0.2s, top 0.2s, bottom 0.2s, background-color 0.2s, border 0.2s;
-  background: #444;
-  border: 3px solid;
-  border-left-color: #000;
-  border-top-color: #000;
-  border-right-color: #808080;
-  border-bottom-color: #808080;
-  border-bottom-width: 4px;
-}
-.fullscreen:has(.darkTg input:checked) .bottomBar {
-  color: #fff;
-}
-
-/* ======== */
 /* ==== C O R N E R ==== */
 .cornerCara {
   /* ====randomBG==== */
@@ -866,9 +815,9 @@ html:has(.cornerCara:not([id="0"])) {
   left: 35%;
   top: 45%;
   width: 50%;
-  font-size: 3.2vh;
   z-index: 20;
   transform: rotate(9deg) skew(7deg);
+  font-size: 3.2vh;
 }
 #soup\.exe:hover ~ .ibm-b .pc {
   transition: visibility 0s;
@@ -959,6 +908,51 @@ canvas {
   }
 }
 
+/* ======== */
+/* ==== S C R O L L B A R ==== */
+.window ::-webkit-scrollbar, .fullscreen ::-webkit-scrollbar {
+  width: 24px;
+}
+.window ::-webkit-scrollbar:horizontal, .fullscreen ::-webkit-scrollbar:horizontal {
+  height: 24px;
+}
+.window ::-webkit-scrollbar-corner, .fullscreen ::-webkit-scrollbar-corner {
+  background: #dfdfdf;
+}
+.window ::-webkit-scrollbar-track, .fullscreen ::-webkit-scrollbar-track {
+  background: url(/assets/image/scrollbar/bg.png);
+  background-size: 4px;
+}
+.window ::-webkit-scrollbar-thumb, .fullscreen ::-webkit-scrollbar-thumb {
+  background: #d1d1f7;
+  box-shadow: inset -1.5px -1.5px #44d, inset 1.5px 1.5px #fff, inset -3px -3px #a2a2ee, inset 3px 3px #e8e8fb;
+}
+.window ::-webkit-scrollbar-button, .fullscreen ::-webkit-scrollbar-button {
+  background-size: cover !important;
+}
+.window ::-webkit-scrollbar-button:horizontal:start:decrement, .window ::-webkit-scrollbar-button:horizontal:end:increment, .window ::-webkit-scrollbar-button:vertical:start:decrement, .window ::-webkit-scrollbar-button:vertical:end:increment, .fullscreen ::-webkit-scrollbar-button:horizontal:start:decrement, .fullscreen ::-webkit-scrollbar-button:horizontal:end:increment, .fullscreen ::-webkit-scrollbar-button:vertical:start:decrement, .fullscreen ::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+}
+.window ::-webkit-scrollbar-button:vertical, .fullscreen ::-webkit-scrollbar-button:vertical {
+  height: 24px;
+}
+.window ::-webkit-scrollbar-button:vertical:start, .fullscreen ::-webkit-scrollbar-button:vertical:start {
+  background: url(/assets/image/scrollbar/up.png);
+}
+.window ::-webkit-scrollbar-button:vertical:end, .fullscreen ::-webkit-scrollbar-button:vertical:end {
+  background: url(/assets/image/scrollbar/down.png);
+}
+.window ::-webkit-scrollbar-button:horizontal, .fullscreen ::-webkit-scrollbar-button:horizontal {
+  width: 24px;
+}
+.window ::-webkit-scrollbar-button:horizontal:start, .fullscreen ::-webkit-scrollbar-button:horizontal:start {
+  background: url(/assets/image/scrollbar/left.png);
+}
+.window ::-webkit-scrollbar-button:horizontal:end, .fullscreen ::-webkit-scrollbar-button:horizontal:end {
+  background: url(/assets/image/scrollbar/right.png);
+}
+
+/* ======== */
 /* ==== T X T ==== */
 html {
   color: #000;
@@ -1138,6 +1132,45 @@ ul {
   margin-top: 0.5em;
 }
 
+/* ======== */
+/* ==== D A R K M O D E ==== */
+.buttonBar:has(.darkTg input:checked) ~ .content, .content:has(~ .buttonBar .darkTg input:checked) {
+  --txtColor: #aaf;
+  --txtColor-sat: #00c;
+  --txtColor-fade: #224;
+  --txtColor-link: #abb;
+  --txtColor-plain: #fff;
+  --txtColor-green: #aca;
+  --txtColor-green-fade: #232;
+  --txtColor-red: #f8a;
+  --txtColor-red-fade: #422;
+  --pgColor: #002;
+}
+
+.content:has(~ .buttonBar .darkTg input:checked) {
+  background: rgba(0, 0, 0, 0.5333333333) !important;
+}
+
+.fullscreen:has(.darkTg input:checked) {
+  background: #338;
+  box-shadow: -1px -1px 0 1px #aaf, 0 0 0 2px #44d, inset -2px -4px #224, inset 2px 2px #000;
+}
+.fullscreen:has(.darkTg input:checked) .buttonBar {
+  background: linear-gradient(90deg, #44d 20%, #000);
+}
+.fullscreen:has(.darkTg input:checked) .content {
+  box-shadow: inset -2px -2px #224, inset 2px 2px #aaf;
+}
+.fullscreen:has(.darkTg input:checked) .bottomBar {
+  color: #fff;
+}
+
+.window:has(.darkTg input:checked) ::-webkit-scrollbar-thumb, .fullscreen:has(.darkTg input:checked) ::-webkit-scrollbar-thumb {
+  background: #338;
+  box-shadow: inset -1.5px -1.5px #000, inset 1.5px 1.5px #aaf, inset -3px -3px #224, inset 3px 3px #44d;
+}
+
+/* ======== */
 /* ==== F O N T ==== */
 html {
   font-display: swap;
