@@ -3,97 +3,97 @@
 
 // .color-bg-default, .color-bg-primary, .color-bg-overlay { background: #000; }
 
-.gsc-comments {
-    position: fixed;
-    left: 0; right: 0;
-    gap: 1rem;
+// .gsc-comments {
+//     position: fixed;
+//     left: 0; right: 0;
+//     gap: 1rem;
 
-    .gsc {
-        &-header {
-            background: #000;
-            padding: .5em;
-            border: 1px #fff solid;
+//     .gsc {
+//         &-header {
+//             background: #000;
+//             padding: .5em;
+//             border: 1px #fff solid;
 
-            .gsc-left-header { margin-left: .5em }
-        }
+//             .gsc-left-header { margin-left: .5em }
+//         }
 
-        // send comment
-        &-comment-box {
-            &-tabs button { padding: .25em .5em !important;
-                div:has(button) { margin: .5em !important { bottom: 0 !important; }; }
-            }
+//         // send comment
+//         &-comment-box {
+//             &-tabs button { padding: .25em .5em !important;
+//                 div:has(button) { margin: .5em !important { bottom: 0 !important; }; }
+//             }
 
-            &-textarea {
-                border-bottom-style: inherit;
-                min-height: 6em;
-            }
+//             &-textarea {
+//                 border-bottom-style: inherit;
+//                 min-height: 6em;
+//             }
 
-            &-bottom svg {
-                height: 1.5em; width: 1.5em;
-                background: url(https://kirisoup.github.io/assets/image/button/close.gif) { size: cover; };
-                margin-right: .5em !important;
-                image-rendering: pixelated
-            }
-        }
+//             &-bottom svg {
+//                 height: 1.5em; width: 1.5em;
+//                 background: url(https://kirisoup.github.io/assets/image/button/close.gif) { size: cover; };
+//                 margin-right: .5em !important;
+//                 image-rendering: pixelated
+//             }
+//         }
 
-        // comments
-        &-comment {
-            &-header, &-content { padding-inline: .5em }
-        }
+//         // comments
+//         &-comment {
+//             &-header, &-content { padding-inline: .5em }
+//         }
 
-        // reply
-        &-replies { padding: unset; }
+//         // reply
+//         &-replies { padding: unset; }
 
-        &-reply { padding: .5rem;
-            &-header { margin-block: .25em !important; }
-            &-footer { margin-top: .2em }
-        }
+//         &-reply { padding: .5rem;
+//             &-header { margin-block: .25em !important; }
+//             &-footer { margin-top: .2em }
+//         }
 
-        &-reply-author-avatar {
-            padding-right: .5em;
-            border-right: 1px #fff solid;
-        }
+//         &-reply-author-avatar {
+//             padding-right: .5em;
+//             border-right: 1px #fff solid;
+//         }
 
-        &-comment-content, &-reply-content { padding-block: .75em !important; }
+//         &-comment-content, &-reply-content { padding-block: .75em !important; }
 
-        &-comment-author-avatar img, &-reply-author-avatar img {
-            height: 2.5em;
-            width: auto;
-        }
+//         &-comment-author-avatar img, &-reply-author-avatar img {
+//             height: 2.5em;
+//             width: auto;
+//         }
 
-        // reaction
-        &-comment-reactions {
-            gap: .5rem;
-            align-items: center;
-            margin-left: .5em;
-        }
+//         // reaction
+//         &-comment-reactions {
+//             gap: .5rem;
+//             align-items: center;
+//             margin-left: .5em;
+//         }
 
-        &-reply-reactions { margin-left: .2em; }
+//         &-reply-reactions { margin-left: .2em; }
 
-        &-social-reaction-summary-item { height: auto;
-            &-count {
-                line-height: 1em;
-                margin: 0;
-            }
-        }
+//         &-social-reaction-summary-item { height: auto;
+//             &-count {
+//                 line-height: 1em;
+//                 margin: 0;
+//             }
+//         }
 
-        &-reactions-button {
-            height: 2em; width: 2em;
-            border: none;
+//         &-reactions-button {
+//             height: 2em; width: 2em;
+//             border: none;
 
-            svg {
-                height: 2em; width: 2em;
-                background: url(https://kirisoup.github.io/assets/image/button/smile.gif) { size: cover; };
-                image-rendering: pixelated;
-            }
-        }
+//             svg {
+//                 height: 2em; width: 2em;
+//                 background: url(https://kirisoup.github.io/assets/image/button/smile.gif) { size: cover; };
+//                 image-rendering: pixelated;
+//             }
+//         }
 
-        &-reactions-popover { inset-inline-start: -1.73em !important;
-            &.open:before { content: unset; }
-        }
+//         &-reactions-popover { inset-inline-start: -1.73em !important;
+//             &.open:before { content: unset; }
+//         }
 
-    }
-}
+//     }
+// }
 
 // // remove round corner
 // .gsc-comment-box,
