@@ -3,6 +3,9 @@
   background: #000;
 }
 
+.gsc-comments {
+  gap: 1rem;
+}
 .gsc-comments .gsc-header {
   background: #000;
   padding: 0.5em;
