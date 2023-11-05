@@ -67,7 +67,7 @@ code, kbd, pre, samp {
 }
 
 .gsc-comment > div {
-  box-shadow: inset -2px -2px #44d, inset 2px 2px #fff, inset -4px -4px #aaaae8, inset 4px 4px #e8e8fb, inset 0 0 0 8px #d1d1f7, inset 2px 41px 0 8px #44d, inset -2px -39px 0 8px #e8e8fb;
+  box-shadow: inset -2px -2px #44d, inset 2px 2px #fff, inset -4px -4px #aaaae8, inset 4px 4px #e8e8fb, inset 0 0 0 8px #d1d1f7, inset 2px 35px 0 8px #44d, inset -2px -39px 0 8px #e8e8fb;
 }
 
 .gsc-reply-box {
@@ -118,18 +118,15 @@ code, kbd, pre, samp {
 .gsc-comments .gsc-comment-box-tabs button {
   padding: 0.25em 0.5em !important;
 }
-.gsc-comments .gsc-comment-box-tabs button div:has(button) {
+.gsc-comments .gsc-comment-box-tabs > div:has(button) {
   margin: 0.5em !important;
-  margin-bottom: 0 !important;
-}
-.gsc-comments .gsc-comment-box-tabs button > div {
   margin-bottom: -2px !important;
   margin-left: 14px !important;
 }
 .gsc-comments .gsc-comment-box-main {
   margin-inline: 14px;
 }
-.gsc-comments .gsc-comment-box-main-textarea, .gsc-comments .gsc-comment-box-main-preview {
+.gsc-comments .gsc-comment-box-textarea, .gsc-comments .gsc-comment-box-preview {
   min-height: 3em;
 }
 .gsc-comments .gsc-comment-box-bottom {

@@ -89,7 +89,7 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
         inset -4px -4px #aaaae8,
         inset 4px 4px #e8e8fb,
         inset 0 0 0 8px #d1d1f7,
-        inset 2px 41px 0 8px #44d,
+        inset 2px 35px 0 8px #44d,
         inset -2px -39px 0 8px #e8e8fb
 }
 
@@ -160,22 +160,18 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
 
         // send comment
         &-comment-box {
-            &-tabs button { padding: .25em .5em !important;
+            &-tabs { 
+                button { padding: .25em .5em !important; }
 
-                div:has(button) { margin: .5em !important { bottom: 0 !important; }; }
-
-                >div {
-                    margin: {
+                >div:has(button) { margin: .5em !important {
                         bottom: -2px !important;
                         left: 14px !important;
-                    }
-                }
+                }; }
             }
 
-            &-main { margin-inline: 14px;
-                &-textarea, &-preview { min-height: 3em; }
-            }
+            &-main { margin-inline: 14px; }
 
+            &-textarea, &-preview { min-height: 3em; }
 
             &-bottom {
                 padding: 5px 10px 5px 10px;
