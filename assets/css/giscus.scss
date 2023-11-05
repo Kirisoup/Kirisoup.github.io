@@ -51,9 +51,9 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
 .gsc-reactions-popover .text-ellipsis
 { background: #d1d1f7 !important; }
 
-// texture
-
-.gsc-header {
+// textures
+.gsc {
+&-header {
     box-shadow:
         inset -2px -2px #44d,
         inset 2px 2px #fff,
@@ -62,7 +62,7 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
         inset 0 0 0 8px #d1d1f7
 }
 
-.gsc-comment-box {
+&-comment-box {
     box-shadow:
         inset -2px -2px #44d,
         inset 2px 2px #fff,
@@ -70,19 +70,28 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
         inset 4px 4px #e8e8fb,
         inset 0 0 0 8px #d1d1f7,
         inset 2px 26px 0 8px #44d,
-        inset -2px -39px 0 8px #e8e8fb
-}
+        inset -2px -39px 0 8px #e8e8fb;
 
-.gsc-comment-box-tabs {
+&-tabs {
     box-shadow:
         inset -2px 0 #44d,
         inset 2px 2px #fff,
         inset -4px 0 #aaaae8,
         inset 4px 4px #e8e8fb,
         inset 0 0 0 8px #d1d1f7
-}
+}}
 
-.gsc-comment>div {
+&-comment>div {
+    box-shadow:
+        inset -2px -2px #44d,
+        inset 2px 2px #fff,
+        inset -4px -4px #aaaae8,
+        inset 4px 4px #e8e8fb,
+        inset 0 0 0 8px #d1d1f7,
+        inset 2px 35px 0 8px #44d,
+        inset -2px -2px 0 8px #e8e8fb;
+
+&:has(.gsc-reply-box) {
     box-shadow:
         inset -2px -2px #44d,
         inset 2px 2px #fff,
@@ -91,9 +100,9 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
         inset 0 0 0 8px #d1d1f7,
         inset 2px 35px 0 8px #44d,
         inset -2px -39px 0 8px #e8e8fb
-}
+}}
 
-.gsc-reply-box {
+&-reply-box {
     box-shadow:
         inset -2px -2px #44d,
         inset 2px 0 #fff,
@@ -101,7 +110,7 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
         inset 4px 0 #e8e8fb
 }
 
-.gsc-reactions-popover {
+&-reactions-popover {
     box-shadow:
         inset -2px -2px #44d,
         inset 2px 2px #fff,
@@ -112,14 +121,14 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
         inset -2px -2px 0 8px #e8e8fb
 }
 
-.gsc-direct-reaction-button {
+&-direct-reaction-button {
     padding-block: .2em;
     box-shadow:
         inset -1.5px -1.5px #44d,
         inset 1.5px 1.5px #d1d1f7,
         inset -3px -3px #a2a2ee,
         inset 3px 3px #e8e8fb;
-}
+}}
 
 // ====================
 

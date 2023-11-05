@@ -56,27 +56,24 @@ code, kbd, pre, samp {
 .gsc-header {
   box-shadow: inset -2px -2px #44d, inset 2px 2px #fff, inset -4px -4px #aaaae8, inset 4px 4px #e8e8fb, inset 0 0 0 8px #d1d1f7;
 }
-
 .gsc-comment-box {
   box-shadow: inset -2px -2px #44d, inset 2px 2px #fff, inset -4px -4px #aaaae8, inset 4px 4px #e8e8fb, inset 0 0 0 8px #d1d1f7, inset 2px 26px 0 8px #44d, inset -2px -39px 0 8px #e8e8fb;
 }
-
 .gsc-comment-box-tabs {
   box-shadow: inset -2px 0 #44d, inset 2px 2px #fff, inset -4px 0 #aaaae8, inset 4px 4px #e8e8fb, inset 0 0 0 8px #d1d1f7;
 }
-
 .gsc-comment > div {
+  box-shadow: inset -2px -2px #44d, inset 2px 2px #fff, inset -4px -4px #aaaae8, inset 4px 4px #e8e8fb, inset 0 0 0 8px #d1d1f7, inset 2px 35px 0 8px #44d, inset -2px -2px 0 8px #e8e8fb;
+}
+.gsc-comment > div:has(.gsc-reply-box) {
   box-shadow: inset -2px -2px #44d, inset 2px 2px #fff, inset -4px -4px #aaaae8, inset 4px 4px #e8e8fb, inset 0 0 0 8px #d1d1f7, inset 2px 35px 0 8px #44d, inset -2px -39px 0 8px #e8e8fb;
 }
-
 .gsc-reply-box {
   box-shadow: inset -2px -2px #44d, inset 2px 0 #fff, inset -4px -4px #aaaae8, inset 4px 0 #e8e8fb;
 }
-
 .gsc-reactions-popover {
   box-shadow: inset -2px -2px #44d, inset 2px 2px #fff, inset -4px -4px #aaaae8, inset 4px 4px #e8e8fb, inset 0 0 0 8px #d1d1f7, inset 2px 37px 0 8px #44d, inset -2px -2px 0 8px #e8e8fb;
 }
-
 .gsc-direct-reaction-button {
   padding-block: 0.2em;
   box-shadow: inset -1.5px -1.5px #44d, inset 1.5px 1.5px #d1d1f7, inset -3px -3px #a2a2ee, inset 3px 3px #e8e8fb;

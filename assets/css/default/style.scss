@@ -751,6 +751,11 @@ a {
     }
 }
 
+[norm] {
+    color: var(--txtColor-link);
+    text-decoration: underline;
+}
+
 // headers font style
 h1, h2, h3, h4, .fake.h1, .fake.h2, .fake.h3, .fake.h4 { font-weight: bolder; }
 h5, h6, .fake.h5, .fake.h6 { font-weight: normal; }
@@ -840,14 +845,6 @@ h4, h5, h6 { &[id] {
         &::before { content: ""; }
     }
 }}
-
-// horizontal rule
-hr {
-    border: none { block: 2px var(--txtColor) solid };
-    height: .2em;
-    margin-block: 1em;
-    // background: linear-gradient(#44d2, #0000);
-}
 
 // list
 ul { ::marker { font-weight: bolder; }

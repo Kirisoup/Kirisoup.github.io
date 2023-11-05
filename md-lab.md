@@ -5,20 +5,6 @@ title: MarkDown¥实验室.html
 
 # MoarDown - *Markdown 语法扩充类*{:.small}！: {#head}
 
-{:.info}
-> 提示：使用 kramdown 的 {:***} 语法为元素添加额外属性，以在文章内使用本文档罗列的特性，如：
-> - 为*块级*元素（段落、表格、引用方块等）添加属性 .c  
->   <br> *\{:.c} <br> 段落文字*{:.c} <br>
-> - 为*行内*元素添加属性 .cfuchsia:  
->   段落段落 *\*行内文字内容\*\{:.cfuchsia}*{:.cfuchsia} 段落段落
-
-{:.note}
-> 注：为了分离inline元素的方便，默认情况下任何*带有语法扩充类*的斜体文字——如 `*内容*{:.class}` ——都不会拥有斜体效果。
-> 
-> 这种情况下，请使用 .i 类专门声明此  文字为斜体。
-
----
-
 ## 目录 {#index}
 
 - [常规分类](#regular){:.ab}
@@ -51,17 +37,63 @@ title: MarkDown¥实验室.html
 ## 常规分类: {#regular}
 
 ### 大小: {#size}
-- *.bigger*{:.bigger} 
+- *.bigger*{:.bigger} *[^how2attr]*{:norm="[>>使用 Kramdown 语法为元素分配特殊属性]"}
 - *.big*{:.big} 
 - *.small*{:.small} 
 - *.smaller*{:.smaller}
-- *.size*{:.size style="--s:1.096"}
+- *.size*{:.size style="--s:1.096"} *[^how2var]*{:norm="[>>使用 css 变量设置元素的额外属性配置]"}
   - \-\-s: 1.096 *(自定义大小倍率)*
 
-{:.info}
-> 提示：在 kramdown 的 {:***} 语法中声明元素的 style 属性，来使用部分类所支持的额外属性！
->
-> 例：上文的 .size 类使用了 `{:.size style="--s:1.096"}` 语句将文本字号设成 1.096 倍
+[^how2attr]: 
+    > 提示：使用 kramdown 的 \{: } 语法为元素添加额外属性，以在文章内使用本文档罗列的特性：
+    {:.info}
+    
+    - \{: } 冒号后支持添加的属性包括：类名称、ID值、HTML属性
+      - 类名称： `{:.classname}`
+      - ID:  `{:#id}`  
+      *(本文档中罗列的特性都不会用到ID值)*
+      - HTML 属性：
+        - `{:attr="value"}`
+        - 空属性： `{:attr=""}`
+        - 使用例： `{:style="background:url(/assets/image.gif)"}`  
+          为元素添加一个自定义的图片背景
+      - 使用多种不同的属性：  
+      `{:.bigger.rainbow#unique style:"transform:scaleX(200%)"}`
+    
+    ---
+    {:.blank}
+    
+    - 为行内元素添加属性：
+      - 段落内容 *\*文字\*\{:.cfuchsia}*{:.cfuchsia} 段落内容。  
+        *[^how2attr-em]*{:norm="[>>关于斜体与行内属性]"}
+    
+    ---
+    {:.blank}
+    
+    - 为段落元素添加属性：<br>  
+      *\{:.bfuchsia.cfuchsia}<br>段落内容段落内容段落内容。*{:.bfuchsia.cfuchsia style="padding:.5em"}
+    
+      > \{: } 也可置于段落下方
+      {:.note}
+
+    > 详见：https://kramdown.gettalong.org/syntax.html#attribute-list-definitions
+    {:.info}
+
+[^how2var]: 
+    > 提示：在 kramdown 的 {:***} 语法中声明元素的 style 属性，来使用部分类所支持的额外属性！
+    >
+    > 例：上文的 .size 类使用了 `{:.size style="--s:1.096"}` 语句将文本字号设成 1.096 倍
+    {:.info}
+
+[^how2attr-em]: 
+    > 注：为了分离inline元素的方便，默认情况下任何带有 Moardown 
+    > - 扩充类（如 `*内容*{:.class}`），以及
+    > - 特殊属性（如 `*内容*{:t="tip"}`）
+    > 
+    > 的斜体文字都不会拥有斜体效果。
+    > 
+    > 这种情况下，请使用 .i 类专门声明此文字为斜体。
+    {:.info}
 
 ### 伪标题: {#fake-title}
 - <span>.fake.h1</span>{:.fake.h1} 
@@ -83,14 +115,14 @@ title: MarkDown¥实验室.html
   | 点虚线 || *.u.-do*{:.u.-dd} | *.ovl.-do*{:.ovl.-dd} | *.del.-do*{:.del.-dd} | *.u.ovl.del.-do*{:.u.ovl.del.-dd} |
   | 双层线 || *.u.-db*{:.u.-db} | *.ovl.-db*{:.ovl.-db} | *.del.-db*{:.del.-db} | *.u.ovl.del.-db*{:.u.ovl.del.-db} |
   | 波浪线 || *.u.-w*{:.u.-w}   | *.ovl.-w*{:.ovl.-w}   | *.del.-w*{:.del.-w}   | *.u.ovl.del.-w*{:.u.ovl.del.-w}   |
-  {:.t}
+  {:.t style="line-height:2em"}
 
-- 删除线的另一种表达 (markdown原版语法): 
-  - *~~txt~~*        : \*\~\~txt\~\~\*
-  - *~~txt~~{:.-d}*  : \*\~\~txt\~\~\*{:.-d}*
-  - *~~txt~~{:.-dd}* : \*\~\~txt\~\~\*{:.-dd}*
-  - *~~txt~~{:.-db}* : \*\~\~txt\~\~\*{:.-db}*
-  - *~~txt~~{:.-w}*  : \*\~\~txt\~\~\*{:.-w}*
+- markdown原版语法的删除线: 
+  - *~~txt~~*        : \~\~txt\~\~
+  - *~~txt~~{:.-d}*  : \~\~txt\~\~{:.-d}
+  - *~~txt~~{:.-dd}* : \~\~txt\~\~{:.-dd}
+  - *~~txt~~{:.-db}* : \~\~txt\~\~{:.-db}
+  - *~~txt~~{:.-w}*  : \~\~txt\~\~{:.-w}
 
 ### 颜色: {#color}
 
@@ -175,12 +207,17 @@ title: MarkDown¥实验室.html
 ### 注音: {#ruby}
 - *这是文字*{:r="这是注音"}
 
-  \*这是文字\*{:r=\"这是注音\"}
+  `*这是文字*{:r="这是注音"}`
 
 - *这*{:r="zhe"} *是*{:r="shi"} *文*{:r="zhu"} *字*{:r="yin"}
 
-  \*这\*{:r=\"zhe\"} \*是\*{:r=\"shi\"} \*文\*{:r=\"zhu\"} \*字\*{:r=\"yin\"}
-  
+  ```
+  *这*{:r="zhe"}
+  *是*{:r="shi"}
+  *文*{:r="zhu"}
+  *字*{:r="yin"}
+  ```
+
 ### 悬浮提示: {#tip}
 
 - html 自带的悬浮提示：*{:title="这是提示"}*{:title="这是提示"}

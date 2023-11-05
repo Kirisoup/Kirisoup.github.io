@@ -55,26 +55,8 @@
             <div class="nav-b"></div>
           </div>
           <div class="window">
-            <div class="content">
+            <main class="content">
               <h1 id="head">MoarDown - <em class="small">Markdown 语法扩充类</em>！:</h1>
-
-<blockquote class="info">
-  <p>提示：使用 kramdown 的 {:***} 语法为元素添加额外属性，以在文章内使用本文档罗列的特性，如：</p>
-  <ul>
-    <li>为<em>块级</em>元素（段落、表格、引用方块等）添加属性 .c<br />
-<br /> <em class="c">{:.c} <br /> 段落文字</em> <br /></li>
-    <li>为<em>行内</em>元素添加属性 .cfuchsia:<br />
-段落段落 <em class="cfuchsia">*行内文字内容*{:.cfuchsia}</em> 段落段落</li>
-  </ul>
-</blockquote>
-
-<blockquote class="note">
-  <p>注：为了分离inline元素的方便，默认情况下任何<em>带有语法扩充类</em>的斜体文字——如 <code class="language-plaintext highlighter-rouge">*内容*{:.class}</code> ——都不会拥有斜体效果。</p>
-
-  <p>这种情况下，请使用 .i 类专门声明此  文字为斜体。</p>
-</blockquote>
-
-<hr />
 
 <h2 id="index">目录</h2>
 
@@ -129,22 +111,16 @@
 
 <h3 id="size">大小:</h3>
 <ul>
-  <li><em class="bigger">.bigger</em></li>
+  <li><em class="bigger">.bigger</em> <em norm="[&gt;&gt;使用 Kramdown 语法为元素分配特殊属性]"><sup id="fnref:how2attr" role="doc-noteref"><a href="#fn:how2attr" class="footnote" rel="footnote">1</a></sup></em></li>
   <li><em class="big">.big</em></li>
   <li><em class="small">.small</em></li>
   <li><em class="smaller">.smaller</em></li>
-  <li><em class="size" style="--s:1.096">.size</em>
+  <li><em class="size" style="--s:1.096">.size</em> <em norm="[&gt;&gt;使用 css 变量设置元素的额外属性配置]"><sup id="fnref:how2var" role="doc-noteref"><a href="#fn:how2var" class="footnote" rel="footnote">2</a></sup></em>
     <ul>
       <li>--s: 1.096 <em>(自定义大小倍率)</em></li>
     </ul>
   </li>
 </ul>
-
-<blockquote class="info">
-  <p>提示：在 kramdown 的 {:***} 语法中声明元素的 style 属性，来使用部分类所支持的额外属性！</p>
-
-  <p>例：上文的 .size 类使用了 <code class="language-plaintext highlighter-rouge">{:.size style="--s:1.096"}</code> 语句将文本字号设成 1.096 倍</p>
-</blockquote>
 
 <h3 id="fake-title">伪标题:</h3>
 <ul>
@@ -165,7 +141,7 @@
 <h3 id="line">修饰线:</h3>
 <ul>
   <li>
-    <table class="t">
+    <table class="t" style="line-height:2em">
       <thead>
         <tr>
           <th> </th>
@@ -220,13 +196,13 @@
       </tbody>
     </table>
   </li>
-  <li>删除线的另一种表达 (markdown原版语法):
+  <li>markdown原版语法的删除线:
     <ul>
-      <li><em><del>txt</del></em>        : *~~txt~~*</li>
-      <li><em><del class="-d">txt</del></em>  : *~~txt~~*{:.-d}*</li>
-      <li><em><del class="-dd">txt</del></em> : *~~txt~~*{:.-dd}*</li>
-      <li><em><del class="-db">txt</del></em> : *~~txt~~*{:.-db}*</li>
-      <li><em><del class="-w">txt</del></em>  : *~~txt~~*{:.-w}*</li>
+      <li><em><del>txt</del></em>        : ~~txt~~</li>
+      <li><em><del class="-d">txt</del></em>  : ~~txt~~{:.-d}</li>
+      <li><em><del class="-dd">txt</del></em> : ~~txt~~{:.-dd}</li>
+      <li><em><del class="-db">txt</del></em> : ~~txt~~{:.-db}</li>
+      <li><em><del class="-w">txt</del></em>  : ~~txt~~{:.-w}</li>
     </ul>
   </li>
 </ul>
@@ -335,12 +311,16 @@
   <li>
     <p><em r="这是注音">这是文字</em></p>
 
-    <p>*这是文字*{:r="这是注音"}</p>
+    <p><code class="language-plaintext highlighter-rouge">*这是文字*{:r="这是注音"}</code></p>
   </li>
   <li>
     <p><em r="zhe">这</em> <em r="shi">是</em> <em r="zhu">文</em> <em r="yin">字</em></p>
 
-    <p>*这*{:r="zhe"} *是*{:r="shi"} *文*{:r="zhu"} *字*{:r="yin"}</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*这*{:r="zhe"}
+*是*{:r="shi"}
+*文*{:r="zhu"}
+*字*{:r="yin"}
+</code></pre></div>    </div>
   </li>
 </ul>
 
@@ -1137,8 +1117,91 @@
 
 <p>这时，传来了持有者回来的脚步声。</p>
 
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:how2attr" role="doc-endnote">
 
-            </div>
+      <blockquote class="info">
+        <p>提示：使用 kramdown 的 {: } 语法为元素添加额外属性，以在文章内使用本文档罗列的特性：</p>
+      </blockquote>
+
+      <ul>
+        <li>{: } 冒号后支持添加的属性包括：类名称、ID值、HTML属性
+          <ul>
+            <li>类名称： <code class="language-plaintext highlighter-rouge">{:.classname}</code></li>
+            <li>ID:  <code class="language-plaintext highlighter-rouge">{:#id}</code><br />
+<em>(本文档中罗列的特性都不会用到ID值)</em></li>
+            <li>HTML 属性：
+              <ul>
+                <li><code class="language-plaintext highlighter-rouge">{:attr="value"}</code></li>
+                <li>空属性： <code class="language-plaintext highlighter-rouge">{:attr=""}</code></li>
+                <li>使用例： <code class="language-plaintext highlighter-rouge">{:style="background:url(/assets/image.gif)"}</code><br />
+为元素添加一个自定义的图片背景</li>
+              </ul>
+            </li>
+            <li>使用多种不同的属性：<br />
+<code class="language-plaintext highlighter-rouge">{:.bigger.rainbow#unique style:"transform:scaleX(200%)"}</code></li>
+          </ul>
+        </li>
+      </ul>
+
+      <hr class="blank" />
+
+      <ul>
+        <li>为行内元素添加属性：
+          <ul>
+            <li>段落内容 <em class="cfuchsia">*文字*{:.cfuchsia}</em> 段落内容。<br />
+<em norm="[&gt;&gt;关于斜体与行内属性]"><sup id="fnref:how2attr-em" role="doc-noteref"><a href="#fn:how2attr-em" class="footnote" rel="footnote">3</a></sup></em></li>
+          </ul>
+        </li>
+      </ul>
+
+      <hr class="blank" />
+
+      <ul>
+        <li>
+          <p>为段落元素添加属性：<br /><br />
+<em class="bfuchsia cfuchsia" style="padding:.5em">{:.bfuchsia.cfuchsia}<br />段落内容段落内容段落内容。</em></p>
+
+          <blockquote class="note">
+            <p>{: } 也可置于段落下方</p>
+          </blockquote>
+        </li>
+      </ul>
+
+      <blockquote class="info">
+        <p>详见：https://kramdown.gettalong.org/syntax.html#attribute-list-definitions</p>
+      </blockquote>
+      <p><a href="#fnref:how2attr" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:how2var" role="doc-endnote">
+
+      <blockquote class="info">
+        <p>提示：在 kramdown 的 {:***} 语法中声明元素的 style 属性，来使用部分类所支持的额外属性！</p>
+
+        <p>例：上文的 .size 类使用了 <code class="language-plaintext highlighter-rouge">{:.size style="--s:1.096"}</code> 语句将文本字号设成 1.096 倍</p>
+      </blockquote>
+      <p><a href="#fnref:how2var" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:how2attr-em" role="doc-endnote">
+
+      <blockquote class="info">
+        <p>注：为了分离inline元素的方便，默认情况下任何带有 Moardown</p>
+        <ul>
+          <li>扩充类（如 <code class="language-plaintext highlighter-rouge">*内容*{:.class}</code>），以及</li>
+          <li>特殊属性（如 <code class="language-plaintext highlighter-rouge">*内容*{:t="tip"}</code>）</li>
+        </ul>
+
+        <p>的斜体文字都不会拥有斜体效果。</p>
+
+        <p>这种情况下，请使用 .i 类专门声明此文字为斜体。</p>
+      </blockquote>
+      <p><a href="#fnref:how2attr-em" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+            </main>
             <div class="buttonBar">
               <label class="fontTg toggle" title="切换字体"><input type="checkbox"></label>
               <label class="darkTg toggle" title="切换深色模式"><input type="checkbox" id="dark1"></label>
@@ -1172,24 +1235,6 @@
         <label class="fullscreenTg toggle" id="exitFull" title="退出全屏"></label>
       </div>
       <div class="content f"> <h1 id="f_head">MoarDown - <em class="small">Markdown 语法扩充类</em>！:</h1>
-
-<blockquote class="info">
-  <p>提示：使用 kramdown 的 {:***} 语法为元素添加额外属性，以在文章内使用本文档罗列的特性，如：</p>
-  <ul>
-    <li>为<em>块级</em>元素（段落、表格、引用方块等）添加属性 .c<br />
-<br /> <em class="c">{:.c} <br /> 段落文字</em> <br /></li>
-    <li>为<em>行内</em>元素添加属性 .cfuchsia:<br />
-段落段落 <em class="cfuchsia">*行内文字内容*{:.cfuchsia}</em> 段落段落</li>
-  </ul>
-</blockquote>
-
-<blockquote class="note">
-  <p>注：为了分离inline元素的方便，默认情况下任何<em>带有语法扩充类</em>的斜体文字——如 <code class="language-plaintext highlighter-rouge">*内容*{:.class}</code> ——都不会拥有斜体效果。</p>
-
-  <p>这种情况下，请使用 .i 类专门声明此  文字为斜体。</p>
-</blockquote>
-
-<hr />
 
 <h2 id="f_index">目录</h2>
 
@@ -1244,22 +1289,16 @@
 
 <h3 id="f_size">大小:</h3>
 <ul>
-  <li><em class="bigger">.bigger</em></li>
+  <li><em class="bigger">.bigger</em> <em norm="[&gt;&gt;使用 Kramdown 语法为元素分配特殊属性]"><sup id="f_fnref:how2attr" role="doc-noteref"><a href="#f_fn:how2attr" class="footnote" rel="footnote">1</a></sup></em></li>
   <li><em class="big">.big</em></li>
   <li><em class="small">.small</em></li>
   <li><em class="smaller">.smaller</em></li>
-  <li><em class="size" style="--s:1.096">.size</em>
+  <li><em class="size" style="--s:1.096">.size</em> <em norm="[&gt;&gt;使用 css 变量设置元素的额外属性配置]"><sup id="f_fnref:how2var" role="doc-noteref"><a href="#f_fn:how2var" class="footnote" rel="footnote">2</a></sup></em>
     <ul>
       <li>--s: 1.096 <em>(自定义大小倍率)</em></li>
     </ul>
   </li>
 </ul>
-
-<blockquote class="info">
-  <p>提示：在 kramdown 的 {:***} 语法中声明元素的 style 属性，来使用部分类所支持的额外属性！</p>
-
-  <p>例：上文的 .size 类使用了 <code class="language-plaintext highlighter-rouge">{:.size style="--s:1.096"}</code> 语句将文本字号设成 1.096 倍</p>
-</blockquote>
 
 <h3 id="f_fake-title">伪标题:</h3>
 <ul>
@@ -1280,7 +1319,7 @@
 <h3 id="f_line">修饰线:</h3>
 <ul>
   <li>
-    <table class="t">
+    <table class="t" style="line-height:2em">
       <thead>
         <tr>
           <th> </th>
@@ -1335,13 +1374,13 @@
       </tbody>
     </table>
   </li>
-  <li>删除线的另一种表达 (markdown原版语法):
+  <li>markdown原版语法的删除线:
     <ul>
-      <li><em><del>txt</del></em>        : *~~txt~~*</li>
-      <li><em><del class="-d">txt</del></em>  : *~~txt~~*{:.-d}*</li>
-      <li><em><del class="-dd">txt</del></em> : *~~txt~~*{:.-dd}*</li>
-      <li><em><del class="-db">txt</del></em> : *~~txt~~*{:.-db}*</li>
-      <li><em><del class="-w">txt</del></em>  : *~~txt~~*{:.-w}*</li>
+      <li><em><del>txt</del></em>        : ~~txt~~</li>
+      <li><em><del class="-d">txt</del></em>  : ~~txt~~{:.-d}</li>
+      <li><em><del class="-dd">txt</del></em> : ~~txt~~{:.-dd}</li>
+      <li><em><del class="-db">txt</del></em> : ~~txt~~{:.-db}</li>
+      <li><em><del class="-w">txt</del></em>  : ~~txt~~{:.-w}</li>
     </ul>
   </li>
 </ul>
@@ -1450,12 +1489,16 @@
   <li>
     <p><em r="这是注音">这是文字</em></p>
 
-    <p>*这是文字*{:r="这是注音"}</p>
+    <p><code class="language-plaintext highlighter-rouge">*这是文字*{:r="这是注音"}</code></p>
   </li>
   <li>
     <p><em r="zhe">这</em> <em r="shi">是</em> <em r="zhu">文</em> <em r="yin">字</em></p>
 
-    <p>*这*{:r="zhe"} *是*{:r="shi"} *文*{:r="zhu"} *字*{:r="yin"}</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*这*{:r="zhe"}
+*是*{:r="shi"}
+*文*{:r="zhu"}
+*字*{:r="yin"}
+</code></pre></div>    </div>
   </li>
 </ul>
 
@@ -2252,6 +2295,89 @@
 
 <p>这时，传来了持有者回来的脚步声。</p>
 
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="f_fn:how2attr" role="doc-endnote">
+
+      <blockquote class="info">
+        <p>提示：使用 kramdown 的 {: } 语法为元素添加额外属性，以在文章内使用本文档罗列的特性：</p>
+      </blockquote>
+
+      <ul>
+        <li>{: } 冒号后支持添加的属性包括：类名称、ID值、HTML属性
+          <ul>
+            <li>类名称： <code class="language-plaintext highlighter-rouge">{:.classname}</code></li>
+            <li>ID:  <code class="language-plaintext highlighter-rouge">{:#id}</code><br />
+<em>(本文档中罗列的特性都不会用到ID值)</em></li>
+            <li>HTML 属性：
+              <ul>
+                <li><code class="language-plaintext highlighter-rouge">{:attr="value"}</code></li>
+                <li>空属性： <code class="language-plaintext highlighter-rouge">{:attr=""}</code></li>
+                <li>使用例： <code class="language-plaintext highlighter-rouge">{:style="background:url(/assets/image.gif)"}</code><br />
+为元素添加一个自定义的图片背景</li>
+              </ul>
+            </li>
+            <li>使用多种不同的属性：<br />
+<code class="language-plaintext highlighter-rouge">{:.bigger.rainbow#unique style:"transform:scaleX(200%)"}</code></li>
+          </ul>
+        </li>
+      </ul>
+
+      <hr class="blank" />
+
+      <ul>
+        <li>为行内元素添加属性：
+          <ul>
+            <li>段落内容 <em class="cfuchsia">*文字*{:.cfuchsia}</em> 段落内容。<br />
+<em norm="[&gt;&gt;关于斜体与行内属性]"><sup id="f_fnref:how2attr-em" role="doc-noteref"><a href="#f_fn:how2attr-em" class="footnote" rel="footnote">3</a></sup></em></li>
+          </ul>
+        </li>
+      </ul>
+
+      <hr class="blank" />
+
+      <ul>
+        <li>
+          <p>为段落元素添加属性：<br /><br />
+<em class="bfuchsia cfuchsia" style="padding:.5em">{:.bfuchsia.cfuchsia}<br />段落内容段落内容段落内容。</em></p>
+
+          <blockquote class="note">
+            <p>{: } 也可置于段落下方</p>
+          </blockquote>
+        </li>
+      </ul>
+
+      <blockquote class="info">
+        <p>详见：https://kramdown.gettalong.org/syntax.html#attribute-list-definitions</p>
+      </blockquote>
+      <p><a href="#f_fnref:how2attr" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="f_fn:how2var" role="doc-endnote">
+
+      <blockquote class="info">
+        <p>提示：在 kramdown 的 {:***} 语法中声明元素的 style 属性，来使用部分类所支持的额外属性！</p>
+
+        <p>例：上文的 .size 类使用了 <code class="language-plaintext highlighter-rouge">{:.size style="--s:1.096"}</code> 语句将文本字号设成 1.096 倍</p>
+      </blockquote>
+      <p><a href="#f_fnref:how2var" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="f_fn:how2attr-em" role="doc-endnote">
+
+      <blockquote class="info">
+        <p>注：为了分离inline元素的方便，默认情况下任何带有 Moardown</p>
+        <ul>
+          <li>扩充类（如 <code class="language-plaintext highlighter-rouge">*内容*{:.class}</code>），以及</li>
+          <li>特殊属性（如 <code class="language-plaintext highlighter-rouge">*内容*{:t="tip"}</code>）</li>
+        </ul>
+
+        <p>的斜体文字都不会拥有斜体效果。</p>
+
+        <p>这种情况下，请使用 .i 类专门声明此文字为斜体。</p>
+      </blockquote>
+      <p><a href="#f_fnref:how2attr-em" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
  </div> <!-- really stupid way to fix duplicated id issue -->
       <div class="bottomBar">
         地址：/md-lab.html | 作者：Kirisame Soup | 

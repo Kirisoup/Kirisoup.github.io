@@ -1,6 +1,6 @@
 // remove italic effect for <em> ( ** in markdown ) in order to easily assign class to inline text
 // use .i to reobtain italic for <em>
-em:not(.i) { &[class], &[r], &[t] { font-style: normal; }}
+em:not(.i) { &[class], &[r], &[t], &[norm] { font-style: normal; }}
 
 // sizes ================================
 
@@ -344,15 +344,15 @@ z-index: 1;
 
 // blocks ================================
 
-.content>blockquote, :not(blockquote) >blockquote { margin-block: 2em; }
+.content>blockquote, :not(blockquote) >blockquote { margin-block: .5em; }
 
 blockquote {
     >p:first-child { margin-top: 0; } >p:last-child { margin-bottom: 0; } // revome extra margin for first and last children blockquote
     margin-right: 1em;
 
-    // inform block
+    // inform blocks
     &.info, &.note, &.warn {
-        display: table;
+        display: inline-table;
         position: relative;
         padding-inline: 2.5em .5em;
         padding-block: .5em;
@@ -374,6 +374,7 @@ blockquote {
         background: var(--txtColor-fade);
         border: var(--txtColor) 3px solid;
         box-shadow: 4px 4px var(--txtColor);
+        color: var(--txtColor);
 
         &::before { content: "ⓘ"; }
     }
@@ -423,6 +424,76 @@ blockquote {
         }
 
         blockquote:not([class]) { margin: 0 .3em; }
+    }
+}
+
+// footnote ================================
+
+em[norm] {
+    position: relative;
+    &::before { content: attr(norm); }
+
+    sup[role="doc-noteref"] {
+        top: unset;
+        position: static;
+
+        .footnote {
+            position: absolute;
+            inset: 0;
+            opacity: 0;    
+        }
+    }
+}
+
+.footnote {
+    color: var(--txtColor-red);
+}
+
+.footnotes {
+    position: relative;
+    margin-top: 4em;
+    padding-top: 1em;
+
+    &::before, ol li::after { content: "";
+        position: absolute;
+        width: 100%; height: .25em;
+    }
+
+    &::before { 
+        top: 0;
+        border-block: var(--txtColor) 2px solid;
+    }
+
+    ol { margin: 0; 
+        li[role="doc-endnote"]:has(+li) {
+            position: relative;
+            margin-bottom: 2em;
+            padding-bottom: 2em;
+
+            &::after {
+                width: calc(100% + 40px); 
+                bottom: 0; left: -40px;
+                border-block: var(--txtColor) 2px dashed;
+            }
+        }
+    }
+
+    p:has(.reversefootnote) {
+        display: inline-block;
+    }
+}
+
+// horizontal rules ================================
+
+hr {
+    border: none { block: 2px var(--txtColor) solid };
+    height: .2em;
+    margin-block: 1em;
+
+    &.blank {
+        height: 1px;
+        opacity: 0;
+        border: none !important;
     }
 }
 
