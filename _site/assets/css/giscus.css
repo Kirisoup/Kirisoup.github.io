@@ -186,11 +186,6 @@ code, kbd, pre, samp {
   margin-block: 0 !important;
   padding-block: 0 !important;
 }
-.gsc-comments .gsc-reply-footer {
-  position: relative;
-  left: -0.3em;
-  margin-top: 0.2em;
-}
 .gsc-comments .gsc-comment-content, .gsc-comments .gsc-reply-content {
   padding-block: 0.75em !important;
 }
@@ -301,8 +296,8 @@ code, kbd, pre, samp {
 .gsc-comment-box-md-toolbar,
 button s,
 .gsc-right-header,
+.gsc-reply-footer .gsc-reply-author-avatar img,
 .gsc-comment-replies-count,
-.gsc-reply-author-avatar img,
 .gsc-comment-box-textarea-extras,
 .gsc-comment-box-bottom svg path,
 .gsc-reactions-button svg path {

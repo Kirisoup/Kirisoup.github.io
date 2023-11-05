@@ -238,11 +238,11 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
                 padding-block: 0 !important;
             }
 
-            &-footer {
-                position: relative;
-                left: -.3em;
-                margin-top: .2em;
-            }
+            // &-footer {
+            //     position: relative;
+            //     left: -.3em;
+            //     margin-top: .2em;
+            // }
         }
 
         &-comment-content, &-reply-content { padding-block: .75em !important; }
@@ -353,8 +353,9 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
 .gsc-comment-box-md-toolbar,
 button s,
 .gsc-right-header,
-.gsc-comment-replies-count,
+.gsc-reply-footer
 .gsc-reply-author-avatar img,
+.gsc-comment-replies-count,
 .gsc-comment-box-textarea-extras,
 .gsc-comment-box-bottom svg path,
 .gsc-reactions-button svg path
