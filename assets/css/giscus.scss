@@ -160,12 +160,15 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
 
         // send comment
         &-comment-box {
+            overflow: hidden;
+            
             &-tabs { 
                 button { padding: .25em .5em !important; }
 
                 >div:has(button) { margin: .5em !important {
-                        bottom: -2px !important;
-                        left: 14px !important;
+                    bottom: -2px !important;
+                    left: 14px !important;
+                    min-width: max-content ;
                 }; }
             }
 
@@ -318,7 +321,7 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
 { border-top: inherit; }
 
 .gsc-reply-author-avatar
-{ border-right: inherit; }
+{ border-right: inherit !important; }
 
 .color-border-primary,
 .color-box-border-info,
@@ -347,7 +350,7 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
 { border-radius: unset !important }
 
 // remove bloat
-button[title="启用编辑器固定宽度（等宽）字体"],
+.gsc-comment-box-md-toolbar,
 button s,
 .gsc-right-header,
 .gsc-comment-replies-count,
