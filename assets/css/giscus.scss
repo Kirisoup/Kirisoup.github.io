@@ -1,69 +1,263 @@
 ---
 ---
 
-.color-bg-default, .color-bg-primary, .color-bg-overlay { background: #000; }
+html {
+    position: absolute;
+    left: 0; right: 1px;
+    font-size: 15px !important;
+    color: #44d;
+}
+
+.gsc-comments>.gsc-comment-box, .gsc-timeline {
+    width: unset;
+    margin-inline: 1em;
+}
+
+// font
+html { font-family: "fusion", "fusion-fallback", monospace; }
+code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
+
+@font-face { font-family: "fusion";
+    src: url(https://kirisoup.github.io/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf);
+}
+
+@font-face { font-family: "ibm";
+    src: url(https://kirisoup.github.io/assets/font/IBM3161.ttf);
+}
+
+@font-face { font-family: "fusion-fallback";
+    src: url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf);
+}
+
+@font-face { font-family: "ibm-fallback";
+    src: url(https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/font/IBM3161.ttf);
+}
+
+// color
+
+.color-bg-default,
+.color-bg-primary,
+.color-bg-overlay,
+.gsc-comments .gsc-comment-box-tabs button.color-bg-canvas,
+.gsc-reply-box button
+{ background: #fff !important; }
+
+.gsc-header,
+.gsc-header a[href="https://giscus.app"],
+.gsc-comment-header,
+.gsc-comment-box-tabs,
+.gsc-comment-box-bottom,
+.gsc-reply-box,
+.gsc-reactions-popover .text-ellipsis
+{ background: #d1d1f7 !important; }
+
+// texture
+
+.gsc-header {
+    box-shadow:
+        inset -2px -2px #44d,
+        inset 2px 2px #fff,
+        inset -4px -4px #aaaae8,
+        inset 4px 4px #e8e8fb,
+        inset 0 0 0 8px #d1d1f7
+}
+
+.gsc-comment-box {
+    box-shadow:
+        inset -2px -2px #44d,
+        inset 2px 2px #fff,
+        inset -4px -4px #aaaae8,
+        inset 4px 4px #e8e8fb,
+        inset 0 0 0 8px #d1d1f7,
+        inset 2px 26px 0 8px #44d,
+        inset -2px -39px 0 8px #e8e8fb
+}
+
+.gsc-comment-box-tabs {
+    box-shadow:
+        inset -2px 0 #44d,
+        inset 2px 2px #fff,
+        inset -4px 0 #aaaae8,
+        inset 4px 4px #e8e8fb,
+        inset 0 0 0 8px #d1d1f7
+}
+
+.gsc-comment>div {
+    box-shadow:
+        inset -2px -2px #44d,
+        inset 2px 2px #fff,
+        inset -4px -4px #aaaae8,
+        inset 4px 4px #e8e8fb,
+        inset 0 0 0 8px #d1d1f7,
+        inset 2px 41px 0 8px #44d,
+        inset -2px -39px 0 8px #e8e8fb
+}
+
+.gsc-reply-box {
+    box-shadow:
+        inset -2px -2px #44d,
+        inset 2px 0 #fff,
+        inset -4px -4px #aaaae8,
+        inset 4px 0 #e8e8fb
+}
+
+.gsc-reactions-popover {
+    box-shadow:
+        inset -2px -2px #44d,
+        inset 2px 2px #fff,
+        inset -4px -4px #aaaae8,
+        inset 4px 4px #e8e8fb,
+        inset 0 0 0 8px #d1d1f7,
+        inset 2px 37px 0 8px #44d,
+        inset -2px -2px 0 8px #e8e8fb
+}
+
+.gsc-direct-reaction-button {
+    padding-block: .2em;
+    box-shadow:
+        inset -1.5px -1.5px #44d,
+        inset 1.5px 1.5px #d1d1f7,
+        inset -3px -3px #a2a2ee,
+        inset 3px 3px #e8e8fb;
+}
+
+// ====================
 
 .gsc-comments {
     gap: 1rem;
+    font-size: 1em;
+
 
     .gsc {
         &-header {
-            background: #000;
             padding: .5em;
-            border: 1px #fff solid;
+            border: 1px #44d solid;
 
-            .gsc-left-header { margin-left: .5em }
+            .gsc-left-header {
+                margin-left: .5em;
+                flex-wrap: nowrap !important;
+
+                em:has(a[href="https://giscus.app"]) {
+                    visibility: hidden;
+                    font-size: 0 !important;
+                    position: absolute;
+                    right: 4px; top: 4px;
+                }
+
+                a[href="https://giscus.app"] {
+                    visibility: visible;
+                    font-size: 1rem;
+                    line-height: 1.8rem;
+                    padding: .2em .5em;
+                    opacity: 0;
+
+                    &::before { content: ">> "; }
+                }
+            }
+
+            &:hover { a[href="https://giscus.app"] { opacity: 1; } }
         }
 
         // send comment
         &-comment-box {
             &-tabs button { padding: .25em .5em !important;
+
                 div:has(button) { margin: .5em !important { bottom: 0 !important; }; }
+
+                >div {
+                    margin: {
+                        bottom: -2px !important;
+                        left: 14px !important;
+                    }
+                }
             }
 
-            &-textarea {
-                border-bottom-style: inherit;
-                min-height: 6em;
+            &-main { margin-inline: 14px;
+                &-textarea, &-preview { min-height: 3em; }
             }
 
-            &-bottom svg {
-                height: 1.5em; width: 1.5em;
-                background: url(https://kirisoup.github.io/assets/image/button/close.gif) { size: cover; };
-                margin-right: .5em !important;
-                image-rendering: pixelated
+
+            &-bottom {
+                padding: 5px 10px 5px 10px;
+                margin: 0 4px 4px 4px !important;
+
+                svg {
+                    height: 1em; width: auto;
+                    background: url(https://kirisoup.github.io/assets/image/button/close.gif) { size: cover; };
+                    margin-right: .2rem !important;
+                    image-rendering: pixelated
+                }
             }
         }
 
         // comments
         &-comment {
-            &-header, &-content { padding-inline: .5em }
+            position: relative;
+
+            &-header {
+                margin: 4px 4px 0 4px;
+                padding: 5px !important;
+            }
+
+            &-content { padding-inline: 14px !important; }
         }
 
         // reply
         &-replies { padding: unset; }
 
-        &-reply { padding: .5rem;
-            &-header { margin-block: .25em !important; }
-            &-footer { margin-top: .2em }
-        }
+        &-reply {
+            position: relative;
+            padding: .25em .5rem;
+            margin-inline: 10px;
 
-        &-reply-author-avatar {
-            padding-right: .5em;
-            border-right: 1px #fff solid;
+            &:has(+.gsc-reply) {
+                padding-bottom: 0;
+
+                .ml-2 { border-bottom: 2px solid }
+            }
+
+            & +.gsc-reply {
+                padding-top: 0;
+
+                .gsc-reply-header {
+                    margin-top: 1em !important
+                }
+            }
+
+            &-author-avatar {
+                padding-right: .5em;
+                border-right: 1px #44d solid;
+            }
+
+            .ml-2 {
+                margin-right: .5em;
+                padding-bottom: .5em;
+            }
+
+            &-header {
+                margin-block: 0 !important;
+                padding-block: 0 !important;
+            }
+
+            &-footer {
+                position: relative;
+                left: -.3em;
+                margin-top: .2em;
+            }
         }
 
         &-comment-content, &-reply-content { padding-block: .75em !important; }
 
         &-comment-author-avatar img, &-reply-author-avatar img {
-            height: 2.5em;
+            height: 2em;
             width: auto;
         }
 
         // reaction
         &-comment-reactions {
-            gap: .5rem;
+            gap: .2em;
             align-items: center;
-            margin-left: .5em;
+            margin-left: 12px;
         }
 
         &-reply-reactions { margin-left: .2em; }
@@ -80,38 +274,89 @@
             border: none;
 
             svg {
-                height: 2em; width: 2em;
+                height: 1.5em; width: auto;
                 background: url(https://kirisoup.github.io/assets/image/button/smile.gif) { size: cover; };
                 image-rendering: pixelated;
             }
         }
 
-        &-reactions-popover { inset-inline-start: -1.73em !important;
+        &-reactions-popover {
+            left: -1.73em !important;
+            margin: 0 !important;
+
             &.open:before { content: unset; }
+
+            div.m-2 { margin: 14px !important; }
+
+            .text-ellipsis {
+                margin: 4px !important;
+                padding: 10px;
+            }
         }
 
     }
 }
 
-// remove round corner
+// borders
+.border-t,
+.gsc-comment-box-tabs,
+.gsc-replies,
+.gsc-reply-box,
+.gsc-reply-author-avatar,
+
+.gsc-header,
 .gsc-comment-box,
+.gsc-comment>div,
+.gsc-reactions-popover,
+.gsc-direct-reaction-button
+{ border: none !important; }
+
+.gsc-comment-box-tabs button { border-bottom: none; }
+
+.border-t,
+.gsc-comment-box-tabs
+{ border-bottom: inherit; }
+
+.gsc-replies,
+.gsc-reply-box
+{ border-top: inherit; }
+
+.gsc-reply-author-avatar
+{ border-right: inherit; }
+
+.color-border-primary,
+.color-box-border-info,
+.gsc-header,
+.gsc-comment-box-buttons button,
+.gsc-reply-box,
+.gsc-reply-author-avatar,
+.gsc-comment-box-textarea
+{ border-width: 2px !important }
+
+// remove round corner
+.gsc-reply-box,
+.gsc-comment-box,
+.gsc-comment-box-tabs,
 .gsc-comment-box-write,
 .gsc-comment-box-textarea,
 .gsc-comment-box-textarea-extras,
+.gsc-reactions-popover,
+.gsc-social-reaction-summary-item,
 .rounded,
 .rounded-t,
 .rounded-md,
 .rounded-full,
 .BtnGroup,
-.BtnGroup-item,
-.gsc-reactions-popover
-    { border-radius: unset !important }
+.BtnGroup-item
+{ border-radius: unset !important }
 
 // remove bloat
 button[title="启用编辑器固定宽度（等宽）字体"],
 button s,
 .gsc-right-header,
+.gsc-comment-replies-count,
+.gsc-reply-author-avatar img,
 .gsc-comment-box-textarea-extras,
 .gsc-comment-box-bottom svg path,
 .gsc-reactions-button svg path
-    { display: none; }
+{ display: none; }

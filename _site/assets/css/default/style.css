@@ -386,7 +386,7 @@ html:has(.cornerCara:not([id="0"])) {
 /* ==== C 1 ==== */
 .c1 .banner {
   border: #000 1px solid;
-  background: url(/assets/image/xp.gif);
+  background: url(/assets/image/xp_.gif);
   background-size: cover;
 }
 .c1 .banner::before, .c1 .banner::after {
@@ -506,16 +506,13 @@ html:has(.cornerCara:not([id="0"])) {
   width: auto;
   height: auto;
   overflow: scroll;
-  margin-inline: 5%;
 }
 .c2 .chatroom .giscus {
-  margin-block: 5%;
   height: 100%;
 }
-.c2 .chatroom .giscus iframe {
+.c2 .chatroom .giscus .giscus-frame {
   position: absolute;
-  left: 0;
-  right: 0;
+  inset: 0 unset;
 }
 .c2 iframe[name=neolink] {
   position: absolute;
@@ -677,7 +674,7 @@ html:has(.cornerCara:not([id="0"])) {
 }
 #soup\.exe:hover ~ .cornerCara-b, #soup\.exe:active ~ .cornerCara-b {
   transition: opacity 0s;
-  opacity: 0.5;
+  opacity: 0.2;
 }
 .cornerCara[id="0"] + .cornerCara-b, .cornerCara[id="0"]::before {
   background: url(/assets/image/cornerCara/marisa0.webp);
@@ -1211,10 +1208,6 @@ html:has(.fontTg input:checked) code, kbd, samp {
 @font-face {
   font-family: "ibm";
   src: url(/assets/font/IBM3161.ttf);
-}
-@font-face {
-  font-family: "zpix";
-  src: url(/assets/font/zpix.ttf);
 }
 /* ======== */
 em:not(.i)[class], em:not(.i)[r], em:not(.i)[t] {

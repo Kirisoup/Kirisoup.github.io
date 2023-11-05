@@ -31,7 +31,7 @@ html {
 }
 #soup\.exe .c1 .banner, #pseu .c1 .banner {
   position: relative;
-  height: 5.625vw;
+  height: max(5.625vw, 10vh);
 }
 #soup\.exe .c1 .main, #pseu .c1 .main {
   position: relative;
@@ -54,9 +54,9 @@ html {
   padding-bottom: 25%;
 }
 #soup\.exe .c1 .bottom, #pseu .c1 .bottom {
-  --height: 40px;
+  --height: 10%;
   position: absolute;
-  top: max(100% - var(--height), 360px);
+  top: max(100% - var(--height), 320px);
   z-index: 1;
   height: var(--height);
 }

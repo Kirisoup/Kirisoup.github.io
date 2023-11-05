@@ -97,7 +97,7 @@ html:has(.cornerCara:not([id="0"])) {
         // background: url(https://media.tenor.com/5lWosOHS630AAAAC/amor.gif);
         // background: url(https://usagif.com/wp-content/uploads/gifs/water-66.gif);
         // background: url(https://64.media.tumblr.com/9af92cc03553bd821021fd950fbc33b5/1534f96efdb15e70-b5/s100x200/6f110ffcfa7afe0af25add8144e9d30fbefc97fe.gifv);
-        background: url(/assets/image/xp.gif)
+        background: url(/assets/image/xp_.gif)
             { size: cover; };
 
         &::before, &::after {
@@ -253,23 +253,20 @@ html:has(.cornerCara:not([id="0"])) {
         };
     }
 
-
     .chatroom {
     // pos
         position: absolute;
         inset: 0;
         width: auto; height: auto;
         overflow: scroll;
-        margin-inline: 5%;
+        // margin-inline: 5%;
 
         .giscus {
-            margin-block: 5%;
             height: 100%;
-            // min-height: unset !important;
 
-            iframe {
+            .giscus-frame {
                 position: absolute;
-                left: 0; right: 0;
+                inset: 0 unset;
             }
         }
     }
@@ -485,7 +482,7 @@ html:has(.cornerCara:not([id="0"])) {
         inset: 0;
     }
 
-    #soup\.exe:hover ~&-b, #soup\.exe:active ~&-b { transition: opacity 0s; opacity: .5; }
+    #soup\.exe:hover ~&-b, #soup\.exe:active ~&-b { transition: opacity 0s; opacity: .2; }
 
     /* ====randomBG==== */
 
@@ -895,26 +892,19 @@ ul { margin-top: .5em; }
 
 html { font-display: swap; }
 
-html                            { font-family: "fusion", monospace; }
+html { font-family: "fusion", monospace; }
 html:has(.fontTg input:checked) { font-family: "ibm", monospace; }
 
 code, kbd, samp { font-family: "ibm", monospace;}
 html:has(.fontTg input:checked) code, kbd, samp { font-family: "ibm", monospace;}
 
 
-@font-face {
-    font-family: "fusion";
+@font-face { font-family: "fusion";
     src: url(/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf);
 }
 
-@font-face {
-    font-family: "ibm";
+@font-face { font-family: "ibm";
     src: url(/assets/font/IBM3161.ttf);
-}
-
-@font-face {
-    font-family: "zpix";
-    src: url(/assets/font/zpix.ttf);
 }
 
 /* ======== */
