@@ -1,5 +1,4 @@
 ---
-layout: default
 title: MarkDown¥实验室.html
 ---
 
@@ -7,30 +6,8 @@ title: MarkDown¥实验室.html
 
 ## 目录 {#index}
 
-- [常规分类](#regular){:.ab}
-  - [大小](#size){:.ab}
-  - [伪标题](#fake-title){:.ab}
-  - [对齐](#align){:.ab}
-  - [修饰线](#line){:.ab}
-  - [颜色](#color){:.ab}
-    - [快速](#color-fast){:.ab}
-    - [16色](#color-16){:.ab}
-  - [背景色](#background){:.ab}
-    - [快速](#background-fast){:.ab}
-    - [16色](#background-16){:.ab}
-  - [边框色](#border){:.ab}
-    - [快速](#border-fast){:.ab}
-    - [16色](#border-16){:.ab}
-  - [注音](#ruby){:.ab}
-  - [悬浮提示](#tip){:.ab}
-    - [更华丽的提示](#tip-fancy){:.ab}
-  - [表格](#table){:.ab}
-  - [文本块](#block){:.ab}
-- [华丽装饰类！](#fancy){:.ab}
-  - [彩虹](#rainbow){:.ab}
-  - [阴影](#shadow){:.ab}
-  - [描边](#stroke){:.ab}
-  - [动画！](#animate){:.ab}
+- 目录
+{:toc}
 
 ---
 

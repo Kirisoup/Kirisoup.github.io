@@ -1,5 +1,4 @@
 ---
-layout: default
 title: home¥page.html
 ---
 
@@ -13,7 +12,7 @@ title: home¥page.html
 <!-- --- -->
 
 {:.fake.h1}
-*欢迎来到 **霧雨蘑菇店**![](){:mushroom}*{:.big.rainbow.fancy2} <br> ***う*{:r="yo"}*こ*{:r="ko"}*そ*{:r="so"}！**{:.r.rainbow.fancy2}
+*欢迎来到 **¥霧雨蘑菇店¥**{:.big}![](){:mushroom}*{:.big.rainbow.fancy2} <br> ***う*{:r="yo"}*こ*{:r="ko"}*そ*{:r="so"}！**{:.r.rainbow.fancy2}
 
 ---
 

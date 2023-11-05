@@ -185,7 +185,7 @@ del, .del { &.u { @include txtline(line-through underline)          }
 }
 
 // reveal url for hyperlinks
-.content a { &::before { content: "转到："attr(href) attr(t); } }
+.content a { &::before { content: "¥目标: "attr(href) attr(t); } }
 
 // // reveal id for headings
 // h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] { &::before { content: "#" attr(id);
@@ -249,7 +249,7 @@ a {
 }
 
 // full width link
-a.ab {
+a.ab, #markdown-toc li>a, #f_markdown-toc li>a {
     display: block;
     right: 0;
     text-decoration: none;

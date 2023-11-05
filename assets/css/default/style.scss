@@ -865,6 +865,27 @@ ul { ::marker { font-weight: bolder; }
 li { margin-bottom: .5em; }
 ul { margin-top: .5em; }
 
+// check
+
+ul.task-list {
+    list-style-type: "- ";
+}
+
+input.task-list-item-checkbox {
+    position: relative;
+    margin-right: .5em;
+    visibility: hidden;
+
+    &::before { content: "";
+        position: absolute;
+        inset: 0;
+        background: url(/assets/image/button/unchecked.gif) { size:cover; };
+        visibility: visible;
+    }
+
+    &:checked::before { background: url(/assets/image/button/checked.gif) { size:cover; }; }
+}
+
 /* ======== */
 
 

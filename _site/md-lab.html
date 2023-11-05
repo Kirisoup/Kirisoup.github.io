@@ -28,24 +28,24 @@
   
     <p>
       
-      <a href="/home.html" >
-      主页 
+      <a href="/home" >
+        主页 
       </a>
       <!--  -->
     </p>
   
     <p>
       
-      <a href="/about.html" >
-      About 
+      <a href="/about" >
+        About 
       </a>
       <!--  -->
     </p>
   
     <p>
       <strong class="urHere-i"> >>&nbsp; </strong>
-      <a href="/md-lab.html" class="urHere">
-      Markdown 实验室 
+      <a href="/md-lab" class="urHere">
+        Markdown 实验室 
       </a>
       <!-- <strong class="urHere-i"> <<< </strong> -->
     </p>
@@ -60,47 +60,46 @@
 
 <h2 id="index">目录</h2>
 
-<ul>
-  <li><a href="#regular" class="ab">常规分类</a>
-    <ul>
-      <li><a href="#size" class="ab">大小</a></li>
-      <li><a href="#fake-title" class="ab">伪标题</a></li>
-      <li><a href="#align" class="ab">对齐</a></li>
-      <li><a href="#line" class="ab">修饰线</a></li>
-      <li><a href="#color" class="ab">颜色</a>
-        <ul>
-          <li><a href="#color-fast" class="ab">快速</a></li>
-          <li><a href="#color-16" class="ab">16色</a></li>
+<ul id="markdown-toc">
+  <li><a href="#head" id="markdown-toc-head">MoarDown - <em class="small">Markdown 语法扩充类</em>！:</a>    <ul>
+      <li><a href="#index" id="markdown-toc-index">目录</a></li>
+      <li><a href="#regular" id="markdown-toc-regular">常规分类:</a>        <ul>
+          <li><a href="#size" id="markdown-toc-size">大小:</a></li>
+          <li><a href="#fake-title" id="markdown-toc-fake-title">伪标题:</a></li>
+          <li><a href="#align" id="markdown-toc-align">对齐:</a></li>
+          <li><a href="#line" id="markdown-toc-line">修饰线:</a></li>
+          <li><a href="#color" id="markdown-toc-color">颜色:</a>            <ul>
+              <li><a href="#color-fast" id="markdown-toc-color-fast">快速</a></li>
+              <li><a href="#color-16" id="markdown-toc-color-16">16色</a></li>
+            </ul>
+          </li>
+          <li><a href="#background" id="markdown-toc-background">背景色:</a>            <ul>
+              <li><a href="#background-fast" id="markdown-toc-background-fast">快速</a></li>
+              <li><a href="#background-16" id="markdown-toc-background-16">16色</a></li>
+            </ul>
+          </li>
+          <li><a href="#border" id="markdown-toc-border">边框色:</a>            <ul>
+              <li><a href="#border-fast" id="markdown-toc-border-fast">快速</a></li>
+              <li><a href="#border-16" id="markdown-toc-border-16">16色</a></li>
+            </ul>
+          </li>
+          <li><a href="#ruby" id="markdown-toc-ruby">注音:</a></li>
+          <li><a href="#tip" id="markdown-toc-tip">悬浮提示:</a>            <ul>
+              <li><a href="#tip-fancy" id="markdown-toc-tip-fancy">更华丽的提示:</a></li>
+            </ul>
+          </li>
+          <li><a href="#table" id="markdown-toc-table">表格:</a></li>
+          <li><a href="#block" id="markdown-toc-block">文本块:</a></li>
         </ul>
       </li>
-      <li><a href="#background" class="ab">背景色</a>
-        <ul>
-          <li><a href="#background-fast" class="ab">快速</a></li>
-          <li><a href="#background-16" class="ab">16色</a></li>
+      <li><a href="#fancy" id="markdown-toc-fancy">华丽装饰类！:</a>        <ul>
+          <li><a href="#rainbow" id="markdown-toc-rainbow">彩虹:</a></li>
+          <li><a href="#shadow" id="markdown-toc-shadow">阴影:</a></li>
+          <li><a href="#stroke" id="markdown-toc-stroke">描边:</a></li>
+          <li><a href="#animate" id="markdown-toc-animate">动画！:</a></li>
         </ul>
       </li>
-      <li><a href="#border" class="ab">边框色</a>
-        <ul>
-          <li><a href="#border-fast" class="ab">快速</a></li>
-          <li><a href="#border-16" class="ab">16色</a></li>
-        </ul>
-      </li>
-      <li><a href="#ruby" class="ab">注音</a></li>
-      <li><a href="#tip" class="ab">悬浮提示</a>
-        <ul>
-          <li><a href="#tip-fancy" class="ab">更华丽的提示</a></li>
-        </ul>
-      </li>
-      <li><a href="#table" class="ab">表格</a></li>
-      <li><a href="#block" class="ab">文本块</a></li>
-    </ul>
-  </li>
-  <li><a href="#fancy" class="ab">华丽装饰类！</a>
-    <ul>
-      <li><a href="#rainbow" class="ab">彩虹</a></li>
-      <li><a href="#shadow" class="ab">阴影</a></li>
-      <li><a href="#stroke" class="ab">描边</a></li>
-      <li><a href="#animate" class="ab">动画！</a></li>
+      <li><a href="#文字排版测试用" id="markdown-toc-文字排版测试用">文字排版测试用</a></li>
     </ul>
   </li>
 </ul>
@@ -1219,6 +1218,7 @@
             data-reactions-enabled="0"
             data-input-position="top"
             data-theme="https://kirisoup.github.io/assets/css/giscus.css"
+            data-lang="zh-CN"
             data-loading="lazy">
           </script>
         </div>
@@ -1238,47 +1238,46 @@
 
 <h2 id="f_index">目录</h2>
 
-<ul>
-  <li><a href="#f_regular" class="ab">常规分类</a>
-    <ul>
-      <li><a href="#f_size" class="ab">大小</a></li>
-      <li><a href="#f_fake-title" class="ab">伪标题</a></li>
-      <li><a href="#f_align" class="ab">对齐</a></li>
-      <li><a href="#f_line" class="ab">修饰线</a></li>
-      <li><a href="#f_color" class="ab">颜色</a>
-        <ul>
-          <li><a href="#f_color-fast" class="ab">快速</a></li>
-          <li><a href="#f_color-16" class="ab">16色</a></li>
+<ul id="f_markdown-toc">
+  <li><a href="#f_head" id="f_markdown-toc-head">MoarDown - <em class="small">Markdown 语法扩充类</em>！:</a>    <ul>
+      <li><a href="#f_index" id="f_markdown-toc-index">目录</a></li>
+      <li><a href="#f_regular" id="f_markdown-toc-regular">常规分类:</a>        <ul>
+          <li><a href="#f_size" id="f_markdown-toc-size">大小:</a></li>
+          <li><a href="#f_fake-title" id="f_markdown-toc-fake-title">伪标题:</a></li>
+          <li><a href="#f_align" id="f_markdown-toc-align">对齐:</a></li>
+          <li><a href="#f_line" id="f_markdown-toc-line">修饰线:</a></li>
+          <li><a href="#f_color" id="f_markdown-toc-color">颜色:</a>            <ul>
+              <li><a href="#f_color-fast" id="f_markdown-toc-color-fast">快速</a></li>
+              <li><a href="#f_color-16" id="f_markdown-toc-color-16">16色</a></li>
+            </ul>
+          </li>
+          <li><a href="#f_background" id="f_markdown-toc-background">背景色:</a>            <ul>
+              <li><a href="#f_background-fast" id="f_markdown-toc-background-fast">快速</a></li>
+              <li><a href="#f_background-16" id="f_markdown-toc-background-16">16色</a></li>
+            </ul>
+          </li>
+          <li><a href="#f_border" id="f_markdown-toc-border">边框色:</a>            <ul>
+              <li><a href="#f_border-fast" id="f_markdown-toc-border-fast">快速</a></li>
+              <li><a href="#f_border-16" id="f_markdown-toc-border-16">16色</a></li>
+            </ul>
+          </li>
+          <li><a href="#f_ruby" id="f_markdown-toc-ruby">注音:</a></li>
+          <li><a href="#f_tip" id="f_markdown-toc-tip">悬浮提示:</a>            <ul>
+              <li><a href="#f_tip-fancy" id="f_markdown-toc-tip-fancy">更华丽的提示:</a></li>
+            </ul>
+          </li>
+          <li><a href="#f_table" id="f_markdown-toc-table">表格:</a></li>
+          <li><a href="#f_block" id="f_markdown-toc-block">文本块:</a></li>
         </ul>
       </li>
-      <li><a href="#f_background" class="ab">背景色</a>
-        <ul>
-          <li><a href="#f_background-fast" class="ab">快速</a></li>
-          <li><a href="#f_background-16" class="ab">16色</a></li>
+      <li><a href="#f_fancy" id="f_markdown-toc-fancy">华丽装饰类！:</a>        <ul>
+          <li><a href="#f_rainbow" id="f_markdown-toc-rainbow">彩虹:</a></li>
+          <li><a href="#f_shadow" id="f_markdown-toc-shadow">阴影:</a></li>
+          <li><a href="#f_stroke" id="f_markdown-toc-stroke">描边:</a></li>
+          <li><a href="#f_animate" id="f_markdown-toc-animate">动画！:</a></li>
         </ul>
       </li>
-      <li><a href="#f_border" class="ab">边框色</a>
-        <ul>
-          <li><a href="#f_border-fast" class="ab">快速</a></li>
-          <li><a href="#f_border-16" class="ab">16色</a></li>
-        </ul>
-      </li>
-      <li><a href="#f_ruby" class="ab">注音</a></li>
-      <li><a href="#f_tip" class="ab">悬浮提示</a>
-        <ul>
-          <li><a href="#f_tip-fancy" class="ab">更华丽的提示</a></li>
-        </ul>
-      </li>
-      <li><a href="#f_table" class="ab">表格</a></li>
-      <li><a href="#f_block" class="ab">文本块</a></li>
-    </ul>
-  </li>
-  <li><a href="#f_fancy" class="ab">华丽装饰类！</a>
-    <ul>
-      <li><a href="#f_rainbow" class="ab">彩虹</a></li>
-      <li><a href="#f_shadow" class="ab">阴影</a></li>
-      <li><a href="#f_stroke" class="ab">描边</a></li>
-      <li><a href="#f_animate" class="ab">动画！</a></li>
+      <li><a href="#f_文字排版测试用" id="f_markdown-toc-文字排版测试用">文字排版测试用</a></li>
     </ul>
   </li>
 </ul>
@@ -2380,7 +2379,7 @@
 </div>
  </div> <!-- really stupid way to fix duplicated id issue -->
       <div class="bottomBar">
-        地址：/md-lab.html | 作者：Kirisame Soup | 
+        地址：¥/md-lab | 作者：Kirisame¥Soup | 
       </div>
     </div>
     <div class="cornerCara" ID="0" title="" onclick='this.id = Math.floor(Math.random() * 15 + 1)'></div>

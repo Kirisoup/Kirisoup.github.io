@@ -1,7 +1,7 @@
 ---
 ---
 
-iframe, input[type="checkbox"], .toggle { display: none; }
+iframe, input[type="checkbox"]:not(.task-list-item-checkbox), .toggle { display: none; }
 
 html, body {
     position: fixed;
