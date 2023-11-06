@@ -9,29 +9,35 @@ $ghprxy: "https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisou
 $ghprxy: "";
 
 :root {
-    --txtColor: #44d;
-    --txtColor-sat: #00f;
-    --txtColor-fade: #eef;
-    --txtColor-link: #4cc;
-    --txtColor-plain: #000;
-    --txtColor-green: #464;
-    --txtColor-green-fade: #efe;
-    --txtColor-red: #d04;
-    --txtColor-red-fade: #fde;
-    --pgColor: #fff;
+    --color:                #44d;
+    --color-sat:            #00f;
+    --color-fade:           #eef;
+    --color-plain:          #000;
+    --color-green:          #464;
+    --color-green-fade:     #efe;
+    --color-red:            #d00;
+    --color-red-fade:       #fdd;
+    --color-yellow:         #dd4;
+    --color-yellow-fade:    #ffe;
+    --color-miku:           #4dd;
+    --color-miku-fade:      #eff;
+    --color-magenta:        #f4f;
+    --color-magenta-fade:   #fef;
+    --color-page:           #fff;
 }
 
 @mixin darkscheme {
-    --txtColor: #aaf;
-    --txtColor-sat: #00c;
-    --txtColor-fade: #224;
-    --txtColor-link: #abb;
-    --txtColor-plain: #fff;
-    --txtColor-green: #aca;
-    --txtColor-green-fade: #232;
-    --txtColor-red: #f8a;
-    --txtColor-red-fade: #422;
-    --pgColor: #002;
+    --color:                #aaf;
+    --color-fade:           #224;
+    --color-plain:          #fff;
+    --color-green:          #aca;
+    --color-green-fade:     #232;
+    --color-red:            #faa;
+    --color-red-fade:       #422;
+    --color-yellow-fade:    #642;
+    --color-miku-fade:      #066;
+    --color-magenta-fade:   #626;
+    --color-page:           #002;
 }
 
 
@@ -56,17 +62,22 @@ html { image-rendering: pixelated; }
 
 // main bg
 html, .nav {
-    background: url(/assets/image/bg.gif)
-        { color: #000; position: center; size: MAX(20vw,40vh); }
+    background: url(/assets/image/bg.gif) {
+        color: #000;
+        position: center;
+        size: MAX(20vw,40vh);
     }
+}
 
 html::before { content: "";
     position: fixed;
     inset: 0;
     z-index: -2;
     pointer-events: none;
-    background: url(/assets/image/cloud.png)
-        { size: cover; position: center; };
+    background: url(/assets/image/cloud.png) {
+        size: cover;
+        position: center;
+    };
 }
 
 html::after { content: "";
@@ -78,10 +89,11 @@ html::after { content: "";
 }
 
 html:has(.cornerCara:not([id="0"])) {
-    background: url(/assets/image/IMG_1148.JPG)
-        {size: contain; position: right};
-    background-color: #000;
-    background-blend-mode: hard-light;
+    background: url(/assets/image/IMG_1148.JPG) {
+        color: #000;
+        size: contain;
+        position: right;
+    };
 }
 
 /* ======= */
@@ -97,15 +109,17 @@ html:has(.cornerCara:not([id="0"])) {
         // background: url(https://media.tenor.com/5lWosOHS630AAAAC/amor.gif);
         // background: url(https://usagif.com/wp-content/uploads/gifs/water-66.gif);
         // background: url(https://64.media.tumblr.com/9af92cc03553bd821021fd950fbc33b5/1534f96efdb15e70-b5/s100x200/6f110ffcfa7afe0af25add8144e9d30fbefc97fe.gifv);
-        background: url(/assets/image/xp_.gif)
-            { size: cover; };
+        background: url(/assets/image/xp_.gif) { size: 20vw; };
+
+        box-shadow:
+            inset 10px -10px 5px -5px #000,
+            inset -30px 0 20px -20px #000a,
+            inset -90px 50px 30px -30px #fff;
 
         &::before, &::after {
             position: absolute;
             inset: 0;
-            background: {
-                repeat: no-repeat !important;
-            };
+            background-repeat: no-repeat !important;
         }
 
         &::before { content: "";
@@ -214,18 +228,12 @@ html:has(.cornerCara:not([id="0"])) {
                 }
             }
         }
-
-        .window {
-            // background: var(--pgColor);
-            overflow: hidden;
-        }
     }
 
     .bottom {
     // size
         width: 100%;
     // styl
-        border: #44d 1px solid;
         background: #000;
 
         img {
@@ -288,12 +296,12 @@ html:has(.cornerCara:not([id="0"])) {
 // styl
     text-align: justify;
     text-justify: inter-ideograph;
-    background-color: var(--pgColor);
+    background-color: var(--color-page);
     padding-inline: 3em 2em;
 
     *::selection {
-        color: var(--pgColor);
-        background: var(--txtColor);
+        color: var(--color-page);
+        background: var(--color);
     }
 }
 
@@ -339,32 +347,36 @@ html:has(.cornerCara:not([id="0"])) {
     }
 
     .bottomBar {
+        position: relative;
         height: 1em;
-        padding: 0 6px 10px 6px;
+        margin: { block: 0 10px; inline: 6px };
+        color: var(--color);
+
+        .left, .right { display: inline-block; }
+
+        .right {
+            position: absolute;
+            right: 0;
+        }
     }
 }
 
 @mixin fullscreen-dark {
-    .fullscreen:has(.darkTg input:checked) {
-        background: #338;
-        box-shadow:
-            -1px -1px 0 1px #aaf,
-            0 0 0 2px #44d,
-            inset -2px -4px #224,
-            inset 2px 2px #000;
+    background: #338;
+    box-shadow:
+        -1px -1px 0 1px #aaf,
+        0 0 0 2px #44d,
+        inset -2px -4px #224,
+        inset 2px 2px #000;
 
-        .buttonBar {
-            background: linear-gradient(90deg, #44d 20%, #000);
-        }
+    .buttonBar { background: linear-gradient(90deg, #44d 20%, #000); }
 
-        .content {
-                box-shadow:
-                    inset -2px -2px #224,
-                    inset 2px 2px #aaf;
-            }
-
-        .bottomBar { color: #fff; }
+    .content { box-shadow:
+        inset -2px -2px #224,
+        inset 2px 2px #aaf;
     }
+
+    .bottomBar { color: #fff; }
 }
 
 // button bar
@@ -399,7 +411,10 @@ html:has(.cornerCara:not([id="0"])) {
             top: 5px; left: 5px;
             right: 6px; bottom: 6px;
             image-rendering: pixelated;
-            background: { size: cover !important; repeat: no-repeat !important} ;
+            background: {
+                size: cover !important;
+                repeat: no-repeat !important
+            };
         }
 
         &:hover { background: #e8e8fb; }
@@ -415,7 +430,7 @@ html:has(.cornerCara:not([id="0"])) {
             &::before {
                 top: 6px; left: 6px;
                 right: 5px; bottom: 5px;
-                }
+            }
         }
 
         .window &.fullscreenTg::before     { background: url(/assets/image/button/max.gif);   }
@@ -567,8 +582,7 @@ html:has(.cornerCara:not([id="0"])) {
         aspect-ratio: 1.63;
     // styl
         pointer-events: none;
-        background: url(/assets/image/ibm.png)
-            { size: cover; };
+        background: url(/assets/image/ibm.png) { size: cover; };
 
         &::before {
             position: absolute;
@@ -703,14 +717,12 @@ canvas {
 }}
 
 @mixin scrollbar-dark {
-    .window, .fullscreen { &:has(.darkTg input:checked) { ::-webkit-scrollbar-thumb {
-        background: #338;
-        box-shadow:
-            inset -1.5px -1.5px #000,
-            inset 1.5px 1.5px #aaf,
-            inset -3px -3px #224,
-            inset 3px 3px #44d;
-    }}}
+    background: #338;
+    box-shadow:
+        inset -1.5px -1.5px #000,
+        inset 1.5px 1.5px #aaf,
+        inset -3px -3px #224,
+        inset 3px 3px #44d;
 }
 
 /* ======== */
@@ -724,7 +736,7 @@ html {
     text-underline-offset: 25%;
 }
 
-.content { color: var(--txtColor) !important;
+.content { color: var(--color) !important;
 
     >p:not([class], :has(img)):after { content: "湯";
     //pos
@@ -735,7 +747,7 @@ html {
         line-height: .5em;
         opacity: .5;
         font-size: .7em;
-        color: var(--txtColor-red);
+        color: var(--color-red);
         transform: rotate(15deg);
         white-space: pre;
     }
@@ -743,7 +755,7 @@ html {
 
 a {
     position: relative;
-    color: var(--txtColor-link);
+    color: var(--color-miku);
 
     &::after { content: "";
         position: absolute;
@@ -752,7 +764,7 @@ a {
 }
 
 [norm] {
-    color: var(--txtColor-link);
+    color: var(--color-miku);
     text-decoration: underline;
 }
 
@@ -765,10 +777,10 @@ h4, h6, .fake.h4, .fake.h6 { font-style: italic; }
 h1, h2, h3, h4, h5, h6 { margin-top: 1em;} // 1em top margin if headers is the first element
 :first-child ~ { h1, h2, h3, h4, h5, h6 { margin-top: 2em;} } // 2em top margin if else
 
-h1, h2 { margin-bottom: 1em; }
+h1, h2         { margin-bottom: 1em; }
 h3, h4, h5, h6 { margin-bottom: .5em; }
 
-h1, h2, h3, h4, h5, h6 { +h1, +h2, +h3, +h4, +h5, +h6 { margin-top: 0 !important; }} // reduce margin in between two adjacent headers
+h1, h2, h3, h4, h5, h6 { +h1, +h2, +h3, +h4, +h5, +h6 { margin-top: 0 !important; } } // reduce margin in between two adjacent headers
 
 // headers padding
 h1, h2, h3, h4, h5, h6 {
@@ -778,10 +790,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // headers underline
-h1     { border-bottom: var(--txtColor) 3px solid; }
-h2     { border-bottom: var(--txtColor) 3px dashed; }
-h3, h4 { border-bottom: var(--txtColor) 3px dotted; }
-
+h1     { border-bottom: var(--color) 3px solid; }
+h2     { border-bottom: var(--color) 3px dashed; }
+h3, h4 { border-bottom: var(--color) 3px dotted; }
 h4, h5, h6 { width: max-content; }
 
 // reveal heading id
@@ -811,14 +822,14 @@ h1, h2, h3 { &[id] {
             position: absolute;
             top: .5rem; right: 0;
         // styl
-            background: var(--pgColor);
+            background: var(--color-page);
             opacity: 1;
         }
     }
 
     &:active {
-        background: var(--txtColor);
-        color: var(--pgColor);
+        background: var(--color);
+        color: var(--color-page);
 
         &::after { content: ""; }
     }
@@ -833,21 +844,21 @@ h4, h5, h6 { &[id] {
             top: -.8em;
         // styl
             text-wrap: nowrap;
-            background: var(--pgColor);
+            background: var(--color-page);
             opacity: 1;
         }
     }
 
     &:active {
-        background: var(--txtColor);
-        color: var(--pgColor);
+        background: var(--color);
+        color: var(--color-page);
 
         &::before { content: ""; }
     }
 }}
 
 // list
-ul { ::marker { font-weight: bolder; }
+ul { ::marker { font-weight: bolder; color: var(--color-magenta); }
                 list-style-type: "☆ ";
     ul { ::marker { font-size: .7em; }
                     list-style-type: hebrew;
@@ -892,15 +903,13 @@ input.task-list-item-checkbox {
 
 /* ==== D A R K M O D E ==== */
 
-.buttonBar:has(.darkTg input:checked) ~.content, .content:has(~.buttonBar .darkTg input:checked) {
-    @include darkscheme()
-}
-
 .content:has(~.buttonBar .darkTg input:checked) { background: #0008 !important; }
 
-@include fullscreen-dark;
+.buttonBar:has(.darkTg input:checked) ~.content, .content:has(~.buttonBar .darkTg input:checked) { @include darkscheme() }
 
-@include scrollbar-dark;
+.fullscreen:has(.darkTg input:checked) { @include fullscreen-dark; }
+
+.window, .fullscreen { &:has(.darkTg input:checked) { ::-webkit-scrollbar-thumb { @include scrollbar-dark; }}}
 
 /* ======== */
 
@@ -926,6 +935,8 @@ html:has(.fontTg input:checked) code, kbd, samp { font-family: "ibm", monospace;
 }
 
 /* ======== */
+
+@import "code";
 
 @import "moardown";
 

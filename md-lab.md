@@ -1,5 +1,5 @@
 ---
-title: MarkDown¥实验室.html
+title: MarkDown 实验室
 ---
 
 # MoarDown - *Markdown 语法扩充类*{:.small}！: {#head}
@@ -103,40 +103,26 @@ title: MarkDown¥实验室.html
 
 ### 颜色: {#color}
 
-#### 快速 {#color-fast}
-- *.cw*{:.cw.hb}
-- *.cb*{:.cb.hw}
-- *.cr*{:.cr}
-
-#### 16色 {#color-16}
-- *.cwhite*{:.cwhite.hb}
-- *.csilver*{:.csilver}
-- *.cgray*{:.cgray}
-- *.cblack*{:.cblack.hw}
-- *.cred*{:.cred}
-- *.cmaroon*{:.cmaroon}
-- *.cyellow*{:.cyellow}
-- *.colive*{:.colive}
-- *.clime*{:.clime}
-- *.cgreen*{:.cgreen}
-- *.caqua*{:.caqua}
-- *.cteal*{:.cteal}
-- *.cblue*{:.cblue}
-- *.cnavy*{:.cnavy}
-- *.cfuchsia*{:.cfuchsia}
-- *.cpurple*{:.cpurple}
+- *.white*{:.white.hblack}
+- *.silver*{:.silver}
+- *.gray*{:.gray}
+- *.black*{:.black.hwhite}
+- *.red*{:.red}
+- *.maroon*{:.maroon}
+- *.yellow*{:.yellow}
+- *.olive*{:.olive}
+- *.lime*{:.lime}
+- *.green*{:.green}
+- *.aqua*{:.aqua}
+- *.teal*{:.teal}
+- *.blue*{:.blue}
+- *.navy*{:.navy}
+- *.fuchsia*{:.fuchsia}
+- *.purple*{:.purple}
 
 ### 背景色: {#background}
 - \-\-hd: 0.05em *(背景、边框距离)*
 
-- 默认: *.h*{:.h}
-
-#### 快速 {#background-fast}
-- *.hw*{:.hw}
-- *.hb*{:.hb}
-- *.hr*{:.hr}
-
-#### 16色 {#background-16}
 - *.hwhite*{:.hwhite}
 - *.hsilver*{:.hsilver}
 - *.hgray*{:.hgray}
@@ -158,12 +144,6 @@ title: MarkDown¥实验室.html
 - \-\-bw: 2px *(边框粗细)*
 - \-\-bd: 0.05em *(背景、边框距离)*
 
-#### 快速 {#border-fast}
-- *.bw*{:.bw}
-- *.bb*{:.bb}
-- *.br*{:.br}
-
-#### 16色 {#border-16}
 - *.bwhite*{:.bwhite}
 - *.bsilver*{:.bsilver}
 - *.bgray*{:.bgray}
@@ -345,7 +325,7 @@ title: MarkDown¥实验室.html
     > \{:.note}
     {:.note}
 
-- 警告块
+- 警告块：
     > \> 文本
     > 
     > \{:.warn}

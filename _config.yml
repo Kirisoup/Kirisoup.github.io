@@ -1,11 +1,29 @@
+sass:
+  style: compressed
+
+# url: "https://kirisoup.github.io"
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
 permalink: /:categories/:title
 
 defaults:
   -
     scope:
-      path: "" # an empty string here means all files in the project
+      path: ""
     values:
       layout: "default"
+      author: Kirisame Soup ☆
 
-sass:
-  style: compressed
+
+title: 霧雨蘑菇店
+
+tagline: 霧雨蘑菇汤的互联网小角落
+
+description: 这里是霧雨蘑菇汤的互联网小角落，本店提供：最新最好的 IBM 计算机、旋转 fumo、畅销书籍、魔法金属，细心发掘的话还可以发现更多有意思的稀奇玩意~
+
+author: KirisameSoup
+
+locale: zh_CN

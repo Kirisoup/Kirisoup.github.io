@@ -4,41 +4,30 @@ em:not(.i) { &[class], &[r], &[t], &[norm] { font-style: normal; }}
 
 // sizes ================================
 
-:root    { --s: 1; }
+// sizing headings and fake headings
+@mixin titleSize($id, $size) {
+    h#{$id}, .fake.h#{$id} {
+        font-size: $size + em ;
+        --s: 1;
+        font-size: calc($size * var(--s) * 1em);
+    }
+}
 
+$size-h1: 2;
+$size-h2: 1.6;
+$size-hrest: 1.2;
+
+@include titleSize(1, $size-h1);
+@include titleSize(2, $size-h2);
+@for $i from 3 to 7 { @include titleSize($i, $size-hrest); }
+
+// general sizing
 .big     { --s: 1.25; }
 .bigger  { --s: 1.5; }
 .small   { --s: .75; }
 .smaller { --s: .5; }
 
 .size, .big, .bigger, .small, .smaller { &:not(h1, h2, h3, h4, h5, h6, .fake) { font-size: calc(var(--s) * 1em); } }
-
-@mixin titleSizeMod { &.size, &.big, &.bigger, &.small, &.smaller { font-size: calc(var(--size) * var(--s) * 1em); } }
-
-// headings and fake headings ( and sizing ) ================================
-
-$size-h1: 2;
-$size-h2: 1.6;
-$size-hrest: 1.2;
-// $size-h3: 1.25;
-// $size-h4: 1.25;
-// $size-h5: 1.25;
-
-// sizing headings and fake headings ( e.g. use <h1>, .fake.h1 with .big )
-@mixin titleSize($id, $size) {
-
-    h#{$id} {font-size: #{$size}em;}
-
-    h#{$id}, .fake.h#{$id} {
-        font-size: $size + em ;
-      --size: #{$size};
-        @include titleSizeMod;
-    } 
-}
-
-                      @include titleSize(1, $size-h1);
-                      @include titleSize(2, $size-h2);
-@for $i from 3 to 7 { @include titleSize($i, $size-hrest); }
 
 // alignment ================================
 
@@ -67,95 +56,55 @@ $size-hrest: 1.2;
 .r {
     text-align: right;
     right: 0;
-
-    &::after {
-        white-space: pre
-    }
 }
 
 // maximize width to page width for block level elements
-// which contains children with alignment 
+// which contains children with alignment
 p, h1, h2, h3, h4, h5, h6 { &:has(>.c), &:has(>.r) { width: 100%; } }
 
 // lines ================================
 
-@mixin txtline($type) {
-    text-decoration: $type { color: var(--lc); thickness: var(--lt) } ;
-    &.-d  { text-decoration: dashed $type { color: var(--lc); thickness: var(--lt); }; }
-    &.-do { text-decoration: dotted $type { color: var(--lc); thickness: var(--lt); }; }
-    &.-db { text-decoration: double $type { color: var(--lc); thickness: var(--lt); }; }
-    &.-w  { text-decoration: wavy   $type { color: var(--lc); thickness: var(--lt); }; }
+.u, .ovl, del, .del, .u.ovl {
+    text-decoration: { color: var(--lc); thickness: var(--lt) } ;
+    &.-d  { text-decoration: { style: dashed; }; }
+    &.-do { text-decoration: { style: dotted; }; }
+    &.-db { text-decoration: { style: double; }; }
+    &.-w  { text-decoration: { style: wavy;   }; }
 }
 
-       .u       { @include txtline(underline)                         }
-     .ovl       { @include txtline(overline)                          }
-del, .del       { @include txtline(line-through)                      }        
-   .u.ovl       { @include txtline(underline overline)                }
-del, .del { &.u { @include txtline(line-through underline)          }
-          &.ovl { @include txtline(line-through overline)           }
-        &.u.ovl { @include txtline(line-through underline overline) } }
+       .u       { text-decoration-line: underline; }
+     .ovl       { text-decoration-line: overline; }
+del, .del       { text-decoration-line: line-through; }
+   .u.ovl       { text-decoration-line: underline overline; }
+del, .del { &.u { text-decoration-line: line-through underline; }
+          &.ovl { text-decoration-line: line-through overline; }
+        &.u.ovl { text-decoration-line: line-through underline overline; } }
 
-// color presets ================================
+// colors ================================
 
-@mixin colors($varName: clr) {
-    &w, &white   { --#{$varName}: #FFFFFF; }
-        &silver  { --#{$varName}: #C0C0C0; }
-        &gray    { --#{$varName}: #808080; }
-    &b, &black   { --#{$varName}: #000000; }
-    &r, &red     { --#{$varName}: #FF0000; }
-        &maroon  { --#{$varName}: #800000; }
-        &yellow  { --#{$varName}: #FFFF00; }
-        &olive   { --#{$varName}: #808000; }
-        &lime    { --#{$varName}: #00FF00; }
-        &green   { --#{$varName}: #008000; }
-        &aqua    { --#{$varName}: #00FFFF; }
-        &teal    { --#{$varName}: #008080; }
-        &blue    { --#{$varName}: #0000FF; }
-        &navy    { --#{$varName}: #000080; }
-        &fuchsia { --#{$varName}: #FF00FF; }
-        &purple  { --#{$varName}: #800080; }
-} 
+$colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aqua, teal, blue, navy, fuchsia, purple;
 
-// text highlight (background) and border sizing
-.h, .b {
-    &w, &b, &r, &white, &silver, &gray, &black, &red, &maroon, &yellow, &olive, &lime, &green, &aqua, &teal, &blue, &navy, &fuchsia, &purple {
-        position: relative; 
-        z-index: 1;
+// ""+$color in so that scss don't throw a warning
+@each $color in $colors {
+    .#{""+$color} { color: $color; }
+    .h#{""+$color} { &::before { background-color: $color; }; }
+    .b#{""+$color} { &::before { --bw: 2px; border: $color solid var(--bw); }; }
+}
 
-        &::before {content: ""; 
-            position: absolute; 
-            --bd: 0.02em;
-            z-index: -1;
-            left:   calc(-.2em + var(--bd)*-1);
-            right:  calc(-.2em + var(--bd)*-1);
-            top:            calc(var(--bd)*-1);
-            bottom:         calc(var(--bd)*-1);
-        }
+.h, .b { @each $color in $colors { &#{""+$color} {
+    position: relative;
+    z-index: 1;
+
+    &::before {content: "";
+        position: absolute;
+        --bd: 0.02em;
+        z-index: -1;
+        inset: {
+            block: calc(var(--bd)*-1);
+            inline: calc(-.2em + var(--bd)*-1);
+        };
     }
-}
-
-// colors
-.c {
-    @include colors;
-    &w, &white, &silver, &gray, &b, &black, &r, &red, &maroon, &yellow, &olive, &lime, &green, &aqua, &teal, &blue, &navy, &fuchsia, &purple
-        { color: var(--clr) !important; }
-}
-
-// highlight (background) colors
-.h {
-    background-color: #ff0; // default yellow highlight
-    @include colors(clrh);
-    &w, &white, &silver, &gray, &b, &black, &r, &red, &maroon, &yellow, &olive, &lime, &green, &aqua, &teal, &blue, &navy, &fuchsia, &purple 
-        { &::before { background-color: var(--clrh); }; }
-}
-
-// border colors
-
-.b {
-    @include colors(clrb);
-    &w, &white, &silver, &gray, &b, &black, &r, &red, &maroon, &yellow, &olive, &lime, &green, &aqua, &teal, &blue, &navy, &fuchsia, &purple 
-        { &::before { --bw: 2px; border: var(--clrb) solid var(--bw); }; }
-}
+}}}
 
 // ruby (拼音) ================================
 
@@ -169,7 +118,7 @@ del, .del { &.u { @include txtline(line-through underline)          }
     &::before { content: attr(r);
     // pos
         position: relative;
-        left: 50%; 
+        left: 50%;
         transform: translateX(-50%);
         display: block;
     // styl
@@ -204,11 +153,11 @@ del, .del { &.u { @include txtline(line-through underline)          }
         left: 0 ;
         top: .5em;
         z-index: 10;
-    // size 
+    // size
         width: fit-content;
     // styl
         padding: .2em .5em;
-        background: var(--pgColor);
+        background: var(--color-page);
         opacity: 0;
     }
 
@@ -219,7 +168,7 @@ del, .del { &.u { @include txtline(line-through underline)          }
     }
 
     // tip coloring
-    & { --tc: var(--txtColor);
+    & { --tc: var(--color);
         &::before {
             color: var(--tc);
             border: var(--tc) solid 2px;
@@ -240,16 +189,18 @@ a {
     }
 }
 
-// tip above 
+// tip above
 
-// h1[id], h2[id], h3[id], h4[id], h5[id], h6[id], 
+// h1[id], h2[id], h3[id], h4[id], h5[id], h6[id],
 .above[t] {
     &::before { bottom: .5em; top: unset; }
     &:hover::before { bottom: 1.5em; }
 }
 
 // full width link
-a.ab, #markdown-toc li>a, #f_markdown-toc li>a {
+a.ab,
+#markdown-toc li>a,
+#f_markdown-toc li>a {
     display: block;
     right: 0;
     text-decoration: none;
@@ -260,7 +211,7 @@ a.ab, #markdown-toc li>a, #f_markdown-toc li>a {
         box-sizing: border-box;
         border: {
             bottom: 3px solid;
-            image: linear-gradient(90deg, var(--txtColor-link), #0000) 1;
+            image: linear-gradient(90deg, var(--color-miku), #0000) 1;
         };
         opacity: 0;
     }
@@ -280,7 +231,7 @@ a.ab, #markdown-toc li>a, #f_markdown-toc li>a {
 // table ================================
 
 table {
-    --tbc: var(--txtColor); --tbtc: var(--txtColor);
+    --tbc: var(--color); --tbtc: var(--color);
 // pos
 position: relative;
 z-index: 1;
@@ -321,7 +272,7 @@ z-index: 1;
 
         &::before {
             background: var(--tbc);
-            color: var(--pgColor);
+            color: var(--color-page);
             box-shadow: 2px 2px var(--tbc);
         }
     }
@@ -371,29 +322,29 @@ blockquote {
 
     // information block
     &.info {
-        background: var(--txtColor-fade);
-        border: var(--txtColor) 3px solid;
-        box-shadow: 4px 4px var(--txtColor);
-        color: var(--txtColor);
+        background: var(--color-fade);
+        border: var(--color) 3px solid;
+        box-shadow: 4px 4px var(--color);
+        color: var(--color);
 
         &::before { content: "ⓘ"; }
     }
 
     &.note {
-        background: var(--txtColor-green-fade);
-        border: var(--txtColor-green) 3px solid;
-        box-shadow: 4px 4px var(--txtColor-green);
-        color: var(--txtColor-green);
+        background: var(--color-green-fade);
+        border: var(--color-green) 3px solid;
+        box-shadow: 4px 4px var(--color-green);
+        color: var(--color-green);
 
         &::before { content: "ⓘ"; }
     }
 
     // warning block
     &.warn {
-        background: var(--txtColor-red-fade);
-        border: var(--txtColor-red) 3px solid;
-        box-shadow: 4px 4px var(--txtColor-red);
-        color: var(--txtColor-red);
+        background: var(--color-red-fade);
+        border: var(--color-red) 3px solid;
+        box-shadow: 4px 4px var(--color-red);
+        color: var(--color-red);
 
         &::before { content: "⚠";
             top: .3em;
@@ -408,18 +359,18 @@ blockquote {
         &, blockquote:not([class]) {
             transition: border-color .4s;
             padding: .5em;
-            box-shadow: -3px 0 var(--txtColor);
+            box-shadow: -3px 0 var(--color);
             border: #0000 3px solid { left-width: 0px; };
 
             &:hover {
                 transition: border-color 0s;
-                border-color: var(--txtColor);
+                border-color: var(--color);
             }
         }
 
         &, >blockquote:not([class]) {
             &:hover {
-                box-shadow: -3px 0 var(--txtColor), 3px 3px var(--txtColor);
+                box-shadow: -3px 0 var(--color), 3px 3px var(--color);
             }
         }
 
@@ -440,13 +391,13 @@ em[norm] {
         .footnote {
             position: absolute;
             inset: 0;
-            opacity: 0;    
+            opacity: 0;
         }
     }
 }
 
 .footnote {
-    color: var(--txtColor-red);
+    color: var(--color-red);
 }
 
 .footnotes {
@@ -459,21 +410,21 @@ em[norm] {
         width: 100%; height: .25em;
     }
 
-    &::before { 
+    &::before {
         top: 0;
-        border-block: var(--txtColor) 2px solid;
+        border-block: var(--color) 2px solid;
     }
 
-    ol { margin: 0; 
+    ol { margin: 0;
         li[role="doc-endnote"]:has(+li) {
             position: relative;
             margin-bottom: 2em;
             padding-bottom: 2em;
 
             &::after {
-                width: calc(100% + 40px); 
+                width: calc(100% + 40px);
                 bottom: 0; left: -40px;
-                border-block: var(--txtColor) 2px dashed;
+                border-block: var(--color) 2px dashed;
             }
         }
     }
@@ -486,7 +437,7 @@ em[norm] {
 // horizontal rules ================================
 
 hr {
-    border: none { block: 2px var(--txtColor) solid };
+    border: none { block: 2px var(--color) solid };
     height: .2em;
     margin-block: 1em;
 
@@ -538,7 +489,7 @@ $text-stroke-shadow:
 
 // rainbow with stroke and shadow really cool
 .rainbow.fancy {
-    --rs: .1em; --rsc: var(--txtColor-sat);
+    --rs: .1em; --rsc: var(--color-sat);
     filter:
         drop-shadow(.05em -.05em var(--rsc))
         drop-shadow(-.05em .05em var(--rsc))
@@ -547,10 +498,10 @@ $text-stroke-shadow:
 
 // .rainbow.fancy but with rainbowing shadows
 .rainbow.fancy2 {
-    --rs: .1em; --rsc: var(--txtColor-sat);
+    --rs: .1em; --rsc: var(--color-sat);
     filter:
-        drop-shadow(.05em .05em var(--txtColor-sat))
-        drop-shadow(.1em .1em var(--pgColor))
+        drop-shadow(.05em .05em var(--color-sat))
+        drop-shadow(.1em .1em var(--color-page))
         drop-shadow(.1em .1em #dd4)
         drop-shadow(.1em .1em #4dd)
         drop-shadow(.1em .1em #d4d)
@@ -562,110 +513,59 @@ $text-stroke-shadow:
 // shadow
 
 .shadow {
-    --sdd: 8px; --sdc: var(--txtColor-plain);
-    text-shadow: 1px 1px var(--pgColor), var(--sdd) var(--sdd) var(--sdc);
+    --sdd: 8px; --sdc: var(--color-plain);
+    text-shadow: 1px 1px var(--color-page), var(--sdd) var(--sdd) var(--sdc);
     padding-bottom: .2em;
 }
 
 // echo ================================
 
-// unnecessarily complex
+$echo:
+    calc(.1em * var(--h)) calc(.1em * var(--v)) #44d8,
+    calc(.2em * var(--h)) calc(.2em * var(--v)) #44d4,
+    calc(.3em * var(--h)) calc(.3em * var(--v)) #44d2;
 
-@mixin echo($horizontal, $vertical) { // echo
-    text-shadow:
-        // calc( 2px * $horizontal) calc( 2px * $vertical) var(--pgColor),
-        calc(.1em * $horizontal) calc(.1em * $vertical) #44d8,
-        calc(.2em * $horizontal) calc(.2em * $vertical) #44d4,
-        calc(.3em * $horizontal) calc(.3em * $vertical) #44d2;
-}
-@mixin echoStroke($horizontal, $vertical) { // echo with text troke
-    text-shadow:
-        $text-stroke-shadow,
-        // calc( 2px * $horizontal) calc( 2px * $vertical) var(--pgColor),
-        calc(.1em * $horizontal) calc(.1em * $vertical) #44d8,
-        calc(.2em * $horizontal) calc(.2em * $vertical) #44d4,
-        calc(.3em * $horizontal) calc(.3em * $vertical) #44d2;
-}
-@mixin echorb($horizontal, $vertical) { // rainbow echo
-    text-shadow:
-        calc(.05em * $horizontal) calc(.05em * $vertical) #d44,
-        calc(.1em  * $horizontal) calc(.1em  * $vertical) #dd4,
-        calc(.15em * $horizontal) calc(.15em * $vertical) #4dd,
-        calc(.2em  * $horizontal) calc(.2em  * $vertical) #d4d,
-}
-@mixin echorbStroke($horizontal, $vertical) { // rainbow echo with stroke
-    text-shadow:
-        $text-stroke-shadow,
-        calc(.05em * $horizontal) calc(.05em * $vertical) #d44,
-        calc(.1em  * $horizontal) calc(.1em  * $vertical) #dd4,
-        calc(.15em * $horizontal) calc(.15em * $vertical) #4dd,
-        calc(.2em  * $horizontal) calc(.2em  * $vertical) #d4d,
+$echorb:
+    calc(.05em * var(--h)) calc(.05em * var(--v)) #d44,
+    calc(.1em  * var(--h)) calc(.1em  * var(--v)) #dd4,
+    calc(.15em * var(--h)) calc(.15em * var(--v)) #4dd,
+    calc(.2em  * var(--h)) calc(.2em  * var(--v)) #d4d;
+
+$echo_type:
+    ($echo),
+    ($echorb),
+    (($text-stroke-shadow), ($echo)),
+    (($text-stroke-shadow), ($echorb));
+
+@mixin echo($h, $v, $e) {
+    --h: #{$h}; --v: #{$v};
+    text-shadow: nth($echo_type, $e);
 }
 
-.echo       { @include echo(1, 1);
-    padding-bottom: .8em;
+$echo_list: ".echo", ".echorb", ".stroke.echo", ".stroke.echorb";
 
-    &-down  { @include echo(0, 1);
-        padding-bottom: .8em;
-    }
-
-    &-up    { @include echo(0, -1);
-        padding-top: .8em;
-    }
-
-    &-right { @include echo(1, 0);
-        padding-right: .8em;
-    }
-
-    &-left  { @include echo(-1, 0);
-        padding-left: .8em;
-    }
+@for $i from 1 through length($echo_list) {
+    #{nth($echo_list, $i)} { @include echo(1, 1, $i);
+        &-down             { @include echo(0, 1, $i); }
+        &-up               { @include echo(0, -1, $i); }
+        &-right            { @include echo(1, 0, $i); }
+        &-left             { @include echo(-1, 0, $i); }};
 }
 
-// echo rainbow
-.echorb     { @include echorb(1, 1);
-    padding-bottom: .8em;
-
-    &-down  { @include echorb(0, 1);
-        padding-bottom: .8em;
-    }
-
-    &-up    { @include echorb(0, -1);
-        padding-top: .8em;
-    }
-
-    &-right { @include echorb(1, 0);
-        padding-right: .8em;
-    }
-
-    &-left  { @include echorb(-1, 0);
-        padding-left: .8em;
-    }
-}
+.echo, .echorb { padding-bottom: .8em;
+    &-up       { padding-top:    .8em; }
+    &-right    { padding-right:  .8em; }
+    &-left     { padding-left:   .8em; }}
 
 // stroke ================================
 
 .stroke {
-    --std: 1px; --stc: var(--txtColor);
-    color: var(--pgColor);
+    --std: 1px; --stc: var(--color);
+    color: var(--color-page);
     text-shadow: $text-stroke-shadow;
 
     &.shadow {
         text-shadow: $text-stroke-shadow, var(--sdd) var(--sdd) var(--sdc);
-    }
-
-    &.echo      { @include echoStroke(1, 1);
-        &-down  { @include echoStroke(0, 1); }
-        &-up    { @include echoStroke(0, -1); }
-        &-right { @include echoStroke(1, 0); }
-        &-left  { @include echoStroke(-1, 0); }
-    }
-
-    &.echorb    { @include echorbStroke(1, 1);
-        &-down  { @include echorbStroke(0, 1); }
-        &-up    { @include echorbStroke(0, -1); }
-        &-right { @include echorbStroke(1, 0); }
-        &-left  { @include echorbStroke(-1, 0); }
     }
 }
 
@@ -710,19 +610,14 @@ $text-stroke-shadow:
 // pulse
 
 .pulse {
-    --pspd: .25s; --pscl: 1.2; --pphs: 0;
+    --pspd: .25s; --pscl: 1.2; --pphs: 0; --s: 1;
 
     // .rotate & { --pscl: 1.5 }
 
     display: inline-block;
 
     // sizing
-    font-size: calc(var(--pscl) * var(--s) * 1em) !important;
-    @mixin faketitle-pulseSize($id, $size) { &.fake.h#{$id} { font-size: calc(var(--pscl) * $size * 1em) !important; } }
-                          @include faketitle-pulseSize(1, $size-h1);
-                          @include faketitle-pulseSize(2, $size-h2);
-    @for $i from 3 to 7 { @include faketitle-pulseSize($i, $size-hrest); }
-
+    font-size: calc(var(--pscl) * 1em);
     animation: pulse var(--pspd) ease-out calc(var(--pspd) * var(--pphs) * -1) infinite alternate;
     @keyframes pulse {
         0% { scale: calc(1 / var(--pscl)); }
