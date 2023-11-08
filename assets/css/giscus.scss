@@ -15,7 +15,7 @@ html {
 
 // font
 html { font-family: "fusion", "fusion-fallback", monospace; }
-code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
+code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace; }
 
 @font-face { font-family: "fusion";
     src: url(https://kirisoup.github.io/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf);
@@ -53,82 +53,104 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
 
 // textures
 .gsc {
-&-header {
-    box-shadow:
-        inset -2px -2px #44d,
-        inset 2px 2px #fff,
-        inset -4px -4px #aaaae8,
-        inset 4px 4px #e8e8fb,
-        inset 0 0 0 8px #d1d1f7
-}
 
-&-comment-box {
-    box-shadow:
-        inset -2px -2px #44d,
-        inset 2px 2px #fff,
-        inset -4px -4px #aaaae8,
-        inset 4px 4px #e8e8fb,
-        inset 0 0 0 8px #d1d1f7,
-        inset 2px 26px 0 8px #44d,
-        inset -2px -39px 0 8px #e8e8fb;
+    // buttons
 
-&-tabs {
-    box-shadow:
-        inset -2px 0 #44d,
-        inset 2px 2px #fff,
-        inset -4px 0 #aaaae8,
-        inset 4px 4px #e8e8fb,
-        inset 0 0 0 8px #d1d1f7
-}}
+    &-comment-box-bottom, &-reactions-button { svg {
+        height: 1.5em; width: auto;
+        image-rendering: pixelated;
+        background-size: cover !important;
+        path { display: none; }
+    }}
 
-&-comment>div {
-    box-shadow:
-        inset -2px -2px #44d,
-        inset 2px 2px #fff,
-        inset -4px -4px #aaaae8,
-        inset 4px 4px #e8e8fb,
-        inset 0 0 0 8px #d1d1f7,
-        inset 2px 35px 0 8px #44d,
-        inset -2px -2px 0 8px #e8e8fb;
+    &-comment-box-bottom svg {
+        height: 1em;
+        margin-right: .2rem !important;
+        background: url(https://kirisoup.github.io/assets/image/button/close.gif);
+    }
+    
+    &-reactions-button svg {
+        background: url(https://kirisoup.github.io/assets/image/button/smile.gif);
+    }
 
-&:has(.gsc-reply-box) {
-    box-shadow:
-        inset -2px -2px #44d,
-        inset 2px 2px #fff,
-        inset -4px -4px #aaaae8,
-        inset 4px 4px #e8e8fb,
-        inset 0 0 0 8px #d1d1f7,
-        inset 2px 35px 0 8px #44d,
-        inset -2px -39px 0 8px #e8e8fb
-}}
+    &-upvote-button svg {
+        margin-left: .5em;
+        background: url(https://kirisoup.github.io/assets/image/button/up.gif);
+    }
+    
+    .gsc-upvote-button svg path { display: none; }
 
-&-reply-box {
-    box-shadow:
-        inset -2px -2px #44d,
-        inset 2px 0 #fff,
-        inset -4px -4px #aaaae8,
-        inset 4px 0 #e8e8fb
-}
 
-&-reactions-popover {
-    box-shadow:
-        inset -2px -2px #44d,
-        inset 2px 2px #fff,
-        inset -4px -4px #aaaae8,
-        inset 4px 4px #e8e8fb,
-        inset 0 0 0 8px #d1d1f7,
-        inset 2px 37px 0 8px #44d,
-        inset -2px -2px 0 8px #e8e8fb
-}
+    // box shadow 
 
-&-direct-reaction-button {
-    padding-block: .2em;
-    box-shadow:
-        inset -1.5px -1.5px #44d,
-        inset 1.5px 1.5px #d1d1f7,
-        inset -3px -3px #a2a2ee,
-        inset 3px 3px #e8e8fb;
-}}
+    &-header {
+        box-shadow: inset -2px -2px         #44d,
+                    inset 2px 2px           #fff,
+                    inset -4px -4px         #aaaae8,
+                    inset 4px 4px           #e8e8fb,
+                    inset 0 0 0 8px         #d1d1f7
+    }
+
+    &-comment-box {
+        box-shadow: inset -2px -2px         #44d,
+                    inset 2px 2px           #fff,
+                    inset -4px -4px         #aaaae8,
+                    inset 4px 4px           #e8e8fb,
+                    inset 0 0 0 8px         #d1d1f7,
+                    inset 2px 26px 0 8px    #44d,
+                    inset -2px -39px 0 8px  #e8e8fb;
+
+    &-tabs {
+        box-shadow: inset -2px 0            #44d,
+                    inset 2px 2px           #fff,
+                    inset -4px 0            #aaaae8,
+                    inset 4px 4px           #e8e8fb,
+                    inset 0 0 0 8px         #d1d1f7;
+    }}
+
+    &-comment>div {
+        box-shadow: inset -2px -2px         #44d,
+                    inset 2px 2px           #fff,
+                    inset -4px -4px         #aaaae8,
+                    inset 4px 4px           #e8e8fb,
+                    inset 0 0 0 8px         #d1d1f7,
+                    inset 2px 35px 0 8px    #44d,
+                    inset -2px -2px 0 8px   #e8e8fb;
+
+    &:has(.gsc-reply-box) {
+        box-shadow: inset -2px -2px         #44d,
+                    inset 2px 2px           #fff,
+                    inset -4px -4px         #aaaae8,
+                    inset 4px 4px           #e8e8fb,
+                    inset 0 0 0 8px         #d1d1f7,
+                    inset 2px 35px 0 8px    #44d,
+                    inset -2px -39px 0 8px  #e8e8fb;
+    }}
+
+    &-reply-box {
+        box-shadow: inset -2px -2px         #44d,
+                    inset 2px 0             #fff,
+                    inset -4px -4px         #aaaae8,
+                    inset 4px 0             #e8e8fb;
+    }
+
+    &-reactions-popover {
+        box-shadow: inset -2px -2px         #44d,
+                    inset 2px 2px           #fff,
+                    inset -4px -4px         #aaaae8,
+                    inset 4px 4px           #e8e8fb,
+                    inset 0 0 0 8px         #d1d1f7,
+                    inset 2px 37px 0 8px    #44d,
+                    inset -2px -2px 0 8px   #e8e8fb;
+    }
+
+    &-direct-reaction-button {
+        padding-block: .2em;
+        box-shadow: inset -1.5px -1.5px     #44d,
+                    inset 1.5px 1.5px       #d1d1f7,
+                    inset -3px -3px         #a2a2ee,
+                    inset 3px 3px           #e8e8fb;
+    }}
 
 // ====================
 
@@ -170,15 +192,15 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
         // send comment
         &-comment-box {
             overflow: hidden;
-            
-            &-tabs { 
+
+            &-tabs {
                 button { padding: .25em .5em !important; }
 
                 >div:has(button) { margin: .5em !important {
                     bottom: -2px !important;
                     left: 14px !important;
                     min-width: max-content ;
-                }; }
+                };}
             }
 
             &-main { margin-inline: 14px; }
@@ -188,19 +210,11 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
             &-bottom {
                 padding: 5px 10px 5px 10px;
                 margin: 0 4px 4px 4px !important;
-
-                svg {
-                    height: 1em; width: auto;
-                    background: url(https://kirisoup.github.io/assets/image/button/close.gif) { size: cover; };
-                    margin-right: .2rem !important;
-                    image-rendering: pixelated
-                }
             }
         }
 
         // comments
-        &-comment {
-            position: relative;
+        &-comment { position: relative;
 
             &-header {
                 margin: 4px 4px 0 4px;
@@ -218,18 +232,14 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
             padding: .25em .5rem;
             margin-inline: 10px;
 
-            &:has(+.gsc-reply) {
-                padding-bottom: 0;
+            &:has(+.gsc-reply) { padding-bottom: 0;
 
-                .ml-2 { border-bottom: 2px solid }
+                .ml-2 { border-bottom: 2px solid; }
             }
 
-            & +.gsc-reply {
-                padding-top: 0;
+            & +.gsc-reply { padding-top: 0;
 
-                .gsc-reply-header {
-                    margin-top: 1em !important
-                }
+                .gsc-reply-header { margin-top: 1em !important; }
             }
 
             &-author-avatar {
@@ -271,6 +281,7 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
         &-reply-reactions { margin-left: .2em; }
 
         &-social-reaction-summary-item { height: auto;
+
             &-count {
                 line-height: 1em;
                 margin: 0;
@@ -280,12 +291,6 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
         &-reactions-button {
             height: 2em; width: 2em;
             border: none;
-
-            svg {
-                height: 1.5em; width: auto;
-                background: url(https://kirisoup.github.io/assets/image/button/smile.gif) { size: cover; };
-                image-rendering: pixelated;
-            }
         }
 
         &-reactions-popover {
@@ -340,7 +345,7 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
 .gsc-reply-box,
 .gsc-reply-author-avatar,
 .gsc-comment-box-textarea
-{ border-width: 2px !important }
+{ border-width: 2px !important; }
 
 // remove round corner
 .gsc-reply-box,
@@ -357,7 +362,7 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace }
 .rounded-full,
 .BtnGroup,
 .BtnGroup-item
-{ border-radius: unset !important }
+{ border-radius: unset !important; }
 
 // remove bloat
 .gsc-comment-box-md-toolbar,
@@ -366,7 +371,5 @@ button s,
 .gsc-reply-footer,
 .gsc-reply-author-avatar img,
 .gsc-comment-replies-count,
-.gsc-comment-box-textarea-extras,
-.gsc-comment-box-bottom svg path,
-.gsc-reactions-button svg path
+.gsc-comment-box-textarea-extras
 { display: none; }

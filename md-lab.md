@@ -85,13 +85,13 @@ title: MarkDown 实验室
 > *靠右：.r*{:.r}
 
 ### 修饰线: {#line}
-- ||| 下划线&nbsp;&nbsp; | 上划线&nbsp;&nbsp; | 删除线&nbsp;&nbsp; | 混合&nbsp;&nbsp; |
+- ||| 下划线 | 上划线 | 删除线 | 混合 |
   |---|---|---|---|---|---|
-  | 正常线 || *.u*{:.u}         | *.ovl*{:.ovl}         | *.del*{:.del}         | *.u.ovl.del*{:.u.ovl.del}         |
-  | 段虚线 || *.u.-d*{:.u.-d}      | *.ovl.-d*{:.ovl.-d}   | *.del.-d*{:.del.-d}   | *.u.ovl.del.-d*{:.u.ovl.del.-d}   |
-  | 点虚线 || *.u.-do*{:.u.-dd} | *.ovl.-do*{:.ovl.-dd} | *.del.-do*{:.del.-dd} | *.u.ovl.del.-do*{:.u.ovl.del.-dd} |
-  | 双层线 || *.u.-db*{:.u.-db} | *.ovl.-db*{:.ovl.-db} | *.del.-db*{:.del.-db} | *.u.ovl.del.-db*{:.u.ovl.del.-db} |
-  | 波浪线 || *.u.-w*{:.u.-w}   | *.ovl.-w*{:.ovl.-w}   | *.del.-w*{:.del.-w}   | *.u.ovl.del.-w*{:.u.ovl.del.-w}   |
+  | 正常线 || *.u*{:.u}         | *.ovl*{:.ovl}         | *.dll*{:.dll}         | *.u.ovl.dll*{:.u.ovl.dll}         |
+  | 段虚线 || *.u.-d*{:.u.-d}   | *.ovl.-d*{:.ovl.-d}   | *.dll.-d*{:.dll.-d}   | *.u.ovl.dll.-d*{:.u.ovl.dll.-d}   |
+  | 点虚线 || *.u.-do*{:.u.-dd} | *.ovl.-do*{:.ovl.-dd} | *.dll.-do*{:.dll.-dd} | *.u.ovl.dll.-do*{:.u.ovl.dll.-dd} |
+  | 双层线 || *.u.-db*{:.u.-db} | *.ovl.-db*{:.ovl.-db} | *.dll.-db*{:.dll.-db} | *.u.ovl.dll.-db*{:.u.ovl.dll.-db} |
+  | 波浪线 || *.u.-w*{:.u.-w}   | *.ovl.-w*{:.ovl.-w}   | *.dll.-w*{:.dll.-w}   | *.u.ovl.dll.-w*{:.u.ovl.dll.-w}   |
   {:.t style="line-height:2em"}
 
 - markdown原版语法的删除线: 

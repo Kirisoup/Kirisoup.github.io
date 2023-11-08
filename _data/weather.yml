@@ -1,0 +1,106 @@
+current:
+  - categ: _weather
+    addr: current.weather_code
+    intervs: -1, 1, 2, 3, 48, 51, 55, 57, 61, 63, 65, 67, 71, 73, 75, 77, 82, 86, 95, 99, 100
+    name: 天气
+    unit: 
+    msgs: "
+      '快晴',
+      '半晴',
+      '阴晴',
+      '云天',
+      '浓雾',
+      '细雨',
+      '雾雨', 
+      '寒雨',
+      '疏雨',
+      '雨',
+      '強雨',
+      '冰雨',
+      '綿雪',
+      '雪',
+      '大雪',
+      '霰',
+      '豪雨',
+      '豪雪',
+      '风雨',
+      '雪嵐'"
+
+  - categ: temp
+    addr: current.temperature_2m
+    intervs: -100, 7, 13, 18, 23, 28, 33, 35, 100
+    name: 温度
+    unit: °C
+    msgs: "
+      '严寒',
+      '寒冷',
+      '清凉',
+      '和暖',
+      '温暖',
+      '炎热',
+      '酷热',
+      '极热'"
+
+  - categ: humi
+    addr: current.relative_humidity_2m
+    intervs: 0, 40, 70, 85, 95, 100
+    name: 湿度
+    unit: \%
+    msgs: "
+      '干燥难耐',
+      '干燥',
+      '适宜',
+      '潮湿',
+      '太潮了'"
+
+  - categ: winddir
+    addr: current.wind_direction_10m
+    intervs: 0, 22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, 337.5, 360
+    name: 风向
+    unit: °
+    msgs: "
+      '北风',
+      '东北风',
+      '东风',
+      '东南风',
+      '南风',
+      '西南风',
+      '西风',
+      '西北风',
+      '北风'"
+
+  - categ: windscal
+    addr: current.wind_speed_10m
+    intervs: 0, 2, 7, 13, 20, 31, 41, 52, 63, 76, 88, 104, 118
+    name: 风速
+    unit: km/h
+    msgs: "
+      '无风',
+      '弱风',
+      '轻风',
+      '微风',
+      '和风',
+      '清风',
+      '强风',
+      '疾风',
+      '大风',
+      '烈风',
+      '狂风',
+      '暴风',
+      '飓风'"
+
+forcast: 
+  - categ: weather
+    addr: daily.weather_code
+    intervs: _weather_intervs
+    msgs: _weather_msgs
+
+  - categ: tempM
+    addr: daily.temperature_2m_max
+    intervs: temp_intervs
+    msgs: temp_msgs
+
+  - categ: tempm
+    addr: daily.temperature_2m_min
+    intervs: temp_intervs
+    msgs: temp_msgs

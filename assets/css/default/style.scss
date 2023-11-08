@@ -111,10 +111,9 @@ html:has(.cornerCara:not([id="0"])) {
         // background: url(https://64.media.tumblr.com/9af92cc03553bd821021fd950fbc33b5/1534f96efdb15e70-b5/s100x200/6f110ffcfa7afe0af25add8144e9d30fbefc97fe.gifv);
         background: url(/assets/image/xp_.gif) { size: 20vw; };
 
-        box-shadow:
-            inset 10px -10px 5px -5px #000,
-            inset -30px 0 20px -20px #000a,
-            inset -90px 50px 30px -30px #fff;
+        box-shadow: inset 10px -10px 5px -5px   #44d,
+                    inset -30px 0 30px -20px    #44da,
+                    inset -90px 50px 30px -30px #fff;
 
         &::before, &::after {
             position: absolute;
@@ -299,7 +298,7 @@ html:has(.cornerCara:not([id="0"])) {
     background-color: var(--color-page);
     padding-inline: 3em 2em;
 
-    *::selection {
+    ::selection {
         color: var(--color-page);
         background: var(--color);
     }
@@ -321,11 +320,10 @@ html:has(.cornerCara:not([id="0"])) {
     width: 90vw;
 // styl
     background: #d1d1f7;
-    box-shadow:
-        -1px -1px 0 1px #e8e8fb,
-        0 0 0 2px #000,
-        inset -2px -4px #a2a2ee,
-        inset 2px 2px #fff;
+    box-shadow: -1px -1px 0 1px #e8e8fb,
+                0 0 0 2px       #000,
+                inset -2px -4px #a2a2ee,
+                inset 2px 2px   #fff;
 
     &.on {
         transition: opacity .2s, top .2s, bottom .2s;
@@ -341,9 +339,8 @@ html:has(.cornerCara:not([id="0"])) {
         margin: 6px;
     // styl
         font-size: 1.2rem;
-        box-shadow:
-            inset -2px -2px #e8e8fb,
-            inset 2px 2px #44d;
+        box-shadow: inset -2px -2px #e8e8fb,
+                    inset 2px 2px   #44d;
     }
 
     .bottomBar {
@@ -363,17 +360,15 @@ html:has(.cornerCara:not([id="0"])) {
 
 @mixin fullscreen-dark {
     background: #338;
-    box-shadow:
-        -1px -1px 0 1px #aaf,
-        0 0 0 2px #44d,
-        inset -2px -4px #224,
-        inset 2px 2px #000;
+    box-shadow: -1px -1px 0 1px #aaf,
+                0 0 0 2px       #44d,
+                inset -2px -4px #224,
+                inset 2px 2px   #000;
 
     .buttonBar { background: linear-gradient(90deg, #44d 20%, #000); }
 
-    .content { box-shadow:
-        inset -2px -2px #224,
-        inset 2px 2px #aaf;
+    .content { box-shadow: inset -2px -2px #224,
+                           inset 2px 2px   #aaf;
     }
 
     .bottomBar { color: #fff; }
@@ -400,11 +395,10 @@ html:has(.cornerCara:not([id="0"])) {
     // styl
         box-sizing: border-box;
         background: #d1d1f7;
-        box-shadow:
-            inset -1.5px -1.5px #44d,
-            inset 1.5px 1.5px #fff,
-            inset -3px -3px #a2a2ee,
-            inset 3px 3px #e8e8fb;
+        box-shadow: inset -1.5px -1.5px #44d,
+                    inset 1.5px 1.5px   #fff,
+                    inset -3px -3px     #a2a2ee,
+                    inset 3px 3px       #e8e8fb;
 
         &::before { content: "";
             position: absolute;
@@ -421,11 +415,10 @@ html:has(.cornerCara:not([id="0"])) {
 
         &:active {
             background: #d1d1f7;
-            box-shadow:
-                inset -1.5px -1.5px #fff,
-                inset 1.5px 1.5px #44d,
-                inset -3px -3px #e8e8fb,
-                inset 3px 3px #a2a2ee;
+            box-shadow: inset -1.5px -1.5px #fff,
+                        inset 1.5px 1.5px   #44d,
+                        inset -3px -3px     #e8e8fb,
+                        inset 3px 3px       #a2a2ee;
 
             &::before {
                 top: 6px; left: 6px;
@@ -501,7 +494,7 @@ html:has(.cornerCara:not([id="0"])) {
 
     /* ====randomBG==== */
 
-    @for $i from 0 to 16 { &[id="#{$i}"] +&-b, &[id="#{$i}"]::before { background: url(/assets/image/cornerCara/marisa#{$i}.webp)
+    @for $i from 0 through 15 { &[id="#{$i}"] +&-b, &[id="#{$i}"]::before { background: url(/assets/image/cornerCara/marisa#{$i}.webp)
         { size: contain } }; }
 
     & {
@@ -694,11 +687,10 @@ canvas {
 
     &-thumb {
         background: #d1d1f7;
-        box-shadow:
-            inset -1.5px -1.5px #44d,
-            inset 1.5px 1.5px #fff,
-            inset -3px -3px #a2a2ee,
-            inset 3px 3px #e8e8fb;
+        box-shadow: inset -1.5px -1.5px #44d,
+                    inset 1.5px 1.5px   #fff,
+                    inset -3px -3px     #a2a2ee,
+                    inset 3px 3px       #e8e8fb;
     }
 
     &-button { background-size: cover !important;
@@ -718,11 +710,10 @@ canvas {
 
 @mixin scrollbar-dark {
     background: #338;
-    box-shadow:
-        inset -1.5px -1.5px #000,
-        inset 1.5px 1.5px #aaf,
-        inset -3px -3px #224,
-        inset 3px 3px #44d;
+    box-shadow: inset -1.5px -1.5px #000,
+                inset 1.5px 1.5px   #aaf,
+                inset -3px -3px     #224,
+                inset 3px 3px       #44d;
 }
 
 /* ======== */
@@ -761,6 +752,10 @@ a {
         position: absolute;
         inset: -.5em;
     }
+
+    &::selection, ::selection {
+        background: var(--color-miku) !important;
+    }
 }
 
 [norm] {
@@ -768,94 +763,132 @@ a {
     text-decoration: underline;
 }
 
+/* HEADERS */
+
 // headers font style
-h1, h2, h3, h4, .fake.h1, .fake.h2, .fake.h3, .fake.h4 { font-weight: bolder; }
-h5, h6, .fake.h5, .fake.h6 { font-weight: normal; }
-h4, h6, .fake.h4, .fake.h6 { font-style: italic; }
-
-// headers margin block
-h1, h2, h3, h4, h5, h6 { margin-top: 1em;} // 1em top margin if headers is the first element
-:first-child ~ { h1, h2, h3, h4, h5, h6 { margin-top: 2em;} } // 2em top margin if else
-
-h1, h2         { margin-bottom: 1em; }
-h3, h4, h5, h6 { margin-bottom: .5em; }
-
-h1, h2, h3, h4, h5, h6 { +h1, +h2, +h3, +h4, +h5, +h6 { margin-top: 0 !important; } } // reduce margin in between two adjacent headers
-
-// headers padding
-h1, h2, h3, h4, h5, h6 {
-    position: relative;
-    inset: -.5rem -.2rem;
-    padding: .5rem .2rem;
+$hs: 1, 2, 3, 4; @each $i in $hs {
+    h#{$i}, .fake.h#{$i} { font-weight: bolder; }
+}
+$hs: 5, 6; @each $i in $hs {
+    h#{$i}, .fake.h#{$i} { font-weight: normal; }
+}
+$hs: 4, 6; @each $i in $hs {
+    h#{$i}, .fake.h#{$i} { font-style: italic }
 }
 
-// headers underline
-h1     { border-bottom: var(--color) 3px solid; }
-h2     { border-bottom: var(--color) 3px dashed; }
-h3, h4 { border-bottom: var(--color) 3px dotted; }
-h4, h5, h6 { width: max-content; }
+// headers margin block
+$hs: 1, 2, 3, 4, 5, 6; @each $i in $hs {
+    h#{$i} { margin-top: 1em; } // 1em top margin if headers is the first element
+    :first-child ~ h#{$i} { @each $i in $hs { h#{$i} { margin-top: 2em; } } } // 2em top margin if else
+}
+
+$hs: 1, 2; @each $i in $hs {
+    h#{$i}, .fake.h#{$i} { margin-bottom: 1em; }
+}
+$hs: 3, 4, 5, 6; @each $i in $hs {
+    h#{$i}, .fake.h#{$i} { margin-bottom: .5em; }
+}
+
+// reduce margin in between two adjacent headers
+$hs: 1, 2, 3, 4, 5, 6; @each $i in $hs {
+    h#{$i} { @each $i in $hs { +h#{$i} { margin-top: 0 !important; } } }
+}
+
+// reveal url for hyperlinks
+.content a { &::before { content: "¥目标: {{ site.url }}"attr(href) attr(t) !important; } } // requires moardown.scss
+
+// headers padding
+$hs: 1, 2, 3, 4, 5, 6; @each $i in $hs {
+    h#{$i} {
+        position: relative;
+        inset: -.5rem -.2rem;
+        padding: .5rem .2rem;
+    }
+}
+
+$hs:    1,    2,     (3, 4) ;
+$hline: solid dashed dotted ;
+@for $i from 1 through length($hs) { @each $h in nth($hs, $i) {
+    h#{$h} { border-bottom: var(--color) 3px nth($hline, $i); }
+}}
+
+$hs: 4, 5, 6; @each $i in $hs {
+    h#{$i} { width: max-content };
+}
 
 // reveal heading id
-h1, h2, h3, h4, h5 ,h6 { &[id] {
-    --notify: "--> 点击复制标题链接";
+$hs: 1, 2, 3, 4, 5, 6; @each $i in $hs {
+    h#{$i}[id] {
+        --notify: "--> 点击复制标题链接";
 
-    &::before, &::after {
-        font-weight: normal;
-        font-size: max(.5em, .8rem);
-        opacity: .7;
+        &::before, &::after {
+            font-weight: normal;
+            font-size: max(.5em, .8rem);
+            opacity: .7;
+       }
     }
-}}
+}
 
-h1, h2, h3 { &[id] {
-    &::before, &::after { display: block; }
+$hs: 1, 2, 3; @each $i in $hs {
+    h#{$i}[id] {
+        &::before, &::after { display: block; }
 
-    &::before { content: "#" attr(id) "\00a0";
-    // pos
-        position: relative;
-        bottom: .2em;
-    // styl
-        text-decoration: dashed underline 1.5px;
-    }
-
-    &:hover { &::after { content: var(--notify);
+        &::before { content: "#" attr(id) "\00a0";
         // pos
-            position: absolute;
-            top: .5rem; right: 0;
+            position: relative;
+            bottom: .2em;
         // styl
-            background: var(--color-page);
-            opacity: 1;
+            text-decoration: dashed underline 1.5px;
+        }
+
+        &:hover { &::after { content: var(--notify);
+            // pos
+                position: absolute;
+                top: .5rem; right: 0;
+            // styl
+                background: var(--color-page);
+                opacity: 1;
+            }
+        }
+
+        &:active {
+            background: var(--color);
+            color: var(--color-page);
+
+            &::after { content: ""; }
+            &::selection, ::selection {
+                color: var(--color);
+                background: var(--color-page);
+            }
         }
     }
+}
 
-    &:active {
-        background: var(--color);
-        color: var(--color-page);
+$hs: 4, 5, 6; @each $i in $hs {
+    h#{$i}[id] {
+        &::after { content: "\00a0#" attr(id) "\00a0" "\00a0"; }
 
-        &::after { content: ""; }
-    }
-}}
+        &:hover { &::before { content: var(--notify);
+            // pos
+                position: absolute;
+                top: -.8em;
+            // styl
+                text-wrap: nowrap;
+                background: var(--color-page);
+                opacity: 1;
+            }
+        }
 
-h4, h5, h6 { &[id] {
-    &::after { content: "\00a0#" attr(id) "\00a0" "\00a0"; }
+        &:active {
+            background: var(--color);
+            color: var(--color-page);
 
-    &:hover { &::before { content: var(--notify);
-        // pos
-            position: absolute;
-            top: -.8em;
-        // styl
-            text-wrap: nowrap;
-            background: var(--color-page);
-            opacity: 1;
+            &::before { content: ""; }
         }
     }
+}
 
-    &:active {
-        background: var(--color);
-        color: var(--color-page);
-
-        &::before { content: ""; }
-    }
-}}
+/* ======== */
 
 // list
 ul { ::marker { font-weight: bolder; color: var(--color-magenta); }
@@ -917,20 +950,18 @@ input.task-list-item-checkbox {
 
 /* ==== F O N T ==== */
 
-html { font-display: swap; }
-
 html { font-family: "fusion", monospace; }
 html:has(.fontTg input:checked) { font-family: "ibm", monospace; }
 
 code, kbd, samp { font-family: "ibm", monospace;}
-html:has(.fontTg input:checked) code, kbd, samp { font-family: "ibm", monospace;}
-
 
 @font-face { font-family: "fusion";
+    font-display: swap;
     src: url(/assets/font/fusion-pixel-10px-monospaced-zh_hant.ttf);
 }
 
 @font-face { font-family: "ibm";
+    font-display: swap;
     src: url(/assets/font/IBM3161.ttf);
 }
 

@@ -1,33 +1,21 @@
 // remove italic effect for <em> ( ** in markdown ) in order to easily assign class to inline text
 // use .i to reobtain italic for <em>
-em:not(.i) { &[class], &[r], &[t], &[norm] { font-style: normal; }}
+em:not(.i) { &[class], &[r], &[t], &[norm], &[reveal] { font-style: normal; }}
 
 // sizes ================================
 
-// sizing headings and fake headings
-@mixin titleSize($id, $size) {
-    h#{$id}, .fake.h#{$id} {
-        font-size: $size + em ;
-        --s: 1;
-        font-size: calc($size * var(--s) * 1em);
-    }
-}
+h1, h2, h3, h4, h5, h6, .fake { --s: 1 }
 
-$size-h1: 2;
-$size-h2: 1.6;
-$size-hrest: 1.2;
-
-@include titleSize(1, $size-h1);
-@include titleSize(2, $size-h2);
-@for $i from 3 to 7 { @include titleSize($i, $size-hrest); }
-
-// general sizing
 .big     { --s: 1.25; }
 .bigger  { --s: 1.5; }
 .small   { --s: .75; }
 .smaller { --s: .5; }
 
 .size, .big, .bigger, .small, .smaller { &:not(h1, h2, h3, h4, h5, h6, .fake) { font-size: calc(var(--s) * 1em); } }
+
+h1, .fake.h1 { font-size: calc( 2em * var(--s)); }
+h2, .fake.h2 { font-size: calc( 1.6em * var(--s)); }
+@for $i from 3 through 6 { h#{$i}, .fake.h#{$i} { font-size: calc( 1.2em * var(--s)); } }
 
 // alignment ================================
 
@@ -64,7 +52,7 @@ p, h1, h2, h3, h4, h5, h6 { &:has(>.c), &:has(>.r) { width: 100%; } }
 
 // lines ================================
 
-.u, .ovl, del, .del, .u.ovl {
+.u, .ovl, del, .dll, .u.ovl {
     text-decoration: { color: var(--lc); thickness: var(--lt) } ;
     &.-d  { text-decoration: { style: dashed; }; }
     &.-do { text-decoration: { style: dotted; }; }
@@ -74,9 +62,9 @@ p, h1, h2, h3, h4, h5, h6 { &:has(>.c), &:has(>.r) { width: 100%; } }
 
        .u       { text-decoration-line: underline; }
      .ovl       { text-decoration-line: overline; }
-del, .del       { text-decoration-line: line-through; }
+del, .dll       { text-decoration-line: line-through; }
    .u.ovl       { text-decoration-line: underline overline; }
-del, .del { &.u { text-decoration-line: line-through underline; }
+del, .dll { &.u { text-decoration-line: line-through underline; }
           &.ovl { text-decoration-line: line-through overline; }
         &.u.ovl { text-decoration-line: line-through underline overline; } }
 
@@ -84,14 +72,14 @@ del, .del { &.u { text-decoration-line: line-through underline; }
 
 $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aqua, teal, blue, navy, fuchsia, purple;
 
-// ""+$color in so that scss don't throw a warning
+// use "''+$color" so that scss don't throw a warning
 @each $color in $colors {
-    .#{""+$color} { color: $color; }
+     .#{""+$color} { color: $color; }
     .h#{""+$color} { &::before { background-color: $color; }; }
     .b#{""+$color} { &::before { --bw: 2px; border: $color solid var(--bw); }; }
 }
 
-.h, .b { @each $color in $colors { &#{""+$color} {
+@mixin colorbg {
     position: relative;
     z-index: 1;
 
@@ -100,11 +88,20 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
         --bd: 0.02em;
         z-index: -1;
         inset: {
-            block: calc(var(--bd)*-1);
+            block:  calc(var(--bd)*-1);
             inline: calc(-.2em + var(--bd)*-1);
         };
     }
+}
+
+.h, .b { @each $color in $colors { &#{""+$color} {
+    @include colorbg();
 }}}
+
+.ant {
+    @include colorbg();
+    &::before { --bw: 2px; border: 1px dashed #000; border-image: url(/assets/image/ants.gif) 1 repeat; }
+}
 
 // ruby (拼音) ================================
 
@@ -126,6 +123,47 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
     }
 }
 
+// del (黑幕)  ================================
+
+.del { position: relative;
+
+    &::after { content: "";
+        position: absolute;
+        inset: -2px -1px;
+        background: var(--color);
+        pointer-events: none;
+    }
+
+    &:hover { &::after {
+        opacity: .2;
+    }}
+}
+
+.blur     { filter: blur(.1em); }
+.blurrier { filter: blur(.25em); }
+
+.blur, .blurrier {
+    transition: filter .2s;
+    &:hover { filter: blur(0); }
+}
+
+[reveal] {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    text-decoration: dashed underline;
+
+    &:hover {
+        visibility: hidden;
+
+        &::after { content: attr(reveal);
+            display: block;
+            visibility: visible;
+            font-style: italic;
+        }
+    }
+}
+
 // tip ================================
 
 // use *content*{:t="tip"} inside markdown
@@ -134,15 +172,11 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
 }
 
 // reveal url for hyperlinks
-.content a { &::before { content: "¥目标: "attr(href) attr(t); } }
+.content a { &::before { content: "¥目标: {{ site.url }}"attr(href) attr(t); } } // liquid doesn't work here
 
-// // reveal id for headings
-// h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] { &::before { content: "#" attr(id);
-//     font-size: max(.5em, 15px);
-// } }
+.del:not([t]), .blur, .blurrier { &::before { content: "你知道的太多了。"; } }
 
-// h1[id], h2[id], h3[id], h4[id], h5[id], h6[id],
-[t], a {
+[t], a, .del {
     position: relative;
 
     &::before {
@@ -154,7 +188,9 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
         top: .5em;
         z-index: 10;
     // size
-        width: fit-content;
+        font-size: MAX(.5em, .75rem);
+        width: max-content;
+        max-width: 25vw;
     // styl
         padding: .2em .5em;
         background: var(--color-page);
@@ -164,7 +200,7 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
     &:hover::before {
         transition: 0s;
         top: 1.5em;
-        opacity: 1;
+        opacity: 1 !important;
     }
 
     // tip coloring
@@ -177,11 +213,14 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
     }
 }
 
+.footnote::before { line-height: 1em; visibility: visible !important; }
+
 a {
     &::before {
         transition: .2s;
         position: fixed;
         bottom: 0; top: unset;
+        max-width: unset;
     }
 
     &:hover::before {
@@ -191,7 +230,6 @@ a {
 
 // tip above
 
-// h1[id], h2[id], h3[id], h4[id], h5[id], h6[id],
 .above[t] {
     &::before { bottom: .5em; top: unset; }
     &:hover::before { bottom: 1.5em; }
@@ -206,7 +244,7 @@ a.ab,
     text-decoration: none;
     transition: 0s .2s;
 
-    &::after { transition: opacity .2s .2s;
+    &::after { transition: opacity .0s .4s;
         inset: -.2em 0;
         box-sizing: border-box;
         border: {
@@ -233,8 +271,8 @@ a.ab,
 table {
     --tbc: var(--color); --tbtc: var(--color);
 // pos
-position: relative;
-z-index: 1;
+    position: relative;
+    z-index: 1;
 //styl
     color: var(--tbtc);
     border-collapse: collapse;
@@ -295,7 +333,7 @@ z-index: 1;
 
 // blocks ================================
 
-.content>blockquote, :not(blockquote) >blockquote { margin-block: .5em; }
+.content>blockquote, :not(blockquote) >blockquote { margin-block: 1em; }
 
 blockquote {
     >p:first-child { margin-top: 0; } >p:last-child { margin-bottom: 0; } // revome extra margin for first and last children blockquote
@@ -303,7 +341,7 @@ blockquote {
 
     // inform blocks
     &.info, &.note, &.warn {
-        display: inline-table;
+        display: block;
         position: relative;
         padding-inline: 2.5em .5em;
         padding-block: .5em;
@@ -391,7 +429,7 @@ em[norm] {
         .footnote {
             position: absolute;
             inset: 0;
-            opacity: 0;
+            color: #0000;
         }
     }
 }
@@ -513,8 +551,13 @@ $text-stroke-shadow:
 // shadow
 
 .shadow {
-    --sdd: 8px; --sdc: var(--color-plain);
-    text-shadow: 1px 1px var(--color-page), var(--sdd) var(--sdd) var(--sdc);
+    --sdd: .25em; --sbr: 2px; --sdc: var(--color);
+    text-shadow: var(--sdd) var(--sdd) var(--sbr) var(--sdc);
+}
+
+.projection {
+    --pdd: .33em; --pdc: var(--color-plain);
+    text-shadow: 1px 1px var(--color-page), var(--pdd) var(--pdd) var(--pdc);
     padding-bottom: .2em;
 }
 
@@ -540,22 +583,24 @@ $echo_type:
 @mixin echo($h, $v, $e) {
     --h: #{$h}; --v: #{$v};
     text-shadow: nth($echo_type, $e);
+    padding: calc(.8em * max(0,-$v)),
+             calc(.8em * max(0, $h)),
+             calc(.8em * max(0, $v)),
+             calc(.8em * max(0,-$h));
 }
 
 $echo_list: ".echo", ".echorb", ".stroke.echo", ".stroke.echorb";
 
-@for $i from 1 through length($echo_list) {
-    #{nth($echo_list, $i)} { @include echo(1, 1, $i);
-        &-down             { @include echo(0, 1, $i); }
-        &-up               { @include echo(0, -1, $i); }
-        &-right            { @include echo(1, 0, $i); }
-        &-left             { @include echo(-1, 0, $i); }};
-}
-
-.echo, .echorb { padding-bottom: .8em;
-    &-up       { padding-top:    .8em; }
-    &-right    { padding-right:  .8em; }
-    &-left     { padding-left:   .8em; }}
+@for $i from 1 through length($echo_list) { #{nth($echo_list, $i)}
+                { @include echo( 1, 1, $i );
+    &-down      { @include echo( 0, 1, $i ); }
+    &-down-left { @include echo(-1, 1, $i ); }
+    &-left      { @include echo(-1, 0, $i ); }
+    &-up-left   { @include echo(-1,-1, $i ); }
+    &-up        { @include echo( 0,-1, $i ); }
+    &-up-right  { @include echo( 1,-1, $i ); }
+    &-right     { @include echo( 1, 0, $i ); }
+};}
 
 // stroke ================================
 
@@ -564,12 +609,61 @@ $echo_list: ".echo", ".echorb", ".stroke.echo", ".stroke.echorb";
     color: var(--color-page);
     text-shadow: $text-stroke-shadow;
 
-    &.shadow {
-        text-shadow: $text-stroke-shadow, var(--sdd) var(--sdd) var(--sdc);
-    }
+    &.shadow { text-shadow: $text-stroke-shadow, var(--sdd) var(--sdd) var(--sdc); }
 }
 
+// mirror ================================
+
+.mirror { transform: scaleX(-1); }
+
+.upsdown { transform: scaleY(-1); }
+
+.mirror, .upsdown { display: inline-block; }
+
 // animate ================================
+
+// blink
+
+.blink {
+    --bt: 2s;
+    animation: blink var(--bt) steps(1, end) infinite forwards;
+}
+
+.fadeinout {
+    --ft: 2s;
+    animation: blink var(--ft) linear infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+// rumble shudder
+
+.rumble {
+    --rt: .05s;
+    animation: rumble var(--rt) linear infinite alternate;
+}
+
+.shudder {
+    --st: .05s;
+    animation: shudder var(--st) linear infinite alternate;
+}
+
+.rumble, .shudder { display: inline-block; }
+
+@keyframes rumble { 100% { transform: translateY(-.2em) } }
+@keyframes shudder { 100% { transform: translateX(.2em) } }
+
+// sparkle  
+
+.sparkle:not(.rainbow) { background: url(/assets/image/sparkle.gif) repeat { size: 10em }; }
+.sparkle.rainbow { position: relative;
+
+    &::before { content: "";
+        position: absolute;
+        inset: 0;
+        background: url(/assets/image/sparkle.gif) repeat { size: 10em }; 
+    }
+}
 
 // rotate
 

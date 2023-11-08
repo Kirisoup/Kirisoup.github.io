@@ -1,6 +1,0 @@
-- name: 主页
-  link: /home
-- name: About
-  link: /about
-- name: Markdown 实验室
-  link: /md-lab
