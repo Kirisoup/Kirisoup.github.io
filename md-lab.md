@@ -38,14 +38,14 @@ title: MarkDown 实验室
       `{:.bigger.rainbow#unique style:"transform:scaleX(200%)"}`
     
     ---
-    {:.blank}
+    {:.break}
     
     - 为行内元素添加属性：
       - 段落内容 *\*文字\*\{:.cfuchsia}*{:.cfuchsia} 段落内容。  
         *[^how2attr-em]*{:norm="[>>关于斜体与行内属性]"}
     
     ---
-    {:.blank}
+    {:.break}
     
     - 为段落元素添加属性：<br>  
       *\{:.bfuchsia.cfuchsia}<br>段落内容段落内容段落内容。*{:.bfuchsia.cfuchsia style="padding:.5em"}

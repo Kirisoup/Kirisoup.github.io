@@ -4,7 +4,7 @@
         ip = document.querySelectorAll('.ip');
         
         for (i = 0; i < ip.length; i++) {
-            ip[i].innerHTML=`你的IP地址是: <a href="https://ipleak.net/?q=${json.ip}" target="_blank" rel="noopener noreferrer">${json.ip}</a>`;
+            ip[i].innerHTML=`你的IP地址是: <a href="https://ipleak.net/?q=${json.ip}">${json.ip}</a>`;
         };
     }
 </script>
