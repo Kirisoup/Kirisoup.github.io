@@ -56,7 +56,7 @@ code, kbd, pre, samp { font-family: "ibm", "ibm-fallback", monospace; }
 
     // buttons
 
-    &-comment-box-bottom, &-reactions-button { svg {
+    &-comment-box-bottom, &-reactions-button, &-upvote-button { svg {
         height: 1.5em; width: auto;
         image-rendering: pixelated;
         background-size: cover !important;
