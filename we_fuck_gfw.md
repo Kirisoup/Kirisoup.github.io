@@ -134,8 +134,7 @@ Windows 用户的请从 Release 中的下载文件名为`nekoray-...-windows64.z
 
   我所使用的设置：
 
-  ![](https://telegra.ph/file/0c202b196795f517bbb78.png)
-  流量默认通过代理，因此无需专门指定此处的代理选项
+    ![](https://telegra.ph/file/0c202b196795f517bbb78.png)
   
   - **IP- 直连：**
   

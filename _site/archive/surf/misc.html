@@ -1,0 +1,451 @@
+<!DOCTYPE html> 
+<html lang="zh-hans">
+<!--    　          , -  ───- ､
+        　　　　  ／　　 　　    ｀丶
+             r‐<::／ ﾝ-―ーー- ､ 、  ＼
+        　 ｛(こ〆.:／ ＿＿＿＿__＼ ヽ:ヽ
+          __/‘`/ 〃7了.:.:.:.:.:.ヽj:ヤ￢寸
+         ／,ｲ＞/./::{:!:::::::::ヽ:|.::Vヽｲ
+         ﾚ／,ｲ :/{:ﾊ＼{::､ヽ :::}:_|_::l >|
+         {／|:!{:.ｨf坏ﾄ＼{ヽ,>＜ﾑ!:::: Ｋヽﾄ､
+          |::ヽIi.r_;ﾒ　ヽ´ ｲ圷ﾊ  |::::|＼/ヽ>
+          |:::ﾄ:ﾊ 　 　 ,　 r;ﾝ  j::: l V
+          |i::!::ﾍ   {＞ーｧ 　 /!:::/::/
+          |Nヽヽ’::ヽ､ヽ_ノ .ィ:/:::/ /
+           ヾ/}}八:ヽ＞.-‐か／7::／∨|
+          r＜ ij＼ ヽ､＼__{ 〉/イl  )}
+          f⌒＼ ＼ヽ  )‘＼ﾆﾆ  ∧ ||!彡ﾍ
+          |　  ＼ ヽﾑ 　  ヽ’ .||}ﾍ,_,ｲ
+        r-ヽ　　 ￣ )＼ 　   Vrj／   ヽヽ
+        |　 ＼　　 // /) ミｰ- Ｖ    /￣ヽ
+        |　　(＞―‐‘/ /勺ヽ ¨ ア　  /　  }
+        |　　＼三三‐‘ノ＾ヽ  /  　/-――一'
+
+	  ╭━━━┳━━━┳━━━╮╭━━━┳━━━┳━╮╱╭╮
+	  ┃╭━╮┃╭━╮┃╭━╮┃╰╮╭╮┃╭━╮┃┃╰╮┃┃
+	  ┃┃╱╰┫┃╱┃┃┃╱╰╯╱┃┃┃┃┃╱┃┃╭╮╰╯┃
+	  ┃┃╭━┫┃╱┃┃┃╱╭╮╱┃┃┃┃╰━╯┃┃╰╮┃┃
+	  ┃╰┻━┃╰━╯┃╰━╯┃╭╯╰╯┃╭━╮┃┃╱┃┃┃
+	  ╰━━━┻━━━┻━━━╯╰━━━┻╯╱╰┻╯╱╰━╯        -->
+    
+  <head>
+    <meta charset="UTF-8">
+    <title>归档：幻想乡冲浪大手册 ~ The Gensokyo Surfing Guidebook </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="cache-control" content="max-age=300" />
+    <link rel="stylesheet" href="/archive/surf/assets/css/style.css?v=" onload="this.media='all'">
+
+    <script>
+      (function () {
+        'use strict';
+    
+        const sparks = 25;
+        const speed = 23;
+        const bangs = 5;
+        const colours = ['#8ff', '#88f', '#8f8', '#8ff', '#88f', '#8f8', '#1dcc74', '#1dcc74', '#fff'];
+    
+        const intensity = new Array();
+        let Xpos = new Array();
+        let Ypos = new Array();
+        let dX = new Array();
+        let dY = new Array();
+        let stars = new Array();
+        let decay = new Array();
+        let timers = new Array();
+        let swide = 800;
+        let shigh = 600;
+        let sleft = 0;
+        let sdown = 0;
+        let count = 0;
+    
+        function addLoadEvent(funky) {
+          const oldonload = window.onload;
+          if (typeof oldonload !== 'function') {
+            window.onload = funky;
+          } else {
+            window.onload = function () {
+              if (oldonload) oldonload();
+              funky();
+            };
+          }
+        }
+    
+        addLoadEvent(clicksplode);
+    
+        function clicksplode() {
+          if (document.getElementById) {
+            window.addEventListener('scroll', set_scroll);
+            window.addEventListener('resize', set_width);
+            document.addEventListener('click', eksplode);
+            set_width();
+            set_scroll();
+            for (let i = 0; i < bangs; i++) {
+              for (let j = sparks * i; j < sparks + sparks * i; j++) {
+                stars[j] = createDiv('★', 13);
+                document.body.appendChild(stars[j]);
+              }
+            }
+          }
+        }
+    
+        function createDiv(char, size) {
+          const div = document.createElement('div');
+          const sty = div.style;
+          sty.font = size + 'px monospace';
+          sty.position = 'absolute';
+          sty.backgroundColor = 'transparent';
+          sty.visibility = 'hidden';
+          sty.zIndex = '0';
+	  sty.pointerEvents = 'none';
+          div.appendChild(document.createTextNode(char));
+          return div;
+        }
+    
+        function bang(N) {
+          let A = 1;
+          for (let i = sparks * N; i < sparks * (N + 1); i++) {
+            if (decay[i]) {
+              const Z = stars[i].style;
+              Xpos[i] += dX[i];
+              Ypos[i] += (dY[i] += 1.25 / intensity[N]);
+              if (Xpos[i] >= swide || Xpos[i] < 0 || Ypos[i] >= shigh + sdown || Ypos[i] < 0) decay[i] = 1;
+              else {
+                Z.left = Xpos[i] + 'px';
+                Z.top = Ypos[i] + 'px';
+              }
+              if (decay[i] === 15) Z.fontSize = '7px';
+              else if (decay[i] === 7) Z.fontSize = '2px';
+              else if (decay[i] === 1) Z.visibility = 'hidden';
+              decay[i]--;
+            } else A++;
+          }
+          if (A !== sparks) timers[N] = setTimeout(function () {
+            bang(N);
+          }, speed);
+        }
+    
+        function eksplode(e) {
+          const x = e ? e.pageX : event.x + sleft;
+          const y = e ? e.pageY : event.y + sdown;
+          const N = ++count % bangs;
+          const M = Math.floor(Math.random() * 3 * colours.length);
+          intensity[N] = 5 + Math.random() * 4;
+          for (let i = N * sparks; i < (N + 1) * sparks; i++) {
+            Xpos[i] = x;
+            Ypos[i] = y;
+            dY[i] = (Math.random() - 0.5) * intensity[N];
+            dX[i] = (Math.random() - 0.5) * (intensity[N] - Math.abs(dY[i])) * 1.25;
+            decay[i] = 16 + Math.floor(Math.random() * 16);
+            const Z = stars[i].style;
+            if (M < colours.length) Z.color = colours[i % 2 ? count % colours.length : M];
+            else if (M < 2 * colours.length) Z.color = colours[count % colours.length];
+            else Z.color = colours[i % colours.length];
+            Z.fontSize = '13px';
+            Z.visibility = 'visible';
+          }
+          clearTimeout(timers[N]);
+          bang(N);
+        }
+    
+        function set_width() {
+          let sw_min = 999999;
+          let sh_min = 999999;
+          const docElement = document.documentElement;
+          const docBody = document.body;
+    
+          if (docElement.clientWidth > 0) sw_min = docElement.clientWidth;
+          if (docElement.clientHeight > 0) sh_min = docElement.clientHeight;
+          if (self.innerWidth > 0 && self.innerWidth < sw_min) sw_min = self.innerWidth;
+          if (self.innerHeight > 0 && self.innerHeight < sh_min) sh_min = self.innerHeight;
+          if (docBody.clientWidth > 0 && docBody.clientWidth < sw_min) sw_min = docBody.clientWidth;
+          if (docBody.clientHeight > 0 && docBody.clientHeight < sh_min) sh_min = docBody.clientHeight;
+    
+          if (sw_min === 999999 || sh_min === 999999) {
+            sw_min = 800;
+            sh_min = 600;
+          }
+          swide = sw_min - 7;
+          shigh = sh_min - 7;
+        }
+    
+        function set_scroll() {
+          if (self.pageYOffset !== undefined) {
+            sdown = self.pageYOffset;
+            sleft = self.pageXOffset;
+          } else if (docBody && (docBody.scrollTop || docBody.scrollLeft)) {
+            sdown = docBody.scrollTop;
+            sleft = docBody.scrollLeft;
+          } else if (docElement && (docElement.scrollTop || docElement.scrollLeft)) {
+            sleft = docElement.scrollLeft;
+            sdown = docElement.scrollTop;
+          } else {
+            sdown = 0;
+            sleft = 0;
+          }
+        }
+      })();
+    </script>
+
+  </head>
+  <body>
+    <header class="page-header" role="banner">
+      <h1 class="project-name"> 幻想乡冲浪大手册 ~ The Gensokyo Surfing Guidebook </h1>
+      <h2 class="project-tagline">“天亦3G实在是太快了！” 终于，互联网的插头也随着这过时的网络系统接入了幻想乡。想必，面对这份全新而又复杂的存在，各位幻想之中、时代之外的少年少女们或许都有些一头雾水吧？萨，就由我这西洋的东方魔法使☆雾雨·蘑菇汤☆，引领各位踏上这激动人心的赛博之旅~~</h2>
+      
+      
+    </header>
+    <main id="content" class="main-content" role="main">
+      <style>
+    :root {
+        --bg-img: url(/archive/surf/assets/backgrounds/photo_2023-07-18_22-21-25_16_9_COOLASFUCK.png) !important;
+    }
+    a fx {
+        color: #f00 !important;
+    }
+</style>
+
+<p><a href="./">返回</a></p>
+
+<p><span class="bigger"> From the bottom of the rabbit Hole…… </span></p>
+
+<p><em>那些过于零碎的，不适合放到主页面的小东西</em></p>
+
+<p><a href=""><fx>  </fx></a></p>
+
+<p><a href="https://reconsidera.github.io/#/README"><fx> 数字极权时代生存手记 </fx></a></p>
+
+<blockquote>
+  <p><a href="https://reconsidera.github.io/#/6"><fx> 6. 抵御信息污染与认知战 </fx></a></p>
+</blockquote>
+
+<p><a href="https://chinadigitaltimes.net/chinese/"><fx> China Digital Times </fx></a></p>
+
+<blockquote>
+  <p><a href="https://chinadigitaltimes.net/space/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E5%AE%A1%E6%9F%A5%E7%99%BE%E7%A7%91"><fx> 小红书审查百科 </fx></a></p>
+</blockquote>
+
+<p><a href="https://bbs.nyasama.com/forum.php?mod=viewthread&amp;tid=1835902"><fx> 车轮椅悖论 </fx></a></p>
+
+<p><a href="https://www.nmbxd1.com/t/57690361"><fx> 爱丽丝 </fx></a></p>
+
+<p><a href="https://www.nmbxd1.com/t/59054155"><fx> 紧闭的执念 </fx></a></p>
+
+<p><a href="https://www.nmbxd1.com/t/57038225"><fx> 雾雨魔理沙的消失 </fx></a></p>
+
+<p><a href="https://web.archive.org/web/20230606193920/https://moepus.oicp.net/2020/02/16/wip%E3%80%8C%E5%8E%9F%E7%A5%9E%E3%80%8D%E5%90%88%E7%90%86%E7%9A%84%E7%8C%9C%E6%B5%8B%E4%B9%9F%E5%8F%AA%E6%98%AF%E7%8C%9C%E6%B5%8B/"><fx> 「原神」合理的猜测也只是猜测 </fx></a></p>
+
+<p><a href="https://web.archive.org/web/20221104075457/bgm.tv/group/topic/374427"><fx> 祝你一天都是好心情 </fx></a></p>
+
+<p><a href="https://rentry.org/voldy#-guide-"><fx> Voldy Retard Guide </fx></a> StableDiffsion 手册</p>
+
+<p><a href="https://civitai.com/"><fx> CivitAI </fx></a> SD 自练模型发布站</p>
+
+<p><a href="https://rentry.co/mdl-optimize-guide"><fx> Windows Debloating </fx></a></p>
+
+<h2 id="-博客">🖊 博客</h2>
+
+<blockquote>
+  <p>与论坛相比，博客的重心显然是撰写博客的人；与微博相比，博客更加纯粹，没有转发、点赞、关注这些功能的博客可以更加专注于个人的表达。</p>
+
+  <p>阅读厉害的博客，也是一种学习</p>
+
+  <p><a href="https://bitinn.net/"><fx> 比特客栈的文艺复兴 </fx></a></p>
+
+  <blockquote>
+    <p><a href="https://bitinn.net/11354/"><fx> 《从作画vs脚本的争吵，到客栈眼中的辩论思维》 </fx></a></p>
+  </blockquote>
+
+  <p><a href="https://shiina18.github.io/"><fx> Measure Zero </fx></a></p>
+
+  <blockquote>
+    <p><a href="https://shiina18.github.io/anime/2020/07/11/anime-misc/"><fx> 《动画资料杂录》 </fx></a></p>
+
+    <p><a href="https://shiina18.github.io/anime/2021/02/18/ensyutsu-misc/"><fx> 《动画演出分析杂录》 </fx></a></p>
+  </blockquote>
+
+  <p><a href="https://shirooo305.hatenablog.com/"><fx> <jp></jp> Paradism </fx></a></p>
+
+  <blockquote>
+    <p><a href="https://shirooo305.hatenablog.com/entry/2017/02/09/233000"><fx> 《『小林さんちのメイドラゴン』5話の演出について》 </fx></a></p>
+  </blockquote>
+
+  <p><a href="https://stblog.penclub.club/"><fx> 北雁云依的博客 </fx></a></p>
+
+  <blockquote>
+    <p>蘑菇汤十分佩服的一个博客，写的评论文章每一篇都能引起深刻的思考。orz</p>
+
+    <p><a href="https://stblog.penclub.club/posts/imperialism/"><fx> 《帝国主义化的互联网——互联网产出萎缩的根本原因》 </fx></a></p>
+
+    <p><a href="https://stblog.penclub.club/posts/kindergartenOfGod/"><fx> 《神的幼儿园》 </fx></a></p>
+  </blockquote>
+
+  <p><a href="https://program-think.blogspot.com/"><fx> 编程随想的博客 </fx></a></p>
+
+  <blockquote>
+    <p>“2023年2月10日，编程随想被当局以“涉及国家秘密”理由遭到不公开审判，被当局一审以煽动颠覆国家政权罪判刑七年、剥夺政治权利两年”</p>
+
+    <p>致敬无畏的灵魂</p>
+
+    <p><a href="https://program-think.blogspot.com/2019/12/Time-and-Life.html"><fx> 《时间与人生——跨入本世纪20年代的随想》 </fx></a></p>
+  </blockquote>
+
+  <p><a href="https://lilaoshibushinilaoshi.com/"><fx> 李老师不是你老师 </fx></a></p>
+
+  <blockquote>
+    <p>见<a href="https://twitter.com/whyyoutouzhele">作者推特</a></p>
+  </blockquote>
+</blockquote>
+
+<h2 id="-酷炫的网站设计">🤯 酷炫的网站设计</h2>
+
+<blockquote>
+  <p><a href="https://technicalsuwako.moe/"><fx> <jp></jp> テクニカル諏訪子 </fx></a></p>
+
+  <p><a href="https://dimden.dev/"><fx> <gb></gb> Dimden.dev </fx></a></p>
+
+  <p><a href="https://melankorin.net/"><fx> <gb></gb> Melankorin.net </fx></a></p>
+
+  <p><a href="https://natu.moe/"><fx> <gb></gb> natu.moe </fx></a></p>
+
+  <p><a href="https://melps.neocities.org/main"><fx> <gb></gb> Melps </fx></a></p>
+
+  <p><a href="https://fauux.neocities.org/"><fx> <gb></gb> Fauux </fx></a></p>
+</blockquote>
+
+<h2 id="-插件">🔌 插件</h2>
+
+<blockquote>
+  <p><a href="https://add0n.com/stylus.html"><fx> Stylus </fx></a> 注入用户主题</p>
+
+  <blockquote>
+    <p>你是否感觉现在大网站的设计审美都弱智到爆？用这个插件自己魔改 css 吧！</p>
+
+    <p>例：<a href="https://kirisamesoup.lanzoub.com/iDjIH153gmjc"><fx> 我写的b站样式 </fx></a>（需配合旧播放页插件使用（见下文））</p>
+  </blockquote>
+
+  <p><a href="https://github.com/MotooriKashin/Bilibili-Old"><fx> Bilibili 旧播放页 </fx></a> 这才是我的b站</p>
+
+  <p><a href="https://www.tampermonkey.net/"><fx> Tampermonkey </fx></a> 用户脚本前置插件</p>
+
+  <blockquote>
+    <p><a href="https://kirisamesoup.lanzoub.com/ilsua153hq9c"><fx> Give Me My Moegirl! </fx></a> 从广告满天飞的新萌百转至经典老萌百</p>
+
+    <p><a href="https://greasyfork.org/en/scripts/378166-google-translate-auto-languages"><fx> Google Translate Auto Languages </fx></a> 咕咕噜翻译自动中英互译</p>
+
+    <p><a href="https://immersivetranslate.com/"><fx> 沉浸式翻译 </fx></a> 网页翻译</p>
+
+    <p><a href="https://greasyfork.org/en/scripts/468363-redirect-youtube-shorts-to-watch"><fx> Redirect YouTube Shorts to Watch </fx></a> qnmd啥卵短视频</p>
+  </blockquote>
+
+  <p><a href="https://github.com/dimdenGD/OldTwitter"><fx> OldTwitter </fx></a> 经典推特（pre-2015）极致舒适！</p>
+
+  <p><a href="https://s.xmcp.ltd/pakkujs"><fx> pakku 哔哩哔哩弹幕过滤器 </fx></a> 合并b站弹幕</p>
+
+  <p><a href="https://sponsor.ajay.app/"><fx> SponsorBlock </fx></a> 油管跳视频内赞助商广告</p>
+
+  <p><a href="https://github.com/Vendicated/Vencord"><fx> Vencord </fx></a> 非常舒服的 Discord 插件</p>
+
+  <p><a href="https://kirisamesoup.lanzoub.com/iKvmH153jrne"><fx> biliDebloat (uBlockOrigin 规则) </fx></a> 配合<a href="https://ublockorigin.com/">uBlockOrigin</a>使用，屏蔽掉b站网页意义不明的部件和主页分区</p>
+</blockquote>
+
+<h2 id="-前端">🌐 前端</h2>
+
+<blockquote>
+  <p><a href="https://www.w3schools.com/"><fx> W3School </fx></a> 教程手册大全</p>
+
+  <p><a href="https://pagespeed.web.dev/"><fx> PageSpeed Insights </fx></a> 网站性能测试</p>
+
+  <p><a href="https://validator.w3.org/"><fx> Markup Validation Service </fx></a></p>
+
+  <blockquote>
+    <p><a href="https://jigsaw.w3.org/css-validator/"><fx> CSS Validation Service </fx></a></p>
+  </blockquote>
+
+  <p><a href="https://www.tagindex.net/"><fx> Tag Index </fx></a> HTML标签 / CSS属性 说明</p>
+
+  <p><a href="https://htmlcheatsheet.com/"><fx> HTML CheatSheet </fx></a></p>
+
+  <p><a href="https://badhtml.com/"><fx> Bad HTML </fx></a> 前端反例</p>
+</blockquote>
+
+<h2 id="-涩涩">🍦 涩涩</h2>
+
+<blockquote>
+  <p><a href="https://e-hentai.org/"><fx> <gfw> E-Hentai </gfw> </fx></a> 工口本</p>
+
+  <blockquote>
+    <p><a href="https://nhentai.net/"><fx> <gfw> nhentai </gfw> </fx></a></p>
+
+    <note></note>
+  </blockquote>
+
+  <p><a href="https://erogamescape-dyndns-org.translate.goog/~ap2/ero/toukei_kaiseki/?_x_tr_sch=http&amp;_x_tr_sl=ja&amp;_x_tr_tl=zh-CN"><fx> <gfw> <jp></jp> 工口游戏批评空间 </gfw> </fx></a> 黄油评价</p>
+
+  <blockquote>
+    <p>注：本网站的原始网址使用极其严格的ip过滤措施，日本以外的ip基本上不可能访问，上方链接使用谷歌网页翻译功能使得任何ip都能正常访问。</p>
+
+    <p><a href="http://erogamescape.dyndns.org/">点此访问网站原始链接</a></p>
+
+    <p>访问批评空间的其他奇技淫巧参考<a href="https://bangumi.tv/group/topic/360497">此处</a></p>
+
+    <note></note>
+  </blockquote>
+
+  <p><a href="https://kemono.party/"><fx> <gfw> Kemono </gfw> </fx></a> Onlyfans / Patreon 付费资源公开</p>
+
+  <p><a href="https://xslist.org/zh"><fx> <gfw> 健康的宅男偶像专题网站</gfw> </fx></a> 日本动作片演员截图识别</p>
+
+  <p><a href="https://sukebei.nyaa.si/"><fx> (BT) Nyaa（里站） </fx></a> 里番</p>
+
+  <p><a href="https://kirisamesoup.lanzoub.com/iOSaB0owp1cf"><fx> (BT) 1969-2022 里番全收录 </fx></a> 全里番资源</p>
+
+  <p><a href="https://www.tokyotosho.info/"><fx> <gfw> 東京図書館 </gfw> </fx></a> A BitTorrent Library for Japanese Media</p>
+
+  <p><a href="https://bangumi.tv/blog/286840"><fx> 班固米里番收录帖 </fx></a></p>
+</blockquote>
+
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+    <cbox>
+        <div class="msg" id="top">
+            <img src="https://cbox.im/i/MzXca.c100.jpg" class="pic">
+            <div class="dtxt" title=" 8 Aug 23, 12:08 AM">置顶</div>
+            <div class="nme">雾雨蘑菇汤</div>
+            <a href="https://cbox.im/i/1g4sE.c100.c100.jpg" rel="noreferrer" target="_blank" class="nmeurl"></a>
+            <div class="body">
+                <span class="bbBig"><b>欢迎来到本网站的留言板！</b></span> <br>
+                留言时请注意基本的礼仪，谢谢！ <br>
+                留言板支持 BBCode 格式，<br>
+		<s>
+                    <span class="bbColor" style="color:#f00"><i>尽</i></span><span class="bbColor" style="color:#f80"><i><b>情</b></i></span>
+                    <span class="bbColor" style="color:#eb0">放</span><span class="bbColor" style="color:#0a0"><b>飞</b></span>
+                    <span class="bbColor" style="color:#0ff"><span class="bbBig"><sub>自</sub></span></span><span class="bbColor" style="color:#44f"><span class="bbBig"><sup><b>我</b></sup></span></span>
+                    <span class="bbColor" style="color:#f0f">吧！</span>
+		</s>
+	    </div>
+        </div>
+	<iframe 
+	    src="https://www3.cbox.ws/box/?boxid=3530749&boxtag=Txc0kj" 
+	    width="100%" height="450" allowtransparency="true" 
+	    allow="autoplay" 
+	    frameborder="0" 
+	    marginheight="0" 
+	    marginwidth="0" 
+	    scrolling="auto"></iframe>	
+    </cbox>
+    <label id = "cboxTg" title="留言板">
+      <input type = "checkbox">
+      <div class = "content"></div>
+    </label>
+    <a id = "toToc" href="#-目录" title="回到目录">
+      <div class = "content"></div>
+    </a>
+  </body>
+</html>

@@ -385,6 +385,8 @@ html:has(.cornerCara:not([id="0"])) {
 // styl
     color: #fff;
     background: linear-gradient(90deg, #44d 20%, #a2a2ee);
+    text-wrap: nowrap;
+    overflow: hidden;
 
     .toggle {
     // pos
@@ -961,7 +963,7 @@ p:has(img:not(.icon)) {
 // size
     width: 60%;
     max-width: 100%;
-    padding: .75em { top: .5em; };
+    padding: .5em 4em .75em .75em;
     margin-block: 2em;
     overflow: auto;
     resize: both;
@@ -969,8 +971,9 @@ p:has(img:not(.icon)) {
     text-align: center;
     border: var(--color) 2px dotted; 
 
-    .window &     { max-height: MAX(100%, 8em); }
-    .fullscreen & { max-height: MAX(50%, 8em); }
+    .window & { max-height: MAX(20vh, 8em); }
+    .window .content >& { max-height: MAX(100%, 8em); }
+    .fullscreen & { max-height: MAX(50vh, 8em); }
 
     img:not(.icon) {
     // pos
@@ -978,7 +981,7 @@ p:has(img:not(.icon)) {
     // size
         height: auto; width: auto;
         box-sizing: border-box;
-        min-width: MAX(20em, 100%);
+        min-width: MAX(10em, 100%);
         max-width: 100%;
         margin-top: .25em;
     // styl
