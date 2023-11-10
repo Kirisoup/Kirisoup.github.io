@@ -3,11 +3,9 @@ title: 主页
 description: 欢迎来到霧雨蘑菇店！
 ---
 
-{% capture proxy %} onerror="this.onerror=null; this.src = ghprxy_s + getAttribute('src')" {% endcapture %}
-
-{:9fumo: height="20px" src="/assets/image/indoc/cirno.gif" {{ proxy }}}
-{:mushroom: height="40px" src="/assets/image/indoc/pilze-0004.gif" {{ proxy }}}
-{:tea: src="/assets/image/indoc/Chinese-Tea.gif" {{ proxy }}}
+{:9fumo: .icon height="20px" src="/assets/image/indoc/cirno.gif"}
+{:mushroom: .icon height="40px" src="/assets/image/indoc/pilze-0004.gif"}
+{:tea: .icon src="/assets/image/indoc/Chinese-Tea.gif"}
 
 {:.fake.h1}
 *欢迎来到 **¥霧雨蘑菇店¥**{:.big}![](){:mushroom}*{:.big.rainbow.fancy2} <br> ***う*{:r="yo"}*こ*{:r="ko"}*そ*{:r="so"}！**{:.r.rainbow.fancy2}

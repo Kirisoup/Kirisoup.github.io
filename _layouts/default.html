@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-control" content="no-store">
     <title>
       {{ site.title }} |
       {%- if page.description -%}
@@ -36,7 +35,12 @@
           </div>
           <div class="window">
             <main class="content">
-              {{content}}
+              {%- capture opt -%} <img onerror="this.onerror=null; this.src = ghprxy_s + getAttribute('src')" loading="lazy" {% endcapture %}
+              {%- assign content_baked = content
+                | replace: '<img ', opt
+                | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer" href="http'
+              -%}
+              {{ content_baked }}
             </main>
             <div class="buttonBar">
               <label class="fontTg toggle" title="切换字体"><input type="checkbox"></label>
@@ -71,7 +75,10 @@
         <label class="fullscreenTg toggle" id="exitFull" title="退出全屏"></label>
       </div>
       <div class="content f">
-        {{ content | replace: 'id="', 'id="f_' | replace: 'a href="#', 'a href="#f_' }}
+        {{ content_baked
+          | replace: 'id="', 'id="f_'
+          | replace: 'a href="#', 'a href="#f_'
+        }}
       </div> <!-- really stupid way to fix duplicated id issue -->
       <div class="bottomBar">
         <div class="left">地址：{{ site.url }}{{ page.url }} | 作者：{{ page.author }} </div>

@@ -75,28 +75,24 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
 // use "''+$color" so that scss don't throw a warning
 @each $color in $colors {
      .#{""+$color} { color: $color; }
-    .h#{""+$color} { &::before { background-color: $color; }; }
-    .b#{""+$color} { &::before { --bw: 2px; border: $color solid var(--bw); }; }
+    .h#{""+$color} { background-color: $color; }
+    .b#{""+$color} { --bw: 2px; border: $color solid var(--bw); }
 }
 
 @mixin colorbg {
     position: relative;
-    z-index: 1;
-
-    &::before {content: "";
-        position: absolute;
-        --bd: 0.02em;
-        z-index: -1;
-        inset: {
-            block:  calc(var(--bd)*-1);
-            inline: calc(-.2em + var(--bd)*-1);
-        };
-    }
+    display: inline-block;
+    --bd: .05em;
+    padding: calc(var(--bd)) calc(.1em + var(--bd));
 }
 
-.h, .b { @each $color in $colors { &#{""+$color} {
-    @include colorbg();
-}}}
+.h, .b { @each $color in $colors { &#{""+$color} { @include colorbg(); }}}
+
+.h {
+    @include colorbg(); 
+    color: #44d;
+    background: var(--color-yellow);
+}
 
 .ant {
     @include colorbg();
@@ -343,6 +339,8 @@ blockquote {
     &.info, &.note, &.warn {
         display: block;
         position: relative;
+        width: max-content;
+        max-width: 100%;
         padding-inline: 2.5em .5em;
         padding-block: .5em;
         margin-left: 0;
@@ -477,9 +475,9 @@ em[norm] {
 hr {
     border: none { block: 2px var(--color) solid };
     height: .2em;
-    margin-block: 1em;
+    margin-block: 2em;
 
-    &.blank {
+    &.break {
         height: 1px;
         opacity: 0;
         border: none !important;

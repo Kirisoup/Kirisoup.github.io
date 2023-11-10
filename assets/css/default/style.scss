@@ -13,11 +13,12 @@ $ghprxy: "";
     --color-sat:            #00f;
     --color-fade:           #eef;
     --color-plain:          #000;
+    --color-mid:            #666;
     --color-green:          #464;
     --color-green-fade:     #efe;
     --color-red:            #d00;
     --color-red-fade:       #fdd;
-    --color-yellow:         #dd4;
+    --color-yellow:         #ff0;
     --color-yellow-fade:    #ffe;
     --color-miku:           #4dd;
     --color-miku-fade:      #eff;
@@ -30,11 +31,12 @@ $ghprxy: "";
     --color:                #aaf;
     --color-fade:           #224;
     --color-plain:          #fff;
+    --color-mid:            #aaa;
     --color-green:          #aca;
     --color-green-fade:     #232;
     --color-red:            #faa;
     --color-red-fade:       #422;
-    --color-yellow-fade:    #642;
+    --color-yellow-fade:    #662;
     --color-miku-fade:      #066;
     --color-magenta-fade:   #626;
     --color-page:           #002;
@@ -681,16 +683,20 @@ canvas {
                    width:  24px;
     &:horizontal { height: 24px; }
 
-    &-corner { background: #dfdfdf; }
+    &-corner {
+        background: #d1d1f7;
+        box-shadow: inset -3px -3px     #a2a2ee,
+                    inset 3px 3px       #e8e8fb;
+    }
 
     &-track { background: url(/assets/image/scrollbar/bg.png) {size: 4px}; }
 
     &-thumb {
         background: #d1d1f7;
         box-shadow: inset -1.5px -1.5px #44d,
-                    inset 1.5px 1.5px   #fff,
+                    inset  1.5px  1.5px #fff,
                     inset -3px -3px     #a2a2ee,
-                    inset 3px 3px       #e8e8fb;
+                    inset  3px  3px     #e8e8fb;
     }
 
     &-button { background-size: cover !important;
@@ -711,9 +717,9 @@ canvas {
 @mixin scrollbar-dark {
     background: #338;
     box-shadow: inset -1.5px -1.5px #000,
-                inset 1.5px 1.5px   #aaf,
+                inset  1.5px  1.5px #aaf,
                 inset -3px -3px     #224,
-                inset 3px 3px       #44d;
+                inset  3px  3px     #44d;
 }
 
 /* ======== */
@@ -779,7 +785,7 @@ $hs: 4, 6; @each $i in $hs {
 // headers margin block
 $hs: 1, 2, 3, 4, 5, 6; @each $i in $hs {
     h#{$i} { margin-top: 1em; } // 1em top margin if headers is the first element
-    :first-child ~ h#{$i} { @each $i in $hs { h#{$i} { margin-top: 2em; } } } // 2em top margin if else
+    :first-child ~ h#{$i} { margin-top: 2em; } // 2em top margin if else
 }
 
 $hs: 1, 2; @each $i in $hs {
@@ -794,8 +800,9 @@ $hs: 1, 2, 3, 4, 5, 6; @each $i in $hs {
     h#{$i} { @each $i in $hs { +h#{$i} { margin-top: 0 !important; } } }
 }
 
-// reveal url for hyperlinks
-.content a { &::before { content: "¥目标: {{ site.url }}"attr(href) attr(t) !important; } } // requires moardown.scss
+// reveal url for hyperlinks. requires moardown.scss
+.content a                  { &::before { content: "¥目标: {{ site.url }}"attr(href) attr(t) !important; } } // same domain
+.content a[target="_blank"] { &::before { content: "¥目标: "attr(href) attr(t) !important; } } // cross domain
 
 // headers padding
 $hs: 1, 2, 3, 4, 5, 6; @each $i in $hs {
@@ -893,14 +900,15 @@ $hs: 4, 5, 6; @each $i in $hs {
 // list
 ul { ::marker { font-weight: bolder; color: var(--color-magenta); }
                 list-style-type: "☆ ";
-    ul { ::marker { font-size: .7em; }
+    ul { ::marker { font-size: 1em; }
                     list-style-type: hebrew;
         ul { ::marker { font-size: .7em; }
                         list-style-type: "。 ";
             ul { ::marker { font-size: .62em; }
                             // list-style-type: inherit;
                 ul { // ::marker { font-size: inherit; }
-                                list-style-type: "· "; }
+                                list-style-type: "· ";
+                }
             }
         }
     }
@@ -930,6 +938,90 @@ input.task-list-item-checkbox {
     &:checked::before { background: url(/assets/image/button/checked.gif) { size:cover; }; }
 }
 
+:not(pre) >code {
+    color: var(--color-mid);
+    margin-inline: .5em;
+
+    &::before, &::after { content: "/";
+        font-family: "fusion", monospace; 
+        margin-inline: .2em;
+    }
+}
+
+// images:
+// adaptive and rezizeable container & img maximize 
+// overly fucked spaghetti code
+
+.content img { -webkit-user-drag: none; }
+
+p:has(img:not(.icon)) {
+// pos 
+    position: relative;
+    display: block;
+// size
+    width: 60%;
+    max-width: 100%;
+    padding: .75em { top: .5em; };
+    margin-block: 2em;
+    overflow: auto;
+    resize: both;
+// styl
+    text-align: center;
+    border: var(--color) 2px dotted; 
+
+    .window &     { max-height: MAX(100%, 8em); }
+    .fullscreen & { max-height: MAX(50%, 8em); }
+
+    img:not(.icon) {
+    // pos
+        position: relative;
+    // size
+        height: auto; width: auto;
+        box-sizing: border-box;
+        min-width: MAX(20em, 100%);
+        max-width: 100%;
+        margin-top: .25em;
+    // styl
+        border: var(--color-fade) 4px solid;
+        &:hover { border-color: var(--color); }
+    }
+
+    &:has(img:not(.icon):active) {
+    // pos
+        position: fixed;
+        inset: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 201;
+    // size
+        max-width: unset;
+        max-height: unset;
+        overflow: hidden;
+        resize: none;
+    // styl
+        border: none;
+
+        img:not(.icon) {
+        // pos
+            top: 50%;
+            transform: translateY(-50%);
+        // size
+            max-height: 100%;
+            min-width: 100%;
+            object-fit: contain;
+        // styl
+            border: none;
+        }
+    }
+}
+
+.content:has(p img:not(.icon):active)::after { content: "";
+    position: fixed;
+    inset: -2px;
+    background: #000a;
+    z-index: 200;
+};
+
 /* ======== */
 
 
@@ -950,10 +1042,15 @@ input.task-list-item-checkbox {
 
 /* ==== F O N T ==== */
 
-html { font-family: "fusion", monospace; }
-html:has(.fontTg input:checked) { font-family: "ibm", monospace; }
+html {
+    font-family: "fusion", monospace;
+    &:has(.fontTg input:checked) { font-family: "ibm", monospace; }
+}
 
-code, kbd, samp { font-family: "ibm", monospace;}
+code, kbd, samp {
+    font-family: "ibm", monospace;
+    html:has(.fontTg input:checked) & { font-family: "ibm", monospace; }
+}
 
 @font-face { font-family: "fusion";
     font-display: swap;
