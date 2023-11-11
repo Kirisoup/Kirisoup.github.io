@@ -26,3 +26,5 @@ description: 这里是霧雨蘑菇汤的互联网小角落，本店提供：最�
 author: KirisameSoup
 
 locale: zh_CN
+
+# host: kirisoup.github.io # it has no real functionality other than being referenced as a string in stylesheets. 

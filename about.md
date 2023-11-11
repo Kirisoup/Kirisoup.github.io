@@ -3,4 +3,6 @@ layout: default
 title: About
 ---
 
-# about :|
+# 关于：
+
+这里还空空如也，以后再回来看看吧。
