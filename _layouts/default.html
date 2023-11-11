@@ -36,9 +36,11 @@
           <div class="window">
             <main class="content">
               {%- capture opt -%} <img onerror="this.onerror=null; this.src = ghprxy_s + getAttribute('src')" loading="lazy" {% endcapture %}
+              {%- capture pageurl -%} <a pageurl="{{page.url}}" {% endcapture %}
               {%- assign content_baked = content
                 | replace: '<img ', opt
                 | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer" href="http'
+                | replace: '<a', pageurl
               -%}
               {{ content_baked }}
             </main>

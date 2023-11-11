@@ -803,7 +803,7 @@ $hs: 1, 2, 3, 4, 5, 6; @each $i in $hs {
 }
 
 // reveal url for hyperlinks. requires moardown.scss
-.content a                  { &::before { content: "¥目标: {{ site.url }}"attr(href) attr(t) !important; } } // same domain
+.content a                  { &::before { content: "¥目标: {{site.url}}"attr(pageurl) attr(href) attr(t) !important; } } // same domain
 .content a[target="_blank"] { &::before { content: "¥目标: "attr(href) attr(t) !important; } } // cross domain
 
 // headers padding
