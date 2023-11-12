@@ -2,7 +2,7 @@
   link: /home
 - name: 关于
   link: /about
-- name: Markdown 实验室
-  link: /md-lab
+- name: Web 实验室
+  link: /weblab/
 - name: 归档页面
   link: /archive

@@ -5,9 +5,6 @@ iframe { display: initial; } // show navlink after apply style.css
 
 @import "normalize";
 
-$ghprxy: "https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main";
-$ghprxy: "";
-
 :root {
     --color:                #44d;
     --color-sat:            #00f;
@@ -17,7 +14,7 @@ $ghprxy: "";
     --color-green:          #464;
     --color-green-fade:     #efe;
     --color-red:            #d00;
-    --color-red-fade:       #fdd;
+    --color-red-fade:       #fee;
     --color-yellow:         #ff0;
     --color-yellow-fade:    #ffe;
     --color-miku:           #4dd;
@@ -63,7 +60,7 @@ $ghprxy: "";
 html { image-rendering: pixelated; }
 
 // main bg
-html, .nav {
+html {
     background: url(/assets/image/bg.gif) {
         color: #000;
         position: center;
@@ -112,6 +109,8 @@ html:has(.cornerCara:not([id="0"])) {
         // background: url(https://usagif.com/wp-content/uploads/gifs/water-66.gif);
         // background: url(https://64.media.tumblr.com/9af92cc03553bd821021fd950fbc33b5/1534f96efdb15e70-b5/s100x200/6f110ffcfa7afe0af25add8144e9d30fbefc97fe.gifv);
         background: url(/assets/image/xp_.gif) { size: 20vw; };
+        background: url(https://64.media.tumblr.com/1b8577d77a572535172d95b5bb0a070b/tumblr_inline_n25dksRrdF1qhwjx8.gif) { size: cover; };
+        background-position-y: 6 0%;
 
         box-shadow: inset 10px -10px 5px -5px   #44d,
                     inset -30px 0 30px -20px    #44da,
@@ -136,7 +135,7 @@ html:has(.cornerCara:not([id="0"])) {
         &::after { content: "";
             background: url(/assets/image/bannerTxt.png) {
                 size: auto 100% !important;
-                position: calc(100% - MAX(30%, 20px)) !important;
+                position: calc(100% - MAX(20%, 20px)) !important;
             };
             // opacity: .5;
         }
@@ -150,82 +149,40 @@ html:has(.cornerCara:not([id="0"])) {
         .nav {
         // pos
             position: relative;
-        // styl
-            border-inline: #44d 1px solid;
+            z-index: 100;
+            background: #d1d1f7 url(https://64.media.tumblr.com/c63ab1ff7f79b9d030a8a3a14f3535ec/tumblr_inline_mveh0uIwTZ1rfdbtm.png) {position: bottom right};
 
-            &-c {
-            // pos
+            nav {
                 position: relative;
-                z-index: 1;
-            // size
-                height: 100%;
-
+                z-index: -1;
                 p {
-                    padding: { inline: 1em 0;  block: .5em; };
+                    padding: { inline: 1em; block: .5em; };
                     margin-block: 0;
-                    display: flex;
                 }
+
 
                 a, .urHere-i {
                     padding: { right: 100%;  block: .5em; };
                     margin:  { right: -100%; block: -.5em };
                 }
-
-            /* ====link fluid hovering==== */
-
-                text-shadow: #fff 2px 2px;
-                mix-blend-mode: hard-light;
-                color: #2985ff;
-
-                a {
-                    position: relative;
-                    color: #38f;
-
-                    &.urHere {
-                        pointer-events: none;
-                    }
-                }
-
-                .urHere-i {
-                    display: inline-block;
-                }
-
-                /* ====ani==== */
-
+                
                 p {
-                    transition: all 0s .2s,
-                        background-color .4s .2s;
+                    text-shadow: #d1d1f7 2px 2px;
+                    transition: all 0s .2s, background-color 0s .4s;
+    
+                    a {
+                        &.urHere { pointer-events: none; }
+                    }
+    
+                    a, .urHere-i { color: #44d; }    
+
+                    &:nth-child(even) { background: #fff8; }
 
                     &:hover {
                         transition: all 0s;
-                        padding-left: 20%;
-                        background-color: #ccf;
+                        text-align: right !important;
+                        filter: invert(1);
                     }
-                }
-            }
-
-            /* ====Animating coolaf gradient bg==== */
-
-            &-b {
-            // pos
-                position: absolute;
-                left: -25%;
-            // size
-                height: 400%; width: 150%;
-                bottom: 0;
-            // styl
-                mix-blend-mode: lighten;
-                background:
-                    linear-gradient(90deg, #000, #0000 50%),
-                    repeating-linear-gradient(#f80, #f0f 25%, #0ff 37.5%, #8f0 42%, #f80 50%);
-                filter: contrast(2) blur(10px) ;
-
-                /* ====ani==== */
-
-                animation: bgScroll 10s linear infinite;
-                @keyframes bgScroll {
-                    from { bottom: -200%; }
-                    to   { bottom: 0; }
                 }
             }
         }
@@ -235,7 +192,7 @@ html:has(.cornerCara:not([id="0"])) {
     // size
         width: 100%;
     // styl
-        background: #000;
+        background: #0008;
 
         img {
             position: relative;
@@ -299,11 +256,6 @@ html:has(.cornerCara:not([id="0"])) {
     text-justify: inter-ideograph;
     background-color: var(--color-page);
     padding-inline: 3em 2em;
-
-    ::selection {
-        color: var(--color-page);
-        background: var(--color);
-    }
 }
 
 // fullscreen
@@ -434,7 +386,6 @@ html:has(.cornerCara:not([id="0"])) {
         .fullscreen &.fullscreenTg::before { background: url(/assets/image/button/unmax.gif); }
         &.darkTg::before                   { background: url(/assets/image/button/dark.gif);  }
         &.fontTg::before                   { background: url(/assets/image/button/font.gif);  }
-
     }
 
     .window & {
@@ -494,7 +445,7 @@ html:has(.cornerCara:not([id="0"])) {
         inset: 0;
     }
 
-    #soup\.exe:hover ~&-b, #soup\.exe:active ~&-b { transition: opacity 0s; opacity: .2; }
+    #soup\.exe:is(:hover, :active) ~&-b { transition: opacity 0s; opacity: .2; }
 
     /* ====randomBG==== */
 
@@ -542,13 +493,6 @@ html:has(.cornerCara:not([id="0"])) {
     pointer-events: none;
     background: #fff;
 
-    @keyframes flicker {
-        0% { opacity: .65;}
-        50% { opacity: .65;}
-        50.1% { opacity: .5; }
-        100% { opacity: .5; }
-    }
-
     iframe {
         position: absolute;
         width: 100%;
@@ -556,9 +500,16 @@ html:has(.cornerCara:not([id="0"])) {
         z-index: 10;
         inset: 0;
     }
-}
 
-.mask:has(input:checked) ~ .vid { display: block; animation: flicker .05s linear infinite; }
+    .mask:has(input:checked) ~ & { display: block; animation: flicker .05s linear infinite; }
+
+    @keyframes flicker {
+        0% { opacity: .65;}
+        50% { opacity: .65;}
+        50.1% { opacity: .5; }
+        100% { opacity: .5; }
+    }
+}
 
 
 .pc {
@@ -592,12 +543,12 @@ html:has(.cornerCara:not([id="0"])) {
         }
     }
 
-    #soup\.exe:hover ~ .ibm-b &, #soup\.exe:active ~ .ibm-b & {
+    #soup\.exe:is(:hover, :active)  ~ .ibm-b & {
         transition: visibility 0s;
         visibility: visible;
     }
 
-    #soup\.exe:hover ~ .ibm &-b, #soup\.exe:active ~ .ibm &-b {
+    #soup\.exe:is(:hover, :active) ~ .ibm &-b {
         transition: 0s;
         opacity: 0;
     }
@@ -644,16 +595,16 @@ html:has(.cornerCara:not([id="0"])) {
 
 #soup\.exe, .fullscreen { cursor: url(/assets/image/cursor/hat.gif), auto !important; }
 
-@mixin wCursorGif($id) { cursor: url(/assets/image/cursor/hatq#{$id}.gif), auto; }
+@mixin CursorGif($id) { cursor: url(/assets/image/cursor/hatq#{$id}.gif), auto; }
 
 a, button, label, .cornerCara {
     animation: wonderCursor .5s infinite;
     @keyframes wonderCursor {
-        0%   { @include wCursorGif(1) }
-        25%  { @include wCursorGif(2) }
-        50%  { @include wCursorGif(3) }
-        75%  { @include wCursorGif(4) }
-        100% { @include wCursorGif(5) }
+        0%   { @include CursorGif(1) }
+        25%  { @include CursorGif(2) }
+        50%  { @include CursorGif(3) }
+        75%  { @include CursorGif(4) }
+        100% { @include CursorGif(5) }
     }
 }
 
@@ -664,7 +615,7 @@ canvas {
     image-rendering: pixelated;
 }
 
-#soup\.exe:hover, #soup\.exe:active {
+#soup\.exe:is(:hover, :active) {
     ~ canvas {
         opacity: 0;
         animation: hideCanvas .5s linear forwards;
@@ -681,40 +632,54 @@ canvas {
 
 
 /* ==== S C R O L L B A R ==== */
-.window, .fullscreen { ::-webkit-scrollbar {
-                   width:  24px;
-    &:horizontal { height: 24px; }
+.window, .fullscreen {
+    ::-webkit-scrollbar {
+                       width:  16px;
+        &:horizontal { height: 16px; }
 
-    &-corner {
-        background: #d1d1f7;
-        box-shadow: inset -3px -3px     #a2a2ee,
-                    inset 3px 3px       #e8e8fb;
-    }
-
-    &-track { background: url(/assets/image/scrollbar/bg.png) {size: 4px}; }
-
-    &-thumb {
-        background: #d1d1f7;
-        box-shadow: inset -1.5px -1.5px #44d,
-                    inset  1.5px  1.5px #fff,
-                    inset -3px -3px     #a2a2ee,
-                    inset  3px  3px     #e8e8fb;
-    }
-
-    &-button { background-size: cover !important;
-
-        &:horizontal, &:vertical { &:start:decrement, &:end:increment { display: block; }}
-
-        &:vertical { height: 24px;
-            &:start { background: url(/assets/image/scrollbar/up.png); }
-            &:end   { background: url(/assets/image/scrollbar/down.png); }
+        &-corner {
+            background: #d1d1f7;
+            box-shadow: inset -3px -3px     #a2a2ee,
+                        inset 3px 3px       #e8e8fb;
         }
-        &:horizontal { width: 24px;
-            &:start { background: url(/assets/image/scrollbar/left.png); }
-            &:end   { background: url(/assets/image/scrollbar/right.png); }
+
+        &-track { background: url(/assets/image/scrollbar/bg.png) {size: 4px}; }
+
+        &-thumb {
+            background: #d1d1f7;
+            box-shadow: inset -1.5px -1.5px #44d,
+                        inset  1.5px  1.5px #fff,
+                        inset -3px -3px     #a2a2ee,
+                        inset  3px  3px     #e8e8fb;
+        }
+
+        &-button { background-size: cover !important;
+
+            &:horizontal, &:vertical { &:start:decrement, &:end:increment { display: block; }}
+
+            &:vertical { height: 16px;
+                &:start { background: url(/assets/image/scrollbar/up.png); }
+                &:end   { background: url(/assets/image/scrollbar/down.png); }
+            }
+            &:horizontal { width: 16px;
+                &:start { background: url(/assets/image/scrollbar/left.png); }
+                &:end   { background: url(/assets/image/scrollbar/right.png); }
+            }
         }
     }
-}}
+
+    .content::-webkit-scrollbar {
+                       width:  24px !important;
+        &:horizontal { height: 24px !important; }
+
+        &-button {
+            &:vertical { height: 24px !important; }
+            &:horizontal { width: 24px !important; }
+        }
+    }
+}
+
+
 
 @mixin scrollbar-dark {
     background: #338;
@@ -732,10 +697,16 @@ canvas {
 
 html {
     color: #000;
-    text-underline-offset: 25%;
+    text-underline-offset: 12.5%;
+}
+
+::selection {
+    color: var(--color-page);
+    background: var(--color);
 }
 
 .content { color: var(--color) !important;
+    overflow-wrap: break-word;
 
     >p:not([class], :has(img)):after { content: "湯";
     //pos
@@ -752,7 +723,11 @@ html {
     }
 }
 
-a {
+pre {
+    overflow-x: auto;
+}
+
+.content a {
     position: relative;
     color: var(--color-miku);
 
@@ -760,15 +735,6 @@ a {
         position: absolute;
         inset: -.5em;
     }
-
-    &::selection, ::selection {
-        background: var(--color-miku) !important;
-    }
-}
-
-[norm] {
-    color: var(--color-miku);
-    text-decoration: underline;
 }
 
 /* HEADERS */
@@ -777,6 +743,7 @@ a {
 $hs: 1, 2, 3, 4; @each $i in $hs {
     h#{$i}, .fake.h#{$i} { font-weight: bolder; }
 }
+
 $hs: 5, 6; @each $i in $hs {
     h#{$i}, .fake.h#{$i} { font-weight: normal; }
 }
@@ -801,10 +768,6 @@ $hs: 3, 4, 5, 6; @each $i in $hs {
 $hs: 1, 2, 3, 4, 5, 6; @each $i in $hs {
     h#{$i} { @each $i in $hs { +h#{$i} { margin-top: 0 !important; } } }
 }
-
-// reveal url for hyperlinks. requires moardown.scss
-.content a                  { &::before { content: "¥目标: {{site.host}}"attr(pageurl) attr(href) attr(t) !important; } } // same domain
-.content a[target="_blank"] { &::before { content: "¥目标: "attr(href) attr(t) !important; } } // cross domain
 
 // headers padding
 $hs: 1, 2, 3, 4, 5, 6; @each $i in $hs {
@@ -916,8 +879,7 @@ ul { ::marker { font-weight: bolder; color: var(--color-magenta); }
     }
 }
 
-li { margin-bottom: .5em; }
-ul { margin-top: .5em; }
+td ul { margin-block: 0; }
 
 // check
 
@@ -941,18 +903,19 @@ input.task-list-item-checkbox {
 }
 
 :not(pre) >code {
-    color: var(--color-mid);
+    // color: var(--color-mid);
+    background: var(--color-page);
     margin-inline: .5em;
 
-    &::before, &::after { content: "/";
-        font-family: "fusion", monospace; 
+    &:is(::before, ::after) { content: "/";
+        // font-family: "fusion", monospace; 
         margin-inline: .2em;
     }
 }
 
 // images:
 // adaptive and rezizeable container & img maximize 
-// overly fucked spaghetti code
+// overly fucked-up spaghetti code
 
 .content img { -webkit-user-drag: none; }
 
@@ -971,9 +934,9 @@ p:has(img:not(.icon)) {
     text-align: center;
     border: var(--color) 2px dotted; 
 
-    .window & { max-height: MAX(20vh, 8em); }
+    .window &           { max-height: MAX(20vh, 8em); }
     .window .content >& { max-height: MAX(100%, 8em); }
-    .fullscreen & { max-height: MAX(50vh, 8em); }
+    .fullscreen &       { max-height: MAX(50vh, 8em); }
 
     img:not(.icon) {
     // pos
@@ -1037,7 +1000,7 @@ p:has(img:not(.icon)) {
 
 .fullscreen:has(.darkTg input:checked) { @include fullscreen-dark; }
 
-.window, .fullscreen { &:has(.darkTg input:checked) { ::-webkit-scrollbar-thumb { @include scrollbar-dark; }}}
+:is(.window, .fullscreen):has(.darkTg input:checked) ::-webkit-scrollbar-thumb { @include scrollbar-dark; }
 
 /* ======== */
 
@@ -1068,8 +1031,6 @@ code, kbd, samp {
 /* ======== */
 
 @import "code";
-
-@import "moardown";
 
 @import "neko";
 

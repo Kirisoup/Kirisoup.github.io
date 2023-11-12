@@ -8,6 +8,6 @@
         };
     }
 </script>
-<script src="http://api.ipify.org?format=jsonp&callback=getIP" async></script>
+<script src="http://api.ipify.org?format=jsonp&callback=getIP" async priority="low"></script>
 {% endcapture %}
 {{ ip | strip_newlines | normalize_whitespace }}

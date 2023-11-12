@@ -22,9 +22,8 @@ html {
     left: 40%; top: 45%;
     transform: translate(-40%, -45%);
 // size
-    // @include sizeUni(52);
-    height: calc(52 * 9vw/16);
-    aspect-ratio: 2.6;
+    height: calc(48vw * 9/16);
+    aspect-ratio: 2.8;
 
     // flex
     display: flex;
@@ -37,8 +36,7 @@ html {
 
         .banner {
             position: relative;
-            // @include sizeUni(10);
-            height: MAX(calc(10 * 9vw/16), 10vh);
+            height: MAX(calc(10vw * 9/16), 10vh);
         }
 
         .main {
@@ -48,15 +46,15 @@ html {
             display: flex;
 
             .nav {
-                max-width: calc(20 * 9vw/16);
+                max-width: calc(20vw * 9/16);
                 flex: 3;
                 min-width: min-content;
             }
 
             .window {
+                position: relative;
                 flex: 10;
                 display: flex;
-                // flex-direction: row-reverse;
 
                 .content {
                     position: relative;
@@ -68,16 +66,17 @@ html {
 
         .bottom {
             --height: 10%;
-            position: absolute;
-            top: MAX(calc(100% - var(--height)), 320px);
+            // position: absolute;
+            // top: MAX(calc(100% - var(--height)), 320px);
             z-index: 1;
-            height: var(--height);
+            height: MIN(5vh, calc(100% - 40vh));
+            // height: 20px;
         }
     }
 
     .c2 {
         position: relative;
-        max-width: calc(35 * 9vw/16);
+        max-width: calc(35vw * 9/16);
         flex: 3;
         z-index: 1;
     }
@@ -92,4 +91,4 @@ html {
 
 #soup\.exe, .body, .banner, .main, .nav, .bottom, .window { overflow: hidden; }
 
-.nav-c, .content { overflow: hidden scroll; }
+.content { overflow: hidden scroll; }

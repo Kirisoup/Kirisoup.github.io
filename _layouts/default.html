@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh_cn">
+<html lang="en_us">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +13,6 @@
     </title>
     <script async src="/assets/js/fallback-dom.js" onerror="this.onerror=null;newScript=document.createElement('script');newScript.src ='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/fallback-dom.js';document.head.appendChild(newScript);"></script> <!-- store ghproxy prepended link as variable -->
     <link rel="stylesheet" href="/assets/css/default/layout.css" onerror="fall(this)"> <!-- essential stylesheet -->
-    <link rel="stylesheet" href="/assets/css/default/style.css" id="style" onerror="fall(this)" media="print" onload="this.onload=null;this.removeAttribute('media');" > <!-- async stylesheet -->
-    <noscript><link rel="stylesheet" href="/assets/css/default/style.css" id="style-nojs"></noscript> <!-- non-js fallback (no onerror for gfw suckers because, well, noscript) -->
-    <script async src="/assets/js/fallback-cssAsset.js" onerror="fallsc(this)"></script> <!-- load stylesheet asset with ghproxy if needed for gfw suckers -->
-    <script async src="/assets/js/cursor.js"            onerror="fallsc(this)"></script> <!-- cursor trace -->
-    <script> window.addEventListener("load", (event) => { new cursoreffects.ghostCursor(); }); </script> <!-- cursor trace -->
   </head>
   <body>
     <!-- change id only if javascript is enabled -->
@@ -30,12 +25,11 @@
         <div class="banner"></div>
         <div class="main">
           <div class="nav">
-            <div class="nav-c">{% include nav.html %}</div>
-            <div class="nav-b"></div>
+            <nav> {% include nav.html %} </nav>
           </div>
           <div class="window">
             <main class="content">
-              {%- capture opt -%} <img onerror="this.onerror=null; this.src = ghprxy_s + getAttribute('src')" loading="lazy" {% endcapture %}
+              {%- capture opt -%} <img onerror="this.onerror=null; this.src = ghprxy_s + getAttribute('src')" loading="lazy" fetchpriority="low" {% endcapture %}
               {%- capture pageurl -%} <a pageurl="{{page.url}}" {% endcapture %}
               {%- assign content_baked = content
                 | replace: '<img ', opt
@@ -79,7 +73,7 @@
       <div class="content f">
         {{ content_baked
           | replace: 'id="', 'id="f_'
-          | replace: 'a href="#', 'a href="#f_'
+          | replace: 'href="#', 'href="#f_'
         }}
       </div> <!-- really stupid way to fix duplicated id issue -->
       <div class="bottomBar">
@@ -102,9 +96,16 @@
       </div>
       <div class="pc-b"></div>
     </div>
-    <script async src="/assets/js/queryStrings.js" onerror="fallsc(this)"></script>
-    <script async src="/assets/js/link-id-copy.js" onerror="fallsc(this)"></script>
-    <script async src="/assets/js/resize-sync.js"  onerror="fallsc(this)"></script>
-    <script async src="/assets/neko/oneko.js"      onerror="fallsc(this)"></script>
   </body>
+  <footer>
+    <link rel="stylesheet" href="/assets/css/default/style.css" id="style" priority="high" onerror="fall(this)"> <!-- async stylesheet -->
+    <link rel="stylesheet" href="/assets/css/markaround.css" priority="low" onerror="fall(this)"> <!-- async stylesheet -->
+    <script defer src="/assets/js/fallback-cssAsset.js" onerror="fallsc(this)"></script> <!-- load stylesheet asset with ghproxy if needed for gfw suckers -->
+    <script defer src="/assets/js/cursor.js"            onerror="fallsc(this)" priority="low"></script> <!-- cursor trace -->
+    <script> window.addEventListener("load", (event) => { new cursoreffects.ghostCursor(); }); </script> <!-- cursor trace -->
+    <script defer src="/assets/js/queryStrings.js" onerror="fallsc(this)"></script>
+    <script defer src="/assets/js/link-id-copy.js" onerror="fallsc(this)"></script>
+    <script defer src="/assets/js/resize-sync.js"  onerror="fallsc(this)"></script>
+    <script defer src="/assets/neko/oneko.js"      onerror="fallsc(this)" priority="low"></script>
+  </footer>
 </html>

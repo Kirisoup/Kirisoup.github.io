@@ -2,7 +2,7 @@
 <script>
     doneWeather = false;
 
-    fetch('https://api.open-meteo.com/v1/forecast?latitude=36.7&longitude=137.85&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo&past_days=1&forecast_days=8')
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=36.7&longitude=137.85&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo&past_days=1&forecast_days=8', {priority: 'low'})
     .then(response => response.json())
     .then(jsonWeather => { if (!doneWeather) { doneWeather = true;
 
@@ -76,4 +76,4 @@
     }})
 </script>
 {% endcapture %}
-{{ weather | remove: "<script>" | remove: "</script>"}}
+{{ weather | remove: "<script>" | remove: "</script>" }}

@@ -80,14 +80,9 @@ checkUrl(Url1, Timeout1)
                     })
                     .catch(error => {
                         console.error('ghProxy 连接', error, '，不使用代理服务加载网页资源。');
-                        console.log('您此时无法正常访问 github，且 ghProxy 代理服务此时处于离线状态，网页资源下载速度可能变慢或完全失效。\n',
-                        '请等待 ghProxy 上线后再次访问本网页，或自行配置网络代理恢复 github 访问！')
-
                     });        
                 } else {
                     console.error('ghProxy 连接失败，不使用代理服务加载网页资源。');
-                    console.log('您此时无法正常访问 github，且 ghProxy 代理服务此时处于离线状态，网页资源下载速度可能变慢或完全失效。',
-                        '\n请等待 ghProxy 上线后再次访问本网页，或自行配置网络代理恢复 github 访问！')
                 }
             });
     });

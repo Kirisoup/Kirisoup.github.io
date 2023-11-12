@@ -10,7 +10,10 @@
 <loc>http://localhost:4000/home</loc>
 </url>
 <url>
-<loc>http://localhost:4000/md-lab</loc>
+<loc>http://localhost:4000/weblab/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/weblab/markaround</loc>
 </url>
 <url>
 <loc>http://localhost:4000/we_fuck_gfw</loc>

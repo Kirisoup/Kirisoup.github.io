@@ -2,10 +2,30 @@
 title: MarkDown 实验室
 ---
 
-# MoarDown - *Markdown 语法扩充类*{:.small}！: {#head}
+# MarkAround 实验室: {#head}
+*基于样式表的 Markdown (Kramdown) 语法扩展*{:.bigger.stroke.echorb.sparkle}
+
+## 需要在自己网站上使用？
+在网页 sass/scss 格式的样式表中添加以下代码即可：
+
+    @import "https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_sass/markaround.scss";
+
+
+
+或者也可以通过将 [markaround.scss](https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_sass/markaround.scss) 克隆至你的Jekyl仓库下的`_sass` 文件夹后，在 sass/scss 格式的样式表中添加`@import "markaround";`
+
+### 如果你的网站不支持构建 sass/scss：
+编译完成的css样式表可在 [此处](https://kirisoup.github.io/assets/css/markaround.css) 获取。
+
+在页面html文件的`<head>`标签下添加以下代码，或者自行克隆到网页的仓库下使用。
+
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/assets/css/markaround.css">
+
+> 注：推荐使用 Kramdown 或类似拥有类似功能的 MD 处理器简化为文章元素添加属性的过程。
+{:.info}
+
 
 ## 目录 {#index}
-
 - 目录
 {:toc}
 
@@ -14,11 +34,12 @@ title: MarkDown 实验室
 ## 常规分类: {#regular}
 
 ### 大小: {#size}
-- *.bigger*{:.bigger} *[^how2attr]*{:norm="[>>使用 Kramdown 语法为元素分配特殊属性]"}
+- 普通大小（作为对比）
+- *.bigger*{:.bigger} [^how2attr]
 - *.big*{:.big} 
 - *.small*{:.small} 
 - *.smaller*{:.smaller}
-- *.size*{:.size style="--s:1.096"} *[^how2var]*{:norm="[>>使用 css 变量设置元素的额外属性配置]"}
+- *.size*{:.size style="--s:1.096"} [^how2var]
   - \-\-s: 1.096 *(自定义大小倍率)*
 
 [^how2attr]: 
@@ -42,8 +63,8 @@ title: MarkDown 实验室
     
     - 为行内元素添加属性：
       - 段落内容 *\*文字\*\{:.cfuchsia}*{:.cfuchsia} 段落内容。  
-        *[^how2attr-em]*{:norm="[>>关于斜体与行内属性]"}
-    
+        [^how2attr-em]
+
     ---
     {:.break}
     
@@ -51,7 +72,7 @@ title: MarkDown 实验室
       *\{:.bfuchsia.cfuchsia}<br>段落内容段落内容段落内容。*{:.bfuchsia.cfuchsia style="padding:.5em"}
     
       > \{: } 也可置于段落下方
-      {:.note}
+      {:.info}
 
     > 详见：https://kramdown.gettalong.org/syntax.html#attribute-list-definitions
     {:.info}
@@ -73,25 +94,26 @@ title: MarkDown 实验室
     {:.info}
 
 ### 伪标题: {#fake-title}
-- <span>.fake.h1</span>{:.fake.h1} 
-- <span>.fake.h2</span>{:.fake.h2} 
-- <span>.fake.h3</span>{:.fake.h3} 
-- <span>.fake.h4</span>{:.fake.h4} 
-- <span>.fake.h5</span>{:.fake.h5} 
-- <span>.fake.h6</span>{:.fake.h6}
+- <h>.fake.h1</h>{:.fake.h1} 
+- <h>.fake.h2</h>{:.fake.h2} 
+- <h>.fake.h3</h>{:.fake.h3} 
+- <h>.fake.h4</h>{:.fake.h4} 
+- <h>.fake.h5</h>{:.fake.h5} 
+- <h>.fake.h6</h>{:.fake.h6}
 
 ### 对齐: {#align} 
+> *靠左：.l*{:.l} 
 > *居中：.c*{:.c} 
 > *靠右：.r*{:.r}
 
 ### 修饰线: {#line}
-- ||| 下划线 | 上划线 | 删除线 | 混合 |
-  |---|---|---|---|---|---|
-  | 正常线 || *.u*{:.u}         | *.ovl*{:.ovl}         | *.dll*{:.dll}         | *.u.ovl.dll*{:.u.ovl.dll}         |
-  | 段虚线 || *.u.-d*{:.u.-d}   | *.ovl.-d*{:.ovl.-d}   | *.dll.-d*{:.dll.-d}   | *.u.ovl.dll.-d*{:.u.ovl.dll.-d}   |
-  | 点虚线 || *.u.-do*{:.u.-dd} | *.ovl.-do*{:.ovl.-dd} | *.dll.-do*{:.dll.-dd} | *.u.ovl.dll.-do*{:.u.ovl.dll.-dd} |
-  | 双层线 || *.u.-db*{:.u.-db} | *.ovl.-db*{:.ovl.-db} | *.dll.-db*{:.dll.-db} | *.u.ovl.dll.-db*{:.u.ovl.dll.-db} |
-  | 波浪线 || *.u.-w*{:.u.-w}   | *.ovl.-w*{:.ovl.-w}   | *.dll.-w*{:.dll.-w}   | *.u.ovl.dll.-w*{:.u.ovl.dll.-w}   |
+- | | 下划线 | 上划线 | 删除线 | 混合
+  |---|---|---|---|---|---
+  | 正常线 | *.u*{:.u}         | *.ovl*{:.ovl}         | *.dll*{:.dll}         | *.u.ovl.dll*{:.u.ovl.dll}
+  | 段虚线 | *.u.-d*{:.u.-d}   | *.ovl.-d*{:.ovl.-d}   | *.dll.-d*{:.dll.-d}   | *.u.ovl.dll.-d*{:.u.ovl.dll.-d}
+  | 点虚线 | *.u.-do*{:.u.-dd} | *.ovl.-do*{:.ovl.-dd} | *.dll.-do*{:.dll.-dd} | *.u.ovl.dll.-do*{:.u.ovl.dll.-dd}
+  | 双层线 | *.u.-db*{:.u.-db} | *.ovl.-db*{:.ovl.-db} | *.dll.-db*{:.dll.-db} | *.u.ovl.dll.-db*{:.u.ovl.dll.-db}
+  | 波浪线 | *.u.-w*{:.u.-w}   | *.ovl.-w*{:.ovl.-w}   | *.dll.-w*{:.dll.-w}   | *.u.ovl.dll.-w*{:.u.ovl.dll.-w}
   {:.t style="line-height:2em"}
 
 - markdown原版语法的删除线: 
@@ -103,121 +125,135 @@ title: MarkDown 实验室
 
 ### 颜色: {#color}
 
-- *.white*{:.white.hblack}
-- *.silver*{:.silver}
-- *.gray*{:.gray}
-- *.black*{:.black.hwhite}
-- *.red*{:.red}
-- *.maroon*{:.maroon}
-- *.yellow*{:.yellow}
-- *.olive*{:.olive}
-- *.lime*{:.lime}
-- *.green*{:.green}
-- *.aqua*{:.aqua}
-- *.teal*{:.teal}
-- *.blue*{:.blue}
-- *.navy*{:.navy}
-- *.fuchsia*{:.fuchsia}
-- *.purple*{:.purple}
+| - *.white*{:.white.hbc}   | *.wh*{:.wh.hbc}
+| - *.silver*{:.silver}     | *.si*{:.si}
+| - *.gray*{:.gray}         | *.gr*{:.gr}
+| - *.black*{:.black.hw}    | *.bc*{:.bc.hwh}
+| - *.red*{:.red}           | *.re*{:.re}
+| - *.maroon*{:.maroon}     | *.ma*{:.ma}
+| - *.yellow*{:.yellow.hbc} | *.ye*{:.ye.hbc}
+| - *.olive*{:.olive}       | *.ol*{:.ol}
+| - *.lime*{:.lime}         | *.li*{:.li}
+| - *.green*{:.green}       | *.gr*{:.gr}
+| - *.aqua*{:.aqua}         | *.aq*{:.aq}
+| - *.teal*{:.teal}         | *.te*{:.te}
+| - *.blue*{:.blue}         | *.bl*{:.bl}
+| - *.navy*{:.navy}         | *.na*{:.na}
+| - *.fuchsia*{:.fuchsia}   | *.fu*{:.fu}
+| - *.purple*{:.purple}     | *.pu*{:.pu}
 
 ### 背景色: {#background}
 - \-\-hd: 0.05em *(背景、边框距离)*
+- *.h*{:.h}
 
-- *.hwhite*{:.hwhite}
-- *.hsilver*{:.hsilver}
-- *.hgray*{:.hgray}
-- *.hblack*{:.hblack}
-- *.hred*{:.hred}
-- *.hmaroon*{:.hmaroon}
-- *.hyellow*{:.hyellow}
-- *.holive*{:.holive}
-- *.hlime*{:.hlime}
-- *.hgreen*{:.hgreen}
-- *.haqua*{:.haqua}
-- *.hteal*{:.hteal}
-- *.hblue*{:.hblue}
-- *.hnavy*{:.hnavy}
-- *.hfuchsia*{:.hfuchsia}
-- *.hpurple*{:.hpurple}
+| - *.hwhite*{:.hwhite}     | *.hwh*{:.hwh}
+| - *.hsilver*{:.hsilver}   | *.hsi*{:.hsi}
+| - *.hgray*{:.hgray}       | *.hgr*{:.hgr}
+| - *.hblack*{:.hblack}     | *.hbc*{:.hbc}
+| - *.hred*{:.hred}         | *.hre*{:.hre}
+| - *.hmaroon*{:.hmaroon}   | *.hma*{:.hma}
+| - *.hyellow*{:.hyellow}   | *.hye*{:.hye}
+| - *.holive*{:.holive}     | *.hol*{:.hol}
+| - *.hlime*{:.hlime}       | *.hli*{:.hli}
+| - *.hgreen*{:.hgreen}     | *.hgr*{:.hgr}
+| - *.haqua*{:.haqua}       | *.haq*{:.haq}
+| - *.hteal*{:.hteal}       | *.hte*{:.hte}
+| - *.hblue*{:.hblue}       | *.hbl*{:.hbl}
+| - *.hnavy*{:.hnavy}       | *.hna*{:.hna}
+| - *.hfuchsia*{:.hfuchsia} | *.hfu*{:.hfu}
+| - *.hpurple*{:.hpurple}   | *.hpu*{:.hpu}
 
 ### 边框色: {#border}
 - \-\-bw: 2px *(边框粗细)*
 - \-\-bd: 0.05em *(背景、边框距离)*
 
-- *.bwhite*{:.bwhite}
-- *.bsilver*{:.bsilver}
-- *.bgray*{:.bgray}
-- *.bblack*{:.bblack}
-- *.bred*{:.bred}
-- *.bmaroon*{:.bmaroon}
-- *.byellow*{:.byellow}
-- *.bolive*{:.bolive}
-- *.blime*{:.blime}
-- *.bgreen*{:.bgreen}
-- *.baqua*{:.baqua}
-- *.bteal*{:.bteal}
-- *.bblue*{:.bblue}
-- *.bnavy*{:.bnavy}
-- *.bfuchsia*{:.bfuchsia}
-- *.bpurple*{:.bpurple}
+| - *.bwhite*{:.bwhite}     | *.bwh*{:.bwh}
+| - *.bsilver*{:.bsilver}   | *.bsi*{:.bsi}
+| - *.bgray*{:.bgray}       | *.bgr*{:.bgr}
+| - *.bblack*{:.bblack}     | *.bbc*{:.bbc}
+| - *.bred*{:.bred}         | *.bre*{:.bre}
+| - *.bmaroon*{:.bmaroon}   | *.bma*{:.bma}
+| - *.byellow*{:.byellow}   | *.bye*{:.bye}
+| - *.bolive*{:.bolive}     | *.bol*{:.bol}
+| - *.blime*{:.blime}       | *.bli*{:.bli}
+| - *.bgreen*{:.bgreen}     | *.bgr*{:.bgr}
+| - *.baqua*{:.baqua}       | *.baq*{:.baq}
+| - *.bteal*{:.bteal}       | *.bte*{:.bte}
+| - *.bblue*{:.bblue}       | *.bbl*{:.bbl}
+| - *.bnavy*{:.bnavy}       | *.bna*{:.bna}
+| - *.bfuchsia*{:.bfuchsia} | *.bfu*{:.bfu}
+| - *.bpurple*{:.bpurple}   | *.bpu*{:.bpu}
 
 ### 注音: {#ruby}
 - *这是文字*{:r="这是注音"}
 
-  `*这是文字*{:r="这是注音"}`
+      *这是文字*{:r="这是注音"}
 
-- *这*{:r="zhe"} *是*{:r="shi"} *文*{:r="zhu"} *字*{:r="yin"}
+- *这*{:r="zhè"}*是*{:r="shì"}*文*{:r="zhù"}*字*{:r="yīn"}
 
-  ```
-  *这*{:r="zhe"}
-  *是*{:r="shi"}
-  *文*{:r="zhu"}
-  *字*{:r="yin"}
-  ```
+      *这*{:r="zhè"}
+      *是*{:r="shì"}
+      *文*{:r="zhù"}
+      *字*{:r="yīn"}
+
+### 隐藏: {#del}
+> 将鼠标悬浮到文本上
+{:.info}
+
+- *.del*{:.del}
+- *.blur*{:.blur}
+  - *.blurrier*{:.blurrier}
+  - \-\-br: 0.1em *(模糊半径)*
+- *这是一段普通的文字*{:reveal="{:reveal=\"替换内容\"}"}
 
 ### 悬浮提示: {#tip}
+> html 也有自带悬浮提示，即 title="" 属性：*{:title="这是提示"}*{:.u title="这是提示"}
+{:.info}
 
-- html 自带的悬浮提示：*{:title="这是提示"}*{:title="这是提示"}
-
-#### 更华丽的提示: {#tip-fancy}
 - *{:t="这是提示"}*{:t="这是提示"}
+
 - *{:t="这是提示" .above}*{:t="这是提示" .above}
+
 - *{:t="这是提示" style="--tc:#d44"}*{:t="这是提示" style="--tc:#d44"}
   - \-\-tc: #44d *(提示颜色)*
 
+### 全宽链接: {#full-width-link}
+> 用来制作舒适的链接列表效果
+- [\[标题0\](地址0)\{:.ab}](#full-width-link){:.ab}
+- [\[标题1\](地址1)\{:.ab}](#full-width-link){:.ab}
+- [\[标题2\](地址2)\{:.ab}](#full-width-link){:.ab}
+- [\[标题3\](地址3)\{:.ab}](#full-width-link){:.ab}
+- [\[标题4\](地址4)\{:.ab}](#full-width-link){:.ab}
+
 ### 表格: {#table}
-- 表格默认另开新行，加入 .i 类可转成行内表格
 - 平表格
   - |1|a|b|c|
     |2|d|e|f|
     |3|g|h|i|
     |4|j|k|l|
-    {:.i}
 
-    ||`|1|a|b|c|`|
-    ||`|2|d|e|f|`|
-    ||`|3|g|h|i|`|
-    ||`|4|j|k|l|`|
-    {:.i}
+        |1|a|b|c|
+        |2|d|e|f|
+        |3|g|h|i|
+        |4|j|k|l|
 
 - 普通表格
   - |1|a|b|c|
     |2|d|e|f|
     |3|g|h|i|
     |4|j|k|l|
-    {:.t.i}
+    {:.t}
 
-    ||`|1|a|b|c|`|
-    ||`|2|d|e|f|`|
-    ||`|3|g|h|i|`|
-    ||`|4|j|k|l|`|
-    ||`{:.t}`|
-    {:.i}
+        |1|a|b|c|
+        |2|d|e|f|
+        |3|g|h|i|
+        |4|j|k|l|
+        {:.t}`|
 
-  - ||一|二|三|
+  - | |一|二|三|
     |---
-    |1|a|b|c|
-    |2|d|e|f|
+    | 1|a|b|c|
+    | 2|d|e|f|
     |---
     |1|a|b|c|
     |2|d|e|f|
@@ -225,37 +261,36 @@ title: MarkDown 实验室
     |4|j|k|l|
     |===
     |0|z|z|z|
-    {:.t.i h="这是表格"}
+    {:.t h="这是表格"}
 
-    ||`| |一|二|三|`|
-    ||`|----------|`|
-    ||`|1|a |b |c |`|
-    ||`|2|d |e |f |`|
-    ||`|----------|`|
-    ||`|1|a |b |c |`|
-    ||`|2|d |e |f |`|
-    ||`|3|g |h |i |`|
-    ||`|4|j |k |l |`|
-    ||`|==========|`|
-    ||`|0|z |z |z |`|
-    ||`{:.t h="这是表格"}`|
-    {:.i}
+        | |一|二|三|
+        |----------|
+        |1|a |b |c |
+        |2|d |e |f |
+        |----------|
+        |1|a |b |c |
+        |2|d |e |f |
+        |3|g |h |i |
+        |4|j |k |l |
+        |==========|
+        |0|z |z |z |
+        {:.t h="这是表格"}`|
+
 
 - 简单表格
   - |1|a|b|c|
     |2|d|e|f|
     |3|g|h|i|
     |4|j|k|l|
-    {:.ts.i}
+    {:.ts}
 
-    ||`|1|a|b|c|`|
-    ||`|2|d|e|f|`|
-    ||`|3|g|h|i|`|
-    ||`|4|j|k|l|`|
-    ||`{:.ts}`|
-    {:.i}
+        |1|a|b|c|
+        |2|d|e|f|
+        |3|g|h|i|
+        |4|j|k|l|
+        {:.ts}
 
-  - ||一|二|三|
+  - | |一|二|三|
     |---
     |1|a|b|c|
     |2|d|e|f|
@@ -266,25 +301,24 @@ title: MarkDown 实验室
     |4|j|k|l|
     |===
     |0|z|z|z|
-    {:.ts.i h="这是表格"}
+    {:.ts h="这是表格"}
 
-    ||`| |一|二|三|`|
-    ||`|----------|`|
-    ||`|1|a |b |c |`|
-    ||`|2|d |e |f |`|
-    ||`|----------|`|
-    ||`|1|a |b |c |`|
-    ||`|2|d |e |f |`|
-    ||`|3|g |h |i |`|
-    ||`|4|j |k |l |`|
-    ||`|==========|`|
-    ||`|0|z |z |z |`|
-    ||`{:.ts h="这是表格"}`|
-    {:.i}
+        | |一|二|三|
+        |----------|
+        |1|a |b |c |
+        |2|d |e |f |
+        |----------|
+        |1|a |b |c |
+        |2|d |e |f |
+        |3|g |h |i |
+        |4|j |k |l |
+        |==========|
+        |0|z |z |z |
+        {:.ts h="这是表格"}
 
 - --tbc: 调整空表格**以外**的表格颜色
 - --tbtc: 调整表格文字颜色
-  - ||一|二|三|
+  - | |一|二|三|
     |---
     |1|a|b|c|
     |2|d|e|f|
@@ -295,21 +329,20 @@ title: MarkDown 实验室
     |4|j|k|l|
     |===
     |0|z|z|z|
-    {:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}
+    {:.t h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}
 
-    ||`| |一|二|三|`|
-    ||`|----------|`|
-    ||`|1|a |b |c |`|
-    ||`|2|d |e |f |`|
-    ||`|----------|`|
-    ||`|1|a |b |c |`|
-    ||`|2|d |e |f |`|
-    ||`|3|g |h |i |`|
-    ||`|4|j |k |l |`|
-    ||`|==========|`|
-    ||`|0|z |z |z |`|
-    ||`{:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}`|
-    {:.i}
+        | |一|二|三|
+        |----------|
+        |1|a |b |c |
+        |2|d |e |f |
+        |----------|
+        |1|a |b |c |
+        |2|d |e |f |
+        |3|g |h |i |
+        |4|j |k |l |
+        |==========|
+        |0|z |z |z |
+        {:.t.i h="这是品红色表格" style="--tbc: #d4d; --tbtc: #d4d"}
 
 ### 文本块: {#block}
 - 平文本块：
@@ -319,12 +352,6 @@ title: MarkDown 实验室
     > 
     > \{:.info}
     {:.info}
-- 注释块：
-    > \> 文本
-    > 
-    > \{:.note}
-    {:.note}
-
 - 警告块：
     > \> 文本
     > 
@@ -352,12 +379,39 @@ title: MarkDown 实验室
     > \{:.layer}
     {:.layer}
 
+### 脚注: {#footnote}
 
+- 普通（序号）脚注：\[^title] [^title]
+
+      [^title]: 
+          示例：普通脚注。这是一段文字
+
+          另一段文字
+
+          > 提示文字块
+          {:.info}
+
+- 文字脚注：\*\[^title2]\*\{:foot="我是脚注"} *[^title2]*{:foot="我是脚注"}
+
+[^title]:
+    示例：普通（序号）脚注。这是一段文字
+
+    另一段文字
+
+    > 提示文字块
+    {:.info}
+
+[^title2]:
+    示例：文字脚注。一段文字
+
+    另一段文字
+
+    > 提示文字块
+    {:.info}
 
 ## 华丽装饰类！: {#fancy}
 
 ### 彩虹: {#rainbow}
-
 {:.warn}
 > 不兼容阴影 .shadow 与描边 .stroke
 
@@ -416,7 +470,6 @@ title: MarkDown 实验室
 ---
 
 ## 文字排版测试用
-
 午后之时，那银白色的幻想乡。
 
 白雪静静地飘落于尚未开发的自然之中，显现出充满幻想的壮观景象。只能听见妖怪惨叫般的鸣啼声远远传来。

@@ -2,6 +2,10 @@
 title: ⑨都能读懂的网络代理教程：使用 NekoRay / NekoBox 进行网络代理
 ---
 
+## 目录 {#index}
+- 目录
+{:toc}
+
 ⑨都能读懂的网络代理教程：  
 *使用 NekoRay / NekoBox 进行网络代理*{:.small}
 {:.fake.h1}
@@ -10,18 +14,15 @@ title: ⑨都能读懂的网络代理教程：使用 NekoRay / NekoBox 进行网
 {:.info}
 
 ## 前言：
-
 由于前几天从 Clash for Windows 删库开始的一系列事件，尤其是 Clash 内核与 Clash.Meta 内核的删库/归档，整个 Clash 客户端生态灰飞烟灭。
 
 Clash for Windows 作为一个如此普及的代理客户端，加上我自己也是在两年前左右从 V2rayN 转为 CFW 忠实用户，正好借着这次迁移至 NekoRay 的机会，便想着干脆为这个支持 Xray, Sing-box, Hysteria, Naive 等多个内核，并且有着优秀方便的分流规则与 TUN 代理的优秀客户端写一篇使用教程。
 
 ## 前置知识：
-
 > 虽然这一部分并非必须，但可以帮助你对网络代理建立系统性认识。若对网络代理已足够了解，可直接跳转下一部分
-{:.note}
+{:.info}
 
 ### 什么是网络代理：
-
 简单来说，当你访问一个网站 （如 <https://google.com/>），或是应用联网访问数据时，你的设备会向网络运营商发出请求，与目标网址的服务器间建立连接，开始数据交换。
 
 在这种情况下，你的 IP 地址向目标服务器公开、运营商也会知道你所访问的地址。通常称这种连接方式为**直连**。
@@ -31,7 +32,6 @@ Clash for Windows 作为一个如此普及的代理客户端，加上我自己�
 因此，运营商无法得知你此时连接的真实目的地与意图，同时目标服务器也无法得知你的真实IP，从而**达到保护隐私与绕过防火墙的目的。**
 
 ### 术语：
-
 - ***代理客户端：***  
   为你的设备**处理网络代理的客户端**{:.h}，拥有的功能通常包括使用多种方式代理本机网络流量，可配置的分流规则，从*订阅链接*{:.u}批量下载*节点*{:.u}等功能。
 - ***节点：***  
@@ -66,8 +66,7 @@ Clash for Windows 作为一个如此普及的代理客户端，加上我自己�
 
 ---
 
-## 下载 NekoRay：[仓库地址](https://github.com/MatsuriDayo/nekoray) | [下载地址](https://github.com/MatsuriDayo/nekoray/releases/latest)
-
+## 下载 NekoRay：[仓库地址](https://github.com/MatsuriDayo/nekoray) \| [下载地址](https://github.com/MatsuriDayo/nekoray/releases/latest)
 ![](https://telegra.ph/file/1c22af3b4ff6c1dbbecc2.png)
 
 Windows 用户的请从 Release 中的下载文件名为`nekoray-...-windows64.zip`的文件。
@@ -75,7 +74,6 @@ Windows 用户的请从 Release 中的下载文件名为`nekoray-...-windows64.z
 下载后无需安装，自行解压到合适的路径，运行位于`.\nekoray-...-windows64\nekoray\nekoray.exe`路径的文件即可启动程序。
 
 ## 初次启动
-
 启动程序后首先将会看到以下窗口：
 
 ![](https://telegra.ph/file/28ee88573f88511ba6963.png)
@@ -89,23 +87,22 @@ Windows 用户的请从 Release 中的下载文件名为`nekoray-...-windows64.z
 
 其中，序号1到7分别是（暂时不理解的话没关系，下文中会对重要的部分进行讲解）：
     
-| **{::nomarkdown} <ul><li>工具栏：      </li></ul> {:/}** | 程序配置、设置选项、以及导入代理节点等功能都可在此调出；
-| **{::nomarkdown} <ul><li>代理模式：    </li></ul> {:/}** | 默认的端口转发模式、系统代理模式、TUN 模式；
-| **{::nomarkdown} <ul><li>节点列表：    </li></ul> {:/}** | 接下来导入的节点将会显示在本列表中；
-| **{::nomarkdown} <ul><li>日志：        </li></ul> {:/}** | 会实时记录节点开关状态、网络连接等等信息——正常使用没有问题的话并不需要理解日志中的信息；
-| **{::nomarkdown} <ul><li>当前节点：    </li></ul> {:/}** | 显示当前启用的代理节点名称；
-| **{::nomarkdown} <ul><li>转发端口：    </li></ul> {:/}** | 用于手动配置其他程序的代理，正常使用不一定需要；
-| **{::nomarkdown} <ul><li>网络流量状态：</li></ul> {:/}** | 实时显示当前经过 NekoRay 处理的网络流量的细节（代理流量与直连流量的上传/下载速度）。
+| - 工具栏： | 程序配置、设置选项、以及导入代理节点等功能都可在此调出；
+| - 代理模式： | 默认的端口转发模式、系统代理模式、TUN 模式；
+| - 节点列表： | 接下来导入的节点将会显示在本列表中；
+| - 日志： | 会实时记录节点开关状态、网络连接等等信息——正常使用没有问题的话并不需要理解日志中的信息；
+| - 当前节点： | 显示当前启用的代理节点名称；
+| - 转发端口： | 用于手动配置其他程序的代理，正常使用不一定需要；
+| - 网络流量状态： | 实时显示当前经过 NekoRay 处理的网络流量的细节（代理流量与直连流量的上传/下载速度）。
 
 ## 关键配置：
-
 > 关于语言：软件默认语言跟随系统，如果你的系统语言不是中文但需要中文界面，请于
 > 
 > `首选项 > 基本设置 > 样式 > Language`  
 > `Preference > Basic Settings > Style > Language`
 >
 > 切换语言为中文。
-{:.note}
+{:.info}
 
 ---
 {:.break}
@@ -115,13 +112,11 @@ Windows 用户的请从 Release 中的下载文件名为`nekoray-...-windows64.z
 ![](https://telegra.ph/file/99c1a3d2888320a607ad8.png)
 
 ### 首选项 > 基本设置：
-
 此分类中大部分选项除非有特殊需要否则无需改动
 
 - **\> 样式：**更改语言与界面主题
 
 ### 首选项 > 路由设置：
-
 > **关于分流**：大部分代理客户端都带有分流的功能，可以基于域名、IP、进程名配置**分流规则，指定对应网络流量通过代理或者直连**{:.h}（例：A站 https://acfun.cn/... 无法从国外大部分地区访问，因此可配置域名 acfun.cn 通过直连连接）。
 {:.info}
 
@@ -236,23 +231,20 @@ Windows 用户的请从 Release 中的下载文件名为`nekoray-...-windows64.z
         domain_keyword:zjtoolbar
 
 ### 首选项 > TUN 设置（仅影响 TUN 模式代理）：
-
 > 有关 TUN 代理和其他代理模式的讲解请见下文
 {:.info}
 
-| **{::nomarkdown} <ul><li>启用 Tun IPV6：           </li></ul> {:/}** | 可开启，除非日后使用 TUN 模式时发现问题；
-| **{::nomarkdown} <ul><li>Strict Route (严格路由)： </li></ul> {:/}** | 开启。关闭本设置会导致 DNS 泄露；
-| **{::nomarkdown} <ul><li>FakeDNS：                 </li></ul> {:/}** | 开启；
-| **{::nomarkdown} <ul><li>绕过CIDR、绕过进程名：     </li></ul> {:/}** | 按需自行设置（可开启任务管理器 Ctrl Shift ESC，导航至详细信息标签查看进程名）；
+| - 启用 Tun IPV6： | 可开启，除非日后使用 TUN 模式时发现问题；
+| - Strict Route (严格路由)： | 开启。关闭本设置会导致 DNS 泄露；
+| - FakeDNS： | 开启；
+| - 绕过CIDR、绕过进程名： | 按需自行设置（可开启任务管理器 Ctrl Shift ESC，导航至详细信息标签查看进程名）；
 
 
 ### 导入节点：
-
 > 假设你已经购买了机场订阅，或者有其他获取节点的渠道（自建节点、免费公开节点等）。
 {:.info}
 
 #### 从订阅链接导入：
-
 从机场网站复制好订阅链接后，在界面中简单按下`Ctrl V`，或者导航至 `工具栏 > 服务器 > 从剪贴板添加`
 
 ![](https://telegra.ph/file/2b709391fbe731f23fccb.png)
@@ -269,7 +261,6 @@ Windows 用户的请从 Release 中的下载文件名为`nekoray-...-windows64.z
 此外，你也可以直接复制节点文本导入节点，本文便不再赘述。
 
 ### 开始使用代理：
-
 回到程序主界面，切换到刚刚添加的分组标签：
 
 ![](https://telegra.ph/file/ce34a7848ea260e1cb2b0.png)
@@ -286,12 +277,12 @@ Windows 用户的请从 Release 中的下载文件名为`nekoray-...-windows64.z
 界面左下角也会显示当前连接的节点名称
 
 #### 代理模式：
-
-> 参见：*[^proxy-mode]*{:norm="[>>关于端口转发模式、系统代理与 TUN 模式]"}。
+> 参见：*[^proxy-mode]*{:foot="[>>关于端口转发模式、系统代理与 TUN 模式]"}。
 {:.info}
 
 [^proxy-mode]: 
-    ##### 关于端口转发模式、系统代理与 TUN 模式
+    **关于端口转发模式、系统代理与 TUN 模式：**{:.u}
+
     - **端口转发** 是很多代理客户端的默认模式。在这个模式下客户端不会主动代理设备上的任何流量，**须手动在需要代理的软件中设置使用本机的对应端口进行代理**（如：127.0.0.1:2080，其中127.0.0.1代表本地主机，2080为代理客户端监听的端口）；
 
     ![](https://telegra.ph/file/39ff57b95dc0bf9ae44cf.png)
@@ -314,7 +305,6 @@ ps: 两个都勾选的话系统代理也会被 TUN 覆盖掉
 ### 选择最佳节点、理解设备的网络代理状态
 
 #### 节点测速：
-
 NekoRay 内含多种节点测速的方法。在节点列表中右键或在工具栏打开`服务器`标签，按需求选择`当前选中`或`当前分组`为对应节点选择测速方法。
 
 例：选择全部日本节点并对`当前选中`进行测速
@@ -328,14 +318,12 @@ TCP Ping 之后按照测试结果对节点排序
 ![](https://telegra.ph/file/e34b2ea35addb2cb144a0.png)
 
 #### 网络流量状态：
-
 界面的右下角会显示实时更新的当前网络流量状态。
 
 当你发现某个网址无法连接的时候，可以查看这里的状态以确定问题是否由于节点导致，考虑是否需要切换节点。
 ![](https://telegra.ph/file/4fffb96f90aba0511774b.png)
 
 #### 测试代理效果：
-
 访问 [ipleak.net](https://ipleak.net/)
  查看当前代理的效果。
 
@@ -348,23 +336,19 @@ DNS 列表中夹杂着来自运营商的DNS地址：DNS泄露，请重新检查�
 ### 其他：关于网络安全
 
 #### 任何时候都应该使用 HTTPS！
-
 **通过 HTTP 协议访问网络会面临着遭受中间人攻击的严重风险。**中间人攻击指的是由运营商、CDN 网络、长城防火墙等通过劫持并篡改你接收到的数据包内容进行的欺骗、诈骗等行为。
 
 #### 防止 WebRTC 泄露真实 IP
-
 由于浏览器实现 WebRTC（网络实时通讯）的方法中存在的严重漏洞，**一个网站只需通过简单的 Javascript 便可以获得用户的真实 IP。**解决方案包括禁用 WebRTC 以及使用插件防止泄露（如 [WebRTC Leak Prevent](https://github.com/aghorler/WebRTC-Leak-Prevent)）
 
 例：使用 WebRTC Leak Prevent 防止泄露真实 IP
 <img src="https://telegra.ph/file/17f128e4e3967f3101678.png">
 
 #### 防止 CDN 泄露隐私
-
 防止由使用不安全的 CDN（内容分发网络）所导致的隐私泄露：
 [Decentraleyes](https://decentraleyes.org/)
 
 #### 避免使用不可信的浏览器访问网络
-
 **任何情况下从原则上都不应使用任何国产商业浏览器，**包括QQ、搜狗、360、“中国特供版”火狐，以及微信 QQ 微企等软件的内置浏览器。不是很推荐使用 Google Chrome 与 Edge，避免被谷歌和微软搜集隐私。推荐使用 Firefox（注意甄别“中国特供版”火狐！）及 Ungoogled Chrome。
 
 ---
@@ -373,7 +357,6 @@ DNS 列表中夹杂着来自运营商的DNS地址：DNS泄露，请重新检查�
 {:.stroke.echorb.bigger}
 
 ### 参见：
-
 - [MatsuriDayo/nekoray](https://github.com/MatsuriDayo/nekoray)
 
 - [NekoRay 官方文档](https://matsuridayo.github.io/n-configuration/)

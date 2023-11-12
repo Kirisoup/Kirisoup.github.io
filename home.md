@@ -37,9 +37,9 @@ description: 欢迎来到霧雨蘑菇店！
 {:.info}
 > *加载中......*{:.weather}
 
-<script src="/assets/js/weather.js" async></script>
+<script src="/assets/js/weather.js" priority="low" async></script>
 
-{:.note}
+{:.info}
 > **目击者报告：**{:.u}
 > 
 > **\*明明叫作蘑菇店，实际上并不出售蘑菇**  

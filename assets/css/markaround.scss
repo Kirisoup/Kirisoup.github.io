@@ -1,17 +1,41 @@
+---
+---
+
+/*
+:root {
+    --color:                #44d;
+    --color-sat:            #00f;
+    --color-fade:           #eef;
+    --color-plain:          #000;
+    --color-mid:            #666;
+    --color-green:          #464;
+    --color-green-fade:     #efe;
+    --color-red:            #d00;
+    --color-red-fade:       #fdd;
+    --color-yellow:         #ff0;
+    --color-yellow-fade:    #ffe;
+    --color-miku:           #4dd;
+    --color-miku-fade:      #eff;
+    --color-magenta:        #f4f;
+    --color-magenta-fade:   #fef;
+    --color-page:           #fff;
+}
+*/
+
 // remove italic effect for <em> ( ** in markdown ) in order to easily assign class to inline text
 // use .i to reobtain italic for <em>
-em:not(.i) { &[class], &[r], &[t], &[norm], &[reveal] { font-style: normal; }}
+em:not(.i):is([class], [r], [t], [foot], [reveal]) { font-style: normal; }
 
 // sizes ================================
 
 h1, h2, h3, h4, h5, h6, .fake { --s: 1 }
 
-.big     { --s: 1.25; }
-.bigger  { --s: 1.5; }
+.big     { --s: 1.5; }
+.bigger  { --s: 1.75; }
 .small   { --s: .75; }
 .smaller { --s: .5; }
 
-.size, .big, .bigger, .small, .smaller { &:not(h1, h2, h3, h4, h5, h6, .fake) { font-size: calc(var(--s) * 1em); } }
+:is(.size, .big, .bigger, .small, .smaller):not(h1, h2, h3, h4, h5, h6, .fake) { font-size: calc(var(--s) * 1em); }
 
 h1, .fake.h1 { font-size: calc( 2em * var(--s)); }
 h2, .fake.h2 { font-size: calc( 1.6em * var(--s)); }
@@ -32,7 +56,9 @@ h2, .fake.h2 { font-size: calc( 1.6em * var(--s)); }
 // left
 .l {
     text-align: left;
-    left:0
+    left: 0;
+    text-justify: auto;
+
 }
 
 // center
@@ -48,7 +74,7 @@ h2, .fake.h2 { font-size: calc( 1.6em * var(--s)); }
 
 // maximize width to page width for block level elements
 // which contains children with alignment
-p, h1, h2, h3, h4, h5, h6 { &:has(>.c), &:has(>.r) { width: 100%; } }
+:is(p, h1, h2, h3, h4, h5, h6):is(:has(>.l), :has(>.c), :has(>.r)) { width: 100%; }
 
 // lines ================================
 
@@ -72,12 +98,9 @@ del, .dll { &.u { text-decoration-line: line-through underline; }
 
 $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aqua, teal, blue, navy, fuchsia, purple;
 
+$clrsabbr: wh, si, gr, bc, re, ma, ye, ol, li, gr, aq, te, bl, na, fu, pu;
+
 // use "''+$color" so that scss don't throw a warning
-@each $color in $colors {
-     .#{""+$color} { color: $color; }
-    .h#{""+$color} { background-color: $color; }
-    .b#{""+$color} { --bw: 2px; border: $color solid var(--bw); }
-}
 
 @mixin colorbg {
     position: relative;
@@ -86,11 +109,20 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
     padding: calc(var(--bd)) calc(.1em + var(--bd));
 }
 
-.h, .b { @each $color in $colors { &#{""+$color} { @include colorbg(); }}}
+@for $i from 1 through length($colors) {
+    
+     .#{""+nth($colors, $i)},  .#{""+nth($clrsabbr, $i)} { color: nth($colors, $i); }
+    .h#{""+nth($colors, $i)}, .h#{""+nth($clrsabbr, $i)} { background-color: nth($colors, $i); @include colorbg(); }
+    .b#{""+nth($colors, $i)}, .b#{""+nth($clrsabbr, $i)} { --bw: 2px; border: nth($colors, $i) solid var(--bw); @include colorbg(); }
+
+}
+
+.c
 
 .h {
+    --hc: #44d;
     @include colorbg(); 
-    color: #44d;
+    color: var(--hc);
     background: var(--color-yellow);
 }
 
@@ -131,16 +163,19 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
     }
 
     &:hover { &::after {
-        opacity: .2;
+        opacity: .1;
     }}
 }
 
-.blur     { filter: blur(.1em); }
-.blurrier { filter: blur(.25em); }
+.blur {
+    --br: .1em;
+    filter: blur(.1em);
+    &rier { filter: blur(.25em); }
 
-.blur, .blurrier {
-    transition: filter .2s;
-    &:hover { filter: blur(0); }
+    &, &rier {
+        transition: filter .2s;
+        &:hover { filter: blur(0); }
+    }
 }
 
 [reveal] {
@@ -168,15 +203,16 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
 }
 
 // reveal url for hyperlinks
-.content a { &::before { content: "¥目标: {{ site.url }}"attr(href) attr(t); } } // liquid doesn't work here
+.content a::before                  { content: "¥目标: {{site.host}}"attr(pageurl) attr(href) attr(t) !important; } // same domain
+.content a[target="_blank"]::before { content: "¥目标: "attr(href) attr(t) !important; } // cross domain
 
-.del:not([t]), .blur, .blurrier { &::before { content: "你知道的太多了。"; } }
+.del:not([t]) { &::before { content: "你知道的太多了。"; } }
 
 [t], a, .del {
     position: relative;
 
     &::before {
-        transition: .2s .4s;
+        transition: .2s .2s;
         pointer-events: none;
     // pos
         position: absolute;
@@ -194,8 +230,8 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
     }
 
     &:hover::before {
-        transition: 0s;
-        top: 1.5em;
+        transition: 0s .5s;
+        top: 1.75em;
         opacity: 1 !important;
     }
 
@@ -213,13 +249,14 @@ $colors: white, silver, gray, black, red, maroon, yellow, olive, lime, green, aq
 
 a {
     &::before {
-        transition: .2s;
+        transition: 0s;
         position: fixed;
         bottom: 0; top: unset;
         max-width: unset;
     }
 
     &:hover::before {
+        transition: 0s;
         top: unset;
     }
 }
@@ -227,14 +264,15 @@ a {
 // tip above
 
 .above[t] {
-    &::before { bottom: .5em; top: unset; }
+    &::before { bottom: .75em; top: unset; }
     &:hover::before { bottom: 1.5em; }
 }
 
 // full width link
-a.ab,
-#markdown-toc li>a,
-#f_markdown-toc li>a {
+:is(
+    a.ab,
+    :is(#markdown-toc, #f_markdown-toc) li >a
+) {
     display: block;
     right: 0;
     text-decoration: none;
@@ -274,16 +312,13 @@ table {
     border-collapse: collapse;
     margin-block: 1em;
 
-    &::before, td, th { padding-block: .2em; padding-inline: .5em; }
+    &::before, td, th { padding-inline: .5em; }
 
     &[h]::before { content: attr(h);
         position: relative;
         display: table-caption;
         bottom: -1px;
     }
-
-    // inline table
-    &.i { display: inline-table; }
 
     // default table
     &.t {
@@ -329,14 +364,14 @@ table {
 
 // blocks ================================
 
-.content>blockquote, :not(blockquote) >blockquote { margin-block: 1em; }
+:is(.content, :not(blockquote)) >blockquote { margin-block: 1em; }
 
 blockquote {
     >p:first-child { margin-top: 0; } >p:last-child { margin-bottom: 0; } // revome extra margin for first and last children blockquote
     margin-right: 1em;
 
     // inform blocks
-    &.info, &.note, &.warn {
+    &:is(.info, .warn) {
         display: block;
         position: relative;
         width: max-content;
@@ -344,6 +379,8 @@ blockquote {
         padding-inline: 2.5em .5em;
         padding-block: .5em;
         margin-left: 0;
+
+        .content >& { max-width: 90%; }
 
         &::before {
             position: absolute;
@@ -362,15 +399,6 @@ blockquote {
         border: var(--color) 3px solid;
         box-shadow: 4px 4px var(--color);
         color: var(--color);
-
-        &::before { content: "ⓘ"; }
-    }
-
-    &.note {
-        background: var(--color-green-fade);
-        border: var(--color-green) 3px solid;
-        box-shadow: 4px 4px var(--color-green);
-        color: var(--color-green);
 
         &::before { content: "ⓘ"; }
     }
@@ -401,11 +429,6 @@ blockquote {
             &:hover {
                 transition: border-color 0s;
                 border-color: var(--color);
-            }
-        }
-
-        &, >blockquote:not([class]) {
-            &:hover {
                 box-shadow: -3px 0 var(--color), 3px 3px var(--color);
             }
         }
@@ -416,24 +439,35 @@ blockquote {
 
 // footnote ================================
 
-em[norm] {
-    position: relative;
-    &::before { content: attr(norm); }
-
-    sup[role="doc-noteref"] {
-        top: unset;
-        position: static;
-
-        .footnote {
-            position: absolute;
-            inset: 0;
-            color: #0000;
-        }
-    }
+.footnote, [foot] {
+    text-decoration: none;
 }
 
-.footnote {
-    color: var(--color-red);
+sup[role="doc-noteref"] {
+    top: unset;
+    position: static;
+    font-size: 100%;
+    color: var(--color-miku);
+
+    &::before { content: "["; }
+    &::after { content: "]"; }    
+}
+
+[foot] {
+    position: relative;
+    &::before { content: "[" attr(foot) "]"; }
+    color: var(--color-miku);
+
+    .footnote {
+        position: absolute;
+        inset: 0;
+        color: #0000;
+    }
+
+    sup[role="doc-noteref"] {
+        &::before { content: none; }
+        &::after { content: none; }
+    }
 }
 
 .footnotes {
@@ -505,7 +539,7 @@ $text-stroke-shadow:
     --rspd: 1s; --rbgsz: 4em;
     &, *, ::before {
         image-rendering: pixelated;
-        background: url(/assets/image/rainbowDither.png), url(#{$ghprxy}/assets/image/rainbowDither.png) {size: var(--rbgsz)};
+        background: url(/assets/image/rainbowDither.png) {size: var(--rbgsz)};
         background-clip: text;
         -webkit-background-clip: text;
         color: #0000;
@@ -519,7 +553,7 @@ $text-stroke-shadow:
 
     // rainbow but with cyam magenta yellow color scheme
     &.cmy, &.cmy * {
-        background-image: url(/assets/image/rainbowDither_.png), url(#{$ghprxy}/assets/image/rainbowDither_.png) ;
+        background-image: url(/assets/image/rainbowDither_.png) ;
     }
 }
 
@@ -682,20 +716,9 @@ $echo_list: ".echo", ".echorb", ".stroke.echo", ".stroke.echorb";
 
     &.rev { animation-direction: reverse; }
 
-    &.c {
-        transform: translateY(50%);
-        animation-name: rotateCentered;
-        left: 50%; transform: translateX(-50%);
-    }
-
     @keyframes rotate {
         0%   { transform: rotate(0); }
         100% { transform: rotate(360deg); }
-    }
-
-    @keyframes rotateCentered {
-        0%   { transform: translateX(-50%) rotate(0); }
-        100% { transform: translateX(-50%) rotate(360deg); }
     }
 }
 
