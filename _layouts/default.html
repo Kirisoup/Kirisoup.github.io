@@ -12,7 +12,7 @@
       {%- endif -%}
     </title>
     <script async src="/assets/js/fallback-dom.js" onerror="this.onerror=null;newScript=document.createElement('script');newScript.src ='https://ghproxy.com/https://raw.githubusercontent.com/Kirisoup/kirisoup.github.io/main/_site/assets/js/fallback-dom.js';document.head.appendChild(newScript);"></script> <!-- store ghproxy prepended link as variable -->
-    <link rel="stylesheet" href="/assets/css/default/layout.css" onerror="fall(this)"> <!-- essential stylesheet -->
+    <link rel="stylesheet" href="/assets/css/default/layout.css" onerror="fallss(this)"> <!-- essential stylesheet -->
   </head>
   <body>
     <!-- change id only if javascript is enabled -->
@@ -29,7 +29,7 @@
           </div>
           <div class="window">
             <main class="content">
-              {%- capture opt -%} <img onerror="this.onerror=null; this.src = ghprxy_s + getAttribute('src')" loading="lazy" fetchpriority="low" {% endcapture %}
+              {%- capture opt -%} <img onerror="fallimg(this)" loading="lazy" fetchpriority="low" {% endcapture %}
               {%- capture pageurl -%} <a pageurl="{{page.url}}" {% endcapture %}
               {%- assign content_baked = content
                 | replace: '<img ', opt
@@ -98,8 +98,8 @@
     </div>
   </body>
   <footer>
-    <link rel="stylesheet" href="/assets/css/default/style.css" id="style" priority="high" onerror="fall(this)"> <!-- async stylesheet -->
-    <link rel="stylesheet" href="/assets/css/markaround.css" priority="low" onerror="fall(this)"> <!-- async stylesheet -->
+    <link rel="stylesheet" href="/assets/css/default/style.css" class="assetsheet" priority="high" onerror="fallss(this)"> <!-- async stylesheet -->
+    <link rel="stylesheet" href="/assets/css/markaround.css"    class="assetsheet" priority="low"  onerror="fallss(this)"> <!-- async stylesheet -->
     <script defer src="/assets/js/fallback-cssAsset.js" onerror="fallsc(this)"></script> <!-- load stylesheet asset with ghproxy if needed for gfw suckers -->
     <script defer src="/assets/js/cursor.js"            onerror="fallsc(this)" priority="low"></script> <!-- cursor trace -->
     <script> window.addEventListener("load", (event) => { new cursoreffects.ghostCursor(); }); </script> <!-- cursor trace -->

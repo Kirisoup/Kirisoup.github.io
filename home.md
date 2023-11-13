@@ -7,17 +7,9 @@ description: 欢迎来到霧雨蘑菇店！
 {:mushroom: .icon height="40px" src="/assets/image/indoc/pilze-0004.gif"}
 {:tea: .icon src="/assets/image/indoc/Chinese-Tea.gif"}
 
-{:.fake.h1}
-*欢迎来到 **¥霧雨蘑菇店¥**{:.big}![](){:mushroom}*{:.big.rainbow.fancy2} <br> ***う*{:r="yo"}*こ*{:r="ko"}*そ*{:r="so"}！**{:.r.rainbow.fancy2}
+*欢迎来到 **¥霧雨蘑菇店¥**{:.big}![](){:mushroom}*{:.fake.h1.rainbow.fancy2} <br> ***う*{:r="yo"}*こ*{:r="ko"}*そ*{:r="so"}！**{:.bigger.r.rainbow.fancy2}
 
 ---
-
-        {% for i in site.data.weather.today %}
-        {{ i.categ }} = jsonWeather.{{ i.addr }};
-        {{ i.categ }}_intervs  = [{{ i.intervs }}];
-        {{ i.categ }}_msgs = [{{ i.msgs }}];
-        {% endfor %}
-
 
 冲浪了这么久，赶快进来歇一会吧\|∀` )。
 

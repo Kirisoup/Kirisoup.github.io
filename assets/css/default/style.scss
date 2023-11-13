@@ -45,8 +45,7 @@ iframe { display: initial; } // show navlink after apply style.css
 
 #soup\.exe {
 // styl
-    border: #fff 1px solid;
-    box-shadow: 10px 10px 20px 10px #44d;
+    border: #d1d1f7 1px solid;
     &::-webkit-resizer { background: url(/assets/image/resizer.gif) {size: cover}; }
 }
 
@@ -73,7 +72,7 @@ html::before { content: "";
     inset: 0;
     z-index: -2;
     pointer-events: none;
-    background: url(/assets/image/cloud.png) {
+    background: url(/assets/image/cloud.webp) {
         size: cover;
         position: center;
     };
@@ -102,20 +101,30 @@ html:has(.cornerCara:not([id="0"])) {
 /* ==== C 1 ==== */
 
 .c1 {
+
+    &::after { content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 10000;
+        pointer-events: none;
+    }
+
+    padding: 4px 0 4px 4px;
+
+    overflow: hidden;
+
+    resize: horizontal;
+
     .banner {
     // styl
-        border: #000 1px solid;
-        // background: url(https://media.tenor.com/5lWosOHS630AAAAC/amor.gif);
-        // background: url(https://usagif.com/wp-content/uploads/gifs/water-66.gif);
-        // background: url(https://64.media.tumblr.com/9af92cc03553bd821021fd950fbc33b5/1534f96efdb15e70-b5/s100x200/6f110ffcfa7afe0af25add8144e9d30fbefc97fe.gifv);
-        background: url(/assets/image/xp_.gif) { size: 20vw; };
-        background: url(https://64.media.tumblr.com/1b8577d77a572535172d95b5bb0a070b/tumblr_inline_n25dksRrdF1qhwjx8.gif) { size: cover; };
-        background-position-y: 6 0%;
+        background: url(/assets/image/chimes.gif) {
+            size: cover;
+            position-y: 60%;
+        };
+<<<<<<< HEAD
 
-        box-shadow: inset 10px -10px 5px -5px   #44d,
-                    inset -30px 0 30px -20px    #44da,
-                    inset -90px 50px 30px -30px #fff;
-
+=======
+>>>>>>> wtfmedoin
         &::before, &::after {
             position: absolute;
             inset: 0;
@@ -124,20 +133,18 @@ html:has(.cornerCara:not([id="0"])) {
 
         &::before { content: "";
             background: url(/assets/image/banner.png) {
-                color: #ccf;
-                size: MAX(90%, 600px) 100% !important;
-                position: 40px;
+                size: auto 120%;
+                position: {y: bottom; x: left};
             };
-            mix-blend-mode: hard-light;
-            opacity: .8;
         }
 
         &::after { content: "";
+            box-shadow: inset 0 0 0 2px #fff,
+                        inset 0 0 0 4px #aaaae8;
             background: url(/assets/image/bannerTxt.png) {
-                size: auto 100% !important;
-                position: calc(100% - MAX(20%, 20px)) !important;
+                size: auto 75%;
+                position: { y: 60%; x: MAX(95%, 10px) };
             };
-            // opacity: .5;
         }
 
     }
@@ -150,7 +157,7 @@ html:has(.cornerCara:not([id="0"])) {
         // pos
             position: relative;
             z-index: 100;
-            background: #d1d1f7 url(https://64.media.tumblr.com/c63ab1ff7f79b9d030a8a3a14f3535ec/tumblr_inline_mveh0uIwTZ1rfdbtm.png) {position: bottom right};
+            background: url(/assets/image/dither.png) { size: cover; };
 
             nav {
                 position: relative;
@@ -167,21 +174,22 @@ html:has(.cornerCara:not([id="0"])) {
                 }
                 
                 p {
-                    text-shadow: #d1d1f7 2px 2px;
+                    position: relative;
+                    display: flex;
+                    text-shadow: #fff 2px 2px;
                     transition: all 0s .2s, background-color 0s .4s;
-    
-                    a {
-                        &.urHere { pointer-events: none; }
-                    }
-    
-                    a, .urHere-i { color: #44d; }    
-
                     &:nth-child(even) { background: #fff8; }
+        
+                    a, .urHere-i { color: #44d; }    
+                    a.urHere { pointer-events: none; }
 
                     &:hover {
                         transition: all 0s;
-                        text-align: right !important;
-                        filter: invert(1);
+
+                        a {
+                            width: 100%;
+                            text-align: right;
+                        }
                     }
                 }
             }
@@ -192,7 +200,7 @@ html:has(.cornerCara:not([id="0"])) {
     // size
         width: 100%;
     // styl
-        background: #0008;
+        background: #000;
 
         img {
             position: relative;
@@ -289,7 +297,7 @@ html:has(.cornerCara:not([id="0"])) {
     .content {
     // size
         flex: 9;
-        padding-inline: 2em calc(2em + 5vw);
+        padding-inline: 4em calc(4em + 5vw);
         margin: 6px;
     // styl
         font-size: 1.2rem;
@@ -994,13 +1002,21 @@ p:has(img:not(.icon)) {
 
 /* ==== D A R K M O D E ==== */
 
-.content:has(~.buttonBar .darkTg input:checked) { background: #0008 !important; }
+.content:has(~.buttonBar .darkTg input:checked) { background: #002 !important; }
 
 .buttonBar:has(.darkTg input:checked) ~.content, .content:has(~.buttonBar .darkTg input:checked) { @include darkscheme() }
 
 .fullscreen:has(.darkTg input:checked) { @include fullscreen-dark; }
 
 :is(.window, .fullscreen):has(.darkTg input:checked) ::-webkit-scrollbar-thumb { @include scrollbar-dark; }
+
+.nav {
+    background-color: #fff !important;
+}
+
+.nav:has(~.window .darkTg input:checked) {
+    background-color: #000 !important;
+}
 
 /* ======== */
 

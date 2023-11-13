@@ -23,20 +23,22 @@ html {
     transform: translate(-40%, -45%);
 // size
     height: calc(48vw * 9/16);
-    aspect-ratio: 2.8;
+    aspect-ratio: 2.6;
 
     // flex
     display: flex;
 
     .c1 {
-        flex: 5;
-        width: 0;
+        position: relative;
+        width: 75%;
+        min-width: 37%;
+        max-width: 87%;
         display: flex;
         flex-direction: column;
 
         .banner {
             position: relative;
-            height: MAX(calc(10vw * 9/16), 10vh);
+            height: MAX(calc(10vw * 9/16), 5vh);
         }
 
         .main {
@@ -66,17 +68,13 @@ html {
 
         .bottom {
             --height: 10%;
-            // position: absolute;
-            // top: MAX(calc(100% - var(--height)), 320px);
             z-index: 1;
             height: MIN(5vh, calc(100% - 40vh));
-            // height: 20px;
         }
     }
 
     .c2 {
         position: relative;
-        max-width: calc(35vw * 9/16);
         flex: 3;
         z-index: 1;
     }
