@@ -1,5 +1,5 @@
 Url = 'https://kirisoup.github.io/assets/image/bg.gif';
-Timeout = 5000;
+Timeout = 500;
 
 // check status for github (site domain) and ghproxy (proxy domain)
 function checkUrl(url, timeout) {
