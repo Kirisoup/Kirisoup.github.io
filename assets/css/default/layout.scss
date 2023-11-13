@@ -87,6 +87,6 @@ html {
 
 /* ====overflow ctrl==== */
 
-#soup\.exe, .body, .banner, .main, .nav, .bottom, .window { overflow: hidden; }
+#soup\.exe, .body, .banner, .main, .bottom, .window { overflow: hidden; }
 
-.content { overflow: hidden scroll; }
+.content, .nav { overflow: hidden scroll; }
