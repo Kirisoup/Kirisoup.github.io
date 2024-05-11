@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+        <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title></title>
+
+                <link rel="stylesheet" href="/assets/styles/default/structure.css">
+                <link rel="stylesheet" href="/assets/styles/default/style.css">
+                <link rel="stylesheet" href="/assets/styles/font.css">
+
+                <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+                <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+        </head>
+
+        <body>
+                <div id="headbar">
+                </div>
+
+                <div id="main">
+
+                        <div id="main_window">
+                                <div id="main-left">
+                                        <div id="banner"></div>
+                                        <div id="page">
+                                                <div class="toolbar">
+                                                        <div class="toolbtn maximize"></div>
+                                                        <div class="toolbtn resize"></div>
+                                                        <div class="toolbtn home"></div>
+                                                </div>
+                                                <iframe src="/page{{ page.url }}"></iframe>
+                                        </div>
+                                </div>
+                                <div id="main-right">
+                                        {% if page.comments %}
+                                        <div id="comment-section"></div>
+                                        <script>
+                                                initComments({
+                                                  node: document.getElementById("comment-section"),
+                                                  defaultHomeserverUrl: "https://matrix.cactus.chat:8448",
+                                                  serverName: "cactus.chat",
+                                                  siteName: "kirsoup",
+                                                  commentSectionId: "{{ page.url }}"
+                                                })
+                                        </script>
+                                        {% endif %}
+                                        
+                                </div>
+                        </div>
+
+
+                </div>        
+
+                <div id="footbar">
+                </div>
+        </body>
+        <footer>
+        </footer>
+</html>

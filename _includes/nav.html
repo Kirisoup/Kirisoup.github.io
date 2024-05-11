@@ -1,0 +1,17 @@
+<ul>
+
+  {% for item in include.items %}
+  {% capture path %}{{ include.parent | append: item.path }}{% endcapture %}
+
+    <li>
+      <a href="{{ path }}">{{ item.name }}</a>
+
+      {% if item.subi %}
+        {% include nav.html items=item.subi parent=path %}
+      {% endif %}
+
+    </li>
+
+  {% endfor %}
+
+</ul>

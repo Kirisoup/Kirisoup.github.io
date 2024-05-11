@@ -1,0 +1,23 @@
+- name: home
+  path: /home
+
+- name: blog
+  path: /blog
+  
+  subi:
+  - name: a random blog
+    path: /a-random-blog
+
+  - name: a category
+    path: /a-category
+    
+    subi: 
+    - name: another random blog
+      path: /another-random-blog
+
+    - name: sub category
+      path: /sub-category
+      subi:
+
+    
+

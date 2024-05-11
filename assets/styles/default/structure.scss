@@ -1,0 +1,157 @@
+---
+---
+
+// body,html{ height: 100%; margin:0; padding:0; overflow:hidden; }
+
+
+body {
+        --hbar: 1lh;
+        --fbar: 2lh;
+
+        background-color: #000;
+
+        display: flex;
+        flex-direction: column;
+
+        margin: 0;
+        height: 100vh;
+
+        #headbar {
+                height: var(--hbar);
+
+                background-color: #f08;
+        }
+
+        #main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                height: calc(100% - var(--hbar) - var(--fbar));
+
+                #main_window {
+
+                        --minw_l: min(20em, 100vw);
+                        --minw_r: 15em;
+                        --minh: min(8lh, 100vh);
+
+                        display: flex;
+                        position: relative;
+
+                        resize: both;
+                        overflow: hidden;
+                        width: 60em;
+                        max-width: 100%;
+                        min-width: var(--minw_l);
+                        height: 20lh;
+                        max-height: 100%;
+                        min-height: var(--minh);
+
+                        background-color: #f08;
+                        border: solid 1px #000;
+
+                        #main-left {
+
+
+                                display: flex;
+                                flex-direction: column;
+                                position: relative;
+
+                                overflow: hidden;
+                                height: 100%;
+                                width: calc(100% - var(--minw_r));
+                                min-width: var(--minw_l);
+
+                                background-color: #fff;
+
+
+                                #banner {
+                                        height: 3lh;
+                                        min-height: 3lh;
+                                        background-color: #f08;
+                                }
+
+                                #page {
+
+                                        // display: flex;
+                                        position: relative;
+
+                                        flex: 1;
+
+                                        .toolbar {
+                                                --unit: 1em;
+
+                                                position: absolute;
+                                                z-index: 10;
+                                                display: flex;
+                                                flex-direction: row-reverse;
+
+                                                // width: 5em;
+                                                height: var(--unit);
+                                                top: 0; right: 0;
+
+                                                background-color: #0f0;
+
+                                                .toolbtn {
+                                                        width: var(--unit);
+                                                        height: var(--unit);
+                                                        border: 1px solid #000;
+                                                        box-sizing: border-box;
+                                                        margin-left: 2px;
+                                                }
+                                        }
+
+                                        // #sect_navi {
+                                        //         width: 5em;
+                                        //         height: 100%;
+                                        //         background-color: #ff0;
+                                        // }
+
+                                        iframe {
+                                                position:relative;
+                                                border:0;
+                                                height:100%;
+                                                width:100%;
+                                        }
+
+                                        .content {
+                                                flex: 1;
+                                                position: relative;
+
+                                                width: 100%;
+                                                height: 100%;
+
+                                        }
+                                }
+                        }
+
+                        #main-right {
+                                position: relative;
+                                flex: 1;
+                                min-width: 1em;
+                                height: 100%;
+                                background-color: #0ff;
+
+                                .cactus-container {
+
+                                        height: 100%;
+                                        max-height: 100%;
+
+                                        overflow-y: scroll;
+                                        overflow-x: hidden;
+                                }
+                        }
+                }
+        }
+
+        #footbar {
+                flex: 1;
+
+                background-color: #0ff;
+
+
+        }
+
+}
+
+
