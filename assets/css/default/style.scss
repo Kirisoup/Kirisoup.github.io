@@ -160,7 +160,7 @@ html:has(.cornerCara:not([id="0"])) {
                 position: relative;
                 z-index: -1;
                 p {
-                    padding: { inline: 1em; block: .5em; };
+                    padding: { block: .5em; };
                     margin-block: 0;
                 }
 
@@ -176,15 +176,31 @@ html:has(.cornerCara:not([id="0"])) {
                     text-shadow: #fff 2px 2px;
                     transition: all 0s .2s, background-color 0s .4s;
                     &:nth-child(even) { background: #fff8; }
+                    &:has(.urHere) { 
+                        background: #fff;
+                        pointer-events: none;
+                    }
+
+                    a {
+                        padding-inline: 1em;
+                    }
+
+                    .urHere-i +a {
+                        padding-inline: 0;
+                    }
+
+                    .urHere-i {
+                        margin-left: 1em;
+                    }
         
-                    a, .urHere-i { color: #44d; }    
-                    a.urHere { pointer-events: none; }
+                    a, .urHere-i { color: #44d; }
 
                     &:hover {
                         transition: all 0s;
 
                         a {
                             width: 100%;
+                            padding-inline: 0;
                             text-align: right;
                         }
                     }

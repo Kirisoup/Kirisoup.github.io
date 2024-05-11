@@ -2,7 +2,7 @@
 title: MarkDown 实验室
 ---
 
-# MarkAround 实验室: {#head}
+# MarkAround: {#head}
 *基于样式表的 Markdown (Kramdown) 语法扩展*{:.bigger.stroke.echorb.sparkle}
 
 ## 需要在自己网站上使用？

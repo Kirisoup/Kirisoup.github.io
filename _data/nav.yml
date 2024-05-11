@@ -2,7 +2,9 @@
   link: /home
 - name: 关于
   link: /about
-- name: Web 实验室
-  link: /weblab/
+- name: 实验室
+  link: /lab/
 - name: 归档页面
   link: /archive
+- name: 网志
+  link: /weeblog/
